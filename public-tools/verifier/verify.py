@@ -66,19 +66,29 @@ def proof(doc, out, args):
     env = os.environ.copy()
     env['LEAN_PATH'] = str(out)
     limit = args.timeout or None
+    native_flags=[]
+    native_objects={}
     if is_combat:
         project=ROOT/'combat'
         call(['lake','build','OriginalReplay','replay-inspect'],project,log=out/'engine-build.log',timeout=limit)
         paths = call(['lake','env',sys.executable,'-c',"import os; print(os.environ['LEAN_PATH'])"],project)
         imported_paths=[str((project/path).resolve()) for path in paths.split(os.pathsep) if path]
         env['LEAN_PATH']=os.pathsep.join([str(out),*imported_paths])
+        if trust=='compiler' and not args.no_shared:
+            targets=['@lean-doom/Doom:shared','LeanDoomProofs:shared','+OriginalReplay:dynlib']
+            results=call(['lake','-q','query',*targets],project,log=out/'shared-libraries.log',timeout=limit)
+            libraries=[(project/line.strip()).resolve() for line in results.splitlines()]
+            if len(libraries)!=len(targets) or not all(p.is_file() for p in libraries):
+                raise RuntimeError('Lake did not resolve the three replay libraries. Try --no-shared on this platform.')
+            native_flags=['--load-dynlib='+str(path) for path in libraries]
+            native_objects={target:digest(path.read_bytes()) for target,path in zip(targets,libraries)}
     else:
         shutil.copyfile(ROOT/'ProofGrid.lean',out/'ProofGrid.lean')
         call([lean,'-DwarningAsError=true','-o','ProofGrid.olean','ProofGrid.lean'],out,env,out/'model.log',limit)
 
-    def compile_file(name, source):
+    def compile_file(name, source, compiler_flags=()):
         (out/(name+'.lean')).write_text(source)
-        return call([lean,'-DwarningAsError=true','-o',name+'.olean',name+'.lean'],out,env,out/(name+'.log'),limit)
+        return call([lean,*compiler_flags,'-DwarningAsError=true','-o',name+'.olean',name+'.lean'],out,env,out/(name+'.log'),limit)
     compile_file('Inputs',imported+'\nset_option maxRecDepth 65536\nnamespace Recording\n'+defs+'end Recording\n')
     obs = ('OriginalReplay.observation group mapName tape' if is_combat else
            'ProofGrid.observe (ProofGrid.play room tape)')
@@ -128,7 +138,7 @@ def proof(doc, out, args):
     theorem = (f'import Inputs\nset_option maxRecDepth 65536\nset_option maxHeartbeats 0\n'
                f'namespace Recording\ntheorem {label} : {fn} = {str(won).lower()} := by {tactic}\n'
                f'theorem finalObservation : {obs} = {literal} := by {tactic}\nend Recording\n')
-    compile_file('Certificate',theorem)
+    compile_file('Certificate',theorem,native_flags)
     names=['Recording.'+label,'Recording.finalObservation']
     (out/'Audit.lean').write_text('import Certificate\n'+''.join('#print axioms '+name+'\n' for name in names))
     ax=audit(call([lean,'Audit.lean'],out,env,out/'audit.log',limit),names,trust)
@@ -136,6 +146,7 @@ def proof(doc, out, args):
             'message':('First safe exit proved' if won else 'Recording checked; exact first safe exit condition is false')+
                        (' by the stock Lean kernel.' if trust=='kernel' else ' with Lean compiler trust.'),
             'axioms':ax,'lean':version,'worldSha256':world_hash,'rulesSha256':rules_digest(is_combat),
+            'proofSharedLibraries':native_objects,
             'sources':{p.name:digest(p.read_bytes()) for p in sorted(out.glob('*.lean'))},
             'objects':{p.name:digest(p.read_bytes()) for p in sorted(out.glob('*.olean'))}}
 
@@ -177,6 +188,7 @@ def main():
         p.add_argument('--trust',choices=['auto','kernel','compiler'],default='auto',
                        help='auto uses the stock kernel for the lab and compiler-assisted evaluation for original CombatV2')
         p.add_argument('--timeout',type=int,default=0,help='timeout in seconds for each Lean process (0 lets it finish)')
+        p.add_argument('--no-shared',action='store_true',help='use the slower interpreter for native_decide on platforms without working Lean shared-library loading')
         if cmd=='watch':
             p.add_argument('--once',action='store_true',help='check existing matching files, then exit')
     args=cli.parse_args()

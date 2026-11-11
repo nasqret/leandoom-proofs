@@ -151,6 +151,44 @@
       ]
     }
   },
+  "e1m7-4161": {
+    "job": "315934",
+    "level": "E1M7",
+    "commands": 4161,
+    "commandsU32LESha256": "caa3b29a678a1e9be5d6d54d7f7595f4ae2a7cecca7594d2e30d1b3408d66fad",
+    "recordingSha256": "f6b6f451f464c6eab3e57e361585b277c783b2ba45399cf98dcfea98b5685916",
+    "worldSha256": "1d7d43be501e67d927e415e0b8f3e29c3bf33075e859721816f652a526cac771",
+    "status": "compiler-passage",
+    "trust": "compiler",
+    "passage": true,
+    "final": {
+      "armor": 25,
+      "bullets": 35,
+      "errorFree": true,
+      "exit": true,
+      "health": 45,
+      "kills": 27,
+      "shells": 0,
+      "shots": 93,
+      "tick": 4161,
+      "x": 126860204,
+      "y": -151903512
+    },
+    "axioms": {
+      "Recording.passage": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "Recording.passage._native.native_decide.ax_1_1"
+      ],
+      "Recording.finalObservation": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "Recording.finalObservation._native.native_decide.ax_1_1"
+      ]
+    }
+  },
   "e1m9-933": {
     "job": "315890_2",
     "level": "E1M9",

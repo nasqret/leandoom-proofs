@@ -17,3 +17,12 @@ Publish a chapter on upstream (Lean)DOOM, this revision and the game loop. Provi
 
 ## 6. Verify and publish
 Test project-path deployment, desktop and narrow viewports, actual playback, local file ingestion, downloads and the nine maps. Run Lean on WMI. Check unauthenticated GitHub and Pages responses and their source revision. Retain deployment and verification evidence, including remaining limitations of the real engine and level proofs.
+
+## Acceptance and further work
+
+- The public address is backed by an independent history. Public Notices distinguish MIT, GPL, BSD, OFL and fan-video permissions.
+- The website includes stock Lean and compiler-assisted receipts. Compare all controller tapes at the native player and inspect the two stock-kernel passage roots in the level dashboard.
+- WMI 315887 verified the 27 demonstration tapes. WMI 315929 added a third original map with a whole-passage Lean theorem. WMI 315907 checked the packaged core import against its 277-declaration historical report.
+- WMI 315888 executed the illustrated notebook and 315894 produced the strict Jupyter Book build. The public directory includes rendered and downloadable editions and the Obsidian vault.
+- The classic browser check exercised all nine original map starts and all nine Freedoom map starts, including actual controls, pause and resume. Source and marker checks identify the secret exit, secret return and finale. Additional whole-playthrough checks are described in the classic evidence.
+- The outstanding mathematics is a stock-kernel Computer Station replay, complete original-map routes and passage certificates for the other six maps, and a correspondence proof for the named research revision. Global optimal time and ammunition across the original campaign are open.

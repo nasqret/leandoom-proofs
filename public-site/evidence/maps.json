@@ -434,8 +434,8 @@
     "level": "E1M7",
     "name": "Computer Station",
     "edition": "CombatV2",
-    "status": "Native win",
-    "description": "The first movement attempt collects a clip, raising 50 bullets to 60. Lean proves the move succeeds and relinks the player in sector 60 and blockmap cell 846 with zero special-line crossings. The 4,161- and 4,209-input native wins share their first 4,140 inputs. Full passage remains open.",
+    "status": "Compiler-assisted passage",
+    "description": "A 4,161-input CombatV2 route reaches the first safe exit with 45 health, 25 armor and 35 bullets. The portable first-exit and endpoint theorems use native_decide. Stock-kernel proofs below cover the opening pickup and the shared prefix of two tapes.",
     "proofs": [
       {
         "title": "Does the engine accept the first move?",

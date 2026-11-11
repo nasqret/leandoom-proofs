@@ -29,7 +29,7 @@ The Codex and Claude Code skills are included both in the kit and in this reposi
 
 For a given map, ordinary spawn and controller, the replay fixes every successor state. A first-safe-exit theorem says that the player remains alive, physics succeeds, every strict prefix has a clear exit flag and the last input raises it. A shorter route, different engine or arbitrary player requires a new argument. A route of length 993 proves an upper bound on the best completion time. A zero-shot completion also proves the optimal shot count, because shot counts are natural numbers.
 
-The two original maps with historical whole-route kernel proofs are E1M1 and E1M2 in CombatV2. Nine original ordinary starts and four constructed scene completions have additional checked results. The original Doom executable, the browser’s classic port, the native Lean port, and the small proof course have different semantics. See the dashboard and the local-verifier receipts for current coverage and trust tiers.
+The two original maps with historical whole-route kernel proofs are E1M1 and E1M2 in CombatV2. Computer Station (E1M7) has a complete compiler-assisted first-safe-exit theorem for 4,161 inputs, ending at 45 health. Nine original ordinary starts and four constructed scene completions have additional checked results. The original Doom executable, the browser’s classic port, the native Lean port, and the small proof course have different semantics. See the dashboard and the local-verifier receipts for current coverage and trust tiers.
 
 ## Work on the site
 
@@ -37,7 +37,7 @@ The two original maps with historical whole-route kernel proofs are E1M1 and E1M
 python3 -m http.server 8000 --directory public-site
 ```
 
-Open http://localhost:8000/. The site uses static assets and supports a GitHub Pages project subpath. A push to main runs the site validation and publishes the site directory. Use the downloadable source archives to reproduce the course, research library and Jupyter Book independently.
+Open http://localhost:8000/. The site uses static assets and supports a GitHub Pages project subpath. A push to main runs the site validation and publishes the site directory. Use the downloadable [Jupyter Book](https://nasqret.github.io/leandoom-proofs/learn/jupyter-book.html), [notebook](https://nasqret.github.io/leandoom-proofs/learn/passage-lab.ipynb) and [Obsidian vault](obsidian-vault/) for study. Use the source archives to reproduce the course, research library and Jupyter Book independently.
 
 ## Credits and licenses
 
