@@ -1,0 +1,60 @@
+{
+  "schema": "proof-lab-receipt-v1",
+  "recordingSha256": "40f6d7edf0ce8126473c14eb790f4cbf96bd49ecae199c8135204d68cef4129c",
+  "attempt": "check-mnds9glf",
+  "status": "compiler-passage",
+  "passage": true,
+  "level": "E1M8",
+  "engine": "CombatV2-PhobosFinale-v1",
+  "commands": 3092,
+  "commandsU32LESha256": "08ccf5f92948ac2bfc31a401230d985cc730291e6ca69a3420436a857204319f",
+  "trust": "compiler",
+  "final": {
+    "armor": 44,
+    "bullets": 200,
+    "errorFree": true,
+    "exit": true,
+    "health": 1,
+    "kills": 3,
+    "shells": 31,
+    "shots": 46,
+    "tick": 3092,
+    "x": 39845888,
+    "y": 423624704
+  },
+  "message": "First safe exit proved with Lean compiler trust.",
+  "axioms": {
+    "Recording.passage": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound",
+      "Recording.passage._native.native_decide.ax_1_1"
+    ],
+    "Recording.finalObservation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound",
+      "Recording.finalObservation._native.native_decide.ax_1_1"
+    ]
+  },
+  "lean": "Lean (version 4.33.0, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)",
+  "worldSha256": "1d7d43be501e67d927e415e0b8f3e29c3bf33075e859721816f652a526cac771",
+  "rulesSha256": "34980631f9900330b809b0d869702fcb32cd39ea6c03b64baaf6c11964608eb2",
+  "proofSharedLibraries": {
+    "@lean-doom/Doom:shared": "8127f502d494b9cf68b67ad067aac5037c499fd02216967158a4c57f67a9a559",
+    "LeanDoomProofs:shared": "a0fc850888ab2542af4c5158b9590bad1ca00496dc233e07571a84503e3d4f43",
+    "+OriginalReplay:dynlib": "d828d14316a3ec3f16a954c7b15e382df184e6044cf79631555b398ec65047b6"
+  },
+  "sources": {
+    "Audit.lean": "db4f304da3c3b3d72db7003e2832723fb6d0bd5492923620ebe420d8cd7906f0",
+    "Certificate.lean": "d25f7764ad1dbe5f18f67d541d689a4542e2fbe22a91e861baf738d6d557b21c",
+    "Inputs.lean": "1b0bccf056db54493f7c7fefea04e8d63bb9ea84503ed229d99f8338493b4ad6",
+    "Inspect.lean": "a19720c31a516efe9ddef952c1a0a23ecbb66119409bd1db2c909e0d4819b174"
+  },
+  "objects": {
+    "Certificate.olean": "65307e0b6fd2b974167ea7b7c25086931bb50cb223c8097644363b68a59caff8",
+    "Inputs.olean": "7e7ae9af249075a73c58fa1abc638beaffaa515b07d1c3d37c2ce83bc52e6284"
+  },
+  "job": 26062250,
+  "cluster": "Helios"
+}

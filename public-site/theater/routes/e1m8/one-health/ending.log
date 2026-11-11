@@ -1,0 +1,4 @@
+'Recording.endRoomDamageAndExit' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Recording.endRoomDamageAndExit._native.native_decide.ax_1_1]

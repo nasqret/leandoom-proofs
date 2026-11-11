@@ -43,3 +43,7 @@ Toxin Refinery, Phobos Lab and Central Processing gained complete compiler-assis
 ## 2026-11-11 · Episode One coverage
 
 All nine original Episode One map slots have separate ordinary-spawn passage witnesses. Six new primary controllers cover 14,786 inputs and 14,792 matched first-person camera frames. E1M9 also works in frozen CombatV2 with the bridge down. E1M8 uses CombatV2-PhobosFinale-v1 and exits on tick 3,090, one tick after the player arrives in the ending sector. Two of the nine whole-passage proofs use stock-kernel reduction and seven rely on compiler-assisted Lean checks. The route, camera and independent clean-source receipts are available per map.
+
+## Two alternate Theater routes · 2026-11-11
+
+Central Processing now has an independent 3,595-input exit at two health. Phobos Anomaly has a 3,092-input exit at one health. Its first 2,280 inputs match the eight-health route exactly, through the death of the second Baron. The selector exposes each route’s own recording, camera and audited declarations. Helios jobs 26062251 and 26062250 rebuilt the respective certificates and chapter proofs from the public verifier. Together the eleven films cover nine original maps and 84 synchronized chapters.

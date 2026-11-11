@@ -1,0 +1,30 @@
+{
+  "recordingSha256": "40f6d7edf0ce8126473c14eb790f4cbf96bd49ecae199c8135204d68cef4129c",
+  "rulesSha256": "34980631f9900330b809b0d869702fcb32cd39ea6c03b64baaf6c11964608eb2",
+  "inputsSourceSha256": "1b0bccf056db54493f7c7fefea04e8d63bb9ea84503ed229d99f8338493b4ad6",
+  "declarations": {
+    "Recording.bossSequence": {
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "Recording.bossSequence._native.native_decide.ax_1_1"
+      ],
+      "sourceSha256": "d236fbc47f0a59b0863246b218fa15a7bbcc6cb488bd79e3a4cee158015a2953",
+      "objectSha256": "60a39545faa7cffac9f9fc2c6b1a1ddf286597e064c1d3771c5c0b411f8d5a00"
+    },
+    "Recording.endRoomDamageAndExit": {
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "Recording.endRoomDamageAndExit._native.native_decide.ax_1_1"
+      ],
+      "sourceSha256": "65502ec19532d88726b70f7ffcd31e604b7609f03e6e71766a2c8b4a79c13b6d",
+      "objectSha256": "d649b6ecf66197d18ba9e962aedc0b81bfb40a9e3b6e519f2e008ef972fe4bd1"
+    }
+  },
+  "job": 26062250,
+  "cluster": "Helios",
+  "attempt": "check-mnds9glf"
+}

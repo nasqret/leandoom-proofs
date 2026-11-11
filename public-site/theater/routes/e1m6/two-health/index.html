@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>E1M6 · Three keys · 2 health at exit · Lean Doom Lab</title><link rel="stylesheet" href="../../../../assets/site.css"></head>
+<body><header data-header></header><main class="section wrap" id="main"><p class="kicker">E1M6 · Central Processing</p>
+<h1>Three keys · 2 health at exit</h1><p>The first safe exit comes on tick 3,595, with 2 health and 73 armor.
+The compiler-assisted Lean proof replays the recorded controls in CombatV2-Spectre-v1. The camera checks each of the 3,596 frames against an independent observer.</p>
+<p><a href="../../../?level=E1M6&amp;route=two-health">Play this route in Proof Theater</a></p>
+<h2>Proof and replay files</h2><ul><li><a href="recording.json">Recorded controls</a></li>
+<li><a href="receipt.json">Passage and endpoint</a></li>
+<li><a href="clean-build.json">Independent clean build</a></li>
+<li><a href="chapter-recheck.json">Fresh imports of the chapter theorems</a></li>
+<li><a href="camera.json">Frame checks</a></li>
+<li><a href="observations.jsonl.gz">Per-tick observations (.gz)</a></li>
+<li><a href="audit.log">Passage axiom audit</a></li>
+<li><a href="milestones.json">Milestones receipt</a></li>
+<li><a href="milestones.log">Milestones axiom audit</a></li>
+<li><a href="../../../source/e1m6/two-health/Certificate.lean">Certificate.lean</a></li>
+<li><a href="../../../source/e1m6/two-health/Milestones.lean">Milestones.lean</a></li></ul>
+<p>To reproduce the passage, run the public episode verifier with the recorded controls and your own matching IWAD. It regenerates the map input, then compiles the matching chapter sources against that recording.</p>
+<p><a href="../../../../verify/">Verification instructions</a></p></main><footer data-footer></footer><script src="../../../../assets/shell.js"></script></body></html>

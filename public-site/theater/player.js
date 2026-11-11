@@ -23,16 +23,18 @@ function displayLine(number, code, active) {
   row.append(make("span", String(number), "lineno"), line);
   return row;
 }
-function theater(root, films) {
+function theater(root, films, routes) {
   root.className = "theater";
   root.innerHTML =
-    '<div class="film-tabs" aria-label="Film selection"></div><div class="screens"><section class="codepanel"><div class="panel-title"><span><i></i>Lean source</span><span class="proof-tier"></span></div><div class="editor"></div><div class="chapter-note"><strong></strong><span></span></div></section><section><div class="panel-title"><span><i></i>Player camera</span><span class="counter"></span></div><div class="video"><video playsinline muted preload="auto" aria-label="Recorded gameplay"></video></div></section></div><div class="toolbar"><button data-act="play">▶ Play</button><button data-act="prev" aria-label="Previous event">◀◀</button><button data-act="next" aria-label="Next event">▶▶</button><input type="range" aria-label="Film frame" step="1" min="0" value="0"><label>Speed <select class="rate"><option>0.25</option><option>0.5</option><option selected>1</option><option>1.5</option><option>2</option></select>×</label></div><div class="chapterbar"><label>Event <select class="chapters"></select></label><a class="edition-evidence">Level evidence ↗</a><a class="download" download>Download silent film ↓</a></div>';
+    '<div class="film-tabs" aria-label="Film selection"></div><div class="screens"><section class="codepanel"><div class="panel-title"><span><i></i>Lean source</span><span class="proof-tier"></span></div><div class="editor"></div><div class="chapter-note"><strong></strong><span></span></div></section><section><div class="panel-title"><span><i></i>Player camera</span><span class="counter"></span></div><div class="video"><video playsinline muted preload="auto" aria-label="Recorded gameplay"></video></div></section></div><div class="toolbar"><button data-act="play">▶ Play</button><button data-act="prev" aria-label="Previous event">◀◀</button><button data-act="next" aria-label="Next event">▶▶</button><input type="range" aria-label="Film frame" step="1" min="0" value="0"><label>Speed <select class="rate"><option>0.25</option><option>0.5</option><option selected>1</option><option>1.5</option><option>2</option></select>×</label></div><div class="chapterbar"><label class="route-control" hidden>Route <select class="routes"></select></label><label>Event <select class="chapters"></select></label><a class="edition-evidence">Level evidence ↗</a><a class="route-inputs" hidden>Recorded inputs ↗</a><a class="download" download>Download silent film ↓</a></div>';
   const find = (selector) => root.querySelector(selector);
   const video = find("video"),
     tabs = find(".film-tabs"),
     timeline = find("input"),
-    picker = find(".chapters");
+    picker = find(".chapters"),
+    routePicker = find(".routes");
   let film,
+    levelIndex,
     last = -1,
     frameRequest,
     pendingFrame;
@@ -92,12 +94,28 @@ function theater(root, films) {
     render(selected / film.fps);
   }
   const edition = make("span", "", "film-story");
-  function choose(i) {
+  function choose(i, requestedRoute) {
     stopFrames();
     video.pause();
-    film = films[i];
+    const primary = films[i];
+    const alternates = routes[primary.id] || [];
+    levelIndex = i;
+    film = alternates.find((cut) => cut.route === requestedRoute) || primary;
+    const routeControl = find(".route-control");
+    routeControl.hidden = alternates.length === 0;
+    routePicker.replaceChildren(
+      new Option("Main passage · " + primary.final.health + " health at exit", ""),
+      ...alternates.map((cut) => new Option(cut.routeLabel, cut.route)),
+    );
+    routePicker.value = film.route || "";
     edition.textContent = film.engine + " · " + film.fps + " ticks/s";
-    find(".edition-evidence").href = asset("../evidence/#" + film.id);
+    const evidence = find(".edition-evidence");
+    evidence.href = asset(film.evidence ? film.evidence + "/index.html" : "../evidence/#" + film.id);
+    evidence.textContent = film.evidence ? "Route evidence ↗" : "Level evidence ↗";
+    const inputs = find(".route-inputs");
+    inputs.hidden = !film.evidence;
+    if (film.evidence) inputs.href = asset(film.evidence + "/recording.json");
+    else inputs.removeAttribute("href");
     pendingFrame = undefined;
     last = -1;
     find(".proof-tier").textContent = film.proofTier === "compiler-assisted"
@@ -114,14 +132,19 @@ function theater(root, films) {
     find(".download").href = asset(film.video);
     render(0);
   }
+  function select(i, route) {
+    choose(i, route);
+    const url = new URL(location.href);
+    url.searchParams.set("level", film.id);
+    if (film.route) url.searchParams.set("route", film.route);
+    else url.searchParams.delete("route");
+    history.replaceState(history.state, "", url);
+  }
+  routePicker.onchange = () => select(levelIndex, routePicker.value);
   films.forEach((f, i) => {
     const button = make("button", f.id + " / " + f.title);
     button.onclick = () => {
-      if (film === f) return;
-      choose(i);
-      const url = new URL(location.href);
-      url.searchParams.set("level", f.id);
-      history.replaceState(history.state, "", url);
+      if (i !== levelIndex) select(i);
     };
     tabs.append(button);
   });
@@ -168,14 +191,23 @@ function theater(root, films) {
           Math.min(film.chapters.length - 1, Math.max(0, last + delta))
         ].frame,
       );
-  const requested = new URLSearchParams(location.search).get("level");
-  choose(Math.max(0, films.findIndex((item) => item.id === requested)));
+  const query = new URLSearchParams(location.search);
+  const requested = films.findIndex((item) => item.id === query.get("level"));
+  choose(Math.max(0, requested), requested >= 0 ? query.get("route") : undefined);
+  if (requested >= 0 && query.has("route") && !film.route && Object.keys(routes).length) {
+    const url = new URL(location.href);
+    url.searchParams.delete("route");
+    history.replaceState(history.state, "", url);
+  }
 }
 const target = document.querySelector("[data-theater]");
 try {
-  const response = await fetch(asset("films.json"));
+  const [response, alternateIndex] = await Promise.all([
+    fetch(asset("films.json")),
+    fetch(asset("alternates.json")).then((r) => r.ok ? r.json() : null).catch(() => null),
+  ]);
   if (!response.ok) throw Error("Film index unavailable");
-  theater(target, await response.json());
+  theater(target, await response.json(), alternateIndex?.routes || {});
 } catch {
   target.textContent =
     "The film index could not be loaded. Reload to try again.";

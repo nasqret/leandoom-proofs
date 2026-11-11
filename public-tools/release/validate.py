@@ -55,6 +55,8 @@ tiers={'Passage proved':'stock-kernel','Compiler-assisted passage':'compiler-ass
 proved_levels={m['level']:tiers[m['status']] for m in load('evidence/maps.json')
                if m['edition']=='CombatV2' and re.fullmatch(r'E\d+M\d+',m['level']) and m['status'] in tiers}
 revised={m['level']:m.get('revisedPassage') or m['portablePassage'] for m in load('evidence/maps.json') if 'revisedPassage' in m or 'portablePassage' in m}
+rebuilds=load('evidence/passages/chapter-reproduction.json')
+check(set(rebuilds)==set(revised),'independent chapter rebuild for every portable passage')
 proved_levels.update({k:v['proofTier'] for k,v in revised.items()})
 check(len(films)==len(proved_levels) and {f['id']:f['proofTier'] for f in films}==proved_levels,
       'theater coverage and trust tiers must match the original-map passage catalog')
@@ -76,7 +78,21 @@ for film in films:
         folder=site/'evidence'/item['evidence']
         read=lambda n: json.loads((folder/n).read_bytes())
         receipt=read('receipt.json')
-        full=read('clean-build.json') if (folder/'clean-build.json').is_file() else receipt
+        full=read('clean-build.json')
+        for field in ('recordingSha256','rulesSha256','worldSha256','sources','objects',
+                      'proofSharedLibraries','axioms','final'):
+            check(full[field]==receipt[field],(key,'independent passage rebuild',field))
+        rebuild=rebuilds[film['id']]
+        check(all(rebuild[field]==receipt[field] for field in ('engine','rulesSha256','recordingSha256')),
+              (key,'independent chapter rebuild belongs to this recording'))
+        expected_chapters={c['declaration']:c['sourceSha256'] for c in film['chapters'] if c['module']!='Certificate'}
+        checked=rebuild['declarations']
+        check({decl:proof['sourceSha256'] for decl,proof in checked.items()}==expected_chapters,
+              (key,'chapter sources reproduced on Helios'))
+        for decl,proof in checked.items():
+            check(re.fullmatch(r'[0-9a-f]{64}',proof['objectSha256'])
+                  and any(ax.startswith(decl+'._native.native_decide.') for ax in proof['axioms']),
+                  (key,decl,'compiler-assisted declaration and compiled module'))
         camera=read('camera.json'); milestones=read('milestones.json'); record=read('recording.json')
         editions=json.loads((root/'public-tools/episode-passages/editions.json').read_bytes())
         check(film==read('film.json') and item['engine']==film['engine']==record['engine'],key)
@@ -158,4 +174,6 @@ fork = load('evidence/experiments/fork-receipt.json')
 check(fork['census']==[72,0,59,13,0,0,72] and digest((evidence/'fork-rebuild.zip').read_bytes())==fork['rebuildSha256'], 'complete input-fork certificate')
 roll = load('evidence/experiments/damage-roll.json')
 check(roll['sourceSha256']==digest((experiments/'DamageRoll.lean').read_bytes()) and roll['auditSha256']==digest((evidence/'damage-roll.audit.log').read_bytes()) and roll['rngSourceSha256']==digest((root/'public-tools/verifier/combat/upstream/Doom/Random.lean').read_bytes()), 'stock-kernel damage roll')
-print(f'{len(names)} files and archive members inspected; 13 map records, 277 declarations, {len(routes)} routes and complete replay experiments passed.')
+from alternates import validate_alternates
+alternate_count = validate_alternates(site, root, films)
+print(f'{len(names)} files and archive members inspected; 13 map records, 277 declarations, {len(routes)} routes, {alternate_count} alternate Theater passages and complete replay experiments passed.')

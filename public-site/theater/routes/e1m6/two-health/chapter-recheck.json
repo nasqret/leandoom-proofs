@@ -1,0 +1,20 @@
+{
+  "recordingSha256": "569b81f99cff8c72b6760bab35c0ba53c941ac778077b7c349cf7cd45d343a6e",
+  "rulesSha256": "7db637c162c08be9071c140d486673e682eb8864ab111648c6fe63ef0cde0527",
+  "inputsSourceSha256": "a7ab6c5a47fd1813b7e699056683e03fcc84715eaca2770bbe2fae478cff375b",
+  "declarations": {
+    "Recording.milestones": {
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "Recording.milestones._native.native_decide.ax_1_1"
+      ],
+      "sourceSha256": "a751225e3bd02289f499aab2c75df16b9a6dc8b806d0b980ac472e491e9485f7",
+      "objectSha256": "b6d90ad148464fb3d337ba9c557768d178957028ea6400835ab06ed88299d11a"
+    }
+  },
+  "job": 26062251,
+  "cluster": "Helios",
+  "attempt": "check-kjjirych"
+}
