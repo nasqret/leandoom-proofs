@@ -4,12 +4,14 @@ The player reaches the first safe exit on input 1,017 in CombatV2. The passage p
 
 ## Moments in the proof
 
-- Tick 0. Ordinary spawn. [Lean source](Resources/theater/source/E1M2Foundation.lean)
-- Tick 5. First pistol shot. [Lean source](Resources/theater/source/WindowFifthShot.lean)
-- Tick 191. Enemy crossfire. [Lean source](Resources/theater/source/CrossfireFromMap.lean)
-- Tick 202. Red key. [Lean source](Resources/theater/source/FullRedKey202.lean)
-- Tick 954. An imp starts a lift. [Lean source](Resources/theater/source/FullLiftFromMap.lean)
-- Tick 1,017. First safe exit. [Lean source](Resources/theater/source/CampaignWinner.lean)
+- Tick 0. Ordinary spawn. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/E1M2Foundation.lean#L14)
+- Tick 5. First pistol shot. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/WindowFifthShot.lean#L13)
+- Tick 191. Enemy crossfire. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/CrossfireFromMap.lean#L11)
+- Tick 202. Red key. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/FullRedKey202.lean#L5)
+- Tick 505. A door opens. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/FullLeaf505.lean#L10)
+- Tick 687. Shell pickup. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/FullLeaf687.lean#L11)
+- Tick 954. An imp starts a lift. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/FullLiftFromMap.lean#L30)
+- Tick 1,017. First safe exit. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/CampaignWinner.lean#L36)
 
 ## Earlier studies in CombatV2
 

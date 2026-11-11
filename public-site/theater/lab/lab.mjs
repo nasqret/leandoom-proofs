@@ -1,3 +1,4 @@
+import { declaration, linkDeclaration } from "./source.mjs";
 import { bounds, drawTrack, drawCamera, openWorld } from "./draw.mjs";
 import { setupRng } from "./rng.mjs";
 const $ = (id) => document.getElementById(id);
@@ -37,9 +38,10 @@ function options(id, rows, value) {
   s.replaceChildren(...rows.map(([v, t]) => new Option(t, v)));
   if (rows.some(([x]) => String(x) === String(value))) s.value = value;
 }
-function link(container, label, href) {
+function link(container, label, href, theorem) {
   const l = el("a", label);
-  l.href = href;
+  if (href.pathname.endsWith(".lean")) linkDeclaration(l, href, theorem);
+  else l.href = href;
   container.append(l);
 }
 async function load(url) {
@@ -325,7 +327,7 @@ function showRoute() {
   if ($("route-lean").open) readStatements();
   for (const r of new Set(pair))
     if (r.proof?.url)
-      link(proofs, r.label + " · " + r.proof.label, new URL(r.proof.url, url));
+      link(proofs, r.label + " · " + r.proof.label, new URL(r.proof.url, url), r.proof.theorem);
   for (const file of new Set(pair.map((r) => r.proof?.receipt).filter(Boolean)))
     link(
       proofs,
@@ -395,7 +397,6 @@ function showRoute() {
         : 0,
   );
 }
-const sourceText = new Map();
 async function readStatements() {
   const pair = state.selected,
     box = $("route-statements");
@@ -404,31 +405,12 @@ async function readStatements() {
     const target = r.proof?.url;
     if (!target || !target.endsWith(".lean") || !r.proof.theorem) continue;
     const file = new URL(target, url);
-    if (!sourceText.has(file.href))
-      sourceText.set(
-        file.href,
-        fetch(file)
-          .then((res) => (res.ok ? res.text() : ""))
-          .catch(() => ""),
-      );
-    const contents = await sourceText.get(file.href);
+    const statement = await declaration(file, r.proof.theorem);
     if (state.selected !== pair) return;
-    const short = r.proof.theorem.split(".").at(-1),
-      lines = contents.split("\n"),
-      offset = lines.findIndex(
-        (line) =>
-          line.includes("theorem " + short + " ") ||
-          line.includes("theorem " + short + ":"),
-      );
-    if (offset < 0) continue;
-    const excerpt = [];
-    for (const line of lines.slice(offset, offset + 14)) {
-      excerpt.push(line);
-      if (line.includes(":=")) break;
-    }
+    if (!statement) continue;
     const label = el("p", r.label + " · " + r.proof.label),
       pre = el("pre"),
-      code = el("code", excerpt.join("\n"));
+      code = el("code", statement.excerpt.join("\n"));
     pre.append(code);
     box.append(label, pre);
   }

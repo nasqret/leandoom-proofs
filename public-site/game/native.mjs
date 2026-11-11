@@ -17,6 +17,8 @@ const active=()=>tape.length < 100000 && !terminal() && (!route || tape.length<r
 function source(title,marker){
   const line=lean.findIndex(s=>s.includes(marker)),first=Math.max(0,line-2);
   el('line').textContent='MAPWORKER / LINE '+(line+1);
+  const sourceLink = el('lean-link');
+  if (sourceLink && line >= 0) sourceLink.hash = 'L' + (line + 1);
   el('event').textContent=title;el('code').replaceChildren();
   lean.slice(first,first+6).forEach((text,i)=>{
     const div=document.createElement('div'),em=document.createElement('em'),code=document.createElement('code');

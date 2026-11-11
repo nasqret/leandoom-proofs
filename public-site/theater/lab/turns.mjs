@@ -1,3 +1,4 @@
+import { linkDeclaration } from './source.mjs';
 import { pathViewer } from './turn-path.mjs';
 
 // The original 993-input witness and the checked parameter census are shipped with the site.
@@ -53,7 +54,9 @@ async function setup(panel) {
   for (const [label, href] of [['Lean turn census', source + 'study/Certificate.lean'], ['Native census receipt', source + 'result.json'], ['Verify a recording', '../../verify/']]) {
     const anchor = document.createElement('a');
     anchor.textContent = label;
-    anchor.href = href;
+    const file = new URL(href, import.meta.url);
+    if (file.pathname.endsWith('.lean')) linkDeclaration(anchor, file, 'minimumInThisFamily');
+    else anchor.href = file;
     evidence.append(anchor);
   }
 

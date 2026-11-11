@@ -30,6 +30,8 @@ function renderCode(prev) {
  const first=Math.max(0,Math.min(source.length-6,line-2)),last=first+6;
  $('event-name').textContent=title;
  $('line-info').textContent='PROOFGRID / LINE '+(line+1);
+ const sourceLink = $('course-lean-link');
+ if (sourceLink && line >= 0) sourceLink.hash = 'L' + (line + 1);
  $('listing').innerHTML=source.slice(first,last).map((v,i)=>'<div class="code-line '+(first+i===line?'active':'')+'"><em>'+(first+i+1)+'</em><code>'+syntax(v)+'</code></div>').join('');
  $('state').textContent='⟨x '+s.x+', y '+s.y+'⟩  ·  hp '+s.hp+'  ·  exit '+s.exit;
 }

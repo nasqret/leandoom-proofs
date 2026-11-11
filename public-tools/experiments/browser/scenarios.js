@@ -18,6 +18,17 @@ globalThis.checkReplayLab = async function checkReplayLab(mode = "desktop") {
     check(response.ok, "HTTP " + response.status + " at " + path);
     return response.json();
   }
+  async function sourceLink(anchor, path, theorem) {
+    const siteFile = new URL(path, location.href);
+    const response = await fetch(siteFile);
+    check(response.ok, "Missing underlying Lean source " + path);
+    const lines = (await response.text()).split("\n");
+    const line = 1 + lines.findIndex(row => row.startsWith("theorem " + theorem + " "));
+    check(line > 0, "Missing source theorem " + theorem);
+    const repoPath = siteFile.href.slice(new URL("../../", location.href).href.length);
+    const expected = "https://github.com/nasqret/leandoom-proofs/blob/main/public-site/" + repoPath + "#L" + line;
+    await until(() => anchor && anchor.href === expected && !anchor.hasAttribute("download"), "Wrong source link for " + theorem);
+  }
   async function tab(name) {
     const button = document.querySelector('[data-tab="' + name + '"]');
     button.click();
@@ -68,6 +79,8 @@ globalThis.checkReplayLab = async function checkReplayLab(mode = "desktop") {
         (b) => b.textContent === "Fastest in this grid",
       );
     await until(fastest, "Fastest turn preset absent");
+    await sourceLink(qa("#turn-explorer a").find(a => a.textContent === "Lean turn census"),
+      "../../evidence/experiments/turns/study/Certificate.lean", "minimumInThisFamily");
     fastest().click();
     await until(
       () => $("turn-time")?.max === "977" && !$("turn-time").disabled,
@@ -105,6 +118,7 @@ globalThis.checkReplayLab = async function checkReplayLab(mode = "desktop") {
     await tab("compare");
     control("left-route", "original-993");
     control("right-route", "learned-978");
+    await sourceLink(qa("#route-proofs a")[0], "../../evidence/roots/CertifiedE1M1Prefix992.lean", "certifiedAuthenticE1M1");
     const { clips } = await json("camera/cameras.json");
     const [left, right] = qa("#route-screens video");
     $("recorded-view").click();
@@ -173,6 +187,8 @@ globalThis.checkReplayLab = async function checkReplayLab(mode = "desktop") {
         "RNG table " + level,
       );
       $("rng-grid").children[index].click();
+      await sourceLink(qa("#rng-evidence a")[0], "../../evidence/experiments/" + group.conclusions.source,
+        "diedPhase" + index);
       const row = await json(
         qa("#rng-evidence a").find((a) => a.download).href,
       );

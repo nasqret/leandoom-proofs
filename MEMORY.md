@@ -12,7 +12,7 @@ WMI 315929 certified the complete 4,161-input CombatV2 Computer Station tape wit
 
 The Hangar 993-input and Nuclear Plant 1,017-input tapes have compiler-assisted classifications for each of the 256 post-spawn gameplay RNG cursor values. Exactly 254 and 8 reach a safe exit. The ordinary indices are 5 and 25. All 72 single-tick Hangar strafe edits between fireball launch and impact still exit and still receive that missile's hit. The 13 delayed hits show why checking only the original impact tick would give the wrong conclusion. The historical three Hangar passage witnesses remain stock-kernel results. [Replay lab](https://nasqret.github.io/leandoom-proofs/theater/lab/) · [Teaching chapter](https://nasqret.github.io/leandoom-proofs/learn/replay-experiments.html)
 
-Hangar's final-turn family now has a compiler-assisted lower bound of 977 ticks, attained by eight of 2,750 controllers. Three separate stock-kernel witnesses finish at 978, 992 and 993 ticks. Whether any controller can finish faster than 977 ticks is open. A stock-kernel replay at 977 is also open. [Finite theorem and minimizers](https://nasqret.github.io/leandoom-proofs/evidence/experiments/turns/study/Certificate.lean)
+Hangar's final-turn family now has a compiler-assisted lower bound of 977 ticks, attained by eight of 2,750 controllers. Three separate stock-kernel witnesses finish at 978, 992 and 993 ticks. Whether any controller can finish faster than 977 ticks is open. A stock-kernel replay at 977 is also open. [Finite theorem and minimizers](https://github.com/nasqret/leandoom-proofs/blob/afb2055be61bc137170b6f8ee21b90b7d9a512ab/public-site/evidence/experiments/turns/study/Certificate.lean#L93-L116)
 
 ## 2026-11-11 · Command Control
 

@@ -4,12 +4,12 @@ The player reaches the first safe exit on input 993 in CombatV2. The passage pro
 
 ## Moments in the proof
 
-- Tick 0. From Hangar spawn. [Lean source](Resources/theater/source/CertifiedHangarEscapeScene.lean)
-- Tick 611. First fireball. [Lean source](Resources/theater/source/E1M1RealFireballLaunches.lean)
-- Tick 837. A second shooter. [Lean source](Resources/theater/source/E1M1RealFireballLaunches.lean)
-- Tick 923. Fireball impact. [Lean source](Resources/theater/source/E1M1Impact923.lean)
-- Tick 935. One more fireball. [Lean source](Resources/theater/source/E1M1RealFireballLaunches.lean)
-- Tick 993. Exit with six monsters alive. [Lean source](Resources/theater/source/CertifiedHangarEscapeScene.lean)
+- Tick 0. From Hangar spawn. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/CertifiedHangarEscapeScene.lean#L24)
+- Tick 611. First fireball. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/E1M1RealFireballLaunches.lean#L18)
+- Tick 837. A second shooter. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/E1M1RealFireballLaunches.lean#L23)
+- Tick 923. Fireball impact. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/E1M1Impact923.lean#L14)
+- Tick 935. One more fireball. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/E1M1RealFireballLaunches.lean#L33)
+- Tick 993. Exit with six monsters alive. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/CertifiedHangarEscapeScene.lean#L22)
 
 ## Earlier studies in CombatV2
 

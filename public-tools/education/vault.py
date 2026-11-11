@@ -8,6 +8,8 @@ from zipfile import ZipFile
 from portable import archive,BASE,READ
 from render import SITE,HERE
 
+THEATER_SOURCE = "https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/"
+
 def load(path):
     return json.loads(path.read_text())
 
@@ -52,7 +54,7 @@ def build():
     files['Resources/Doom/COPYING.txt']=(HERE.parent/'verifier/combat/upstream/COPYING.md').read_bytes()
     for name in ['fork-AllForks.lean','rng/e1m1/Conclusions.lean','rng/e1m2/Conclusions.lean','turns/study/Certificate.lean','damage-roll.audit.log']:
         files['Resources/experiments/'+name]=(proof/'experiments'/name).read_bytes()
-    files['Replay experiments.md'] += '\nOffline sources: [Damage roll](Resources/DamageRoll.lean) · [Doom RNG](Resources/Doom/Random.lean) · [Hangar strafe census](Resources/experiments/fork-AllForks.lean) · [Hangar turn minimum](Resources/experiments/turns/study/Certificate.lean) · [Hangar RNG](Resources/experiments/rng/e1m1/Conclusions.lean) · [Nuclear Plant RNG](Resources/experiments/rng/e1m2/Conclusions.lean)\n'
+    files['Replay experiments.md'] += '\nProofs on GitHub (offline source files are also included in `Resources/`): [Damage roll](https://github.com/nasqret/leandoom-proofs/blob/afb2055be61bc137170b6f8ee21b90b7d9a512ab/public-tools/experiments/DamageRoll.lean#L26-L59) · [Doom RNG](https://github.com/nasqret/leandoom-proofs/blob/afb2055be61bc137170b6f8ee21b90b7d9a512ab/public-tools/verifier/combat/upstream/Doom/Random.lean#L45-L57) · [Hangar strafe census](https://github.com/nasqret/leandoom-proofs/blob/afb2055be61bc137170b6f8ee21b90b7d9a512ab/public-site/evidence/experiments/fork-AllForks.lean#L88-L96) · [Hangar turn minimum](https://github.com/nasqret/leandoom-proofs/blob/afb2055be61bc137170b6f8ee21b90b7d9a512ab/public-site/evidence/experiments/turns/study/Certificate.lean#L93-L116) · [Hangar RNG](https://github.com/nasqret/leandoom-proofs/blob/afb2055be61bc137170b6f8ee21b90b7d9a512ab/public-site/evidence/experiments/rng/e1m1/Conclusions.lean#L8-L42) · [Nuclear Plant RNG](https://github.com/nasqret/leandoom-proofs/blob/afb2055be61bc137170b6f8ee21b90b7d9a512ab/public-site/evidence/experiments/rng/e1m2/Conclusions.lean#L8-L42)\n'
     for img in (SITE/'media').glob('*.png'):
         files['media/'+img.name]=img.read_bytes()
     for item in ['freedoom-COPYING.txt','PassageLab.lean','Audit.lean','audit.txt','wrong-order.txt','passage-lab.ipynb','research-evidence.json','teaching-receipt.json']:
@@ -74,9 +76,9 @@ WMI 315907 extracted the public core, checked 268 frozen input hashes and 218 up
 2. Use recorded or ML-proposed inputs to obtain new upper bounds. Prove first exit and all-prefix safety for each tape. A lower bound must quantify over every admissible tape. [[Engine and passage]]
 3. Compare native-assisted and stock-kernel certificates on the same tape. Track the exact axiom report and the engine edition. [[Recording and checking]]
 4. Prove a secret exit from the ordinary E1M3 start and carry inventory and engine state across successive maps. A collection of pistol starts is a different initial-state convention from a continuous episode. [[Memory]]""")
-    note('Recording and checking',"""A player or trained policy proposes an input tape. In the teaching courses, export the recording, pair the companion with a local Lean installation and check the safe first exit. In the native edition, provide the matching lawful IWAD to the local worker. Read the output class and axiom audit for each route. Independently inspect the airlock proofs in [PassageLab.lean](Resources/PassageLab.lean), rerun [the self-contained notebook](Resources/passage-lab.ipynb), or study the [original public input tapes](Resources/native-routes.json).
+    note('Recording and checking',"""A player or trained policy proposes an input tape. In the teaching courses, export the recording, pair the companion with a local Lean installation and check the safe first exit. In the native edition, provide the matching lawful IWAD to the local worker. Read the output class and axiom audit for each route. Independently inspect the airlock proofs in [PassageLab.lean](https://github.com/nasqret/leandoom-proofs/blob/afb2055be61bc137170b6f8ee21b90b7d9a512ab/public-site/learn/PassageLab.lean#L5-L40), rerun [the self-contained notebook](Resources/passage-lab.ipynb), or study the [original public input tapes](Resources/native-routes.json).
 
-The nine constructed ProofGrid courses each have three checked route styles. The [27 Lean proofs](Resources/AllRoutes.lean) and [route catalog](Resources/routes.json) identify them individually. The [native verification receipts](Resources/combat-runs.json) carry the distinct assumptions of the compiler-assisted jobs.
+The nine constructed ProofGrid courses each have three checked route styles. The [27 Lean proofs](https://github.com/nasqret/leandoom-proofs/blob/afb2055be61bc137170b6f8ee21b90b7d9a512ab/public-site/downloads/AllRoutes.lean#L4-L17) and [route catalog](Resources/routes.json) identify them individually. The [native verification receipts](Resources/combat-runs.json) carry the distinct assumptions of the compiler-assisted jobs.
 
 Nuclear Plant's quiet input tape first exits on tick 1,013 with 82 health, zero shots and one credited kill. The Lean declarations `Recording.passage` and `Recording.finalObservation` include their generated native-decision axioms. The armed 1,017-input route has a stock-kernel proof. [Published route receipts]("""+BASE+"""downloads/combat-runs.json) · [Companion and agent verification kit]("""+BASE+"""downloads/lean-doom-companion.zip) · [[Reading]]""")
     levels=[]
@@ -99,7 +101,7 @@ Nuclear Plant's quiet input tape first exits on tick 1,013 with 82 health, zero 
                 if local:
                     target='Resources/theater/'+local
                     files[target]=(SITE.parent/'theater'/local).read_bytes()
-                    chapters.append(f"- Tick {chapter['frame']:,}. {chapter['name']}. [Lean source]({target})")
+                    chapters.append(f"- Tick {chapter['frame']:,}. {chapter['name']}. [Lean source]({THEATER_SOURCE}{local}#L{chapter['line']})")
             text=[route, '## Moments in the proof', '\n'.join(chapters), '## Earlier studies in '+row['edition'], row['description']]
         else:
             levels.append('- [['+key+']] — '+row['status'])

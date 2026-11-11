@@ -4,13 +4,13 @@ The player reaches the first safe exit on input 3,569 in CombatV2-SectorActions-
 
 ## Moments in the proof
 
-- Tick 0. Ordinary spawn. [Lean source](Resources/theater/source/e1m5/Certificate.lean)
-- Tick 5. First shot. [Lean source](Resources/theater/source/e1m5/Milestones.lean)
-- Tick 741. Minimum health. [Lean source](Resources/theater/source/e1m5/Milestones.lean)
-- Tick 1,093. Yellow key. [Lean source](Resources/theater/source/e1m5/Milestones.lean)
-- Tick 1,945. The secret soulsphere. [Lean source](Resources/theater/source/e1m5/Soulsphere.lean)
-- Tick 3,158. Blue key. [Lean source](Resources/theater/source/e1m5/Milestones.lean)
-- Tick 3,569. First safe exit. [Lean source](Resources/theater/source/e1m5/Certificate.lean)
+- Tick 0. Ordinary spawn. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m5/Certificate.lean#L5)
+- Tick 5. First shot. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m5/Milestones.lean#L32)
+- Tick 741. Minimum health. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m5/Milestones.lean#L32)
+- Tick 1,093. Yellow key. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m5/Milestones.lean#L32)
+- Tick 1,945. The secret soulsphere. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m5/Soulsphere.lean#L35)
+- Tick 3,158. Blue key. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m5/Milestones.lean#L32)
+- Tick 3,569. First safe exit. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m5/Certificate.lean#L6)
 
 ## Earlier studies in CombatV2
 

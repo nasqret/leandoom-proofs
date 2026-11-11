@@ -1,3 +1,4 @@
+import { linkDeclaration } from "./source.mjs";
 import { drawSamples } from "./draw.mjs";
 const $ = (id) => document.getElementById(id);
 const url = new URL("../../evidence/experiments/rng.json", location.href);
@@ -23,10 +24,12 @@ function el(tag, text) {
   if (text != null) node.textContent = text;
   return node;
 }
-function link(root, label, path) {
+function link(root, label, path, theorem) {
   if (!path) return;
   const l = el("a", label);
-  l.href = new URL(path, url);
+  const file = new URL(path, url);
+  if (file.pathname.endsWith(".lean")) linkDeclaration(l, file, theorem);
+  else l.href = file;
   root.append(l);
 }
 export async function setupRng() {
@@ -376,7 +379,11 @@ export async function setupRng() {
     selectFilm(l, i);
     if (i != null) $("rng-index").value = i;
     const evidence = $("rng-evidence");
-    link(evidence, "Source", l.source || report.source);
+    const witness = l.conclusions?.witnesses?.find(entry => entry.index === i);
+    if (witness && l.conclusions.source)
+      link(evidence, "Source", l.conclusions.source, witness.theorem);
+    else
+      link(evidence, "Source", l.source || report.source, l.source ? "all256" : "classify");
     link(evidence, "Run receipt", l.receipt || report.receipt);
     link(evidence, "All sampled trajectories", l.trackFile);
     if (!r) {

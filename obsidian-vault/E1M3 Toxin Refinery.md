@@ -4,12 +4,12 @@ The player reaches the first safe exit on input 1,770 in CombatV2-Floors1. The p
 
 ## Moments in the proof
 
-- Tick 0. Ordinary spawn. [Lean source](Resources/theater/source/e1m3/Certificate.lean)
-- Tick 5. First shot. [Lean source](Resources/theater/source/e1m3/Milestones.lean)
-- Tick 662. Blue key. [Lean source](Resources/theater/source/e1m3/Milestones.lean)
-- Tick 1,241. Minimum health. [Lean source](Resources/theater/source/e1m3/Milestones.lean)
-- Tick 1,638. Onto the upper landing. [Lean source](Resources/theater/source/e1m3/Staircase.lean)
-- Tick 1,770. First safe exit. [Lean source](Resources/theater/source/e1m3/Certificate.lean)
+- Tick 0. Ordinary spawn. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m3/Certificate.lean#L5)
+- Tick 5. First shot. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m3/Milestones.lean#L32)
+- Tick 662. Blue key. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m3/Milestones.lean#L32)
+- Tick 1,241. Minimum health. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m3/Milestones.lean#L32)
+- Tick 1,638. Onto the upper landing. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m3/Staircase.lean#L36)
+- Tick 1,770. First safe exit. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m3/Certificate.lean#L6)
 
 ## Earlier studies in CombatV2
 

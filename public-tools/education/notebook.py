@@ -46,7 +46,7 @@ These two screenshots come from the released public ProofGrid course L01 in its 
 
 ![Tick 19 of the same controller. At tile (13,5) the door has been opened and the exit flag is true.](attachment:course-exit.png)
 
-The course and the historical CombatV2 runs have different transition functions and maps. To locate a claim, ask which function the theorem mentions, where its initial state comes from, and what the exit flag means. Alaska Hoffman’s (Lean)DOOM translates original-format level data into a native Lean game. The research edition introduced specified enemy arithmetic and a terminating weapon controller to make its transitions reducible in proofs. Equivalence to the upstream enemy program remains open. [Course model](../game/ProofGrid.lean) · [Pinned upstream engine](https://github.com/alaskahoffman/leandoom/tree/dd795d67c075b3c3d1149494ddec6aff756e2a64) · [Engine and proof chapter](index.html#engines)
+The course and the historical CombatV2 runs have different transition functions and maps. To locate a claim, ask which function the theorem mentions, where its initial state comes from, and what the exit flag means. Alaska Hoffman’s (Lean)DOOM translates original-format level data into a native Lean game. The research edition introduced specified enemy arithmetic and a terminating weapon controller to make its transitions reducible in proofs. Equivalence to the upstream enemy program remains open. [Course model](https://github.com/nasqret/leandoom-proofs/blob/afb2055be61bc137170b6f8ee21b90b7d9a512ab/public-site/game/ProofGrid.lean#L36-L57) · [Pinned upstream engine](https://github.com/alaskahoffman/leandoom/tree/dd795d67c075b3c3d1149494ddec6aff756e2a64) · [Engine and proof chapter](index.html#engines)
 ""","course-key.png","course-exit.png")
 
 note(r"""
@@ -173,7 +173,7 @@ print("Actor-slot updates in the Nuclear Plant suffix:", (plant_inputs - plant_s
 note(r"""
 ## Give the exact source to Lean
 
-The next cell holds the complete Lean module that implements the airlock. `DecidableEq` supplies equality decisions. In the concrete theorems, `by decide` builds evidence for a closed proposition. The universal theorems use case analysis, induction and integer arithmetic. In `runAppend`, the induction hypothesis accepts the state reached after the head command. That is what makes the lemma reusable at an arbitrary checkpoint. A SHA-256 digest lets you check that the program bytes match the version used in the classroom run. [Lean tactics and computation](https://lean-lang.org/theorem_proving_in_lean4/axioms_and_computation.html) · [Audited source download](PassageLab.lean) · [Hash standard](https://csrc.nist.gov/pubs/fips/180-4/upd1/final)
+The next cell holds the complete Lean module that implements the airlock. `DecidableEq` supplies equality decisions. In the concrete theorems, `by decide` builds evidence for a closed proposition. The universal theorems use case analysis, induction and integer arithmetic. In `runAppend`, the induction hypothesis accepts the state reached after the head command. That is what makes the lemma reusable at an arbitrary checkpoint. A SHA-256 digest lets you check that the program bytes match the version used in the classroom run. [Lean tactics and computation](https://lean-lang.org/theorem_proving_in_lean4/axioms_and_computation.html) · [Read the audited Lean source](https://github.com/nasqret/leandoom-proofs/blob/afb2055be61bc137170b6f8ee21b90b7d9a512ab/public-site/learn/PassageLab.lean#L5-L40) · [Hash standard](https://csrc.nist.gov/pubs/fips/180-4/upd1/final)
 """)
 
 lean = (site/"PassageLab.lean").read_text()
@@ -184,7 +184,7 @@ program('from hashlib import sha256\n\nlean_source = """'+lean+'"""\nassert sha2
 note(r"""
 ## Compile the witness and audit its imports
 
-This cell launches the stock compiler, writes an object module and then starts a **fresh Lean process** to import the module and ask which axioms its seven declarations use. The reports below come directly from that second process. A report listing `propext` records Lean’s propositional extensionality principle. An added placeholder such as `sorryAx` would change the report. The source, toolchain and the reported dependencies belong to the interpretation of the result. [Validating a Lean proof](https://lean-lang.org/doc/reference/latest/ValidatingProofs/) · [Download the audit commands](Audit.lean)
+This cell launches the stock compiler, writes an object module and then starts a **fresh Lean process** to import the module and ask which axioms its seven declarations use. The reports below come directly from that second process. A report listing `propext` records Lean’s propositional extensionality principle. An added placeholder such as `sorryAx` would change the report. The source, toolchain and the reported dependencies belong to the interpretation of the result. [Validating a Lean proof](https://lean-lang.org/doc/reference/latest/ValidatingProofs/) · [Read the audit commands](https://github.com/nasqret/leandoom-proofs/blob/afb2055be61bc137170b6f8ee21b90b7d9a512ab/public-site/learn/Audit.lean#L2-L8)
 """)
 program('audit_source = """'+audit+'"""\n'+dedent('''
 import os

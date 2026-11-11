@@ -4,15 +4,15 @@ The player reaches the first safe exit on input 3,090 in CombatV2-PhobosFinale-v
 
 ## Moments in the proof
 
-- Tick 0. Ordinary spawn. [Lean source](Resources/theater/source/e1m8/Certificate.lean)
-- Tick 169. First shot. [Lean source](Resources/theater/source/e1m8/Milestones.lean)
-- Tick 2,007. First Baron falls. [Lean source](Resources/theater/source/e1m8/BossPassage.lean)
-- Tick 2,280. Second Baron falls. [Lean source](Resources/theater/source/e1m8/BossPassage.lean)
-- Tick 2,300. Minimum health. [Lean source](Resources/theater/source/e1m8/Milestones.lean)
-- Tick 2,327. The arena wall moves. [Lean source](Resources/theater/source/e1m8/BossPassage.lean)
-- Tick 2,625. The staircase starts. [Lean source](Resources/theater/source/e1m8/BossPassage.lean)
-- Tick 3,089. Teleport into the ending room. [Lean source](Resources/theater/source/e1m8/BossPassage.lean)
-- Tick 3,090. First safe exit. [Lean source](Resources/theater/source/e1m8/Certificate.lean)
+- Tick 0. Ordinary spawn. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m8/Certificate.lean#L5)
+- Tick 169. First shot. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m8/Milestones.lean#L32)
+- Tick 2,007. First Baron falls. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m8/BossPassage.lean#L34)
+- Tick 2,280. Second Baron falls. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m8/BossPassage.lean#L35)
+- Tick 2,300. Minimum health. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m8/Milestones.lean#L32)
+- Tick 2,327. The arena wall moves. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m8/BossPassage.lean#L36)
+- Tick 2,625. The staircase starts. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m8/BossPassage.lean#L37)
+- Tick 3,089. Teleport into the ending room. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m8/BossPassage.lean#L38)
+- Tick 3,090. First safe exit. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m8/Certificate.lean#L6)
 
 ## Earlier studies in CombatV2
 

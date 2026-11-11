@@ -1,3 +1,5 @@
+import { githubLeanSource } from "../assets/lean-source.mjs";
+
 // The reference lines are the executable passage checker for every recording.
 // The two stock-kernel whole-passage theorems have their own segment proofs.
 const sourceFile = new URL("source/OriginalReplay.lean", import.meta.url);
@@ -92,7 +94,6 @@ export function createTickView(host) {
   const content = node("div", "tick-content");
   const header = node("div", "tick-file");
   const sourceLink = node("a", "", "OriginalReplay.lean ↗");
-  sourceLink.href = sourceFile;
   sourceLink.target = "_blank";
   sourceLink.rel = "noopener";
   const phase = node("span");
@@ -163,6 +164,8 @@ export function createTickView(host) {
     if (branch !== shownPhase) {
       shownPhase = branch;
       const [number, text, label] = branches[branch];
+      sourceLink.href = githubLeanSource(sourceFile, number);
+      sourceLink.title = `Open OriginalReplay.lean on GitHub at line ${number}`;
       source.dataset.line = String(number);
       write(line, number);
       code.replaceChildren(...colorSource(text));

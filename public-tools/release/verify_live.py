@@ -17,7 +17,8 @@ paths=['index.html','evidence/maps.json','evidence/core-source.zip','theater/fil
              'theater/lab/checks.json','theater/lab/camera/strafe-910-right.mp4',
              'theater/lab/turn-path.mjs','evidence/experiments/turns/study/Certificate.lean',
              'evidence/experiments/turns/study/receipt.json','evidence/experiments/turns/study/paths-6.json']
-paths.extend(['theater/tick-view.js','theater/tick-view.css','theater/theater.css','theater/source/OriginalReplay.lean'])
+paths.extend(['assets/lean-source.mjs','theater/lab/source.mjs','theater/tick-view.js','theater/tick-view.css',
+              'theater/theater.css','theater/source/OriginalReplay.lean'])
 paths.extend(path.relative_to(root).as_posix() for path in sorted((root/'theater/ticks').rglob('*')) if path.is_file())
 films=json.loads((root/'theater/films.json').read_bytes())
 alternates=root/'theater/alternates.json'

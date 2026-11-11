@@ -2,7 +2,7 @@
 import gzip, hashlib, io, json, re, subprocess, sys, zipfile
 from html.parser import HTMLParser
 from pathlib import Path
-from urllib.parse import unquote,urlsplit
+from urllib.parse import parse_qs,unquote,urlsplit
 root=Path(sys.argv[1]).resolve() if len(sys.argv)>1 else Path(__file__).resolve().parents[2]
 site=root/'public-site'
 if not (root/'research-core/ProofAudit.lean').is_file():
@@ -11,11 +11,31 @@ def load(name): return json.loads((site/name).read_bytes())
 def digest(data): return hashlib.sha256(data).hexdigest()
 def check(value,message):
     if not value: raise ValueError(str(message))
+def check_lean_reading_link(anchor):
+    href = anchor.get('href') or ''
+    dest = urlsplit(href)
+    if not dest.path.lower().endswith('.lean'):
+        return
+    blob = re.fullmatch(r'/([^/]+)/([^/]+)/blob/([^/]+)/(.+\.lean)', dest.path)
+    query = parse_qs(dest.query, keep_blank_values=True)
+    check(dest.scheme == 'https' and dest.hostname == 'github.com' and blob and
+          'download' not in anchor and 'download' not in query and
+          not any(x.lower() in ('true', '1') for x in query.get('raw', [])), ('Lean reading link', href))
+    if blob.groups()[:3] == ('nasqret', 'leandoom-proofs', 'main'):
+        source = (root / unquote(blob[4])).resolve()
+        check(source.is_relative_to(root) and source.is_file(), ('missing GitHub source', href))
+        if dest.fragment:
+            span = re.fullmatch(r'L(\d+)(?:-L(\d+))?', dest.fragment)
+            check(span and 1 <= int(span[1]) <= int(span[2] or span[1]) <= len(source.read_bytes().splitlines()),
+                  ('GitHub source line', href))
+
 class Links(HTMLParser):
     def __init__(self):
         super().__init__()
         self.urls=[]
     def handle_starttag(self,tag,attrs):
+        if tag == 'a':
+            check_lean_reading_link(dict(attrs))
         self.urls.extend(v for k,v in attrs if k in ('href','src') and v)
 for page in site.rglob('*.html'):
     doc=Links(); doc.feed(page.read_text())
@@ -119,11 +139,10 @@ for film in films:
     check(film['fps']==35 and film['frames']>tick and marks==sorted(set(marks)) and marks[0]==0
           and marks[-1]==tick,(film['id'],'chapters must cover spawn through first exit'))
     for c in film['chapters']:
-        if 'sourceFile' in c:
-            source=(site/'theater'/c['sourceFile']).read_bytes()
-            lines=source.decode().splitlines()
-            check(digest(source)==c['sourceSha256'] and all(1<=n<=len(lines) and lines[n-1]==line
-                  for n,line in c['excerpt']),c['module'])
+        source=(site/'theater'/c['sourceFile']).read_bytes()
+        lines=source.decode().splitlines()
+        check(digest(source)==c['sourceSha256'] and all(1<=n<=len(lines) and lines[n-1]==line
+              for n,line in c['excerpt']),c['module'])
         check(0<=c['frame']<film['frames'] and c['line'] in [i for i,_ in c['excerpt']],c['declaration'])
 check(digest((site/'evidence/core-source.zip').read_bytes())==load('evidence/core.json')['archive_sha256'],'core')
 check(len(load('evidence/declarations.json')['records'])==277,'declarations')

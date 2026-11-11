@@ -4,16 +4,16 @@ The player reaches the first safe exit on input 3,207 in CombatV2-Spectre-v1. Th
 
 ## Moments in the proof
 
-- Tick 0. Ordinary spawn. [Lean source](Resources/theater/source/e1m6/Certificate.lean)
-- Tick 5. First shot. [Lean source](Resources/theater/source/e1m6/Milestones.lean)
-- Tick 169. Red key. [Lean source](Resources/theater/source/e1m6/Milestones.lean)
-- Tick 597. Blue key. [Lean source](Resources/theater/source/e1m6/Milestones.lean)
-- Tick 1,396. Yellow key. [Lean source](Resources/theater/source/e1m6/Milestones.lean)
-- Tick 2,083. First remote switch. [Lean source](Resources/theater/source/e1m6/Passage.lean)
-- Tick 2,459. Second remote switch. [Lean source](Resources/theater/source/e1m6/Passage.lean)
-- Tick 2,707. Minimum health. [Lean source](Resources/theater/source/e1m6/Milestones.lean)
-- Tick 3,156. Enter the exit wing. [Lean source](Resources/theater/source/e1m6/Passage.lean)
-- Tick 3,207. First safe exit. [Lean source](Resources/theater/source/e1m6/Certificate.lean)
+- Tick 0. Ordinary spawn. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m6/Certificate.lean#L5)
+- Tick 5. First shot. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m6/Milestones.lean#L32)
+- Tick 169. Red key. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m6/Milestones.lean#L32)
+- Tick 597. Blue key. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m6/Milestones.lean#L32)
+- Tick 1,396. Yellow key. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m6/Milestones.lean#L32)
+- Tick 2,083. First remote switch. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m6/Passage.lean#L45)
+- Tick 2,459. Second remote switch. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m6/Passage.lean#L46)
+- Tick 2,707. Minimum health. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m6/Milestones.lean#L32)
+- Tick 3,156. Enter the exit wing. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m6/Passage.lean#L48)
+- Tick 3,207. First safe exit. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m6/Certificate.lean#L6)
 
 ## Earlier studies in CombatV2
 

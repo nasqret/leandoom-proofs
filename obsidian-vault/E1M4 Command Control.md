@@ -4,12 +4,12 @@ The player reaches the first safe exit on input 1,233 in CombatV2-SectorActions-
 
 ## Moments in the proof
 
-- Tick 0. Ordinary spawn. [Lean source](Resources/theater/source/e1m4/Certificate.lean)
-- Tick 515. Blue key. [Lean source](Resources/theater/source/e1m4/Milestones.lean)
-- Tick 520. First shot. [Lean source](Resources/theater/source/e1m4/Milestones.lean)
-- Tick 883. Yellow key. [Lean source](Resources/theater/source/e1m4/Milestones.lean)
-- Tick 1,074. Minimum health. [Lean source](Resources/theater/source/e1m4/Milestones.lean)
-- Tick 1,233. First safe exit. [Lean source](Resources/theater/source/e1m4/Certificate.lean)
+- Tick 0. Ordinary spawn. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m4/Certificate.lean#L5)
+- Tick 515. Blue key. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m4/Milestones.lean#L32)
+- Tick 520. First shot. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m4/Milestones.lean#L32)
+- Tick 883. Yellow key. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m4/Milestones.lean#L32)
+- Tick 1,074. Minimum health. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m4/Milestones.lean#L32)
+- Tick 1,233. First safe exit. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m4/Certificate.lean#L6)
 
 ## Earlier studies in CombatV2
 

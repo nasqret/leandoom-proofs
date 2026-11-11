@@ -4,14 +4,14 @@ The player reaches the first safe exit on input 4,161 in CombatV2. The passage p
 
 ## Moments in the proof
 
-- Tick 0. Spawn. [Lean source](Resources/theater/source/e1m7/Certificate.lean)
-- Tick 555. Yellow key. [Lean source](Resources/theater/source/e1m7/TapeFork.lean)
-- Tick 1,612. Red key. [Lean source](Resources/theater/source/e1m7/TapeFork.lean)
-- Tick 2,266. Finger off the trigger. [Lean source](Resources/theater/source/e1m7/ScreenedControls.lean)
-- Tick 2,996. Blue key. [Lean source](Resources/theater/source/e1m7/TapeFork.lean)
-- Tick 4,140. The routes split. [Lean source](Resources/theater/source/e1m7/TapeFork.lean)
-- Tick 4,160. Line 810. [Lean source](Resources/theater/source/e1m7/E1M7ShortExit.lean)
-- Tick 4,161. Exit switch. [Lean source](Resources/theater/source/e1m7/Certificate.lean)
+- Tick 0. Spawn. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m7/Certificate.lean#L5)
+- Tick 555. Yellow key. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m7/TapeFork.lean#L360)
+- Tick 1,612. Red key. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m7/TapeFork.lean#L362)
+- Tick 2,266. Finger off the trigger. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m7/ScreenedControls.lean#L19)
+- Tick 2,996. Blue key. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m7/TapeFork.lean#L362)
+- Tick 4,140. The routes split. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m7/TapeFork.lean#L361)
+- Tick 4,160. Line 810. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m7/E1M7ShortExit.lean#L28)
+- Tick 4,161. Exit switch. [Lean source](https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/source/e1m7/Certificate.lean#L6)
 
 ## Earlier studies in CombatV2
 

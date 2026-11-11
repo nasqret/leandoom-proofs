@@ -32,6 +32,7 @@ globalThis.checkStationTheater = async function () {
   await until(() => !video.paused && Number(slider.value) > 0, "Playing film did not advance its clock");
   play.click();
   await until(() => video.paused, "Film did not pause");
+  $('[data-view="chapter"]').click();
   const mid = Math.floor(station.chapters.length / 2);
   const chapterPicker = $(".chapters");
   chapterPicker.value = mid;
@@ -43,8 +44,10 @@ globalThis.checkStationTheater = async function () {
   const end = station.chapters.at(-1), link = $(".filename a");
   assert(Number(slider.value) === station.tick && $(".counter").textContent.includes("4161 / 4161"), "Exit clock mismatch");
   assert(chapterPicker.selectedIndex === station.chapters.length - 1 && $(".chapter-note strong").textContent === end.name, "Wrong exit chapter");
-  assert(end.sourceFile && link?.href === new URL(end.sourceFile, index).href, "Wrong exit source link");
-  const source = await fetch(link.href);
+  const githubSource = "https://github.com/nasqret/leandoom-proofs/blob/main/public-site/theater/" + end.sourceFile;
+  assert(end.sourceFile && link?.href === githubSource + "#L" + end.line && !link.hasAttribute("download"),
+    "Exit source must open the highlighted Lean line on GitHub");
+  const source = await fetch(new URL(end.sourceFile, index));
   assert(source.ok, "Could not open exit source");
   const bytes = await source.arrayBuffer();
   const digest = Array.from(new Uint8Array(await crypto.subtle.digest("SHA-256", bytes)), x => x.toString(16).padStart(2, "0")).join("");

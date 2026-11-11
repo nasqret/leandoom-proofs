@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 import re
 import tempfile
-from urllib.parse import unquote,urlsplit
+from urllib.parse import parse_qs,unquote,urlsplit
 import zipfile
 
 from bs4 import BeautifulSoup
@@ -19,6 +19,13 @@ def check(condition,explanation):
 
 def digest(data):
     return hashlib.sha256(data).hexdigest()
+
+def check_source_link(url, location, download=False):
+    if not unquote(url.path).lower().endswith('.lean'):
+        return
+    check(url.scheme=='https' and url.hostname=='github.com' and '/blob/' in url.path
+          and not download and 'raw' not in parse_qs(url.query,keep_blank_values=True),
+          f'{location} must open Lean source in the GitHub viewer: {url.geturl()}')
 
 def local_links(site, docs):
     count=0
@@ -36,6 +43,8 @@ def local_links(site, docs):
         for node in document.select('a[href], img[src], script[src], link[href]'):
             href=node.get('href',node.get('src'))
             value=urlsplit(href)
+            if node.name=='a':
+                check_source_link(value, path.name, node.has_attr('download'))
             if value.scheme in {'http','https'}:
                 if node.name=='a':external.add(href)
                 continue
@@ -104,6 +113,7 @@ def run():
                 check(link+'.md' in notes,'Missing vault note '+link)
             for link in re.findall(r'\]\(([^)\s]+)\)',text):
                 url=urlsplit(link)
+                check_source_link(url, name)
                 if not url.scheme and url.path:
                     check(unquote(url.path) in vault.namelist(),name+' missing '+link)
         check(vault.read('Resources/core-source.zip')==(SITE.parent/'evidence/core-source.zip').read_bytes(),'Vault source core is stale')

@@ -1,3 +1,4 @@
+import { githubLeanSource } from "../assets/lean-source.mjs";
 const make = (tag, txt, cls) => {
   const e = document.createElement(tag);
   e.textContent = txt;
@@ -70,38 +71,36 @@ function show() {
   }
   const extras = {
     E1M9: [
-      ["Inspect the unraised-trench theorem", "../theater/source/e1m9/Trench.lean"],
+      ["Inspect the unraised-trench theorem", "../theater/source/e1m9/Trench.lean", 35, 38],
       ["See where the winning controller diverges", "passages/e1m9/provenance.json"],
       ["Read the three-key and platform evidence", "e1m9/result.json"],
-      [
-        "Inspect the first-three-keys theorem",
-        "e1m9/three-key-certificate.json",
-      ],
+      ["Inspect the first-three-keys theorem", "e1m9/ThreeKeys.lean", 33, 33],
+      ["First-three-keys verification receipt", "e1m9/three-key-certificate.json"],
       ["Open the Military Base controller", "e1m9/prooflab-three-keys.json"],
-      ["Read the platform proof", "e1m9/MilitaryBoundary.lean"],
+      ["Read the platform boundary proof", "e1m9/MilitaryBoundary.lean", 12, 15],
     ],
     E1M4: [
-      ["Read the new crossing-dispatch theorem", "e1m4/BlueDoor.lean"],
+      ["Read the new crossing-dispatch theorem", "e1m4/BlueDoor.lean", 15, 20],
       ["Inspect the map and axiom evidence", "e1m4/result.json"],
     ],
     E1M5: [
-      ["Inspect the soulsphere pickup", "../theater/source/e1m5/Soulsphere.lean"],
+      ["Inspect the soulsphere pickup", "../theater/source/e1m5/Soulsphere.lean", 35, 37],
       ["Compare the same tape under frozen CombatV2", "passages/e1m5/frozen-control/receipt.json"],
     ],
     E1M8: [
-      ["Inspect the boss, wall and teleport theorem", "../theater/source/e1m8/BossPassage.lean"],
+      ["Inspect the boss, wall and teleport theorem", "../theater/source/e1m8/BossPassage.lean", 44, 46],
     ],
     E1M7: [
-      ["Read the safety theorem for every prefix", "StationSafe.lean"],
-      ["Read the general scan-soundness proof", "ScanSemantics.lean"],
+      ["Read the safety theorem for every prefix", "StationSafe.lean", 5, 8],
+      ["Read the general scan-soundness proof", "ScanSemantics.lean", 18, 20],
       ["Inspect the fresh first-exit axiom audit", "StationSafe.audit.log"],
     ],
   };
   if (extras[m.level]) {
     const group = make("div", "", "actions");
-    for (const [title, url] of extras[m.level]) {
+    for (const [title, url, first, last] of extras[m.level]) {
       const a = make("a", title, "btn");
-      a.href = url;
+      a.href = first ? githubLeanSource(new URL(url, import.meta.url), first, last) : url;
       group.append(a);
     }
     detail.append(group);

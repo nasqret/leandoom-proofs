@@ -1,6 +1,6 @@
 {
   "schema": "leandoom-replay-lab-browser-qa-v1",
-  "scope": "Chromium browser presentation and metadata checks on local static HTTP with byte ranges. The separate linked Lean receipts govern simulation claims.",
+  "scope": "The original sweep records Chromium camera, geometry, export and measurement results in the fields below. browserRegression records the latest checks of the published interface. Lean simulation receipts are linked separately.",
   "viewports": [
     [
       1280,
@@ -91,9 +91,9 @@
     "theater/lab/index.html": "41bdac764569e941ba0661bc62389daeed519926a6c8c21f0f1f99d4c27d565c",
     "theater/lab/lab.css": "b90555c6379ba8e10cad86e7a7070ffd214b254f00b66537e5f455772067473b",
     "theater/lab/draw.mjs": "b37aebf0621c77db707ff573739113af8a59293452bfed0cd78c57151b621d4c",
-    "theater/lab/rng.mjs": "b81a8cfe4450ebed027818b37af35f608e2acfe7c6f0f81d399e73d1f1b0de3b",
-    "theater/lab/lab.mjs": "9e0e5adc32c50da1ba1e672273a16bb84d6cb5c25d8f4026a76405432ff99634",
-    "theater/lab/turns.mjs": "af16ebf146e577e1ae6c778715fd34db81794f7fb3b2342a437f323c528f1c4e",
+    "theater/lab/rng.mjs": "50eece9b0eb6694e79f7a3c1f5c032df39f81cf4aaf722eb36fc866c07e2aa0e",
+    "theater/lab/lab.mjs": "a465d3ed96aeea5fc042b52070b5bba122013481c48e3ebf2c5be5fc34e52e14",
+    "theater/lab/turns.mjs": "90989266e56570efb1a9a29c49d3f5e83496140074ed6794a3bbf86836e8338c",
     "theater/lab/camera/cameras.json": "a662bc3c5e80bc873343343d11ccb4790c20243ade44e11e9a88cf317ac75cdd",
     "theater/lab/camera/rng.json": "89411d9fedfa9316a3084ddfa97f8519c29ce6ee4973c9251c9157877edcd78d",
     "evidence/experiments/forks.json": "2e740c3befd89c2c74cfcec97408a631e7b8890ee9f0676bd026ff92fc75bb23",
@@ -103,14 +103,16 @@
     "theater/lab/turn-path.mjs": "87d27e53a80da32b73f9e115c6a95390e07bb71949e004446944c666e1365f94",
     "evidence/experiments/turns/turns.json": "98030ffbbb31cd871a27026c6304d74b662412e2fb69334d566c63448184ed47",
     "evidence/experiments/turns/study/paths-6.json": "55b2dd6c0f9e99cb078e8ff2f34b7813bab3cd26cadd9b3fdc36675b29844a6a",
-    "evidence/experiments/turns/study/receipt.json": "7195dcea4c872c67069250856f74e50a08f71273f2a0332e796c023833098ab6"
+    "evidence/experiments/turns/study/receipt.json": "7195dcea4c872c67069250856f74e50a08f71273f2a0332e796c023833098ab6",
+    "theater/lab/source.mjs": "51a9e4b2ed5ed1ea7fc18d8eafe71f949eb91b1d9b7f0e30f59f0af343c2a472",
+    "assets/lean-source.mjs": "113d334f555471fb300ee6ded795cbefa1b96880c06c65eda9994042d05a52fb"
   },
   "browserRegression": {
-    "scope": "Chromium ran the checked-in desktop and mobile browser assertions. The driver supports Playwright and the configured Chromium CLI.",
+    "scope": "Chromium ran checkReplayLab(\"desktop\") and checkReplayLab(\"mobile\") on the staging Pages project path. Both runs opened the direct turn-workbench link. The sha256 table identifies the site sources for these runs.",
     "sourceDirectory": "public-tools/experiments/browser",
     "sourceSha256": {
       "check.cjs": "25b9bfbcdc2aa95a3338ffd95725a503cd20949914bbf8fe0a6989172a710696",
-      "scenarios.js": "6ee1c57af8924cffcedfefb48081c5811b3a8ac50c602d9763071dddc6c6259f"
+      "scenarios.js": "a2d39c091f74156f7ac8ddcf92784cd84c82852d3ce5dc62e3e15558d7d87bb4"
     },
     "directions": "README.md",
     "directEntry": "#turn-workbench",
@@ -157,9 +159,22 @@
       390,
       844
     ],
-    "keyboardGridMove": [
-      5,
-      6
+    "viewports": [
+      [
+        1280,
+        850
+      ],
+      [
+        390,
+        844
+      ]
+    ],
+    "sourceLinkTheorems": [
+      "certifiedAuthenticE1M1",
+      "Recording.diedPhase40",
+      "Recording.diedPhase0",
+      "minimumInThisFamily"
     ]
-  }
+  },
+  "originalSweepReceipt": "https://github.com/nasqret/leandoom-proofs/blob/f90d362cb0585ff44c59835a0d5e8dbbf41852a1/public-site/theater/lab/checks.json"
 }

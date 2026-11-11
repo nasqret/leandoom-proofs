@@ -340,7 +340,8 @@
         ],
         "declaration": "edge505",
         "sourceSha256": "5003b393bd9641d22c3a4b0b507c8f4bbaafb5717dfdbf8b69cad784ae3b2561",
-        "objectSha256": "1db9a3aa87cf94c9d0df694b267c6ab9f9f7d17389ebafa82d3ee8aedb8f5366"
+        "objectSha256": "1db9a3aa87cf94c9d0df694b267c6ab9f9f7d17389ebafa82d3ee8aedb8f5366",
+        "sourceFile": "source/FullLeaf505.lean"
       },
       {
         "frame": 687,
@@ -364,7 +365,8 @@
         ],
         "declaration": "edge687",
         "sourceSha256": "24047f6ab9d6fc43621573b110734aeb4b168fa8674a2163861d500180e87c3c",
-        "objectSha256": "80c3bfd9b04eb340f6b4c3e4b229a0d94d12bb586120c2e4ef810cc1ce913bfe"
+        "objectSha256": "80c3bfd9b04eb340f6b4c3e4b229a0d94d12bb586120c2e4ef810cc1ce913bfe",
+        "sourceFile": "source/FullLeaf687.lean"
       },
       {
         "frame": 954,

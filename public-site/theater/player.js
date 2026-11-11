@@ -1,4 +1,5 @@
 import { createTickView } from "./tick-view.js";
+import { githubLeanSource } from "../assets/lean-source.mjs";
 
 const asset = (name) => new URL(name, import.meta.url);
 const make = (tag, text, cls) => {
@@ -135,12 +136,13 @@ function theater(root, films, routes) {
     const chapter = film.chapters[idx];
     picker.value = idx;
     const filename = make("div", "", "filename");
-    if (chapter.sourceFile) {
-      const link = make("a", chapter.module + ".lean ↗");
-      link.href = asset(chapter.sourceFile);
-      link.target = "_blank";
-      filename.append(link);
-    } else filename.textContent = chapter.module + ".lean";
+    const link = make("a", chapter.module + ".lean ↗");
+    const source = chapter.sourceFile || `source/${chapter.module}.lean`;
+    link.href = githubLeanSource(asset(source), chapter.line);
+    link.title = `Open ${chapter.module}.lean on GitHub at line ${chapter.line}`;
+    link.target = "_blank";
+    link.rel = "noopener";
+    filename.append(link);
     editor.replaceChildren(
       filename,
       ...chapter.excerpt.map(([n, code]) =>
