@@ -97,7 +97,7 @@ function theater(root, films) {
     video.pause();
     film = films[i];
     edition.textContent = film.engine + " · " + film.fps + " ticks/s";
-    find(".edition-evidence").href = "../evidence/#" + film.id;
+    find(".edition-evidence").href = asset("../evidence/#" + film.id);
     pendingFrame = undefined;
     last = -1;
     find(".proof-tier").textContent = film.proofTier === "compiler-assisted"

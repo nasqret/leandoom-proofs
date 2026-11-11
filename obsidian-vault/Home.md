@@ -10,4 +10,4 @@ Open this folder as a vault in Obsidian. Everything in it also opens with an ord
 - [[Memory]], [[Journal]] and [[Plan]] retain the experimental decisions, checks and open tasks.
 - [[Reading]] lists texts, papers and reference manuals by subject.
 
-[Dashboard](https://nasqret.github.io/leandoom-proofs/) · [Classic game](https://nasqret.github.io/leandoom-proofs/classic/) · [Proof gallery](https://nasqret.github.io/leandoom-proofs/evidence/) · [Offline Jupyter Book](https://nasqret.github.io/leandoom-proofs/learn/jupyter-book.zip)
+[Dashboard](https://nasqret.github.io/leandoom-proofs/) · [Classic game](https://nasqret.github.io/leandoom-proofs/classic/) · [Original-map Proof Theater](https://nasqret.github.io/leandoom-proofs/theater/) · [Proof gallery](https://nasqret.github.io/leandoom-proofs/evidence/) · [Offline Jupyter Book](https://nasqret.github.io/leandoom-proofs/learn/jupyter-book.zip)

@@ -25,7 +25,7 @@ sphinx:
     html_copy_source: false
 ''',
     'requirements.txt': 'jupyter-book==1.0.4.post1\n',
-    'README.txt': 'Install the packages from requirements.txt, then run jupyter-book build . -W -n --all. Open _build/html/index.html. Stored output in lab.ipynb comes from a WMI Python and Lean run. Read index.md and the notebook directly without building. The original standalone notebook is in downloads/.\n'
+    'README.txt': 'Install the packages from requirements.txt, then run jupyter-book build . -W -n --all. Open _build/html/index.html. Stored output in lab.ipynb comes from a Helios Python and Lean run. Read index.md and the notebook directly without building. The original standalone notebook is in downloads/.\n'
 }
 
 def links(text):

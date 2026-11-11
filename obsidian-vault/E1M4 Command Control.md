@@ -1,8 +1,19 @@
 # E1M4 Command Control
 
-From the viewpoint (−1580, 1888), looking west, the Use ray finds line 554. Lean checks the normal exit dispatcher and the switch changing from SW1DIRT to SW2DIRT. Reaching this viewpoint from the ordinary start remains open. The two blue-card approaches, lines 686 and 687, have crossing type 90. Stock Lean proves the crossing dispatcher leaves the map unchanged for this type.
+The player reaches the first safe exit on input 1,233 in CombatV2-SectorActions-V1. The passage proof uses compiler-assisted checking. [Watch the run and read the Lean source](https://nasqret.github.io/leandoom-proofs/theater/?level=E1M4) · [Lean receipt](Resources/passages/e1m4/receipt.json) · [Axiom report](Resources/passages/e1m4/audit.log) · [Inputs](Resources/passages/e1m4/recording.json) · [Frame checks](Resources/passages/e1m4/camera.json)
 
-Edition: CombatV2.
+## Moments in the proof
+
+- Tick 0. Ordinary spawn. [Lean source](Resources/theater/source/e1m4/Certificate.lean)
+- Tick 515. Blue key. [Lean source](Resources/theater/source/e1m4/Milestones.lean)
+- Tick 520. First shot. [Lean source](Resources/theater/source/e1m4/Milestones.lean)
+- Tick 883. Yellow key. [Lean source](Resources/theater/source/e1m4/Milestones.lean)
+- Tick 1,074. Minimum health. [Lean source](Resources/theater/source/e1m4/Milestones.lean)
+- Tick 1,233. First safe exit. [Lean source](Resources/theater/source/e1m4/Certificate.lean)
+
+## Earlier studies in CombatV2
+
+From the viewpoint (−1580, 1888), looking west, the Use ray finds line 554. Lean checks the normal exit dispatcher and the switch changing from SW1DIRT to SW2DIRT. Reaching this viewpoint from the ordinary start remains open. The two blue-card approaches, lines 686 and 687, have crossing type 90. Stock Lean proves the crossing dispatcher leaves the map unchanged for this type.
 
 ## Checked statements
 

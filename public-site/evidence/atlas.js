@@ -26,8 +26,8 @@ function show() {
     make("p", m.status, "status"),
     make("p", m.description),
   );
-  if (m.revisedPassage) {
-    const r = m.revisedPassage, panel = make("section", "", "sheet");
+  if (m.revisedPassage || m.portablePassage) {
+    const r = m.revisedPassage || m.portablePassage, panel = make("section", "", "sheet");
     panel.append(make("h3", "Full passage · " + r.engine),
       make("p", r.tick.toLocaleString("en-US") + " ordinary inputs reach the first safe exit with " +
         r.final.health + " health. Lean checked every prefix using compiler evaluation."));
@@ -70,6 +70,8 @@ function show() {
   }
   const extras = {
     E1M9: [
+      ["Inspect the unraised-trench theorem", "../theater/source/e1m9/Trench.lean"],
+      ["See where the winning controller diverges", "passages/e1m9/provenance.json"],
       ["Read the three-key and platform evidence", "e1m9/result.json"],
       [
         "Inspect the first-three-keys theorem",
@@ -81,6 +83,13 @@ function show() {
     E1M4: [
       ["Read the new crossing-dispatch theorem", "e1m4/BlueDoor.lean"],
       ["Inspect the map and axiom evidence", "e1m4/result.json"],
+    ],
+    E1M5: [
+      ["Inspect the soulsphere pickup", "../theater/source/e1m5/Soulsphere.lean"],
+      ["Compare the same tape under frozen CombatV2", "passages/e1m5/frozen-control/receipt.json"],
+    ],
+    E1M8: [
+      ["Inspect the boss, wall and teleport theorem", "../theater/source/e1m8/BossPassage.lean"],
     ],
     E1M7: [
       ["Read the safety theorem for every prefix", "StationSafe.lean"],

@@ -1,8 +1,23 @@
 # E1M6 Central Processing
 
-A 2,585-input native prefix collects all three keys and operates two switches. Lean locates three Spectres between the exit hallway walls and checks the normal exit at line 627 from a specified viewpoint. Passage from spawn remains open.
+The player reaches the first safe exit on input 3,207 in CombatV2-Spectre-v1. The passage proof uses compiler-assisted checking. [Watch the run and read the Lean source](https://nasqret.github.io/leandoom-proofs/theater/?level=E1M6) · [Lean receipt](Resources/passages/e1m6/receipt.json) · [Axiom report](Resources/passages/e1m6/audit.log) · [Inputs](Resources/passages/e1m6/recording.json) · [Frame checks](Resources/passages/e1m6/camera.json)
 
-Edition: CombatV2.
+## Moments in the proof
+
+- Tick 0. Ordinary spawn. [Lean source](Resources/theater/source/e1m6/Certificate.lean)
+- Tick 5. First shot. [Lean source](Resources/theater/source/e1m6/Milestones.lean)
+- Tick 169. Red key. [Lean source](Resources/theater/source/e1m6/Milestones.lean)
+- Tick 597. Blue key. [Lean source](Resources/theater/source/e1m6/Milestones.lean)
+- Tick 1,396. Yellow key. [Lean source](Resources/theater/source/e1m6/Milestones.lean)
+- Tick 2,083. First remote switch. [Lean source](Resources/theater/source/e1m6/Passage.lean)
+- Tick 2,459. Second remote switch. [Lean source](Resources/theater/source/e1m6/Passage.lean)
+- Tick 2,707. Minimum health. [Lean source](Resources/theater/source/e1m6/Milestones.lean)
+- Tick 3,156. Enter the exit wing. [Lean source](Resources/theater/source/e1m6/Passage.lean)
+- Tick 3,207. First safe exit. [Lean source](Resources/theater/source/e1m6/Certificate.lean)
+
+## Earlier studies in CombatV2
+
+A 2,585-input native prefix collects all three keys and operates two switches. Lean locates three Spectres between the exit hallway walls and checks the normal exit at line 627 from a specified viewpoint. Passage from spawn remains open.
 
 ## Checked statements
 

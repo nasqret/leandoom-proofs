@@ -1,0 +1,166 @@
+{
+  "E1M3": {
+    "cluster": "Helios",
+    "job": 26061829,
+    "engine": "CombatV2-Floors1",
+    "recordingSha256": "5875490fbd621e49ed40d58b1367020cf2bbfa25574566f238f0f169706a4c54",
+    "rulesSha256": "516a81035753ed371421a43c58a2d551266d7812841068d6835b77fa5b83d051",
+    "declarations": {
+      "Recording.milestones": {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.milestones._native.native_decide.ax_1_1"
+        ],
+        "sourceSha256": "e6e1a32b4747a76127c6025f04ff0234d621f7f361f1682273af6fbb8e1dd2e6",
+        "objectSha256": "1cf95b8ca2c529cf2cef8a4e9b2313ec25e468d710db4aa5e74b1b63d185657f"
+      },
+      "Recording.stairLanding": {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.stairLanding._native.native_decide.ax_1_1"
+        ],
+        "sourceSha256": "68403b8cd9a06b3e677a0da89c9da99b4c9ba96ef22a15935fff236911ffcfb5",
+        "objectSha256": "e8a1e7dc6e14e972eb821567ba7510bb86d97133da904afb24852c4575b724f8"
+      }
+    }
+  },
+  "E1M4": {
+    "cluster": "Helios",
+    "job": 26061830,
+    "engine": "CombatV2-SectorActions-V1",
+    "recordingSha256": "609b709569156d946300e6b85591ea5d5893ebff09453e1386503500b9ec9172",
+    "rulesSha256": "794d195d7591ce876712ee22e17f7cf056914b882cbbbc09b16b68b9f3c8d248",
+    "declarations": {
+      "Recording.milestones": {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.milestones._native.native_decide.ax_1_1"
+        ],
+        "sourceSha256": "ef116ecf1b4afcbffb3f05eb5c4f6e0f21eea55a6a7a567e795dded6676b9e5e",
+        "objectSha256": "827e4c0644de1b12bab2685fab79239f9541141898b14230cb4488c81d2eef6d"
+      }
+    }
+  },
+  "E1M5": {
+    "cluster": "Helios",
+    "job": 26061831,
+    "engine": "CombatV2-SectorActions-V1",
+    "recordingSha256": "8e0e46dbdd85007dbbf2a34b61696bf7f9b11fda1a87d73d54065d2c6f1be1e9",
+    "rulesSha256": "794d195d7591ce876712ee22e17f7cf056914b882cbbbc09b16b68b9f3c8d248",
+    "declarations": {
+      "Recording.milestones": {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.milestones._native.native_decide.ax_1_1"
+        ],
+        "sourceSha256": "ac387db59bbcf8d4a6baddbc7a2c313e2da87a8c08f08f0ccda1ccde1a0ac426",
+        "objectSha256": "46aa6fa8987fc772c847949b74047c079fe7704a3b664236083f3f42b9346918"
+      },
+      "Recording.soulspherePickup": {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.soulspherePickup._native.native_decide.ax_1_1"
+        ],
+        "sourceSha256": "84dafe6c3ee7b47f46b0a457c1f3ee04db4049cba78c9b8aff7172769012bfe0",
+        "objectSha256": "496f0ed4b7dd9db1e283bddfae6d3f0c3a57140d336274e72921fea0020dddf6"
+      }
+    }
+  },
+  "E1M6": {
+    "cluster": "Helios",
+    "job": 26061828,
+    "engine": "CombatV2-Spectre-v1",
+    "recordingSha256": "ed0fd0fbf84c068fa2498958ffe46b4c82a2c7895c192ca46e5d4856f7366d24",
+    "rulesSha256": "7db637c162c08be9071c140d486673e682eb8864ab111648c6fe63ef0cde0527",
+    "declarations": {
+      "Recording.milestones": {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.milestones._native.native_decide.ax_1_1"
+        ],
+        "sourceSha256": "c5a9f260f8c6bf969145e3f8cb802b55e6221b4c653569457deb903976284b9f",
+        "objectSha256": "18de53dedafc0c4d9486d7aaf3699d36e17fac05edd5a2eecbd8f5860d72874d"
+      },
+      "CentralSpectrePassage.observedCheckpoints": {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "CentralSpectrePassage.observedCheckpoints._native.native_decide.ax_1_1"
+        ],
+        "sourceSha256": "ed2e0a55c8c1c7ce4b06c5ff6f9fe45e0caf6195cd73f6eb506053a5b0963abe",
+        "objectSha256": "0e872404e0e086e15171dc0cb28c3c565aa59a4266565d2a482881c1977c8d3c"
+      }
+    }
+  },
+  "E1M8": {
+    "cluster": "Helios",
+    "job": 26061971,
+    "engine": "CombatV2-PhobosFinale-v1",
+    "recordingSha256": "8b8881086a2ca59b108fb9c624db9e95a5e3d2bb2e99cd6471052afd33e939b2",
+    "rulesSha256": "34980631f9900330b809b0d869702fcb32cd39ea6c03b64baaf6c11964608eb2",
+    "declarations": {
+      "Recording.milestones": {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.milestones._native.native_decide.ax_1_1"
+        ],
+        "sourceSha256": "00813c0315c4e9dd11f36592c19e0e612d7292ce9de24f48354cda4a19c905a2",
+        "objectSha256": "4f247ad0440c0affbb809e25e9f6a9daaf698471bada84d06bcc72582c404880"
+      },
+      "Recording.bossSequence": {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.bossSequence._native.native_decide.ax_1_1"
+        ],
+        "sourceSha256": "013f85f0c4d093a89a60cafe008f9c6d365daae6bc841d4559070df788267b85",
+        "objectSha256": "c713c4d0da5017fedff6e5cc84f1f0593e73e30b769320bfba17f19babf62028"
+      }
+    }
+  },
+  "E1M9": {
+    "cluster": "Helios",
+    "job": 26061970,
+    "engine": "CombatV2",
+    "recordingSha256": "b7c4ea7e9932efd912353231b27312fd58729de247a32304a931d8276d040977",
+    "rulesSha256": "841ef1221cd98c2c7e3c56c9709ea100970e176751f2f7e9f046605dc6a0b8f1",
+    "declarations": {
+      "Recording.milestones": {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.milestones._native.native_decide.ax_1_1"
+        ],
+        "sourceSha256": "143ab108d87ed1a2ffb62932b6ecda89996fe88665818a93f976bdd8deac738c",
+        "objectSha256": "17ad0691bdda4c5e7678ef552906164c196a301ca3fc12b25e70ddfcc442d4d7"
+      },
+      "Recording.unraisedTrench": {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.unraisedTrench._native.native_decide.ax_1_1"
+        ],
+        "sourceSha256": "53241035ad5801e21f21c78bb7741a44806c571783022f450d22696c1be7b94d",
+        "objectSha256": "51e93ea931156889ee817c74cccd1f5ee403f86a3dca1ebdbdd7fd28ea7a8750"
+      }
+    }
+  }
+}

@@ -1,8 +1,20 @@
 # E1M5 Phobos Lab
 
-Lean parses the original map and constructs its ordinary start. A 64-unit Use ray from a specified viewpoint reaches line 409. The normal exit dispatcher requests completion, and the panel changes its wall texture. Passage to this viewpoint remains open.
+The player reaches the first safe exit on input 3,569 in CombatV2-SectorActions-V1. The passage proof uses compiler-assisted checking. [Watch the run and read the Lean source](https://nasqret.github.io/leandoom-proofs/theater/?level=E1M5) · [Lean receipt](Resources/passages/e1m5/receipt.json) · [Axiom report](Resources/passages/e1m5/audit.log) · [Inputs](Resources/passages/e1m5/recording.json) · [Frame checks](Resources/passages/e1m5/camera.json)
 
-Edition: CombatV2.
+## Moments in the proof
+
+- Tick 0. Ordinary spawn. [Lean source](Resources/theater/source/e1m5/Certificate.lean)
+- Tick 5. First shot. [Lean source](Resources/theater/source/e1m5/Milestones.lean)
+- Tick 741. Minimum health. [Lean source](Resources/theater/source/e1m5/Milestones.lean)
+- Tick 1,093. Yellow key. [Lean source](Resources/theater/source/e1m5/Milestones.lean)
+- Tick 1,945. The secret soulsphere. [Lean source](Resources/theater/source/e1m5/Soulsphere.lean)
+- Tick 3,158. Blue key. [Lean source](Resources/theater/source/e1m5/Milestones.lean)
+- Tick 3,569. First safe exit. [Lean source](Resources/theater/source/e1m5/Certificate.lean)
+
+## Earlier studies in CombatV2
+
+Lean parses the original map and constructs its ordinary start. A 64-unit Use ray from a specified viewpoint reaches line 409. The normal exit dispatcher requests completion, and the panel changes its wall texture. Passage to this viewpoint remains open.
 
 ## Checked statements
 

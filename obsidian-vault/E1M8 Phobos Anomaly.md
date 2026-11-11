@@ -1,8 +1,22 @@
 # E1M8 Phobos Anomaly
 
-Sector 66 contains the teleport destination. Lean proves that no sector-adjacency walk reaches it from start sector 9. At the ordinary start, activating any of the 333 linedefs leaves the exit flag clear. In an initially mover-free world every sequence of crossing callbacks leaves that world unchanged. Full gameplay reachability remains open.
+The player reaches the first safe exit on input 3,090 in CombatV2-PhobosFinale-v1. The passage proof uses compiler-assisted checking. [Watch the run and read the Lean source](https://nasqret.github.io/leandoom-proofs/theater/?level=E1M8) · [Lean receipt](Resources/passages/e1m8/receipt.json) · [Axiom report](Resources/passages/e1m8/audit.log) · [Inputs](Resources/passages/e1m8/recording.json) · [Frame checks](Resources/passages/e1m8/camera.json)
 
-Edition: CombatV2.
+## Moments in the proof
+
+- Tick 0. Ordinary spawn. [Lean source](Resources/theater/source/e1m8/Certificate.lean)
+- Tick 169. First shot. [Lean source](Resources/theater/source/e1m8/Milestones.lean)
+- Tick 2,007. First Baron falls. [Lean source](Resources/theater/source/e1m8/BossPassage.lean)
+- Tick 2,280. Second Baron falls. [Lean source](Resources/theater/source/e1m8/BossPassage.lean)
+- Tick 2,300. Minimum health. [Lean source](Resources/theater/source/e1m8/Milestones.lean)
+- Tick 2,327. The arena wall moves. [Lean source](Resources/theater/source/e1m8/BossPassage.lean)
+- Tick 2,625. The staircase starts. [Lean source](Resources/theater/source/e1m8/BossPassage.lean)
+- Tick 3,089. Teleport into the ending room. [Lean source](Resources/theater/source/e1m8/BossPassage.lean)
+- Tick 3,090. First safe exit. [Lean source](Resources/theater/source/e1m8/Certificate.lean)
+
+## Earlier studies in CombatV2
+
+Sector 66 contains the teleport destination. Lean proves that no sector-adjacency walk reaches it from start sector 9. At the ordinary start, activating any of the 333 linedefs leaves the exit flag clear. In an initially mover-free world every sequence of crossing callbacks leaves that world unchanged. Full gameplay reachability remains open.
 
 ## Checked statements
 

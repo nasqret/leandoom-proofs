@@ -1,8 +1,19 @@
 # E1M2 Nuclear Plant
 
-The 1,017-input controller reaches the first exit with 73 health. Look inside the collision, combat and lift interactions at their actual game ticks.
+The player reaches the first safe exit on input 1,017 in CombatV2. The passage proof uses stock kernel checking. [Watch the run and read the Lean source](https://nasqret.github.io/leandoom-proofs/theater/?level=E1M2)
 
-Edition: CombatV2.
+## Moments in the proof
+
+- Tick 0. Ordinary spawn. [Lean source](Resources/theater/source/E1M2Foundation.lean)
+- Tick 5. First pistol shot. [Lean source](Resources/theater/source/WindowFifthShot.lean)
+- Tick 191. Enemy crossfire. [Lean source](Resources/theater/source/CrossfireFromMap.lean)
+- Tick 202. Red key. [Lean source](Resources/theater/source/FullRedKey202.lean)
+- Tick 954. An imp starts a lift. [Lean source](Resources/theater/source/FullLiftFromMap.lean)
+- Tick 1,017. First safe exit. [Lean source](Resources/theater/source/CampaignWinner.lean)
+
+## Earlier studies in CombatV2
+
+The 1,017-input controller reaches the first exit with 73 health. Look inside the collision, combat and lift interactions at their actual game ticks.
 
 ## Checked statements
 

@@ -38,14 +38,16 @@ Stock Lean also proves that the Episode One level-successor relation admits exac
 
 Across all 36 Freedoom: Phase 1 levels, the native player rendered a start and the verifier certified a four-input prefix and its endpoint. [Per-map prefix certificates](public-site/downloads/native-episode-checks.json)
 
-The two original maps with historical whole-route kernel proofs are E1M1 and E1M2 in CombatV2. Computer Station (E1M7) has a complete compiler-assisted first-safe-exit theorem for 4,161 inputs, ending at 45 health. Command Control (E1M4) reaches its first safe exit after 1,233 inputs in the separately specified CombatV2-SectorActions-V1 revision. It has a compiler-assisted passage proof, an independently checked clean build, and a separate theorem for the two key pickups, first shot and minimum health. [Replay the revised engine](public-tools/episode-passages/README.md). Toxin Refinery, Phobos Lab and Central Processing also have original-map passage theorems, matching films and clean-source checks in their named revisions. Nine original ordinary starts and four constructed scene completions have additional checked results. The original Doom executable, the browser’s classic port, the native Lean port, and the small proof course have different semantics. See the dashboard and the local-verifier receipts for current coverage and trust tiers.
+All nine original Episode One maps now have individual ordinary-spawn passage proofs and synchronized first-person films. Hangar and Nuclear Plant have stock-kernel proofs. The other seven use compiler-assisted checks. Four maps use frozen CombatV2 and five use separately named revisions. Military Base clears the trench with the bridge down. Phobos Anomaly simulates both Barons, the wall, the stairs and the teleport. [All nine passages and reproduction commands](public-tools/episode-passages/README.md).
 
 ## Work on the site
 
 [Contributor instructions](CONTRIBUTING.md) cover new levels, films, controller tapes, trust settings and deployment.
 
+With Node.js 20 or later, preview the site with a server that supports seeking inside the films.
+
 ```sh
-python3 -m http.server 8000 --directory public-site
+npx --yes http-server@14.1.1 public-site -a 127.0.0.1 -p 8000 -c-1
 ```
 
 Open http://localhost:8000/. The site uses static assets and supports a GitHub Pages project subpath. A push to main runs the site validation and publishes the site directory. Use the downloadable [Jupyter Book](https://nasqret.github.io/leandoom-proofs/learn/jupyter-book.html), [notebook](https://nasqret.github.io/leandoom-proofs/learn/passage-lab.ipynb) and [Obsidian vault](obsidian-vault/) for study. Use the source archives to reproduce the course, research library and Jupyter Book independently.

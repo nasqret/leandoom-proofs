@@ -1,8 +1,21 @@
 # E1M7 Computer Station
 
-A 4,161-input CombatV2 route reaches the first safe exit with 45 health, 25 armor and 35 bullets. The portable first-exit and endpoint theorems use native_decide. Stock-kernel proofs below cover the opening pickup and the shared prefix of two tapes.
+The player reaches the first safe exit on input 4,161 in CombatV2. The passage proof uses compiler-assisted checking. [Watch the run and read the Lean source](https://nasqret.github.io/leandoom-proofs/theater/?level=E1M7)
 
-Edition: CombatV2.
+## Moments in the proof
+
+- Tick 0. Spawn. [Lean source](Resources/theater/source/e1m7/Certificate.lean)
+- Tick 555. Yellow key. [Lean source](Resources/theater/source/e1m7/TapeFork.lean)
+- Tick 1,612. Red key. [Lean source](Resources/theater/source/e1m7/TapeFork.lean)
+- Tick 2,266. Finger off the trigger. [Lean source](Resources/theater/source/e1m7/ScreenedControls.lean)
+- Tick 2,996. Blue key. [Lean source](Resources/theater/source/e1m7/TapeFork.lean)
+- Tick 4,140. The routes split. [Lean source](Resources/theater/source/e1m7/TapeFork.lean)
+- Tick 4,160. Line 810. [Lean source](Resources/theater/source/e1m7/E1M7ShortExit.lean)
+- Tick 4,161. Exit switch. [Lean source](Resources/theater/source/e1m7/Certificate.lean)
+
+## Earlier studies in CombatV2
+
+A 4,161-input CombatV2 route reaches the first safe exit with 45 health, 25 armor and 35 bullets. The portable first-exit and endpoint theorems use native_decide. Stock-kernel proofs below cover the opening pickup and the shared prefix of two tapes.
 
 ## Checked statements
 

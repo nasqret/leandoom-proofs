@@ -1,8 +1,19 @@
 # E1M1 Hangar
 
-The 993-input route reaches the exit with all six enemies alive. A second, learned route reaches it in 978 inputs. Both controllers fire zero shots.
+The player reaches the first safe exit on input 993 in CombatV2. The passage proof uses stock kernel checking. [Watch the run and read the Lean source](https://nasqret.github.io/leandoom-proofs/theater/?level=E1M1)
 
-Edition: CombatV2.
+## Moments in the proof
+
+- Tick 0. From Hangar spawn. [Lean source](Resources/theater/source/CertifiedHangarEscapeScene.lean)
+- Tick 611. First fireball. [Lean source](Resources/theater/source/E1M1RealFireballLaunches.lean)
+- Tick 837. A second shooter. [Lean source](Resources/theater/source/E1M1RealFireballLaunches.lean)
+- Tick 923. Fireball impact. [Lean source](Resources/theater/source/E1M1Impact923.lean)
+- Tick 935. One more fireball. [Lean source](Resources/theater/source/E1M1RealFireballLaunches.lean)
+- Tick 993. Exit with six monsters alive. [Lean source](Resources/theater/source/CertifiedHangarEscapeScene.lean)
+
+## Earlier studies in CombatV2
+
+The 993-input route reaches the exit with all six enemies alive. A second, learned route reaches it in 978 inputs. Both controllers fire zero shots.
 
 ## Checked statements
 

@@ -51,3 +51,7 @@ The replay lab now includes the certified minimum for the 2,750 final-turn edits
 ## 2026-11-11 · Command Control
 
 Command Control is complete in the sector-actions revision. Continue route synthesis and proof checking on the remaining original maps, and publish each synchronized film with its engine, inputs, trust tier and independent camera evidence.
+
+## All nine original map slots · 2026-11-11
+
+Completed the individual original-map passages, matched first-person films, source-linked chapters and named-edition reproduction. Open research questions include a continuous run through the secret exit with inventory and RNG carryover, one shared engine revision for every map, and reducing reliance on compiler-assisted proofs.

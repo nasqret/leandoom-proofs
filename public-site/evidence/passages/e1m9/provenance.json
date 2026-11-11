@@ -1,0 +1,30 @@
+{
+  "level": "E1M9",
+  "source": "Ordinary strafe-run controller search on Helios",
+  "parentController": {
+    "job": 315978,
+    "length": 2179,
+    "fileSha256": "fa0da59f4069b3ef2d26e3ffeebb64a7c01f74ac6803886be112f1d9a91cb66b",
+    "commandsU32LESha256": "dbbb71b044678df477aa6447a816dc9409327b09ae7e4bffc7f64da6bcd4ce8f",
+    "publicPath": "evidence/e1m9/blocked-switch.json"
+  },
+  "sharedInitialInputs": 1860,
+  "sharedU32LESha256": "b231f6b86d0c0878fc1ba7a2426c4d4a32c0a951b85a7775504b82aa4e058ef0",
+  "newSuffixInputs": 57,
+  "suffixU32LESha256": "f291162540554e12647992f79073c14527b4676593a39f3343358c804b8b70da",
+  "firstDifferentInput": 1861,
+  "controllerSearch": {
+    "job": "26061820_1",
+    "trial": 75,
+    "recipe": "trench.py",
+    "recipeSha256": "0c67d2ed9b9797581895d65dbc9f5361710254323c573b3977a79d77134161cb",
+    "proposalEngine": "CombatV2-Floors1"
+  },
+  "provedEngine": "CombatV2",
+  "rulesSha256": "841ef1221cd98c2c7e3c56c9709ea100970e176751f2f7e9f046605dc6a0b8f1",
+  "recordingSha256": "b7c4ea7e9932efd912353231b27312fd58729de247a32304a931d8276d040977",
+  "commandsU32LESha256": "5de3ade0cde4454d5b96aabea0f927d9dc750a6f96d2272a523dc941b5747318",
+  "passageJob": 26061849,
+  "trenchJob": 26061881,
+  "cleanBuildJob": 26061900
+}

@@ -54,7 +54,7 @@ films=load('theater/films.json')
 tiers={'Passage proved':'stock-kernel','Compiler-assisted passage':'compiler-assisted'}
 proved_levels={m['level']:tiers[m['status']] for m in load('evidence/maps.json')
                if m['edition']=='CombatV2' and re.fullmatch(r'E\d+M\d+',m['level']) and m['status'] in tiers}
-revised={m['level']:m['revisedPassage'] for m in load('evidence/maps.json') if 'revisedPassage' in m}
+revised={m['level']:m.get('revisedPassage') or m['portablePassage'] for m in load('evidence/maps.json') if 'revisedPassage' in m or 'portablePassage' in m}
 proved_levels.update({k:v['proofTier'] for k,v in revised.items()})
 check(len(films)==len(proved_levels) and {f['id']:f['proofTier'] for f in films}==proved_levels,
       'theater coverage and trust tiers must match the original-map passage catalog')

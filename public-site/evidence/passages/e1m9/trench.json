@@ -1,0 +1,23 @@
+{
+  "frame": 1899,
+  "name": "Across the unraised trench",
+  "description": "The bridge stays at height zero throughout the run. While the player crosses it, their feet fall from 88 to 68 units. The next input brings them back to 88 at the far lip, a 20-unit step.",
+  "declaration": "Recording.unraisedTrench",
+  "source": "Trench.lean",
+  "audit": "trench.log",
+  "job": 26061881,
+  "sourceSha256": "53241035ad5801e21f21c78bb7741a44806c571783022f450d22696c1be7b94d",
+  "objectSha256": "51e93ea931156889ee817c74cccd1f5ee403f86a3dca1ebdbdd7fd28ea7a8750",
+  "auditSha256": "69282735dbde347fc65dc4007e1468dd3eab94fe0efc3ff31b90a8dcb5ef68a2",
+  "recordingSha256": "b7c4ea7e9932efd912353231b27312fd58729de247a32304a931d8276d040977",
+  "rulesSha256": "841ef1221cd98c2c7e3c56c9709ea100970e176751f2f7e9f046605dc6a0b8f1",
+  "inputsSourceSha256": "893e7d953e6750a0a9ce47d03be338f08123c0f1aee61b807675251a0ea1ef3a",
+  "axioms": {
+    "Recording.unraisedTrench": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound",
+      "Recording.unraisedTrench._native.native_decide.ax_1_1"
+    ]
+  }
+}

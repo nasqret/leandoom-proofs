@@ -1,0 +1,8 @@
+'Recording.incomplete' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Recording.incomplete._native.native_decide.ax_1_1]
+'Recording.finalObservation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Recording.finalObservation._native.native_decide.ax_1_1]

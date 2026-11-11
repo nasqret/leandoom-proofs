@@ -130,8 +130,16 @@
       "description": "Linedef 822 has just consumed its one-time door action.",
       "module": "Passage",
       "declaration": "CentralSpectrePassage.observedCheckpoints",
-      "line": 57,
+      "line": 45,
       "excerpt": [
+        [
+          44,
+          "    yellow := firstTick yellow t s.inventory.yellow"
+        ],
+        [
+          45,
+          "    firstSwitch := firstTick firstSwitch t (s.map.lines[822]?.any (fun l => l.special == 0))"
+        ],
         [
           57,
           "theorem observedCheckpoints :"
@@ -151,8 +159,16 @@
       "description": "The second switch, linedef 599, opens the route toward the exit.",
       "module": "Passage",
       "declaration": "CentralSpectrePassage.observedCheckpoints",
-      "line": 57,
+      "line": 46,
       "excerpt": [
+        [
+          45,
+          "    firstSwitch := firstTick firstSwitch t (s.map.lines[822]?.any (fun l => l.special == 0))"
+        ],
+        [
+          46,
+          "    secondSwitch := firstTick secondSwitch t (s.map.lines[599]?.any (fun l => l.special == 0))"
+        ],
         [
           57,
           "theorem observedCheckpoints :"
@@ -197,8 +213,16 @@
       "description": "This is the first tick whose location lies in the exit-wing sectors 29 through 33.",
       "module": "Passage",
       "declaration": "CentralSpectrePassage.observedCheckpoints",
-      "line": 57,
+      "line": 48,
       "excerpt": [
+        [
+          47,
+          "    let sector := (s.map.sectorAt s.player.body.x s.player.body.y).toOption"
+        ],
+        [
+          48,
+          "    wing := firstTick wing t (sector.any fun i => 29 ≤ i && i ≤ 33)"
+        ],
         [
           57,
           "theorem observedCheckpoints :"

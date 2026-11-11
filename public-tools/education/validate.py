@@ -80,6 +80,22 @@ def run():
         count,_,missing=local_links(sub,sub.glob('*.html'))
         check(not missing,'Missing offline HTML links: '+str(sorted(missing)))
         data['offline_book']={'local_hrefs':count,'entry':'index.html'}
+    films=json.loads((SITE.parent/'theater/films.json').read_text())
+    by_level={film['id']:film for film in films}
+    original_levels={f'E1M{n}' for n in range(1,10)}
+    check(original_levels==set(by_level), 'Missing original-map passage in teaching gallery')
+    check({f['id'] for f in films if f['proofTier']=='stock-kernel'}=={'E1M1','E1M2'},
+          'Update the teaching edition to reflect the new kernel coverage')
+    check(all(by_level[level]['proofTier']=='compiler-assisted' for level in original_levels-{'E1M1','E1M2'}),
+          'Unknown passage checking tier')
+    current_pages=['index.html','notebook.html','jupyter-book.html','jupyter-lab.html']
+    for name in current_pages:
+        html=BeautifulSoup((SITE/name).read_text(),'html.parser')
+        check(any('theater' in a['href'] and 'E1M9' in a['href'] for a in html.select('a[href]')),
+              'Missing playable Military Base reference: '+name)
+    with zipfile.ZipFile(SITE/'book-source.zip') as source:
+        check(source.read('downloads/passage-lab.ipynb')==(SITE/'passage-lab.ipynb').read_bytes(),
+              'Source book contains a different notebook')
     with zipfile.ZipFile(SITE/'obsidian-vault.zip') as vault:
         notes=[n for n in vault.namelist() if n.endswith('.md')]
         for name in notes:
@@ -91,7 +107,20 @@ def run():
                 if not url.scheme and url.path:
                     check(unquote(url.path) in vault.namelist(),name+' missing '+link)
         check(vault.read('Resources/core-source.zip')==(SITE.parent/'evidence/core-source.zip').read_bytes(),'Vault source core is stale')
-        data['vault']={'markdown_notes':len(notes),'archive_files':len(vault.namelist())}
+        check(vault.read('Resources/passage-lab.ipynb')==(SITE/'passage-lab.ipynb').read_bytes(),
+              'Vault contains a different notebook')
+        for row in json.loads((SITE.parent/'evidence/maps.json').read_text()):
+            if row['level'] not in by_level:continue
+            film=by_level[row['level']]
+            note=vault.read(row['level']+' '+row['name']+'.md').decode()
+            check(f"{film['tick']:,}" in note and film['engine'] in note,
+                  'Stale original-map entry in vault: '+row['level'])
+            route=row.get('revisedPassage') or row.get('portablePassage')
+            if route:
+                for f in ['receipt.json','audit.log','recording.json','camera.json']:
+                    path=route['evidence']+'/'+f
+                    check(vault.read('Resources/'+path)==(SITE.parent/'evidence'/path).read_bytes(),path)
+        data['vault']={'markdown_notes':len(notes),'archive_files':len(vault.namelist()),'original_map_passages':len(by_level)}
     data['sha256']={name:digest((SITE/name).read_bytes()) for name in ['passage-lab.ipynb','jupyter-book.zip','book-source.zip','obsidian-vault.zip']}
     print(json.dumps(data,indent=2))
     return data

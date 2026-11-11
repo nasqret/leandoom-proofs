@@ -17,3 +17,7 @@ Hangar's final-turn family now has a compiler-assisted lower bound of 977 ticks,
 ## 2026-11-11 · Command Control
 
 E1M4 has a complete compiler-assisted passage in CombatV2-SectorActions-V1. The original CombatV2 crossing-dispatch result remains valid for its original rules. Select E1M4 in the Proof Theater to inspect six synchronized chapters.
+
+## 2026-11-11 · Episode One coverage
+
+All nine original Episode One map slots have separate ordinary-spawn passage witnesses. Six new primary controllers cover 14,786 inputs and 14,792 matched first-person camera frames. E1M9 also works in frozen CombatV2 with the bridge down. E1M8 uses CombatV2-PhobosFinale-v1 and exits on tick 3,090, one tick after the player arrives in the ending sector. Two of the nine whole-passage proofs use stock-kernel reduction and seven rely on compiler-assisted Lean checks. The route, camera and independent clean-source receipts are available per map.

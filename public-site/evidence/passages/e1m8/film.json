@@ -1,0 +1,283 @@
+{
+  "id": "E1M8",
+  "title": "Phobos Anomaly",
+  "fps": 35,
+  "frames": 3091,
+  "tick": 3090,
+  "engine": "CombatV2-PhobosFinale-v1",
+  "video": "e1m8-passage.mp4",
+  "chapters": [
+    {
+      "frame": 0,
+      "name": "Ordinary spawn",
+      "description": "The map parser constructs Phobos Anomaly. Lean replays all 3,090 inputs and checks that each earlier state stays alive with its exit flag clear.",
+      "module": "Certificate",
+      "declaration": "Recording.passage",
+      "line": 5,
+      "excerpt": [
+        [
+          5,
+          "theorem passage : OriginalReplay.passage group mapName tape = true := by native_decide"
+        ]
+      ],
+      "sourceFile": "source/e1m8/Certificate.lean",
+      "sourceSha256": "a1f2d116a039eb8017a766bed717649899f4cc03c9170f902d11ce5a693b9947",
+      "objectSha256": "cb4eda7863d3cf5fc83681c9a8ac889fe11f043c060b5599b2c4b2dafd353575"
+    },
+    {
+      "frame": 169,
+      "name": "First shot",
+      "description": "The shot counter first becomes positive at tick 169.",
+      "module": "Milestones",
+      "declaration": "Recording.milestones",
+      "line": 32,
+      "excerpt": [
+        [
+          32,
+          "theorem milestones :"
+        ],
+        [
+          33,
+          "    RouteMilestones.inspect group mapName tape ="
+        ],
+        [
+          34,
+          "      some ⟨none, none, none, some 169, 8⟩ := by native_decide"
+        ]
+      ],
+      "sourceFile": "source/e1m8/Milestones.lean",
+      "sourceSha256": "00813c0315c4e9dd11f36592c19e0e612d7292ce9de24f48354cda4a19c905a2",
+      "objectSha256": "4f247ad0440c0affbb809e25e9f6a9daaf698471bada84d06bcc72582c404880"
+    },
+    {
+      "frame": 2007,
+      "name": "First Baron falls",
+      "description": "The active combat roster starts with two 1,000-health Barons. One reaches zero health here.",
+      "module": "BossPassage",
+      "declaration": "Recording.bossSequence",
+      "line": 34,
+      "excerpt": [
+        [
+          33,
+          "    e := { e with"
+        ],
+        [
+          34,
+          "      firstBaron := first e.firstBaron t (alive < 2)"
+        ],
+        [
+          44,
+          "theorem bossSequence :"
+        ],
+        [
+          45,
+          "    PhobosFinale.trace group tape ="
+        ],
+        [
+          46,
+          "      some ⟨2,2007,2280,2327,2625,3089,8,3090⟩ := by native_decide"
+        ]
+      ],
+      "sourceFile": "source/e1m8/BossPassage.lean",
+      "sourceSha256": "013f85f0c4d093a89a60cafe008f9c6d365daae6bc841d4559070df788267b85",
+      "objectSha256": "c713c4d0da5017fedff6e5cc84f1f0593e73e30b769320bfba17f19babf62028"
+    },
+    {
+      "frame": 2280,
+      "name": "Second Baron falls",
+      "description": "Both Barons are down. The death animation still has to reach its boss-action frame.",
+      "module": "BossPassage",
+      "declaration": "Recording.bossSequence",
+      "line": 35,
+      "excerpt": [
+        [
+          34,
+          "      firstBaron := first e.firstBaron t (alive < 2)"
+        ],
+        [
+          35,
+          "      bothBarons := first e.bothBarons t (alive == 0)"
+        ],
+        [
+          44,
+          "theorem bossSequence :"
+        ],
+        [
+          45,
+          "    PhobosFinale.trace group tape ="
+        ],
+        [
+          46,
+          "      some ⟨2,2007,2280,2327,2625,3089,8,3090⟩ := by native_decide"
+        ]
+      ],
+      "sourceFile": "source/e1m8/BossPassage.lean",
+      "sourceSha256": "013f85f0c4d093a89a60cafe008f9c6d365daae6bc841d4559070df788267b85",
+      "objectSha256": "c713c4d0da5017fedff6e5cc84f1f0593e73e30b769320bfba17f19babf62028"
+    },
+    {
+      "frame": 2300,
+      "name": "Minimum health",
+      "description": "The player reaches 8 health here. Lean checks this is the lowest health in the entire run.",
+      "module": "Milestones",
+      "declaration": "Recording.milestones",
+      "line": 32,
+      "excerpt": [
+        [
+          32,
+          "theorem milestones :"
+        ],
+        [
+          33,
+          "    RouteMilestones.inspect group mapName tape ="
+        ],
+        [
+          34,
+          "      some ⟨none, none, none, some 169, 8⟩ := by native_decide"
+        ]
+      ],
+      "sourceFile": "source/e1m8/Milestones.lean",
+      "sourceSha256": "00813c0315c4e9dd11f36592c19e0e612d7292ce9de24f48354cda4a19c905a2",
+      "objectSha256": "4f247ad0440c0affbb809e25e9f6a9daaf698471bada84d06bcc72582c404880"
+    },
+    {
+      "frame": 2327,
+      "name": "The arena wall moves",
+      "description": "Forty-seven ticks after the second Baron falls, a floor mover starts in the sector tagged 666.",
+      "module": "BossPassage",
+      "declaration": "Recording.bossSequence",
+      "line": 36,
+      "excerpt": [
+        [
+          35,
+          "      bothBarons := first e.bothBarons t (alive == 0)"
+        ],
+        [
+          36,
+          "      wallStarts := first e.wallStarts t (s.movers.any (·.sector == wall))"
+        ],
+        [
+          44,
+          "theorem bossSequence :"
+        ],
+        [
+          45,
+          "    PhobosFinale.trace group tape ="
+        ],
+        [
+          46,
+          "      some ⟨2,2007,2280,2327,2625,3089,8,3090⟩ := by native_decide"
+        ]
+      ],
+      "sourceFile": "source/e1m8/BossPassage.lean",
+      "sourceSha256": "013f85f0c4d093a89a60cafe008f9c6d365daae6bc841d4559070df788267b85",
+      "objectSha256": "c713c4d0da5017fedff6e5cc84f1f0593e73e30b769320bfba17f19babf62028"
+    },
+    {
+      "frame": 2625,
+      "name": "The staircase starts",
+      "description": "The stair switch starts the floor mover in sector 53.",
+      "module": "BossPassage",
+      "declaration": "Recording.bossSequence",
+      "line": 37,
+      "excerpt": [
+        [
+          36,
+          "      wallStarts := first e.wallStarts t (s.movers.any (·.sector == wall))"
+        ],
+        [
+          37,
+          "      stairs := first e.stairs t (s.movers.any (·.sector == 53))"
+        ],
+        [
+          44,
+          "theorem bossSequence :"
+        ],
+        [
+          45,
+          "    PhobosFinale.trace group tape ="
+        ],
+        [
+          46,
+          "      some ⟨2,2007,2280,2327,2625,3089,8,3090⟩ := by native_decide"
+        ]
+      ],
+      "sourceFile": "source/e1m8/BossPassage.lean",
+      "sourceSha256": "013f85f0c4d093a89a60cafe008f9c6d365daae6bc841d4559070df788267b85",
+      "objectSha256": "c713c4d0da5017fedff6e5cc84f1f0593e73e30b769320bfba17f19babf62028"
+    },
+    {
+      "frame": 3089,
+      "name": "Teleport into the ending room",
+      "description": "The player enters sector 66 at 8 health. The next input lets the floor-contact rule request the exit.",
+      "module": "BossPassage",
+      "declaration": "Recording.bossSequence",
+      "line": 38,
+      "excerpt": [
+        [
+          37,
+          "      stairs := first e.stairs t (s.movers.any (·.sector == 53))"
+        ],
+        [
+          38,
+          "      arrival := first e.arrival t arrival"
+        ],
+        [
+          44,
+          "theorem bossSequence :"
+        ],
+        [
+          45,
+          "    PhobosFinale.trace group tape ="
+        ],
+        [
+          46,
+          "      some ⟨2,2007,2280,2327,2625,3089,8,3090⟩ := by native_decide"
+        ]
+      ],
+      "sourceFile": "source/e1m8/BossPassage.lean",
+      "sourceSha256": "013f85f0c4d093a89a60cafe008f9c6d365daae6bc841d4559070df788267b85",
+      "objectSha256": "c713c4d0da5017fedff6e5cc84f1f0593e73e30b769320bfba17f19babf62028"
+    },
+    {
+      "frame": 3090,
+      "name": "First safe exit",
+      "description": "Tick 3,090 reaches the exit with 8 health, 58 armor and 200 bullets. The endpoint theorem also checks the position and shot count.",
+      "module": "Certificate",
+      "declaration": "Recording.finalObservation",
+      "line": 6,
+      "excerpt": [
+        [
+          6,
+          "theorem finalObservation : OriginalReplay.observation group mapName tape = some ⟨3090,39845888,423624704,8,58,200,11,46,2,true,true⟩ := by native_decide"
+        ]
+      ],
+      "sourceFile": "source/e1m8/Certificate.lean",
+      "sourceSha256": "a1f2d116a039eb8017a766bed717649899f4cc03c9170f902d11ce5a693b9947",
+      "objectSha256": "cb4eda7863d3cf5fc83681c9a8ac889fe11f043c060b5599b2c4b2dafd353575"
+    }
+  ],
+  "summary": "3,090 ordinary inputs from spawn to exit in CombatV2-PhobosFinale-v1.",
+  "sha256": "4474e487cf389931b8a5f42e2e0cf1088eaa4179fac1d72fbb17ff491735c69e",
+  "proofTier": "compiler-assisted",
+  "proofJob": 26061911,
+  "root": "Recording.passage",
+  "final": {
+    "armor": 58,
+    "bullets": 200,
+    "errorFree": true,
+    "exit": true,
+    "health": 8,
+    "kills": 2,
+    "shells": 11,
+    "shots": 46,
+    "tick": 3090,
+    "x": 39845888,
+    "y": 423624704
+  },
+  "captureJob": 26061912,
+  "recordingSha256": "8b8881086a2ca59b108fb9c624db9e95a5e3d2bb2e99cd6471052afd33e939b2",
+  "commandsU32LESha256": "f200ae3f9efa033a2382edb43f11842d5832617c8b8a120390f4303200f02a55",
+  "editionEvidence": "passages/e1m8",
+  "rulesSha256": "34980631f9900330b809b0d869702fcb32cd39ea6c03b64baaf6c11964608eb2"
+}

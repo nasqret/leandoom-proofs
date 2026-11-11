@@ -39,3 +39,7 @@ Command Control passed a full ordinary-spawn passage and endpoint check on Helio
 ## 2026-11-11 · Three more original-map passages
 
 Toxin Refinery, Phobos Lab and Central Processing gained complete compiler-assisted passages, independent camera checks and clean-source rebuilds. Toxin Refinery uses 1,770 ordinary inputs and exits with 34 health. Phobos Lab uses 3,569 and exits with 78. A separate theorem identifies the exact soulsphere pickup at tick 1,945. Central Processing uses 3,207 and exits with 40. Its switch and location theorem pins the two remote switches at 2,083 and 2,459 and first entry to the exit wing at 3,156.
+
+## 2026-11-11 · Episode One coverage
+
+All nine original Episode One map slots have separate ordinary-spawn passage witnesses. Six new primary controllers cover 14,786 inputs and 14,792 matched first-person camera frames. E1M9 also works in frozen CombatV2 with the bridge down. E1M8 uses CombatV2-PhobosFinale-v1 and exits on tick 3,090, one tick after the player arrives in the ending sector. Two of the nine whole-passage proofs use stock-kernel reduction and seven rely on compiler-assisted Lean checks. The route, camera and independent clean-source receipts are available per map.

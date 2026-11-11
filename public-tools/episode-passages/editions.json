@@ -1,4 +1,10 @@
 {
+  "CombatV2": {
+    "baseRulesSha256": "841ef1221cd98c2c7e3c56c9709ea100970e176751f2f7e9f046605dc6a0b8f1",
+    "overlays": [],
+    "rulesSha256": "841ef1221cd98c2c7e3c56c9709ea100970e176751f2f7e9f046605dc6a0b8f1",
+    "schema": "combatv2-run-v1"
+  },
   "CombatV2-Floors1": {
     "baseRulesSha256": "841ef1221cd98c2c7e3c56c9709ea100970e176751f2f7e9f046605dc6a0b8f1",
     "overlays": [
@@ -29,6 +35,77 @@
     ],
     "rulesSha256": "516a81035753ed371421a43c58a2d551266d7812841068d6835b77fa5b83d051",
     "schema": "doom-episode-run-v1"
+  },
+  "CombatV2-PhobosFinale-v1": {
+    "baseRulesSha256": "841ef1221cd98c2c7e3c56c9709ea100970e176751f2f7e9f046605dc6a0b8f1",
+    "overlays": [
+      {
+        "path": "LeanDoomProofs/CombatV2.lean",
+        "sha256": "b69abb40fd93c27f78ae3aabcb737ff01f4f62d3cfc1f408e96a0cc2977a435b"
+      },
+      {
+        "path": "upstream/Doom/Actors.lean",
+        "sha256": "a7e063657bd4b426f654b4c250f1c4722523f227a4bdb47a20a95be54428ad54"
+      },
+      {
+        "path": "upstream/Doom/Collision.lean",
+        "sha256": "deed959109241f934640e709cc7e1121fbcbaafbc136cc47d61f5a927faad736"
+      },
+      {
+        "path": "upstream/Doom/Death.lean",
+        "sha256": "121e20043e9ccdbdca38559603f176a031ad0200f70c27ffa5f62f45916a5a66"
+      },
+      {
+        "path": "upstream/Doom/DeathData.lean",
+        "sha256": "10e83c349913c485a89c3665ba13e78980ee3864cc70b664f85d70acebd55f5f"
+      },
+      {
+        "path": "upstream/Doom/DeathRuntime.lean",
+        "sha256": "4ed15b21fdd5bfedbf07aec93235b8915283589df1b8d4586a85d1338020e7db"
+      },
+      {
+        "path": "upstream/Doom/FinaleFloor.lean",
+        "sha256": "4dbbe55ecb60005c97ae081cfcf65f534922483f6a44e82fcc29817a75b78f55"
+      },
+      {
+        "path": "upstream/Doom/FloorMover.lean",
+        "sha256": "ee3d8c81dce4b7aac6749d4cf0b61ecd8936e20299910439985894d8e29795ae"
+      },
+      {
+        "path": "upstream/Doom/ImpData.lean",
+        "sha256": "f3cfebc45b797a1c15a88e8377490b1cb527b36c643991bc0cc056abc2ed554c"
+      },
+      {
+        "path": "upstream/Doom/Map.lean",
+        "sha256": "3a4ee2d1b53312bb2dfc22ef758de3c64dbcfa7da9a299725605bb27c7deb008"
+      },
+      {
+        "path": "upstream/Doom/Player.lean",
+        "sha256": "52eef1627151e5c38047972e8cb36a08762b68545daaac51b0e3294affa8725d"
+      },
+      {
+        "path": "upstream/Doom/Projectile.lean",
+        "sha256": "77a8437b0c69c1b8200819f0d1631ea5a8c93032479115ab16ce743089bb1739"
+      },
+      {
+        "path": "upstream/Doom/ProjectileRuntime.lean",
+        "sha256": "7e07833ed15fcc29f801976b6b9b4890b0e83134d57f70582ccacd51563e388b"
+      },
+      {
+        "path": "upstream/Doom/SectorLights.lean",
+        "sha256": "67fd807dd0561681c28694384397b77f18836761df4d3d93900c17832e2caf46"
+      },
+      {
+        "path": "upstream/Doom/Sight.lean",
+        "sha256": "a95d3a128eea99e76867454e2d4d2c6591b65ae2d59eba3421fc9de12fd4b14a"
+      },
+      {
+        "path": "upstream/Doom/Simulation.lean",
+        "sha256": "f7224c4bb47d15e039be69faf21cebeea42f6ea3959520021ec0643f70142fe2"
+      }
+    ],
+    "rulesSha256": "34980631f9900330b809b0d869702fcb32cd39ea6c03b64baaf6c11964608eb2",
+    "schema": "combatv2-phobos-finale-run-v1"
   },
   "CombatV2-SectorActions-V1": {
     "baseRulesSha256": "841ef1221cd98c2c7e3c56c9709ea100970e176751f2f7e9f046605dc6a0b8f1",

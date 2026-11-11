@@ -1,0 +1,61 @@
+{
+  "schema": "proof-lab-receipt-v1",
+  "recordingSha256": "a27eb0e379c44130c0e2813c48077e7673764e2450f951b73da32392ba1fe248",
+  "attempt": "check-nkmoe2rd",
+  "status": "compiler-prefix",
+  "passage": false,
+  "level": "E1M5",
+  "engine": "CombatV2",
+  "commands": 3569,
+  "commandsU32LESha256": "04ca5dc7cf0aba35b077103339ba04f2008a006cdb739a542308dd6f6c7efe96",
+  "trust": "compiler",
+  "final": {
+    "armor": 48,
+    "bullets": 34,
+    "errorFree": true,
+    "exit": false,
+    "health": 0,
+    "kills": 4,
+    "shells": 5,
+    "shots": 27,
+    "tick": 3569,
+    "x": 60815500,
+    "y": 25665130
+  },
+  "message": "Recording checked; exact first safe exit condition is false with Lean compiler trust.",
+  "axioms": {
+    "Recording.incomplete": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound",
+      "Recording.incomplete._native.native_decide.ax_1_1"
+    ],
+    "Recording.finalObservation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound",
+      "Recording.finalObservation._native.native_decide.ax_1_1"
+    ]
+  },
+  "lean": "Lean (version 4.33.0, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)",
+  "worldSha256": "1d7d43be501e67d927e415e0b8f3e29c3bf33075e859721816f652a526cac771",
+  "rulesSha256": "841ef1221cd98c2c7e3c56c9709ea100970e176751f2f7e9f046605dc6a0b8f1",
+  "proofSharedLibraries": {
+    "@lean-doom/Doom:shared": "f66380fb357ba5c63ed15b14fc45f85ed000305245bdb3d6a966fbaa14f31f31",
+    "LeanDoomProofs:shared": "a1e660cce5f7aa21bc787e1caf6e9ac87993af267161c7e644be1398896cf208",
+    "+OriginalReplay:dynlib": "d828d14316a3ec3f16a954c7b15e382df184e6044cf79631555b398ec65047b6"
+  },
+  "sources": {
+    "Audit.lean": "2c19824408f1c6f98f11e34a5f688c4944e8b82906db3d9e264fda6040df4933",
+    "Certificate.lean": "c5ce39d1349601dff3104eef9c1657b06bba4fce08cb1c0b005ac16bb53a7d3a",
+    "Inputs.lean": "45650d64183cc22f2b38a57567bed4c6e8e142a3d957c0da0082e3537162b9f1",
+    "Inspect.lean": "a19720c31a516efe9ddef952c1a0a23ecbb66119409bd1db2c909e0d4819b174"
+  },
+  "objects": {
+    "Certificate.olean": "e435f9baa7083f69716d993ffdf359f3f97d10c8c50148cdca458266fdb2bf66",
+    "Inputs.olean": "72beb852fc5fa0fd16bc4b6a5d00f5b3e15ca1c5ccadb2a538aa1b563cf617ba"
+  },
+  "job": 26061809,
+  "comparisonRecordingSha256": "8e0e46dbdd85007dbbf2a34b61696bf7f9b11fda1a87d73d54065d2c6f1be1e9",
+  "comparisonRulesSha256": "794d195d7591ce876712ee22e17f7cf056914b882cbbbc09b16b68b9f3c8d248"
+}

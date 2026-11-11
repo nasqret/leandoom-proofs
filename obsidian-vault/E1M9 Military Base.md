@@ -1,8 +1,21 @@
 # E1M9 Military Base
 
-A new 1,811-input native replay collects yellow at tick 126, red at 933 and blue at 1,664. It ends alive with two health before the exit. Stock Lean identifies three 88-unit entries to the exit platform and confirms that the tagged type-20 switch leaves the map and movers unchanged in this CombatV2 dispatcher. Full passage remains open.
+The player reaches the first safe exit on input 1,917 in CombatV2. The passage proof uses compiler-assisted checking. [Watch the run and read the Lean source](https://nasqret.github.io/leandoom-proofs/theater/?level=E1M9) · [Lean receipt](Resources/passages/e1m9/receipt.json) · [Axiom report](Resources/passages/e1m9/audit.log) · [Inputs](Resources/passages/e1m9/recording.json) · [Frame checks](Resources/passages/e1m9/camera.json)
 
-Edition: CombatV2.
+## Moments in the proof
+
+- Tick 0. Ordinary spawn. [Lean source](Resources/theater/source/e1m9/Certificate.lean)
+- Tick 126. Yellow key. [Lean source](Resources/theater/source/e1m9/Milestones.lean)
+- Tick 933. Red key. [Lean source](Resources/theater/source/e1m9/Milestones.lean)
+- Tick 1,380. Minimum health. [Lean source](Resources/theater/source/e1m9/Milestones.lean)
+- Tick 1,446. First shot. [Lean source](Resources/theater/source/e1m9/Milestones.lean)
+- Tick 1,664. Blue key. [Lean source](Resources/theater/source/e1m9/Milestones.lean)
+- Tick 1,899. Across the unraised trench. [Lean source](Resources/theater/source/e1m9/Trench.lean)
+- Tick 1,917. First safe exit. [Lean source](Resources/theater/source/e1m9/Certificate.lean)
+
+## Earlier studies in CombatV2
+
+All three keys and a strafe-run across the unraised trench take the player to the first exit in 1,917 inputs, with 27 health. The earlier bridge-switch study follows a different controller.
 
 ## Checked statements
 

@@ -745,14 +745,34 @@
         "sourceSha256": "2eda6d1bf91c2ea78d6f470c88367409c9034c789854ad38d72e6b58b0a29ef6",
         "auditSha256": "70d40470cb03ab0dcb5e4b80c5417aec4bec4e375ba471dbc22acff27d97f8fb"
       }
-    ]
+    ],
+    "revisedPassage": {
+      "engine": "CombatV2-PhobosFinale-v1",
+      "proofTier": "compiler-assisted",
+      "evidence": "passages/e1m8",
+      "tick": 3090,
+      "final": {
+        "armor": 58,
+        "bullets": 200,
+        "errorFree": true,
+        "exit": true,
+        "health": 8,
+        "kills": 2,
+        "shells": 11,
+        "shots": 46,
+        "tick": 3090,
+        "x": 39845888,
+        "y": 423624704
+      },
+      "job": 26061911
+    }
   },
   {
     "level": "E1M9",
     "name": "Military Base",
     "edition": "CombatV2",
-    "status": "Local theorems",
-    "description": "A new 1,811-input native replay collects yellow at tick 126, red at 933 and blue at 1,664. It ends alive with two health before the exit. Stock Lean identifies three 88-unit entries to the exit platform and confirms that the tagged type-20 switch leaves the map and movers unchanged in this CombatV2 dispatcher. Full passage remains open.",
+    "status": "Compiler-assisted passage",
+    "description": "All three keys and a strafe-run across the unraised trench take the player to the first exit in 1,917 inputs, with 27 health. The earlier bridge-switch study follows a different controller.",
     "proofs": [
       {
         "title": "Count the action buttons in the two-key run",
@@ -823,7 +843,27 @@
         "sourceSha256": "d573092cd5f754dfa39a6fa6566022be04f2f3c9bbf1f0fd0cf25ecb122614eb",
         "auditSha256": "5ced3e3a87711e475bd40f20bd3c2be54ebfe92a1f7cac32ac75cd127622ce09"
       }
-    ]
+    ],
+    "portablePassage": {
+      "engine": "CombatV2",
+      "proofTier": "compiler-assisted",
+      "evidence": "passages/e1m9",
+      "tick": 1917,
+      "final": {
+        "armor": 0,
+        "bullets": 196,
+        "errorFree": true,
+        "exit": true,
+        "health": 27,
+        "kills": 17,
+        "shells": 2,
+        "shots": 14,
+        "tick": 1917,
+        "x": 29346341,
+        "y": 87306043
+      },
+      "job": 26061849
+    }
   },
   {
     "level": "ARENA03",

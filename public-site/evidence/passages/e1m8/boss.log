@@ -1,0 +1,4 @@
+'Recording.bossSequence' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Recording.bossSequence._native.native_decide.ax_1_1]

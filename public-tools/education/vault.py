@@ -22,6 +22,7 @@ def note_links(text):
 def build():
     proof=SITE.parent/'evidence'
     maps=load(proof/'maps.json')
+    films={film['id']: film for film in load(SITE.parent/'theater/films.json')}
     archive_path=proof/'core-source.zip'
     with ZipFile(archive_path) as core:
         theorems=json.loads(core.read('evidence/theorems.json'))['records']
@@ -39,7 +40,7 @@ def build():
 - [[Memory]], [[Journal]] and [[Plan]] retain the experimental decisions, checks and open tasks.
 - [[Reading]] lists texts, papers and reference manuals by subject.
 
-[Dashboard]("""+BASE+""") · [Classic game]("""+BASE+"""classic/) · [Proof gallery]("""+BASE+"""evidence/) · [Offline Jupyter Book]("""+READ+"""jupyter-book.zip)""")
+[Dashboard]("""+BASE+""") · [Classic game]("""+BASE+"""classic/) · [Original-map Proof Theater]("""+BASE+"""theater/) · [Proof gallery]("""+BASE+"""evidence/) · [Offline Jupyter Book]("""+READ+"""jupyter-book.zip)""")
     chapter=(HERE/'chapter.md').read_text()
     start=chapter.index('## A reading path')
     end=chapter.index('## Questions for the next')
@@ -61,28 +62,49 @@ def build():
     files['Resources/native-routes.json']=(SITE.parent/'game/native-routes.json').read_bytes()
     for name in ['combat-runs.json','AllRoutes.lean','routes.json']:
         files['Resources/'+name]=(SITE.parent/'downloads'/name).read_bytes()
-    note('Memory',"""A result binds a map foundation, rules edition, initial state, input tape and observation. The frozen CombatV1 core contains the constructed fixtures. CombatV2 is the edition of the original-map passage research. The public ProofGrid courses and the notebook airlock each have their own explicit transitions. Keep these four identities in future comparisons.
+    note('Memory',"""A result binds a map foundation, rules edition, initial state, input tape and observation. The frozen CombatV1 core contains the constructed fixtures. Original-map passage proofs identify either frozen CombatV2 or a named revision. The public ProofGrid courses and the notebook airlock each have their own explicit transitions. Read the engine name alongside each result.
 
-Hangar has three stock-kernel zero-shot witnesses at 993, 992 and 978 ticks. A compiler-assisted census establishes 977 as the minimum across 2,750 specified edits of the exit approach. Nuclear Plant’s 1,017-input standard-axiom proof and its 1,013-input compiler-assisted proof have different trust assumptions. Computer Station has a complete 4,161-input compiler-assisted passage alongside its stock-kernel first-movement result. This brings the full original-map count to three across the two trust models. Zero shots counts player actions. Monsters can still die. [[Map atlas]] · [[Engine and passage]]""")
+Hangar has three stock-kernel zero-shot witnesses at 993, 992 and 978 ticks. A compiler-assisted census establishes 977 as the minimum across 2,750 specified edits of the exit approach. Nuclear Plant’s 1,017-input standard-axiom proof and its 1,013-input compiler-assisted proof have different trust assumptions. Computer Station has a complete 4,161-input compiler-assisted passage alongside its stock-kernel first-movement result. Each of the nine shareware maps now has an ordinary-start passage. The two stock-kernel routes and seven compiler-assisted routes shown in the Theater use five named engine editions altogether. Zero shots counts player actions. Monsters can still die. [[Map atlas]] · [[Engine and passage]]""")
     note('Journal',"""The historical CombatV1 primary and separate WMI build lineages finished on 2026-10-08 in jobs 281144 and 281142. Both recorded the same 277 declarations.
 
-On 2026-11-11 WMI 315851 compiled the seven teaching theorems, re-imported them and rejected the reordered airlock controller. WMI 315888 executed the Jupyter notebook, including the compiler processes. The strict Jupyter Book build 315911 documented the quiet Nuclear Plant case. After the Computer Station compiler-assisted proof arrived, WMI job 315947 re-executed all notebook cells and 315950 rebuilt the Jupyter Book with strict checks. The final research update adds the verified E1M4 and E1M9 local obstructions, the three-key compiler-assisted theorem and the 2179-command recording. WMI jobs 315980 and 315982 executed and rebuilt that edition.
+On 2026-11-11 WMI 315851 compiled the seven teaching theorems, re-imported them and rejected the reordered airlock controller. WMI 315888 executed the Jupyter notebook, including the compiler processes. The strict Jupyter Book build 315911 documented the quiet Nuclear Plant case. After the Computer Station compiler-assisted proof arrived, WMI job 315947 re-executed all notebook cells and 315950 rebuilt the Jupyter Book with strict checks. An earlier teaching snapshot recorded the verified E1M4 and E1M9 local obstructions, the three-key compiler-assisted theorem and the 2179-command recording. WMI jobs 315980 and 315982 executed and rebuilt that edition. Later Helios witnesses cover the six further original maps, including a 1,917-input Military Base route that clears the unraised trench. [[Map atlas]]
 
 WMI 315907 extracted the public core, checked 268 frozen input hashes and 218 upstream files, and re-imported all 277 declarations using the historical compiled dependencies. Its new axiom transcript matches both historical transcripts byte for byte. [Machine-readable core record](Resources/core.json)""")
-    note('Plan',"""1. For each map with a local theorem, identify the next missing move from ordinary spawn. Include keys, timers, projectiles and spatial indexing when identifying a checkpoint. [[Map atlas]]
+    note('Plan',"""1. Choose a compiler-assisted passage and identify a segment to certify in the stock kernel. Include keys, timers, projectiles and spatial indexing when identifying its endpoints. [[Map atlas]]
 2. Use recorded or ML-proposed inputs to obtain new upper bounds. Prove first exit and all-prefix safety for each tape. A lower bound must quantify over every admissible tape. [[Engine and passage]]
 3. Compare native-assisted and stock-kernel certificates on the same tape. Track the exact axiom report and the engine edition. [[Recording and checking]]
-4. Determine encounter and transition rules needed for secret progression, the finale, and transfer of inventory between maps. A collection of pistol starts is a different initial-state convention from a continuous episode. [[Memory]]""")
+4. Prove a secret exit from the ordinary E1M3 start and carry inventory and engine state across successive maps. A collection of pistol starts is a different initial-state convention from a continuous episode. [[Memory]]""")
     note('Recording and checking',"""A player or trained policy proposes an input tape. In the teaching courses, export the recording, pair the companion with a local Lean installation and check the safe first exit. In the native edition, provide the matching lawful IWAD to the local worker. Read the output class and axiom audit for each route. Independently inspect the airlock proofs in [PassageLab.lean](Resources/PassageLab.lean), rerun [the self-contained notebook](Resources/passage-lab.ipynb), or study the [original public input tapes](Resources/native-routes.json).
 
-The public courses have nine original maps with three checked route styles per map. The [27 Lean proofs](Resources/AllRoutes.lean) and [route catalog](Resources/routes.json) identify them individually. The [native verification receipts](Resources/combat-runs.json) carry the distinct assumptions of the compiler-assisted jobs.
+The nine constructed ProofGrid courses each have three checked route styles. The [27 Lean proofs](Resources/AllRoutes.lean) and [route catalog](Resources/routes.json) identify them individually. The [native verification receipts](Resources/combat-runs.json) carry the distinct assumptions of the compiler-assisted jobs.
 
 Nuclear Plant's quiet input tape first exits on tick 1,013 with 82 health, zero shots and one credited kill. The Lean declarations `Recording.passage` and `Recording.finalObservation` include their generated native-decision axioms. The armed 1,017-input route has a stock-kernel proof. [Published route receipts]("""+BASE+"""downloads/combat-runs.json) · [Companion and agent verification kit]("""+BASE+"""downloads/lean-doom-companion.zip) · [[Reading]]""")
     levels=[]
     for row in maps:
         key=row['level']+' '+row['name']
-        levels.append('- [['+key+']] — '+row['status'])
-        text=[row['description'],'Edition: '+row['edition']+'.','## Checked statements']
+        film=films.get(row['level'])
+        if film:
+            tier={'stock-kernel': 'stock kernel', 'compiler-assisted': 'compiler-assisted'}[film['proofTier']]
+            levels.append(f"- [[{key}]] — {film['tick']:,} inputs · {film['engine']} · {tier}")
+            route=f"The player reaches the first safe exit on input {film['tick']:,} in {film['engine']}. The passage proof uses {tier} checking. [Watch the run and read the Lean source]({BASE}theater/?level={row['level']})"
+            latest=row.get('revisedPassage') or row.get('portablePassage')
+            if latest:
+                for filename in ['receipt.json', 'recording.json', 'audit.log', 'camera.json']:
+                    source=proof/latest['evidence']/filename
+                    files['Resources/'+latest['evidence']+'/'+filename]=source.read_bytes()
+                route+=f" · [Lean receipt](Resources/{latest['evidence']}/receipt.json) · [Axiom report](Resources/{latest['evidence']}/audit.log) · [Inputs](Resources/{latest['evidence']}/recording.json) · [Frame checks](Resources/{latest['evidence']}/camera.json)"
+            chapters=[]
+            for chapter in film['chapters']:
+                local=chapter.get('sourceFile')
+                if local:
+                    target='Resources/theater/'+local
+                    files[target]=(SITE.parent/'theater'/local).read_bytes()
+                    chapters.append(f"- Tick {chapter['frame']:,}. {chapter['name']}. [Lean source]({target})")
+            text=[route, '## Moments in the proof', '\n'.join(chapters), '## Earlier studies in '+row['edition'], row['description']]
+        else:
+            levels.append('- [['+key+']] — '+row['status'])
+            text=[row['description'], 'Edition: '+row['edition']+'.']
+        text.append('## Checked statements')
         for entry in row['proofs']:
             text.append('### '+entry['title']+'\n\n`'+entry['declaration']+'`\n\n'+entry['auditText']+'\n\nSource SHA-256 `'+entry['sourceSha256']+'`. Audit SHA-256 `'+entry['auditSha256']+'`.')
         if row['level']=='E1M7': text.append('The 4,161-input controller now has a full compiler-assisted Lean passage and checked endpoint, with 45 health, 25 armor, 35 bullets, 93 shots and 27 credited kills. Its native-decision axiom is explicit in [the receipt](Resources/combat-runs.json). A joined standard-axiom proof remains open.')
@@ -98,7 +120,7 @@ Nuclear Plant's quiet input tape first exits on tick 1,013 with 82 health, zero 
         for item in sorted((proof/level).glob('*')):
             if item.is_file() and item.suffix in {'.json','.lean','.log','.txt'}:
                 files['Resources/'+level+'/'+item.name]=item.read_bytes()
-    note('Map atlas','\n'.join(levels)+'\n\n[[Memory]] · [[Proof core]]')
+    note('Map atlas','The original shareware entries give individual ordinary-start passages. Each subsequent scenario has its own map and rules. [Open the original-map Proof Theater]('+BASE+'theater/)\n\n'+'\n'.join(levels)+'\n\n[[Memory]] · [[Proof core]]')
     groups=defaultdict(list)
     for entry in theorems:
         mod=entry['file'].split('/')[1]

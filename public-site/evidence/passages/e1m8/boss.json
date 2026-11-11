@@ -1,0 +1,28 @@
+{
+  "declaration": "Recording.bossSequence",
+  "source": "BossPassage.lean",
+  "objectSha256": "c713c4d0da5017fedff6e5cc84f1f0593e73e30b769320bfba17f19babf62028",
+  "sourceSha256": "013f85f0c4d093a89a60cafe008f9c6d365daae6bc841d4559070df788267b85",
+  "auditSha256": "11c93750804ed40e70cf425926b5556871c031e33f5d497eca2821ecc26c1414",
+  "inputsSourceSha256": "99d36e272abbec9eac61645f15c82051158d3a77abad36483db623948362bc94",
+  "recordingSha256": "8b8881086a2ca59b108fb9c624db9e95a5e3d2bb2e99cd6471052afd33e939b2",
+  "rulesSha256": "34980631f9900330b809b0d869702fcb32cd39ea6c03b64baaf6c11964608eb2",
+  "job": 26061948,
+  "axioms": {
+    "Recording.bossSequence": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound",
+      "Recording.bossSequence._native.native_decide.ax_1_1"
+    ]
+  },
+  "events": {
+    "firstBaron": 2007,
+    "bothBarons": 2280,
+    "wallStarts": 2327,
+    "stairs": 2625,
+    "arrival": 3089,
+    "arrivalHealth": 8,
+    "complete": 3090
+  }
+}

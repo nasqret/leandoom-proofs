@@ -12,6 +12,7 @@ HERE = Path(__file__).resolve().parent
 BASE = HERE.parent / 'verifier'
 sys.path.insert(0, str(BASE))
 import models
+from chapters import check_chapters
 
 
 def digest(path):
@@ -79,6 +80,8 @@ def main():
     with tempfile.TemporaryDirectory(prefix='lean-doom-edition-') as tmp:
         checkout=Path(tmp)
         edition=materialize(doc['engine'],checkout)
+        if 'rulesSha256' in doc and doc['rulesSha256'] != edition['rulesSha256']:
+            raise ValueError('The recording claims a different rules digest')
         if doc['schema'] != edition['schema']:
             raise ValueError('The recording schema differs from the selected engine')
         output=args.output.resolve()
@@ -87,5 +90,7 @@ def main():
         receipt=json.loads((output/hashlib.sha256(blob).hexdigest()/'receipt.json').read_text())
         if receipt['rulesSha256']!=edition['rulesSha256'] or receipt['engine']!=doc['engine'] or not receipt['passage']:
             raise ValueError('The completed check differs from the selected edition')
+        attempt=output/receipt['recordingSha256']/receipt['attempt']
+        check_chapters(checkout/'combat',attempt,receipt)
 
 if __name__=='__main__':main()

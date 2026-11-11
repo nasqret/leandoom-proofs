@@ -23,9 +23,11 @@ The map dashboard reads [maps.json](public-site/evidence/maps.json) and the port
 
 ## Preview and deploy
 
+The preview command uses Node.js 20 or later. Its HTTP byte-range support lets Chrome seek to any proof chapter in a film.
+
 ```sh
 python3 public-tools/release/validate.py
-python3 -m http.server 8000 --directory public-site
+npx --yes http-server@14.1.1 public-site -a 127.0.0.1 -p 8000 -c-1
 ```
 
 Check code highlighting after seeking, keyboard controls, the manual record/export path and links from the student edition. GitHub Actions validates the checked-in site and deploys it from main. After Pages reports success, compare the downloaded public bytes with a clean checkout.

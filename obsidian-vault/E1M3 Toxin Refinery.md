@@ -1,8 +1,19 @@
 # E1M3 Toxin Refinery
 
-The exit platform rises by 88, 128 and 128 units at its three approaches. From a specified viewpoint the Use ray finds normal exit line 982. At secret exit line 785 the dispatcher reports special 51 as unsupported. The route to either panel remains open.
+The player reaches the first safe exit on input 1,770 in CombatV2-Floors1. The passage proof uses compiler-assisted checking. [Watch the run and read the Lean source](https://nasqret.github.io/leandoom-proofs/theater/?level=E1M3) · [Lean receipt](Resources/passages/e1m3/receipt.json) · [Axiom report](Resources/passages/e1m3/audit.log) · [Inputs](Resources/passages/e1m3/recording.json) · [Frame checks](Resources/passages/e1m3/camera.json)
 
-Edition: CombatV2.
+## Moments in the proof
+
+- Tick 0. Ordinary spawn. [Lean source](Resources/theater/source/e1m3/Certificate.lean)
+- Tick 5. First shot. [Lean source](Resources/theater/source/e1m3/Milestones.lean)
+- Tick 662. Blue key. [Lean source](Resources/theater/source/e1m3/Milestones.lean)
+- Tick 1,241. Minimum health. [Lean source](Resources/theater/source/e1m3/Milestones.lean)
+- Tick 1,638. Onto the upper landing. [Lean source](Resources/theater/source/e1m3/Staircase.lean)
+- Tick 1,770. First safe exit. [Lean source](Resources/theater/source/e1m3/Certificate.lean)
+
+## Earlier studies in CombatV2
+
+The exit platform rises by 88, 128 and 128 units at its three approaches. From a specified viewpoint the Use ray finds normal exit line 982. At secret exit line 785 the dispatcher reports special 51 as unsupported. The route to either panel remains open.
 
 ## Checked statements
 
