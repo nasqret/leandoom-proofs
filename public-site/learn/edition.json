@@ -7,14 +7,14 @@
     "seconds": 2
   },
   "executed_notebook": {
-    "job": 315947,
+    "job": 315980,
     "exit_code": "0:0",
-    "seconds": 10
+    "seconds": 12
   },
   "strict_jupyter_book": {
-    "job": 315950,
+    "job": 315982,
     "exit_code": "0:0",
-    "seconds": 16,
+    "seconds": 21,
     "builder": "jupyter-book 1.0.4.post1 -W -n --all --keep-going"
   },
   "fresh_import_of_packaged_core": {
@@ -31,9 +31,9 @@
     "negative_control": "Lean rejected the reordered witness"
   },
   "sha256": {
-    "passage-lab.ipynb": "56afb48ad3a504ff09a738a2df70461d713550c9bab94f659de5aaa42d248186",
-    "jupyter-book.zip": "907de7f58fa6718fc936fbe0686aea0bd93403823715e38ab4071c0b225020fd",
-    "book-source.zip": "5f12da180e8bacc8e1397f9d8ac23ba38c3e2be7da4316a5e853d32ec8b408aa",
-    "obsidian-vault.zip": "bc7e3c65b9abc63a7fba6b10f3b36852021f91927580792bcd3345454733f11b"
+    "passage-lab.ipynb": "9ee0498ef3e42705ce824d7634733cc9bc1abe445e8870aefba6fa8e7c46fc53",
+    "jupyter-book.zip": "a68ef2d5a96fa24e183306212ff208911ccd5a962edd1c130ea66a148be75baa",
+    "book-source.zip": "df5910301cb18ffb21118873a5904a1daddd54a0d35e30e46edb00216777feb2",
+    "obsidian-vault.zip": "ff75eaca0a9151869e959b1b462a1588663a3557b885fec03103f7be7a1c2ffa"
   }
 }

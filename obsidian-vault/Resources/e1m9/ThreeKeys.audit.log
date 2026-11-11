@@ -1,0 +1,4 @@
+'MilitaryBase.first_three_keys' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ MilitaryBase.first_three_keys._native.native_decide.ax_1_1]

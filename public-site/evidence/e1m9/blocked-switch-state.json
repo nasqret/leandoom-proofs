@@ -1,0 +1,22 @@
+{
+  "state": {
+    "angle": 3535798272,
+    "armor": 0,
+    "blue": true,
+    "bullets": 196,
+    "error": null,
+    "exit": false,
+    "health": 2,
+    "kills": 16,
+    "red": true,
+    "shells": 0,
+    "shots": 16,
+    "t": 2179,
+    "x": 24902786,
+    "y": 93346777,
+    "yellow": true,
+    "z": 524288
+  },
+  "message": "Linedef special 20 is not implemented yet",
+  "source": "stage-4.json"
+}

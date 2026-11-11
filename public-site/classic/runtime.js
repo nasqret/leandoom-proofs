@@ -4,7 +4,7 @@ let started=false,frozen=false;
 const send=(state,detail='')=>parent.postMessage({classic:true,state,detail},location.origin);
 addEventListener('message',event=>{
   if(event.origin!==location.origin || event.source!==parent || !event.data?.classic)return;
-  const {action,bytes,level,skill,filename,pressed,key}=event.data;
+  const {action,bytes,episode,level,skill,filename,pressed,key}=event.data;
   if(action==='playback' && started && typeof event.data.paused==='boolean' && window.Module?.preMainLoop){
     const requested=event.data.paused;
     try{
@@ -24,7 +24,7 @@ addEventListener('message',event=>{
     const [code,n]=codes[key];
     canvas.dispatchEvent(new KeyboardEvent(pressed?'keydown':'keyup',{key,code,keyCode:n,which:n,bubbles:true,cancelable:true})); return;
   }
-  if(action!=='start'||started||!(bytes instanceof ArrayBuffer)||!Number.isInteger(level)||level<1||level>9||!Number.isInteger(skill)||skill<1||skill>5)return;
+  if(action!=='start'||started||!(bytes instanceof ArrayBuffer)||!Number.isInteger(episode)||episode<1||episode>4||!Number.isInteger(level)||level<1||level>9||!Number.isInteger(skill)||skill<1||skill>5)return;
   started=true;
   const wad=['doom1.wad','doom.wad','freedoom1.wad'].includes(filename)?filename:'doom.wad';
   document.getElementById('waiting').textContent='LOADING ENGINE';
@@ -36,7 +36,7 @@ addEventListener('message',event=>{
     onRuntimeInitialized(){try{
       const fs=Module.FS;fs.writeFile('/'+wad,new Uint8Array(bytes));fs.mkdir('/savefiles');fs.writeFile('/default.cfg',event.data.config);
       document.getElementById('waiting').hidden=true;canvas.focus();
-      callMain(['-iwad',wad,'-warp','1',String(level),'-skill',String(skill),'-window','-nogui','-nomusic','-config','/default.cfg','-savedir','/savefiles']);send('running');
+      callMain(['-iwad',wad,'-warp',String(episode),String(level),'-skill',String(skill),'-window','-nogui','-nomusic','-config','/default.cfg','-savedir','/savefiles']);send('running');
     }catch(e){if(e==='unwind'||e?.name==='ExitStatus'&&e.status===0){send('running');return;}send('error',String(e));}}
   };
   const script=document.createElement('script');script.src='websockets-doom.js';script.onerror=()=>send('error','Engine loader unavailable.');document.body.append(script);

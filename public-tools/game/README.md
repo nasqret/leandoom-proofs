@@ -10,4 +10,4 @@ The native player runs the CombatV2 Lean definitions with its user's own IWAD. T
 python3 native/check_player.py /path/to/map-player /path/to/doom1.wad --routes /path/to/game/native-routes.json
 ```
 
-The same command accepts Freedoom: Phase 1. The `--freedoom-still FILE.ppm` option writes the opening render only when the IWAD digest matches Freedoom 0.13.0. The `game/native-verification.json` report binds the worker, released image, all nine starts for both IWADs and the shareware route outcomes. The browser records inputs and IWAD SHA-256. Each formal verification resolves the world from the matching local IWAD.
+The same command accepts Freedoom: Phase 1. The `--freedoom-still FILE.ppm` option writes the opening render only when the IWAD digest matches Freedoom 0.13.0. The `game/native-verification.json` report binds the worker, released image, all 36 Freedoom starts and all nine starts in the shareware IWAD and the shareware route outcomes. The browser records inputs and IWAD SHA-256. Each formal verification resolves the world from the matching local IWAD.

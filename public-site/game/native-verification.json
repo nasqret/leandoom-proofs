@@ -1,6 +1,6 @@
 {
-  "scope": "Native worker spawn, four inputs and camera frames on all nine slots of each IWAD; six recorded route endpoints on the shareware baseline.",
-  "workerSha256": "78951d0d1c21fae23487744303e945207e658b5ae658402a2dd98a5c1c74525c",
+  "scope": "Rebuilt native player, exactly four ordinary inputs and both 320\u00d7200 frames at all present map starts: 36 Freedoom and nine shareware 1.9. Six complete or partial recorded route endpoints were replayed on the shareware baseline.",
+  "workerSha256": "8d367ee3c41ef679e37af5e5d888c33c3318310d214e752edbff7a3c13a34477",
   "image": {
     "file": "freedoom-start.png",
     "sha256": "67689b57b9e3865678bfa45c2851b9bbd83baa4cf85e909b7058a966fc9f295a",
@@ -10,7 +10,9 @@
     "compile": 315873,
     "frames": 315879,
     "nativeBridge": 315889,
-    "allSixRoutes": 315924
+    "allSixRoutes": 315924,
+    "expandedCompile": 315966,
+    "expandedFramesAndRoutes": 315975
   },
   "iwads": {
     "1d7d43be501e67d927e415e0b8f3e29c3bf33075e859721816f652a526cac771": {
@@ -120,7 +122,7 @@
           "error": null
         }
       },
-      "title": "Shareware 1.9"
+      "title": "Doom shareware 1.9"
     },
     "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d": {
       "maps": {
@@ -177,10 +179,172 @@
           "atFour": "5265f800919538e5dd9af2fa272a3fa682701505fae588ab7e83b03205b570fd",
           "tick": 4,
           "health": 100
+        },
+        "E2M1": {
+          "spawn": "2c424f092618086df1c762c931d202412ba1994f279058cebfcce99ccef61e66",
+          "atFour": "c802d3900cad7c67f68a167f107d6690069f0313fbb722dd68af99afb5ffbb6b",
+          "tick": 4,
+          "health": 100
+        },
+        "E2M2": {
+          "spawn": "667134be33dc0bf12c383553f78fe02dea7ddbb04ab40e366b9183956ad5deba",
+          "atFour": "7f80c1ce0c91744a6c0b46d4c19cc55a59c1c6f4fd1d4b455b940ce0e3d1c964",
+          "tick": 4,
+          "health": 100
+        },
+        "E2M3": {
+          "spawn": "e325ce7bf02fdd60f2e895f623e1567ab58584724221daa049af9f7b7b039a0a",
+          "atFour": "061b3a5643531f42af913139ff87c3798851439a01b250cf3f55bcfd39b0de0d",
+          "tick": 4,
+          "health": 100
+        },
+        "E2M4": {
+          "spawn": "a8bd9dde83f4b87a5dda0d9da8681804f26560d73c5d218cb614cfadfb6ea6aa",
+          "atFour": "22ee99a2a85ec7b9e2d1f96f8d6754768be71c84d419913aee2c97d9b3d4382f",
+          "tick": 4,
+          "health": 100
+        },
+        "E2M5": {
+          "spawn": "9e5af91545b3f693c7cac9c668d82a4834fc31bd19a8f73f71443ec720623346",
+          "atFour": "f4b439765ca91e6d5597ff679bc478274adaca64efda5f1201a45c427780ce6e",
+          "tick": 4,
+          "health": 100
+        },
+        "E2M6": {
+          "spawn": "ebb01d3cdf9e3fd105fbd00d4b36975d816d5736c7b136549300fa19233015e9",
+          "atFour": "b12ac696d068aec5c0f26738c8ccfebfc0efb9866ca6d3838384f0a1193a7268",
+          "tick": 4,
+          "health": 100
+        },
+        "E2M7": {
+          "spawn": "a37ef43608004c47114368e8a473ce773287849ccea3d865d9d0cead200e532d",
+          "atFour": "40dbe0217caef8d99e461afc47e2e48f5237d8912cb997d6eb41a1bd471d3d54",
+          "tick": 4,
+          "health": 100
+        },
+        "E2M8": {
+          "spawn": "2e0933de033172f7033bb6abc7b9a15f6c669da26adb287efab58630ae8e60a8",
+          "atFour": "9e406376788225c6bea9736127ad384b96f269edcf41cc3c20dadb2159d7889b",
+          "tick": 4,
+          "health": 100
+        },
+        "E2M9": {
+          "spawn": "d0eaeaa362b466f3e7ca9c4872e73beb6367b219a933123c58033a5f1463512e",
+          "atFour": "265f18cb8e047c4135f04eed050accf1aa3a2a250f54ed4957a438da80efabc3",
+          "tick": 4,
+          "health": 100
+        },
+        "E3M1": {
+          "spawn": "8195dd1caa9ea11d0d54d42714ab8d1bca5b2e50ae6cbd5ecaf2f551a84f5b83",
+          "atFour": "7c813d8c40b83d4e3117e42d36e50df7fd6dedd993e3c84551b5d0b90d08424e",
+          "tick": 4,
+          "health": 100
+        },
+        "E3M2": {
+          "spawn": "df561fbb288635a4805078def818433678ab48740c1ae64e0809101e5c7c4ecc",
+          "atFour": "70945262cee3b866b5a01f946a369af46ff2ba77fe3cf90e533503332ae62043",
+          "tick": 4,
+          "health": 100
+        },
+        "E3M3": {
+          "spawn": "d38fce10d254d84dd2fe03df773afa7f27e416d5c245bfe90faeb0f444967f09",
+          "atFour": "2972c5ccfe462fbbba3510be6d1415d14d6a52e7887010989420ccd22b5b6271",
+          "tick": 4,
+          "health": 100
+        },
+        "E3M4": {
+          "spawn": "6ed18d1b083c5a6f4016bf4d6283bb4721b1d54652837e82640911287d628c4a",
+          "atFour": "32da8cc98d9e03f6906bcbcd5c5afd906983083320f3a4e431c2cbc301ed2715",
+          "tick": 4,
+          "health": 100
+        },
+        "E3M5": {
+          "spawn": "fe217b199c8cc20e99253dec460e6413689d84e54748bf3b220de9ea03eccb75",
+          "atFour": "5afc40b0850c2dad5a9d25f8644ca8dfe5bdc1b1b1f443843b0ca58aeeeedd95",
+          "tick": 4,
+          "health": 100
+        },
+        "E3M6": {
+          "spawn": "a1bf5b8ed4aad0de3c7ce1bedadca6270c97d587859963dc0fe62d8f9e9d788c",
+          "atFour": "403a0c4df1daa6c9bec4caf9a280e48384252b752e81dd46d334fd62ef0070b1",
+          "tick": 4,
+          "health": 100
+        },
+        "E3M7": {
+          "spawn": "d003f812ae110557b4ce76f174327eafc560df9e1cd178e2fcd24f969b18ef7e",
+          "atFour": "d52e6baea2975c9a44e8140369f1639165b61a6444eac3f4cf0af255c337bc0f",
+          "tick": 4,
+          "health": 100
+        },
+        "E3M8": {
+          "spawn": "9fe6a03dd2378374ca1c37354a1ca1f9c0409e072a244c89d0eeb9a17e618103",
+          "atFour": "9341965f9144f61e0bbc762ad484c5030d433f773ee4d0ac48c3e9ed89b3602a",
+          "tick": 4,
+          "health": 100
+        },
+        "E3M9": {
+          "spawn": "824559c6e61bd422afc88d0ef657f5923815336e265570ec2325da99c1da514d",
+          "atFour": "a2178a588c1f8107a6f278ae2f67148bba774c78b3d553d1841033889a325393",
+          "tick": 4,
+          "health": 100
+        },
+        "E4M1": {
+          "spawn": "532bc801aee2ef043ac5a089284b0c67186097da3ad7fd64135ebcf7be246823",
+          "atFour": "f22af40f63ef85c03340d7a93c24453051299405511e2dee1aa7387a0d9426ba",
+          "tick": 4,
+          "health": 100
+        },
+        "E4M2": {
+          "spawn": "7c918a5b27f6ed021bc13a6272d0a196c7476b3c98f38b0391ac48ef76a0fa08",
+          "atFour": "4d81ae136ee314b1f534ef152b12a1230202d53bbebc88b3268a4508233fb13d",
+          "tick": 4,
+          "health": 100
+        },
+        "E4M3": {
+          "spawn": "8f26a7b4640275ba2271a635061d744df547334fb29bad0727ee9f878b8fd2ee",
+          "atFour": "1b60f54bc7d0990d559ed0967527aee4107b58c0c66de48c20429e7f17fcbe35",
+          "tick": 4,
+          "health": 100
+        },
+        "E4M4": {
+          "spawn": "d2ed0d52a0ffcbcc26090a311affe98785f85fc55f255620428acb86e6626f62",
+          "atFour": "2fce0512e063e27983b3781413f192f0a3e4399768fc0f9c285a24960aae81df",
+          "tick": 4,
+          "health": 100
+        },
+        "E4M5": {
+          "spawn": "ff01ae9b196f06b466f81254653188b4933ed63377d35093d7109681322a544a",
+          "atFour": "95999a9dfffebb786641bc7f5c8c2f6424613895968f15618c8ecc315938d132",
+          "tick": 4,
+          "health": 100
+        },
+        "E4M6": {
+          "spawn": "d5f806db990e64e2a6acb437241f6794665711d16091ce6b4951b562606ce856",
+          "atFour": "ff9ebf15b957ce6baf6a0c97b24429fde8cf0e51aefe0b2dc726ba2eb729058f",
+          "tick": 4,
+          "health": 100
+        },
+        "E4M7": {
+          "spawn": "b31577ac333ac198d24d384acccb4abea020d4bde5ca7aae9b0d97517eeb571a",
+          "atFour": "a05962f87ec87b59e7a88a68aed049f95af93ea3ae57886e9a4c703d2cc46ec0",
+          "tick": 4,
+          "health": 100
+        },
+        "E4M8": {
+          "spawn": "97f8b34ee8c1c76934ab4729a90cc34fb01720d3580ba122c8cb8a86571da22e",
+          "atFour": "c07013db08a71a4032bd11d7e4cb806c36153da437ab475257b5111e8d66d3d9",
+          "tick": 4,
+          "health": 100
+        },
+        "E4M9": {
+          "spawn": "e50c760d2eeac705cd5cc0ce78f85d3aefeb73ba4ce4afeb232be934988f3ff2",
+          "atFour": "5a8fccee580d208f9a4ed473c05eaa773563ed7a9dbfbee55f1fe4ac7e05605a",
+          "tick": 4,
+          "health": 100
         }
       },
       "routes": {},
-      "title": "Freedoom Phase 1"
+      "title": "Freedoom: Phase 1"
     }
   },
   "browser": {
@@ -191,5 +355,6 @@
     "shots": 0,
     "exit": true,
     "browser": "Chromium 147"
-  }
+  },
+  "priorWorkerSha256": "78951d0d1c21fae23487744303e945207e658b5ae658402a2dd98a5c1c74525c"
 }

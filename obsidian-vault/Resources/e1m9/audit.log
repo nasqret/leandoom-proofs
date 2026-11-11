@@ -1,0 +1,3 @@
+'Campaign.MilitaryPlatform.useTwenty' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Campaign.MilitaryPlatform.parsedSwitch' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Campaign.MilitaryPlatform.parsedRises' depends on axioms: [propext, Classical.choice, Quot.sound]

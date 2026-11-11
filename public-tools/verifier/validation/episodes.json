@@ -1,0 +1,1352 @@
+{
+  "scope": "Four ordinary inputs (forward, backward, left, idle) per map from the ordinary walking CombatV2 spawn. The native rendered endpoint and the independently compiled Lean observation agree. Each complete-passage predicate is false for this short sample.",
+  "commands": [
+    2,
+    4,
+    32,
+    0
+  ],
+  "worldSha256": "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d",
+  "rules": "CombatV2",
+  "jobs": [
+    "315969_1",
+    "315969_2",
+    "315969_3",
+    "315969_4"
+  ],
+  "verifiedMaps": 36,
+  "mapReceipts": {
+    "E1M1": {
+      "engine": "CombatV2",
+      "level": "E1M1",
+      "trust": "compiler",
+      "status": "compiler-prefix",
+      "final": {
+        "armor": 0,
+        "bullets": 50,
+        "errorFree": true,
+        "exit": false,
+        "health": 100,
+        "kills": 0,
+        "shells": 0,
+        "shots": 0,
+        "tick": 4,
+        "x": -27224873,
+        "y": 16777226
+      },
+      "worldSha256": "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d",
+      "axioms": {
+        "Recording.incomplete": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.incomplete._native.native_decide.ax_1_1"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.finalObservation._native.native_decide.ax_1_1"
+        ]
+      },
+      "recordingSha256": "60a2e0ad06bd4cf7a6ace6d3e135712290d9244d5a439c99c3153eeb81ee1f5a",
+      "commandsU32LESha256": "7ea55c7dc10bba2bbd8fbb9c91372c7534e4b664a8442ccff5f1d55d5901ce16",
+      "frameSha256": "3ec496665904dece58f9ab1c564c9d74d36846aa9264fd0b78eaf0dc1d1f04cb"
+    },
+    "E1M2": {
+      "engine": "CombatV2",
+      "level": "E1M2",
+      "trust": "compiler",
+      "status": "compiler-prefix",
+      "final": {
+        "armor": 0,
+        "bullets": 50,
+        "errorFree": true,
+        "exit": false,
+        "health": 100,
+        "kills": 0,
+        "shells": 0,
+        "shots": 0,
+        "tick": 4,
+        "x": 39845898,
+        "y": 3107617
+      },
+      "worldSha256": "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d",
+      "axioms": {
+        "Recording.incomplete": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.incomplete._native.native_decide.ax_1_1"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.finalObservation._native.native_decide.ax_1_1"
+        ]
+      },
+      "recordingSha256": "3a427d1e25a02cf5734466952f8f427e77bd133c7dd1d4e7747164347fd97e39",
+      "commandsU32LESha256": "7ea55c7dc10bba2bbd8fbb9c91372c7534e4b664a8442ccff5f1d55d5901ce16",
+      "frameSha256": "67f683a2f74a1821d4bda46f8f05ba4d74ef0edc9028dc8ee26553089d74cc3f"
+    },
+    "E1M3": {
+      "engine": "CombatV2",
+      "level": "E1M3",
+      "trust": "compiler",
+      "status": "compiler-prefix",
+      "final": {
+        "armor": 0,
+        "bullets": 50,
+        "errorFree": true,
+        "exit": false,
+        "health": 100,
+        "kills": 0,
+        "shells": 0,
+        "shots": 0,
+        "tick": 4,
+        "x": -51642388,
+        "y": -14117673
+      },
+      "worldSha256": "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d",
+      "axioms": {
+        "Recording.incomplete": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.incomplete._native.native_decide.ax_1_1"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.finalObservation._native.native_decide.ax_1_1"
+        ]
+      },
+      "recordingSha256": "91ec4c26ad63fc33b06e1bf6355dd9c8b33329146c2f1b832fb04fd08eefc176",
+      "commandsU32LESha256": "7ea55c7dc10bba2bbd8fbb9c91372c7534e4b664a8442ccff5f1d55d5901ce16",
+      "frameSha256": "d8db611db6f5b332a97fa075bfbd1cdcec34b9337aa4cf42ba21a2c1d8e9c64b"
+    },
+    "E1M4": {
+      "engine": "CombatV2",
+      "level": "E1M4",
+      "trust": "compiler",
+      "status": "compiler-prefix",
+      "final": {
+        "armor": 0,
+        "bullets": 50,
+        "errorFree": true,
+        "exit": false,
+        "health": 100,
+        "kills": 0,
+        "shells": 0,
+        "shots": 0,
+        "tick": 4,
+        "x": 58720236,
+        "y": -115305257
+      },
+      "worldSha256": "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d",
+      "axioms": {
+        "Recording.incomplete": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.incomplete._native.native_decide.ax_1_1"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.finalObservation._native.native_decide.ax_1_1"
+        ]
+      },
+      "recordingSha256": "5ae36c7f5d7c7ed5da15b6c199d3a2dbd35b53ed59336521cf33546dbfa17345",
+      "commandsU32LESha256": "7ea55c7dc10bba2bbd8fbb9c91372c7534e4b664a8442ccff5f1d55d5901ce16",
+      "frameSha256": "8c05ee8f43f8c42a49648ca6a3d9ae28a75bfcf22c3204194e10d747dabd09e8"
+    },
+    "E1M5": {
+      "engine": "CombatV2",
+      "level": "E1M5",
+      "trust": "compiler",
+      "status": "compiler-prefix",
+      "final": {
+        "armor": 0,
+        "bullets": 50,
+        "errorFree": true,
+        "exit": false,
+        "health": 100,
+        "kills": 0,
+        "shells": 0,
+        "shots": 0,
+        "tick": 4,
+        "x": -312437545,
+        "y": 84934666
+      },
+      "worldSha256": "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d",
+      "axioms": {
+        "Recording.incomplete": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.incomplete._native.native_decide.ax_1_1"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.finalObservation._native.native_decide.ax_1_1"
+        ]
+      },
+      "recordingSha256": "4a6ea25588cc418c1aaad4821d42a9132035505b98c78b40cd1c1c854273e5d0",
+      "commandsU32LESha256": "7ea55c7dc10bba2bbd8fbb9c91372c7534e4b664a8442ccff5f1d55d5901ce16",
+      "frameSha256": "bb370b914830e6794523976dc31a326b2e08976ad570e7c1760a811c188e0b56"
+    },
+    "E1M6": {
+      "engine": "CombatV2",
+      "level": "E1M6",
+      "trust": "compiler",
+      "status": "compiler-prefix",
+      "final": {
+        "armor": 0,
+        "bullets": 50,
+        "errorFree": true,
+        "exit": false,
+        "health": 100,
+        "kills": 0,
+        "shells": 0,
+        "shots": 0,
+        "tick": 4,
+        "x": -20,
+        "y": -10447657
+      },
+      "worldSha256": "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d",
+      "axioms": {
+        "Recording.incomplete": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.incomplete._native.native_decide.ax_1_1"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.finalObservation._native.native_decide.ax_1_1"
+        ]
+      },
+      "recordingSha256": "bfd2f08a7756eeda853ec7b1aebeb4a15e662ab87d05ba7b7d3ee03187076b3e",
+      "commandsU32LESha256": "7ea55c7dc10bba2bbd8fbb9c91372c7534e4b664a8442ccff5f1d55d5901ce16",
+      "frameSha256": "c2c2be4dd15d97e6c8b0b2bd6f79e449f27bdaf1ee623bc57d40b18879d22891"
+    },
+    "E1M7": {
+      "engine": "CombatV2",
+      "level": "E1M7",
+      "trust": "compiler",
+      "status": "compiler-prefix",
+      "final": {
+        "armor": 0,
+        "bullets": 50,
+        "errorFree": true,
+        "exit": false,
+        "health": 100,
+        "kills": 0,
+        "shells": 0,
+        "shots": 0,
+        "tick": 4,
+        "x": -20,
+        "y": -15166249
+      },
+      "worldSha256": "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d",
+      "axioms": {
+        "Recording.incomplete": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.incomplete._native.native_decide.ax_1_1"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.finalObservation._native.native_decide.ax_1_1"
+        ]
+      },
+      "recordingSha256": "57596b08a7fdd7c2f65f394f0e0734b0f3508b3691d695f8a9f7c1bbecd572c3",
+      "commandsU32LESha256": "7ea55c7dc10bba2bbd8fbb9c91372c7534e4b664a8442ccff5f1d55d5901ce16",
+      "frameSha256": "1f796c8176b1d15093a625125725bc60e8e9c535b2fd17ca71d60075489f7433"
+    },
+    "E1M8": {
+      "engine": "CombatV2",
+      "level": "E1M8",
+      "trust": "compiler",
+      "status": "compiler-prefix",
+      "final": {
+        "armor": 0,
+        "bullets": 50,
+        "errorFree": true,
+        "exit": false,
+        "health": 100,
+        "kills": 0,
+        "shells": 0,
+        "shots": 0,
+        "tick": 4,
+        "x": 161480714,
+        "y": 23554849
+      },
+      "worldSha256": "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d",
+      "axioms": {
+        "Recording.incomplete": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.incomplete._native.native_decide.ax_1_1"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.finalObservation._native.native_decide.ax_1_1"
+        ]
+      },
+      "recordingSha256": "d547f81632af6f5cff3e855d2b0dbdf8e8103c406c85abedb53ddc9956781887",
+      "commandsU32LESha256": "7ea55c7dc10bba2bbd8fbb9c91372c7534e4b664a8442ccff5f1d55d5901ce16",
+      "frameSha256": "4577450cbbf447ffb922b666a529a6f70a5acaccc531545a1c12e798181a85ad"
+    },
+    "E1M9": {
+      "engine": "CombatV2",
+      "level": "E1M9",
+      "trust": "compiler",
+      "status": "compiler-prefix",
+      "final": {
+        "armor": 0,
+        "bullets": 50,
+        "errorFree": true,
+        "exit": false,
+        "health": 100,
+        "kills": 0,
+        "shells": 0,
+        "shots": 0,
+        "tick": 4,
+        "x": -14193887,
+        "y": -10485780
+      },
+      "worldSha256": "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d",
+      "axioms": {
+        "Recording.incomplete": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.incomplete._native.native_decide.ax_1_1"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.finalObservation._native.native_decide.ax_1_1"
+        ]
+      },
+      "recordingSha256": "0d21198be62df95268219971873ee941249de236b0804d269671a439f661da13",
+      "commandsU32LESha256": "7ea55c7dc10bba2bbd8fbb9c91372c7534e4b664a8442ccff5f1d55d5901ce16",
+      "frameSha256": "5265f800919538e5dd9af2fa272a3fa682701505fae588ab7e83b03205b570fd"
+    },
+    "E2M1": {
+      "engine": "CombatV2",
+      "level": "E2M1",
+      "trust": "compiler",
+      "status": "compiler-prefix",
+      "final": {
+        "armor": 0,
+        "bullets": 50,
+        "errorFree": true,
+        "exit": false,
+        "health": 100,
+        "kills": 0,
+        "shells": 0,
+        "shots": 0,
+        "tick": 4,
+        "x": 10,
+        "y": -38111
+      },
+      "worldSha256": "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d",
+      "axioms": {
+        "Recording.incomplete": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.incomplete._native.native_decide.ax_1_1"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.finalObservation._native.native_decide.ax_1_1"
+        ]
+      },
+      "recordingSha256": "2c7e260453096b444bc29b3651346bda23fe59e1d634084960dc0e2790c07a46",
+      "commandsU32LESha256": "7ea55c7dc10bba2bbd8fbb9c91372c7534e4b664a8442ccff5f1d55d5901ce16",
+      "frameSha256": "c802d3900cad7c67f68a167f107d6690069f0313fbb722dd68af99afb5ffbb6b"
+    },
+    "E2M2": {
+      "engine": "CombatV2",
+      "level": "E2M2",
+      "trust": "compiler",
+      "status": "compiler-prefix",
+      "final": {
+        "armor": 0,
+        "bullets": 50,
+        "errorFree": true,
+        "exit": false,
+        "health": 100,
+        "kills": 0,
+        "shells": 0,
+        "shots": 0,
+        "tick": 4,
+        "x": 57641931,
+        "y": -29330409
+      },
+      "worldSha256": "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d",
+      "axioms": {
+        "Recording.incomplete": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.incomplete._native.native_decide.ax_1_1"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.finalObservation._native.native_decide.ax_1_1"
+        ]
+      },
+      "recordingSha256": "2ed12c270670c83bc7744d235faf384aa8c31c8c862200e0c9353a178cbcea86",
+      "commandsU32LESha256": "7ea55c7dc10bba2bbd8fbb9c91372c7534e4b664a8442ccff5f1d55d5901ce16",
+      "frameSha256": "7f80c1ce0c91744a6c0b46d4c19cc55a59c1c6f4fd1d4b455b940ce0e3d1c964"
+    },
+    "E2M3": {
+      "engine": "CombatV2",
+      "level": "E2M3",
+      "trust": "compiler",
+      "status": "compiler-prefix",
+      "final": {
+        "armor": 0,
+        "bullets": 50,
+        "errorFree": true,
+        "exit": false,
+        "health": 100,
+        "kills": 0,
+        "shells": 0,
+        "shots": 0,
+        "tick": 4,
+        "x": -19922964,
+        "y": -30894889
+      },
+      "worldSha256": "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d",
+      "axioms": {
+        "Recording.incomplete": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.incomplete._native.native_decide.ax_1_1"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.finalObservation._native.native_decide.ax_1_1"
+        ]
+      },
+      "recordingSha256": "c3532b124b1c50a6941ccc2de311a9213372ca3679308a8dadac4b97de43e78b",
+      "commandsU32LESha256": "7ea55c7dc10bba2bbd8fbb9c91372c7534e4b664a8442ccff5f1d55d5901ce16",
+      "frameSha256": "061b3a5643531f42af913139ff87c3798851439a01b250cf3f55bcfd39b0de0d"
+    },
+    "E2M4": {
+      "engine": "CombatV2",
+      "level": "E2M4",
+      "trust": "compiler",
+      "status": "compiler-prefix",
+      "final": {
+        "armor": 0,
+        "bullets": 50,
+        "errorFree": true,
+        "exit": false,
+        "health": 100,
+        "kills": 0,
+        "shells": 0,
+        "shots": 0,
+        "tick": 4,
+        "x": -13669599,
+        "y": -82837524
+      },
+      "worldSha256": "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d",
+      "axioms": {
+        "Recording.incomplete": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.incomplete._native.native_decide.ax_1_1"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.finalObservation._native.native_decide.ax_1_1"
+        ]
+      },
+      "recordingSha256": "9c115c10e81f87d5a3eaca1aeaf7b46503fb68c066707e002bd4f57c9cf669e6",
+      "commandsU32LESha256": "7ea55c7dc10bba2bbd8fbb9c91372c7534e4b664a8442ccff5f1d55d5901ce16",
+      "frameSha256": "22ee99a2a85ec7b9e2d1f96f8d6754768be71c84d419913aee2c97d9b3d4382f"
+    },
+    "E2M5": {
+      "engine": "CombatV2",
+      "level": "E2M5",
+      "trust": "compiler",
+      "status": "compiler-prefix",
+      "final": {
+        "armor": 0,
+        "bullets": 50,
+        "errorFree": true,
+        "exit": false,
+        "health": 100,
+        "kills": 0,
+        "shells": 0,
+        "shots": 0,
+        "tick": 4,
+        "x": 10,
+        "y": 25652001
+      },
+      "worldSha256": "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d",
+      "axioms": {
+        "Recording.incomplete": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.incomplete._native.native_decide.ax_1_1"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.finalObservation._native.native_decide.ax_1_1"
+        ]
+      },
+      "recordingSha256": "17c0510b84a1d97e44f726e0f5e21202b91e5926cdc051a9dd9afe705a77029d",
+      "commandsU32LESha256": "7ea55c7dc10bba2bbd8fbb9c91372c7534e4b664a8442ccff5f1d55d5901ce16",
+      "frameSha256": "f4b439765ca91e6d5597ff679bc478274adaca64efda5f1201a45c427780ce6e"
+    },
+    "E2M6": {
+      "engine": "CombatV2",
+      "level": "E2M6",
+      "trust": "compiler",
+      "status": "compiler-prefix",
+      "final": {
+        "armor": 0,
+        "bullets": 50,
+        "errorFree": true,
+        "exit": false,
+        "health": 100,
+        "kills": 0,
+        "shells": 0,
+        "shots": 0,
+        "tick": 4,
+        "x": -10447657,
+        "y": -19398646
+      },
+      "worldSha256": "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d",
+      "axioms": {
+        "Recording.incomplete": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.incomplete._native.native_decide.ax_1_1"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.finalObservation._native.native_decide.ax_1_1"
+        ]
+      },
+      "recordingSha256": "3d6e29e09a9fff383a22f637a6144f35a9340ae6977e652addecaab4a08a940a",
+      "commandsU32LESha256": "7ea55c7dc10bba2bbd8fbb9c91372c7534e4b664a8442ccff5f1d55d5901ce16",
+      "frameSha256": "b12ac696d068aec5c0f26738c8ccfebfc0efb9866ca6d3838384f0a1193a7268"
+    },
+    "E2M7": {
+      "engine": "CombatV2",
+      "level": "E2M7",
+      "trust": "compiler",
+      "status": "compiler-prefix",
+      "final": {
+        "armor": 0,
+        "bullets": 50,
+        "errorFree": true,
+        "exit": false,
+        "health": 100,
+        "kills": 0,
+        "shells": 0,
+        "shots": 0,
+        "tick": 4,
+        "x": 148335393,
+        "y": 28311532
+      },
+      "worldSha256": "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d",
+      "axioms": {
+        "Recording.incomplete": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.incomplete._native.native_decide.ax_1_1"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.finalObservation._native.native_decide.ax_1_1"
+        ]
+      },
+      "recordingSha256": "183ff7db39ded4732ee7b950b2da6c24ec5006aa4f22d8dfcccc5f476430a05d",
+      "commandsU32LESha256": "7ea55c7dc10bba2bbd8fbb9c91372c7534e4b664a8442ccff5f1d55d5901ce16",
+      "frameSha256": "40dbe0217caef8d99e461afc47e2e48f5237d8912cb997d6eb41a1bd471d3d54"
+    },
+    "E2M8": {
+      "engine": "CombatV2",
+      "level": "E2M8",
+      "trust": "compiler",
+      "status": "compiler-prefix",
+      "final": {
+        "armor": 0,
+        "bullets": 50,
+        "errorFree": true,
+        "exit": false,
+        "health": 100,
+        "kills": 0,
+        "shells": 0,
+        "shots": 0,
+        "tick": 4,
+        "x": 2097162,
+        "y": 6253345
+      },
+      "worldSha256": "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d",
+      "axioms": {
+        "Recording.incomplete": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.incomplete._native.native_decide.ax_1_1"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.finalObservation._native.native_decide.ax_1_1"
+        ]
+      },
+      "recordingSha256": "d761af1640deb418ffcec84ba5102dd51dbf6ffdfe0021d371b1d772708b414c",
+      "commandsU32LESha256": "7ea55c7dc10bba2bbd8fbb9c91372c7534e4b664a8442ccff5f1d55d5901ce16",
+      "frameSha256": "9e406376788225c6bea9736127ad384b96f269edcf41cc3c20dadb2159d7889b"
+    },
+    "E2M9": {
+      "engine": "CombatV2",
+      "level": "E2M9",
+      "trust": "compiler",
+      "status": "compiler-prefix",
+      "final": {
+        "armor": 0,
+        "bullets": 50,
+        "errorFree": true,
+        "exit": false,
+        "health": 100,
+        "kills": 0,
+        "shells": 0,
+        "shots": 0,
+        "tick": 4,
+        "x": -20,
+        "y": -26176297
+      },
+      "worldSha256": "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d",
+      "axioms": {
+        "Recording.incomplete": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.incomplete._native.native_decide.ax_1_1"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.finalObservation._native.native_decide.ax_1_1"
+        ]
+      },
+      "recordingSha256": "e753e7cefe2224a9baed74bf9d8a35612d14e24abecbd85d79c124b06a0b96e6",
+      "commandsU32LESha256": "7ea55c7dc10bba2bbd8fbb9c91372c7534e4b664a8442ccff5f1d55d5901ce16",
+      "frameSha256": "265f18cb8e047c4135f04eed050accf1aa3a2a250f54ed4957a438da80efabc3"
+    },
+    "E3M1": {
+      "engine": "CombatV2",
+      "level": "E3M1",
+      "trust": "compiler",
+      "status": "compiler-prefix",
+      "final": {
+        "armor": 0,
+        "bullets": 50,
+        "errorFree": true,
+        "exit": false,
+        "health": 100,
+        "kills": 0,
+        "shells": 0,
+        "shots": 0,
+        "tick": 4,
+        "x": 7301921,
+        "y": -14680084
+      },
+      "worldSha256": "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d",
+      "axioms": {
+        "Recording.incomplete": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.incomplete._native.native_decide.ax_1_1"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.finalObservation._native.native_decide.ax_1_1"
+        ]
+      },
+      "recordingSha256": "b1a7df370d780d1fd7e6dcc4751129fd40b5a0853075c5582e1541a07d589709",
+      "commandsU32LESha256": "7ea55c7dc10bba2bbd8fbb9c91372c7534e4b664a8442ccff5f1d55d5901ce16",
+      "frameSha256": "7c813d8c40b83d4e3117e42d36e50df7fd6dedd993e3c84551b5d0b90d08424e"
+    },
+    "E3M2": {
+      "engine": "CombatV2",
+      "level": "E3M2",
+      "trust": "compiler",
+      "status": "compiler-prefix",
+      "final": {
+        "armor": 0,
+        "bullets": 50,
+        "errorFree": true,
+        "exit": false,
+        "health": 100,
+        "kills": 0,
+        "shells": 0,
+        "shots": 0,
+        "tick": 4,
+        "x": -20,
+        "y": 3183831
+      },
+      "worldSha256": "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d",
+      "axioms": {
+        "Recording.incomplete": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.incomplete._native.native_decide.ax_1_1"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.finalObservation._native.native_decide.ax_1_1"
+        ]
+      },
+      "recordingSha256": "3c78d2421b5c1e4376e76965d140b3d5f133928212768c745744f1a2ad68188e",
+      "commandsU32LESha256": "7ea55c7dc10bba2bbd8fbb9c91372c7534e4b664a8442ccff5f1d55d5901ce16",
+      "frameSha256": "70945262cee3b866b5a01f946a369af46ff2ba77fe3cf90e533503332ae62043"
+    },
+    "E3M3": {
+      "engine": "CombatV2",
+      "level": "E3M3",
+      "trust": "compiler",
+      "status": "compiler-prefix",
+      "final": {
+        "armor": 0,
+        "bullets": 50,
+        "errorFree": true,
+        "exit": false,
+        "health": 100,
+        "kills": 0,
+        "shells": 0,
+        "shots": 0,
+        "tick": 4,
+        "x": 57671660,
+        "y": -338651945
+      },
+      "worldSha256": "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d",
+      "axioms": {
+        "Recording.incomplete": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.incomplete._native.native_decide.ax_1_1"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.finalObservation._native.native_decide.ax_1_1"
+        ]
+      },
+      "recordingSha256": "5fc9912325e439473ced152bd75d5c51a98218375aa9717d9f39b6098f899801",
+      "commandsU32LESha256": "7ea55c7dc10bba2bbd8fbb9c91372c7534e4b664a8442ccff5f1d55d5901ce16",
+      "frameSha256": "2972c5ccfe462fbbba3510be6d1415d14d6a52e7887010989420ccd22b5b6271"
+    },
+    "E3M4": {
+      "engine": "CombatV2",
+      "level": "E3M4",
+      "trust": "compiler",
+      "status": "compiler-prefix",
+      "final": {
+        "armor": 0,
+        "bullets": 50,
+        "errorFree": true,
+        "exit": false,
+        "health": 100,
+        "kills": 0,
+        "shells": 0,
+        "shots": 0,
+        "tick": 4,
+        "x": -7902431,
+        "y": -62914580
+      },
+      "worldSha256": "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d",
+      "axioms": {
+        "Recording.incomplete": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.incomplete._native.native_decide.ax_1_1"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.finalObservation._native.native_decide.ax_1_1"
+        ]
+      },
+      "recordingSha256": "5f73cdb5ae15b245e48dc7e8f8b4f149f2b7afeae2f620b0b480cc770a911431",
+      "commandsU32LESha256": "7ea55c7dc10bba2bbd8fbb9c91372c7534e4b664a8442ccff5f1d55d5901ce16",
+      "frameSha256": "32da8cc98d9e03f6906bcbcd5c5afd906983083320f3a4e431c2cbc301ed2715"
+    },
+    "E3M5": {
+      "engine": "CombatV2",
+      "level": "E3M5",
+      "trust": "compiler",
+      "status": "compiler-prefix",
+      "final": {
+        "armor": 0,
+        "bullets": 50,
+        "errorFree": true,
+        "exit": false,
+        "health": 100,
+        "kills": 0,
+        "shells": 0,
+        "shots": 0,
+        "tick": 4,
+        "x": -27262996,
+        "y": 10523863
+      },
+      "worldSha256": "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d",
+      "axioms": {
+        "Recording.incomplete": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.incomplete._native.native_decide.ax_1_1"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.finalObservation._native.native_decide.ax_1_1"
+        ]
+      },
+      "recordingSha256": "f87be332e7b2dc86b2719a214c0e1a908c035bbcbd1801f6a43937f75ea0d4d9",
+      "commandsU32LESha256": "7ea55c7dc10bba2bbd8fbb9c91372c7534e4b664a8442ccff5f1d55d5901ce16",
+      "frameSha256": "5afc40b0850c2dad5a9d25f8644ca8dfe5bdc1b1b1f443843b0ca58aeeeedd95"
+    },
+    "E3M6": {
+      "engine": "CombatV2",
+      "level": "E3M6",
+      "trust": "compiler",
+      "status": "compiler-prefix",
+      "final": {
+        "armor": 0,
+        "bullets": 50,
+        "errorFree": true,
+        "exit": false,
+        "health": 100,
+        "kills": 0,
+        "shells": 0,
+        "shots": 0,
+        "tick": 4,
+        "x": -12028905,
+        "y": -12815315
+      },
+      "worldSha256": "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d",
+      "axioms": {
+        "Recording.incomplete": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.incomplete._native.native_decide.ax_1_1"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.finalObservation._native.native_decide.ax_1_1"
+        ]
+      },
+      "recordingSha256": "036af3af1cd0454e7db36233af64f49c6d9d41440172501009c06f0985dbe6b6",
+      "commandsU32LESha256": "7ea55c7dc10bba2bbd8fbb9c91372c7534e4b664a8442ccff5f1d55d5901ce16",
+      "frameSha256": "403a0c4df1daa6c9bec4caf9a280e48384252b752e81dd46d334fd62ef0070b1"
+    },
+    "E3M7": {
+      "engine": "CombatV2",
+      "level": "E3M7",
+      "trust": "compiler",
+      "status": "compiler-prefix",
+      "final": {
+        "armor": 0,
+        "bullets": 120,
+        "errorFree": true,
+        "exit": false,
+        "health": 100,
+        "kills": 0,
+        "shells": 0,
+        "shots": 0,
+        "tick": 4,
+        "x": 35651564,
+        "y": 37786839
+      },
+      "worldSha256": "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d",
+      "axioms": {
+        "Recording.incomplete": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.incomplete._native.native_decide.ax_1_1"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.finalObservation._native.native_decide.ax_1_1"
+        ]
+      },
+      "recordingSha256": "a0a024877df5438d284f77bdf2ee2def4b21d026a770ab6dbec65670d92c4b70",
+      "commandsU32LESha256": "7ea55c7dc10bba2bbd8fbb9c91372c7534e4b664a8442ccff5f1d55d5901ce16",
+      "frameSha256": "d52e6baea2975c9a44e8140369f1639165b61a6444eac3f4cf0af255c337bc0f"
+    },
+    "E3M8": {
+      "engine": "CombatV2",
+      "level": "E3M8",
+      "trust": "compiler",
+      "status": "compiler-prefix",
+      "final": {
+        "armor": 0,
+        "bullets": 50,
+        "errorFree": true,
+        "exit": false,
+        "health": 100,
+        "kills": 0,
+        "shells": 0,
+        "shots": 0,
+        "tick": 4,
+        "x": -501181225,
+        "y": 23068682
+      },
+      "worldSha256": "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d",
+      "axioms": {
+        "Recording.incomplete": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.incomplete._native.native_decide.ax_1_1"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.finalObservation._native.native_decide.ax_1_1"
+        ]
+      },
+      "recordingSha256": "84892196e99ed930f564d7321f07b198b22a7b3674297d55e414dca4103ed606",
+      "commandsU32LESha256": "7ea55c7dc10bba2bbd8fbb9c91372c7534e4b664a8442ccff5f1d55d5901ce16",
+      "frameSha256": "9341965f9144f61e0bbc762ad484c5030d433f773ee4d0ac48c3e9ed89b3602a"
+    },
+    "E3M9": {
+      "engine": "CombatV2",
+      "level": "E3M9",
+      "trust": "compiler",
+      "status": "compiler-prefix",
+      "final": {
+        "armor": 0,
+        "bullets": 50,
+        "errorFree": true,
+        "exit": false,
+        "health": 100,
+        "kills": 0,
+        "shells": 0,
+        "shots": 0,
+        "tick": 4,
+        "x": 31457260,
+        "y": -255814441
+      },
+      "worldSha256": "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d",
+      "axioms": {
+        "Recording.incomplete": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.incomplete._native.native_decide.ax_1_1"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.finalObservation._native.native_decide.ax_1_1"
+        ]
+      },
+      "recordingSha256": "4ce36cbb23ba1b38b053ae0aa1279fbe952f721759cac5d46a1e794e866bbac7",
+      "commandsU32LESha256": "7ea55c7dc10bba2bbd8fbb9c91372c7534e4b664a8442ccff5f1d55d5901ce16",
+      "frameSha256": "a2178a588c1f8107a6f278ae2f67148bba774c78b3d553d1841033889a325393"
+    },
+    "E4M1": {
+      "engine": "CombatV2",
+      "level": "E4M1",
+      "trust": "compiler",
+      "status": "compiler-prefix",
+      "final": {
+        "armor": 0,
+        "bullets": 50,
+        "errorFree": true,
+        "exit": false,
+        "health": 100,
+        "kills": 0,
+        "shells": 0,
+        "shots": 0,
+        "tick": 4,
+        "x": -50293545,
+        "y": -31457270
+      },
+      "worldSha256": "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d",
+      "axioms": {
+        "Recording.incomplete": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.incomplete._native.native_decide.ax_1_1"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.finalObservation._native.native_decide.ax_1_1"
+        ]
+      },
+      "recordingSha256": "b8423b6fdaee23de8a3335815c65ce6a57c74ad098c2b0b6da6b5466cbe2c9d7",
+      "commandsU32LESha256": "7ea55c7dc10bba2bbd8fbb9c91372c7534e4b664a8442ccff5f1d55d5901ce16",
+      "frameSha256": "f22af40f63ef85c03340d7a93c24453051299405511e2dee1aa7387a0d9426ba"
+    },
+    "E4M2": {
+      "engine": "CombatV2",
+      "level": "E4M2",
+      "trust": "compiler",
+      "status": "compiler-prefix",
+      "final": {
+        "armor": 0,
+        "bullets": 50,
+        "errorFree": true,
+        "exit": false,
+        "health": 100,
+        "kills": 0,
+        "shells": 0,
+        "shots": 0,
+        "tick": 4,
+        "x": -2135263,
+        "y": -23068692
+      },
+      "worldSha256": "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d",
+      "axioms": {
+        "Recording.incomplete": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.incomplete._native.native_decide.ax_1_1"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.finalObservation._native.native_decide.ax_1_1"
+        ]
+      },
+      "recordingSha256": "0c5d7df069aa87204a47a865596368c34a42c6991978b02666290007b2901f3b",
+      "commandsU32LESha256": "7ea55c7dc10bba2bbd8fbb9c91372c7534e4b664a8442ccff5f1d55d5901ce16",
+      "frameSha256": "4d81ae136ee314b1f534ef152b12a1230202d53bbebc88b3268a4508233fb13d"
+    },
+    "E4M3": {
+      "engine": "CombatV2",
+      "level": "E4M3",
+      "trust": "compiler",
+      "status": "compiler-prefix",
+      "final": {
+        "armor": 0,
+        "bullets": 50,
+        "errorFree": true,
+        "exit": false,
+        "health": 100,
+        "kills": 0,
+        "shells": 0,
+        "shots": 0,
+        "tick": 4,
+        "x": -52259625,
+        "y": 23068682
+      },
+      "worldSha256": "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d",
+      "axioms": {
+        "Recording.incomplete": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.incomplete._native.native_decide.ax_1_1"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.finalObservation._native.native_decide.ax_1_1"
+        ]
+      },
+      "recordingSha256": "92a91d08e9d65e40a4a9d886d4f60dca439040b5f79ed9a65bdd8007e9c51425",
+      "commandsU32LESha256": "7ea55c7dc10bba2bbd8fbb9c91372c7534e4b664a8442ccff5f1d55d5901ce16",
+      "frameSha256": "1b60f54bc7d0990d559ed0967527aee4107b58c0c66de48c20429e7f17fcbe35"
+    },
+    "E4M4": {
+      "engine": "CombatV2",
+      "level": "E4M4",
+      "trust": "compiler",
+      "status": "compiler-prefix",
+      "final": {
+        "armor": 0,
+        "bullets": 50,
+        "errorFree": true,
+        "exit": false,
+        "health": 100,
+        "kills": 0,
+        "shells": 0,
+        "shots": 0,
+        "tick": 4,
+        "x": -42467318,
+        "y": 77556513
+      },
+      "worldSha256": "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d",
+      "axioms": {
+        "Recording.incomplete": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.incomplete._native.native_decide.ax_1_1"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.finalObservation._native.native_decide.ax_1_1"
+        ]
+      },
+      "recordingSha256": "79ce06eb5e34910ff4dae194a62178ebf863e43d7b02f4f325f9d8da9dcb9b4f",
+      "commandsU32LESha256": "7ea55c7dc10bba2bbd8fbb9c91372c7534e4b664a8442ccff5f1d55d5901ce16",
+      "frameSha256": "2fce0512e063e27983b3781413f192f0a3e4399768fc0f9c285a24960aae81df"
+    },
+    "E4M5": {
+      "engine": "CombatV2",
+      "level": "E4M5",
+      "trust": "compiler",
+      "status": "compiler-prefix",
+      "final": {
+        "armor": 0,
+        "bullets": 50,
+        "errorFree": true,
+        "exit": false,
+        "health": 100,
+        "kills": 0,
+        "shells": 0,
+        "shots": 0,
+        "tick": 4,
+        "x": -11010038,
+        "y": 61303585
+      },
+      "worldSha256": "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d",
+      "axioms": {
+        "Recording.incomplete": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.incomplete._native.native_decide.ax_1_1"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.finalObservation._native.native_decide.ax_1_1"
+        ]
+      },
+      "recordingSha256": "036506caad4af3a5e9793d43019548878e9e333425d4aed1dd03bcad54ecc468",
+      "commandsU32LESha256": "7ea55c7dc10bba2bbd8fbb9c91372c7534e4b664a8442ccff5f1d55d5901ce16",
+      "frameSha256": "95999a9dfffebb786641bc7f5c8c2f6424613895968f15618c8ecc315938d132"
+    },
+    "E4M6": {
+      "engine": "CombatV2",
+      "level": "E4M6",
+      "trust": "compiler",
+      "status": "compiler-prefix",
+      "final": {
+        "armor": 0,
+        "bullets": 50,
+        "errorFree": true,
+        "exit": false,
+        "health": 100,
+        "kills": 0,
+        "shells": 0,
+        "shots": 0,
+        "tick": 4,
+        "x": -6815764,
+        "y": -36137769
+      },
+      "worldSha256": "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d",
+      "axioms": {
+        "Recording.incomplete": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.incomplete._native.native_decide.ax_1_1"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.finalObservation._native.native_decide.ax_1_1"
+        ]
+      },
+      "recordingSha256": "529bf69c7e4a4aed0e8ee2aef9562da7525cd80f5230599e5bf8cef00273454d",
+      "commandsU32LESha256": "7ea55c7dc10bba2bbd8fbb9c91372c7534e4b664a8442ccff5f1d55d5901ce16",
+      "frameSha256": "ff9ebf15b957ce6baf6a0c97b24429fde8cf0e51aefe0b2dc726ba2eb729058f"
+    },
+    "E4M7": {
+      "engine": "CombatV2",
+      "level": "E4M7",
+      "trust": "compiler",
+      "status": "compiler-prefix",
+      "final": {
+        "armor": 0,
+        "bullets": 50,
+        "errorFree": true,
+        "exit": false,
+        "health": 100,
+        "kills": 0,
+        "shells": 0,
+        "shots": 0,
+        "tick": 4,
+        "x": -10485780,
+        "y": -18836265
+      },
+      "worldSha256": "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d",
+      "axioms": {
+        "Recording.incomplete": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.incomplete._native.native_decide.ax_1_1"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.finalObservation._native.native_decide.ax_1_1"
+        ]
+      },
+      "recordingSha256": "ac370bf847878ce4fd84c763089060d28314d6abb9565bcc13ea7be12908235e",
+      "commandsU32LESha256": "7ea55c7dc10bba2bbd8fbb9c91372c7534e4b664a8442ccff5f1d55d5901ce16",
+      "frameSha256": "a05962f87ec87b59e7a88a68aed049f95af93ea3ae57886e9a4c703d2cc46ec0"
+    },
+    "E4M8": {
+      "engine": "CombatV2",
+      "level": "E4M8",
+      "trust": "compiler",
+      "status": "compiler-prefix",
+      "final": {
+        "armor": 0,
+        "bullets": 50,
+        "errorFree": true,
+        "exit": false,
+        "health": 100,
+        "kills": 0,
+        "shells": 0,
+        "shots": 0,
+        "tick": 4,
+        "x": -96469012,
+        "y": -29322025
+      },
+      "worldSha256": "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d",
+      "axioms": {
+        "Recording.incomplete": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.incomplete._native.native_decide.ax_1_1"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.finalObservation._native.native_decide.ax_1_1"
+        ]
+      },
+      "recordingSha256": "70d0e45cf7f238a979189457a96d936bc6466391ff0fbd37a77259c56faf9429",
+      "commandsU32LESha256": "7ea55c7dc10bba2bbd8fbb9c91372c7534e4b664a8442ccff5f1d55d5901ce16",
+      "frameSha256": "c07013db08a71a4032bd11d7e4cb806c36153da437ab475257b5111e8d66d3d9"
+    },
+    "E4M9": {
+      "engine": "CombatV2",
+      "level": "E4M9",
+      "trust": "compiler",
+      "status": "compiler-prefix",
+      "final": {
+        "armor": 0,
+        "bullets": 50,
+        "errorFree": true,
+        "exit": false,
+        "health": 100,
+        "kills": 0,
+        "shells": 0,
+        "shots": 0,
+        "tick": 4,
+        "x": 8388588,
+        "y": -32205609
+      },
+      "worldSha256": "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d",
+      "axioms": {
+        "Recording.incomplete": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.incomplete._native.native_decide.ax_1_1"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Recording.finalObservation._native.native_decide.ax_1_1"
+        ]
+      },
+      "recordingSha256": "8f30a0883aec4f5be67c21bb64c8372bbe5804b528d4157f7df501f5181e69ec",
+      "commandsU32LESha256": "7ea55c7dc10bba2bbd8fbb9c91372c7534e4b664a8442ccff5f1d55d5901ce16",
+      "frameSha256": "5a8fccee580d208f9a4ed473c05eaa773563ed7a9dbfbee55f1fe4ac7e05605a"
+    }
+  }
+}

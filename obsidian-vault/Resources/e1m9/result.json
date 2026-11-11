@@ -1,0 +1,72 @@
+{
+  "map": "E1M9",
+  "engine": "CombatV2",
+  "title": "Three keys and the exit-platform obstruction",
+  "date": "2026-11-11",
+  "passageProved": false,
+  "inputTape": "three-keys.json",
+  "rawU32LEInputSha256": "0582a87bb45ee0d4dbba3855a45eef643aa8ef120d950079aec6ef3607db6bf5",
+  "prefixReplay": "prefix-replay.json",
+  "nativeReplay": {
+    "wmiJob": "315961_4",
+    "ordinaryCommands": 1811,
+    "states": 1812,
+    "healthMinimum": 2,
+    "yellowFirstTick": 126,
+    "redFirstTick": 933,
+    "blueFirstTick": 1664,
+    "endHealth": 2,
+    "endShots": 12,
+    "endKills": 16,
+    "exit": false
+  },
+  "stockKernel": {
+    "wmiJob": 315968,
+    "jobState": "COMPLETED",
+    "exitCode": "0:0",
+    "seconds": 20,
+    "lean": "4.33.0",
+    "sources": [
+      "MilitaryPlatform.lean",
+      "MilitaryBoundary.lean"
+    ],
+    "freshAudits": [
+      "audit.log",
+      "boundary-audit.log"
+    ],
+    "hashes": "hashes.txt",
+    "checked": [
+      "The actual parser gives Use-switch 567 special 20, tag 9 and the same sector-17 tag. The imported Use dispatcher leaves the map and floor thinkers unchanged for every type-20 line and emits the unsupported-special message.",
+      "For the six-sector set containing the normal exit, all two-sided boundaries are exactly lines 548, 549 and 550. Each is an 88-unit rise on the parsed map."
+    ]
+  },
+  "scope": "The witness is a three-key prefix. The map and dispatcher theorems concern the specified initial geometry and callback. Optimality and impossibility over every controller remain open.",
+  "originalSwitchSemantics": "https://github.com/id-Software/DOOM/blob/master/linuxdoom-1.10/p_switch.c#L355-L359",
+  "extendedNativeReplay": {
+    "job": 315978,
+    "ordinaryCommands": 2179,
+    "states": 2180,
+    "endHealth": 2,
+    "endShots": 16,
+    "exit": false,
+    "mapSwitch": 567,
+    "useMessage": "Linedef special 20 is not implemented yet",
+    "messageObservationJob": 315973,
+    "recording": "blocked-switch.json",
+    "endpoint": "blocked-switch-state.json",
+    "traceSummary": "blocked-switch-replay.json",
+    "u32leInputSha256": "dbbb71b044678df477aa6447a816dc9409327b09ae7e4bffc7f64da6bcd4ce8f",
+    "matches1811CommandPrefix": true
+  },
+  "compilerAssisted": {
+    "declaration": "MilitaryBase.first_three_keys",
+    "job": 315977,
+    "allThreeFirstTick": 1664,
+    "endHealth": 2,
+    "prefixTicks": 1811,
+    "compilerTrust": "native_decide evaluation axiom per checked declaration",
+    "source": "ThreeKeys.lean",
+    "freshAudit": "ThreeKeys.audit.log",
+    "receipt": "three-key-certificate.json"
+  }
+}

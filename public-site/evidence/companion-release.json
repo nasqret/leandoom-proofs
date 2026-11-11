@@ -19,27 +19,94 @@
     "sourceOfComparison": "Downloaded from the public Pages URL after the first deployment."
   },
   "final": {
-    "sha256": "b55db913be3c6ce6b8c824566329b25896b0fc29419268877335f9e24a0cdfd8",
-    "bytes": 390754,
-    "coldJob": 315959,
-    "verifiedEquivalentCheckInputs": true,
-    "scopeLabelChanges": [
-      {
-        "level": "E1M9",
-        "old": "Native prefix with checked input properties",
-        "new": "Compiler-checked prefix"
-      }
+    "sha256": "67b20de909df460666ca2773c9ff9af272a2bac9a2ef44cec8659d26c09d10ee",
+    "bytes": 408793,
+    "extendedFeatures": [
+      "36 actual E1\u2013E4 map slots with independent rendered/Lean prefix checks",
+      "1811-input three-key Military Base certificate",
+      "Quantified prefix semantics and classic itinerary source"
+    ],
+    "coldJob": 315981,
+    "coldStatus": "passed",
+    "coldSeconds": 164,
+    "coldChecks": [
+      "ZIP member SHA-256 manifest",
+      "matching Codex and Claude skills",
+      "19-input L01 stock-kernel certificate",
+      "4161-input E1M7 compiler-assisted certificate and fresh axiom audit",
+      "native map-player build",
+      "22 stock fixture source modules and seven freshly audited roots",
+      "Four-input E4M9 Freedoom prefix with native/Lean endpoint agreement"
     ]
   },
-  "zipMembers": 169,
-  "changedMembers": {
-    "SHA256SUMS": {
-      "old": "567cedf9d6c471994d74a2141a1284ed967bd47af995e9ee9acea35252fb9851",
-      "new": "8eb6a7622e79f8a2346aba1f7af7ac5cadbe5659901f9ea5d2bbc193a0af0fd3"
+  "zipMembers": 186,
+  "priorUpdate": {
+    "releasedArchive": {
+      "sha256": "b55db913be3c6ce6b8c824566329b25896b0fc29419268877335f9e24a0cdfd8",
+      "bytes": 390754,
+      "coldJob": 315959,
+      "verifiedEquivalentCheckInputs": true,
+      "scopeLabelChanges": [
+        {
+          "level": "E1M9",
+          "old": "Native prefix with checked input properties",
+          "new": "Compiler-checked prefix"
+        }
+      ],
+      "coldSeconds": 159,
+      "coldStatus": "passed",
+      "coldChecks": [
+        "ZIP member SHA-256 manifest",
+        "matching Codex and Claude skills",
+        "19-input L01 stock-kernel certificate",
+        "4161-input E1M7 compiler-assisted certificate and fresh axiom audit",
+        "native map-player build",
+        "22 stock fixture source modules and seven freshly audited roots"
+      ]
     },
-    "game/native-routes.json": {
-      "old": "54ff2508f484b45f07af8aae12e3c59ddc8678bacb90afe83ba6c891a3e04d4f",
-      "new": "665dc0f69fe46159899d9eeed44e2601b8b9d1a11596ce14191ee51835ab980b"
+    "changedMembers": {
+      "SHA256SUMS": {
+        "old": "567cedf9d6c471994d74a2141a1284ed967bd47af995e9ee9acea35252fb9851",
+        "new": "8eb6a7622e79f8a2346aba1f7af7ac5cadbe5659901f9ea5d2bbc193a0af0fd3"
+      },
+      "game/native-routes.json": {
+        "old": "54ff2508f484b45f07af8aae12e3c59ddc8678bacb90afe83ba6c891a3e04d4f",
+        "new": "665dc0f69fe46159899d9eeed44e2601b8b9d1a11596ce14191ee51835ab980b"
+      }
     }
+  },
+  "changedSincePriorUpdate": {
+    "added": [
+      "examples/prooflab-e1m9-1811.json",
+      "theorems/ClassicCampaign.audit.log",
+      "theorems/ClassicCampaign.json",
+      "theorems/ClassicCampaign.lean",
+      "theorems/ClassicCampaignAudit.lean",
+      "theorems/ScanSemantics.lean",
+      "theorems/StationSafe.audit.log",
+      "theorems/StationSafe.lean",
+      "theorems/classic-map-edges.py",
+      "validation/combat/e1m9-1811/Audit.lean",
+      "validation/combat/e1m9-1811/Certificate.lean",
+      "validation/combat/e1m9-1811/ThreeKeys.audit.log",
+      "validation/combat/e1m9-1811/ThreeKeys.lean",
+      "validation/combat/e1m9-1811/ThreeKeysAudit.lean",
+      "validation/combat/e1m9-1811/audit.log",
+      "validation/combat/e1m9-1811/receipt.json",
+      "validation/episodes.json"
+    ],
+    "removed": [],
+    "updated": [
+      "README.md",
+      "SHA256SUMS",
+      "combat/MapWorker.lean",
+      "game/MapWorker.lean",
+      "game/native.html",
+      "game/native.mjs",
+      "models.py",
+      "play.py",
+      "validation/README.md",
+      "validation/combat/runs.json"
+    ]
   }
 }

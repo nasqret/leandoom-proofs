@@ -226,7 +226,7 @@
     "name": "Command Control",
     "edition": "CombatV2",
     "status": "Local theorems",
-    "description": "From the viewpoint (−1580, 1888), looking west, the Use ray finds line 554. Lean checks the normal exit dispatcher and the switch changing from SW1DIRT to SW2DIRT. Reaching this viewpoint from the ordinary start remains open.",
+    "description": "From the viewpoint (−1580, 1888), looking west, the Use ray finds line 554. Lean checks the normal exit dispatcher and the switch changing from SW1DIRT to SW2DIRT. Reaching this viewpoint from the ordinary start remains open. The two blue-card approaches, lines 686 and 687, have crossing type 90. Stock Lean proves the crossing dispatcher leaves the map unchanged for this type.",
     "proofs": [
       {
         "title": "The ordinary start follows from the parsed map",
@@ -672,7 +672,7 @@
     "name": "Military Base",
     "edition": "CombatV2",
     "status": "Local theorems",
-    "description": "Lean counts 23 Use inputs and zero Attack inputs on the 933-input tape. In the game it collects yellow at 126 and red at 933. A longer native replay reaches switch 362 on input 1,441 with two health. Lean also checks exit line 551 from a specified viewpoint. Full passage remains open.",
+    "description": "A new 1,811-input native replay collects yellow at tick 126, red at 933 and blue at 1,664. It ends alive with two health before the exit. Stock Lean identifies three 88-unit entries to the exit platform and confirms that the tagged type-20 switch leaves the map and movers unchanged in this CombatV2 dispatcher. Full passage remains open.",
     "proofs": [
       {
         "title": "Count the action buttons in the two-key run",

@@ -27,7 +27,7 @@ The watcher reads `prooflab-*.json`. The default receipt location is `.proofs/<S
 
 ## Play the Lean Doom engine on your maps
 
-Supply a local Doom-format Episode One IWAD, such as your own shareware 1.9 `doom1.wad` or Freedoom: Phase 1. The compiled engine renders frames on your machine and records the keyboard masks for each simulation tick. The launcher prints a private loopback URL. The bundled player accepts the ordinary movement, turn, use, attack and weapon controls on the current CombatV2 revision. [Freedoom downloads](https://freedoom.github.io/download.html) · [Alaska Hoffman's upstream port](https://github.com/alaskahoffman/leandoom)
+Supply a local Doom-format episodic IWAD, such as your own shareware 1.9 `doom1.wad` or Freedoom: Phase 1. The compiled engine renders frames on your machine and records the keyboard masks for each simulation tick. The launcher prints a private loopback URL. The bundled player accepts the ordinary movement, turn, use, attack and weapon controls on the current CombatV2 revision. [Freedoom downloads](https://freedoom.github.io/download.html) · [Alaska Hoffman's upstream port](https://github.com/alaskahoffman/leandoom)
 
 ```sh
 (cd combat && lake build map-player)
@@ -36,7 +36,7 @@ python3 play.py /path/to/your.wad
 python3 verify.py watch paired-runs --iwad /path/to/your.wad
 ```
 
-The current recording schema binds the IWAD SHA-256. Legacy recordings without that field select shareware 1.9, digest `1d7d43be501e67d927e415e0b8f3e29c3bf33075e859721816f652a526cac771`. Select E1M1–E1M9 individually. The run theorem starts at the engine's ordinary spawn in that slot. A transition to another level or a campaign ending requires further semantics and a separate statement. The browser's classic Freedoom player uses a different engine. Only exports labelled CombatV2 or Proof Lab can be verified by this tool.
+The current recording schema binds the IWAD SHA-256. Legacy recordings without that field select shareware 1.9, digest `1d7d43be501e67d927e415e0b8f3e29c3bf33075e859721816f652a526cac771`. Select a standard E1M1–E4M9 marker that is present in your archive. The shareware archive supplies nine markers and Freedoom: Phase 1 supplies 36. The run theorem starts at the engine's ordinary spawn in that slot. A transition to another level or a campaign ending requires further semantics and a separate statement. The browser's classic Freedoom player uses a different engine. Only exports labelled CombatV2 or Proof Lab can be verified by this tool.
 
 ## What the certificate says
 
@@ -62,10 +62,12 @@ python3 verify.py check /path/to/my-run.json --iwad /path/to/your.wad --trust ke
 python3 route_tests.py /path/to/new-validation-directory
 ```
 
-The release includes Hangar (978 and 993), Nuclear Plant (1,017 and a quiet 1,013), Computer Station (4,161) and a Military Base prefix (933). The examples contain our input commands. The program reads the map bytes from the supplied IWAD. A regenerated original certificate will use the map bytes in that file, the recorded input values and the bundled CombatV2 rules. The named level, file hash, command hash and trust setting distinguish records for different maps or different proof methods. The standalone authored-route compilation and fresh audits are included in `validation/`.
+The release includes Hangar (978 and 993), Nuclear Plant (1,017 and a quiet 1,013), Computer Station (4,161) and Military Base prefixes (933 and 1,811). The examples contain our input commands. The program reads the map bytes from the supplied IWAD. A regenerated original certificate will use the map bytes in that file, the recorded input values and the bundled CombatV2 rules. The named level, file hash, command hash and trust setting distinguish records for different maps or different proof methods. The standalone authored-route compilation and fresh audits are included in `validation/`.
 
 Open the extracted directory as a workspace in Codex or Claude Code. Ask the agent to “use the verify-doom-run skill on my recording and report both audited declarations.” The ZIP contains the same skill in both agents’ project discovery locations. The source tree keeps the common skill in `skills/verify-doom-run/`. [Agent prompts](PROMPTS.md) · [Codex skills](https://developers.openai.com/codex/skills/) · [Claude Code skills](https://code.claude.com/docs/en/skills)
 
 The independent verifier, teaching model and documentation use MIT. The port and CombatV2-derived source use GPL-2.0-or-later. The included Freedoom preview has the Freedoom contributors' license. [MIT license](LICENSE) · [Engine source and notices](combat/NOTICE.md) · [Freedoom artwork license](game/freedoom-COPYING.txt)
 
 The original kernel composition recipe, its complete PROOF01 fixture, the historical Nuclear Plant bindings and audited roots are under [stock/](stock/README.md). Run `python3 stock/check_fixture.py fixture-check` to rebuild an entire split-scan proof from source.
+
+The two Military Base prefixes include a longer, 1,811-input recording. Its additional theorem establishes the first tick holding all three keys, 1,664, with two health remaining. Every prefix through tick 1,811 stays alive, error-free and before the exit. [Milestone source](validation/combat/e1m9-1811/ThreeKeys.lean) · [Four-episode recording checks](validation/episodes.json)

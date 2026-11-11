@@ -2,7 +2,7 @@ import {choosePairFolder, sendPairedRun} from '../downloads/pair.js';
 
 const el = name => document.getElementById('native-' + name);
 const owner = crypto.randomUUID();
-const levels = Array.from({length:9}, (_,i) => 'E1M'+(i+1));
+let levels = ['E1M1'];
 const keyMasks = {KeyW:2,ArrowUp:2,KeyS:4,ArrowDown:4,KeyA:8,KeyD:16,ArrowLeft:32,ArrowRight:64,
   ShiftLeft:512,ShiftRight:512,Space:4096,KeyE:4096,ControlLeft:8192,ControlRight:8192,
   Digit1:16384,Digit2:32768,Digit3:65536};
@@ -171,6 +171,9 @@ try{
   if(location.hostname==='127.0.0.1'&&/^\/[\w-]{25,}\/game\/native\.html$/.test(location.pathname)){
     const sr=await fetch('session'),rr=await fetch('native-routes.json');if(!sr.ok||!rr.ok)throw Error('Local game could not start.');
     session=await sr.json();routes=await rr.json();
+    levels=session.levels;
+    if(!Array.isArray(levels)||!levels.length||levels.some(l=>!/^E[1-4]M[1-9]$/.test(l)))throw Error('The local worker did not report supported map slots.');
+    el('level').replaceChildren(...levels.map(l=>new Option(l,l)));
     document.querySelectorAll('[data-online]').forEach(a=>a.hidden=true);
     document.getElementById('instructions').hidden=true;el('playbar').hidden=false;el('help').hidden=false;
     el('level').disabled=false;el('route').disabled=false;menu();await reset();

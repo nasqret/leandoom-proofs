@@ -1,0 +1,2 @@
+import MilitaryBoundary
+#print axioms Campaign.MilitaryPlatform.parsedBoundary

@@ -34,6 +34,8 @@ def build_chapter():
         parts.append(f'<h2 id="{level.lower()}">{escape(level)} · {escape(obj["title"])}</h2><p>{escape(obj["description"])}</p>')
         for row in obj['declarations']:
             parts.append('<article class="evidence"><h3>'+escape(row['title'])+'</h3><p><code>'+escape(row['declaration'])+'</code></p><details><summary>Imported axiom report and source identity</summary><pre class="output">'+escape(row['auditText'])+'</pre><p>Source SHA-256 <code>'+escape(row['sourceSha256'])+'</code></p><p>Audit SHA-256 <code>'+escape(row['auditSha256'])+'</code></p></details></article>')
+        if 'currentResearch' in obj:
+            parts.append('<p><a href="'+escape(obj['currentResearch'])+'">Read the map-bound certificate and latest route evidence</a></p>')
         if 'additionalCompilerAssisted' in obj:
             proof=obj['additionalCompilerAssisted']
             parts.append('<article class="evidence"><h3>Compiler-assisted full passage</h3><p>'+str(proof['commands'])+' inputs reach the first exit. This proof relies on the following compiler evaluation axioms.</p><pre class="output">'+escape(json.dumps(proof['axioms'],indent=2))+'</pre><p><a href="../downloads/combat-runs.json">Full receipts, input digests and endpoints</a></p></article>')

@@ -20,4 +20,4 @@ download=fetch('https://github.com/freedoom/freedoom/releases/download/v'+tag+'/
 with ZipFile(io.BytesIO(download)) as archive:
     wad=archive.read('freedoom-'+tag+'/freedoom1.wad')
     if hashlib.sha256(wad).hexdigest()!=manifest['sha256']['freedoom1.wad']: raise ValueError('Wrong Freedoom phase')
-    (target/'freedoom1.wad.gz').write_bytes(gzip.compress(wad,compresslevel=9,mtime=0))
+    (target/'freedoom1.wad.gz').write_bytes(gzip.compress(wad,compresslevel=6,mtime=0))

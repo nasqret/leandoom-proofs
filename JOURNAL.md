@@ -15,3 +15,7 @@ WMI 315929 certified the complete 4,161-input CombatV2 Computer Station tape wit
 WMI 315951 ran two independent Ultra-Violence demos in the exact shipped WebAssembly. Both reached the original finale through all nine maps. WMI 315940 cold-tested the downloadable companion in 156 seconds, including the Computer Station compiler-assisted passage and a separate stock-kernel fixture.
 
 WMI 315957 checked the universal classic episode itinerary classification and both attained lengths. This abstracts over each map’s completion event. It complements the independent whole-episode execution traces.
+
+The browser expanded its selector to the actual E1–E4 markers present in the local IWAD. Chromium launched, turned, paused and resumed all 36 Freedoom slots and nine original shareware slots. WMI verified matching short CombatV2 prefixes on all 36 Freedoom maps. In the original Military Base, a 2,179-input route reached the unsupported type-20 switch. The independent replay stayed alive at every tick. A separate theorem puts first simultaneous three-key possession on input 1,664. Full original Military Base passage remains open.
+
+A cold extraction of the final companion passed on WMI 315981 in 164 seconds, including the E1M7 passage, native player build, stock fixture and Freedoom E4M9 prefix. The final student notebook and strict book passed on jobs 315980 and 315982. Seven further theorem scenes have paired original and tiled editions with matched picture packet/timestamp evidence.

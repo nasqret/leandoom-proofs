@@ -54,6 +54,8 @@ Lean elaborates a command into a term. A small *kernel* checks that the term has
 
 ### What exactly does the endpoint establish?
 
+On Command Control the two approaches to the blue-card door have walk-over special 90. The actual crossing callback leaves the map unchanged for every world with a type 90 or 86 line. A controller that expects the door to open there depends on an event that the named edition never supplies. [Map-bound crossing theorem and fresh audit](../evidence/e1m4/result.json)
+
 On Phobos Anomaly the ordinary starting state offers 333 possible linedef targets to the Use dispatcher. For each choice, the resulting exit flag is false. This rules out an immediate dispatcher win from that state. A theorem that *every future keyboard sequence* fails would also have to cover all later reachable states. Conversely, knowing that a switch works from a chosen point gives no route from spawn to that point. These examples illustrate how the order and domain of quantifiers determine a theorem’s strength. [Phobos Anomaly observations](records.html#e1m8) · [Logic and quantifiers](https://leanprover-community.github.io/mathematics_in_lean/C03_Logic.html)
 
 ## How to read a long proof {#segments}
@@ -82,7 +84,9 @@ This organization follows Leslie Lamport’s practice of giving each proof step 
 | Hangar, E1M1 | The 993- and 978-input controllers each reach the normal exit with 48 health and zero player shots. | Can a shorter ordinary controller win? |
 | Nuclear Plant, E1M2 | The armed 1,017-input controller first exits alive. All 1,018 states are safe. It ends with 73 health and 73 shots. | Can a different controller win in fewer inputs? |
 | Computer Station, E1M7 | The first collision move, pickup and spatial re-linking are proved for the real opening. | The 4,161-input passage now has a compiler-assisted proof. A joined stock-kernel passage remains open. |
-| Military Base, E1M9 | Lean proves ordinary inputs, 23 Use masks, no Attack masks and no restart in the 933-input tape. | The two-key outcome was observed by native replay. A theorem about the keys requires game-state transitions. |
+| Military Base, E1M9 | A compiler-assisted theorem checks all three keys and safety over 1,812 states. Stock Lean checks all three exit-platform boundaries, their 88-unit rises and the unsupported type-20 switch. | The 2,179-input extension attempts the intended raising switch at two health. A full exit remains open. |
+
+On Military Base yellow appears at input 126, red at 933 and blue at 1,664. The compiler-assisted theorem `MilitaryBase.first_three_keys` checks the final pickup. Input 2,179 in the longer recording produces the message `Linedef special 20 is not implemented yet`. Stock Lean also checks that activating this type leaves the map and floor movers unchanged. The original game raises a tagged platform here. Ruling out every controller would also require bounding reachable states and motion. [Three-key recording and proofs](../evidence/e1m9/result.json) · [Original switch implementation](https://github.com/id-Software/DOOM/blob/master/linuxdoom-1.10/p_switch.c#L355-L359)
 
 A later quiet Nuclear Plant tape first exits at input 1,013 with 82 health, zero player shots and one credited kill. Its Lean declarations `Recording.passage` and `Recording.finalObservation` use compiler-assisted evaluation. Their axiom reports include the generated `native_decide` assumptions, so interpreting them also trusts the compiler’s evaluation. The armed 1,017-input theorem has an independent stock-kernel proof with the standard Lean axioms. [Compiler-assisted run receipts](../downloads/combat-runs.json) · [Lean on native evaluation](https://lean-lang.org/theorem_proving_in_lean4/axioms_and_computation.html)
 

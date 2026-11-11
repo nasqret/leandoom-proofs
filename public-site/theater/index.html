@@ -26,23 +26,21 @@
       <section class="section">
         <p class="kicker">Edited films</p>
         <h2>The screening room</h2>
-        <label for="cut">Choose a film </label
-        ><select id="cut" class="control"></select>
-        <p id="cutdesc"></p>
-        <video
-          id="cutvideo"
-          controls
-          playsinline
-          muted
-          preload="metadata"
-          style="
-            display: block;
-            max-height: 65vh;
-            width: 100%;
-            background: #10110e;
-          "
-        ></video
-        ><a href="cuts.json">Film hashes and durations</a>
+        <p>Seven short proof scenes have two synchronized editions. The tiled edition softens selected combat imagery. Switch to the original at the same frame, or choose one of the four longer films.</p>
+        <div class="actions">
+          <label>Film <select id="cut" class="control"></select></label>
+          <label id="edition-control" hidden>Picture
+            <select id="cut-edition" class="control">
+              <option value="tiled" selected>Tiled edition</option>
+              <option value="original">Original edition</option>
+            </select>
+          </label>
+        </div>
+        <p id="cutdesc"></p><p id="cut-status" aria-live="polite" class="eyebrow"></p>
+        <video id="cutvideo" controls playsinline muted preload="metadata" style="display:block;max-height:65vh;width:100%;background:#10110e"></video>
+        <p class="legal"><a id="cut-download" download>Save film ↓</a> ·
+          <a href="scenes.json">Paired-scene sources and frame checks</a> · <a href="cuts.json">Longer-film checks</a></p>
+        <p class="legal">Educational fan films by Lean Doom Lab. Doom by id Software. Native Lean port by Alaska Hoffman. <a href="../about/">Credits and video terms</a>.</p>
       </section>
     </main>
     <footer data-footer></footer>

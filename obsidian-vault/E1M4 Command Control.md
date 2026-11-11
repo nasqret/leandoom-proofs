@@ -1,6 +1,6 @@
 # E1M4 Command Control
 
-From the viewpoint (−1580, 1888), looking west, the Use ray finds line 554. Lean checks the normal exit dispatcher and the switch changing from SW1DIRT to SW2DIRT. Reaching this viewpoint from the ordinary start remains open.
+From the viewpoint (−1580, 1888), looking west, the Use ray finds line 554. Lean checks the normal exit dispatcher and the switch changing from SW1DIRT to SW2DIRT. Reaching this viewpoint from the ordinary start remains open. The two blue-card approaches, lines 686 and 687, have crossing type 90. Stock Lean proves the crossing dispatcher leaves the map unchanged for this type.
 
 Edition: CombatV2.
 
@@ -39,3 +39,5 @@ Source SHA-256 `f32f693d530848edfc32c894e565644e8a4ec538a38822b0703263c5f46fcf62
 Source SHA-256 `f32f693d530848edfc32c894e565644e8a4ec538a38822b0703263c5f46fcf62`. Audit SHA-256 `7c1f9c34e96f98432c8d5881fabc51f8130f2d82065958e2972f33287ab5fa8a`.
 
 [[Map atlas]] · [[Engine and passage]]
+
+Stock Lean checks that both blue-card approaches have walk-over type 90. The actual type-86/90 crossing rule leaves the map unchanged. [Local proof receipt](Resources/e1m4/result.json)

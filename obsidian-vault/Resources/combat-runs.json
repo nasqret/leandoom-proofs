@@ -264,5 +264,54 @@
         "Recording.finalObservation._native.native_decide.ax_1_1"
       ]
     }
+  },
+  "e1m9-1811": {
+    "level": "E1M9",
+    "commands": 1811,
+    "commandsU32LESha256": "0582a87bb45ee0d4dbba3855a45eef643aa8ef120d950079aec6ef3607db6bf5",
+    "recordingSha256": "12871eefad8ff822ab10e592b9e8e7cd0f51dd37008650e13ef5704c5c112a66",
+    "worldSha256": "1d7d43be501e67d927e415e0b8f3e29c3bf33075e859721816f652a526cac771",
+    "status": "compiler-prefix",
+    "trust": "compiler",
+    "passage": false,
+    "final": {
+      "armor": 0,
+      "bullets": 196,
+      "errorFree": true,
+      "exit": false,
+      "health": 2,
+      "kills": 16,
+      "shells": 4,
+      "shots": 12,
+      "tick": 1811,
+      "x": 44178831,
+      "y": 26296373
+    },
+    "axioms": {
+      "Recording.incomplete": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "Recording.incomplete._native.native_decide.ax_1_1"
+      ],
+      "Recording.finalObservation": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "Recording.finalObservation._native.native_decide.ax_1_1"
+      ]
+    },
+    "job": "315979",
+    "keyTheorem": {
+      "name": "MilitaryBase.first_three_keys",
+      "firstTick": 1664,
+      "health": 2,
+      "through": 1811,
+      "keptAllAtEnd": true,
+      "allPrefixesAliveErrorFreeUnexited": true,
+      "sourceSha256": "e7f92499ddf83f5e0da5d240ad8a45ff18c8edf55f0a26fa0b8a9c61ba9f2fef",
+      "auditSha256": "bf94c9f9bf358b5236b26695ad6e0481ecdd99e028fa8751663b2fc7dd9e8243",
+      "nativeDependency": "MilitaryBase.first_three_keys._native.native_decide.ax_1_1"
+    }
   }
 }

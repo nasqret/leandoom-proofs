@@ -32,6 +32,9 @@ def build(output):
     for name in ('game/native.html','game/native.mjs','game/theater.css','game/MapWorker.lean','game/native-routes.json',
                  'game/freedoom-start.png','game/freedoom-COPYING.txt','downloads/pair.js'):
         files[name]=site/name
+    for name in ('ScanSemantics.lean','StationSafe.lean','StationSafe.audit.log',
+                 'ClassicCampaign.lean','ClassicCampaignAudit.lean','ClassicCampaign.audit.log','ClassicCampaign.json','classic-map-edges.py'):
+        files['theorems/'+name]=site/'evidence'/name
     for name,want in json.loads((ROOT/'combat/upstream/provenance.json').read_text())['files'].items():
         if hashlib.sha256(files['combat/upstream/'+name].read_bytes()).hexdigest()!=want:
             raise ValueError('upstream source drift: '+name)

@@ -63,6 +63,12 @@ def build(dirpath):
     allowed={p.relative_to(SITE).as_posix() for p in (SITE/'media').glob('*.png')}
     allowed.update(['reader.css','index.html','notebook.html','jupyter-book.html','jupyter-lab.html','records.html','kernel.html','passage-lab.ipynb','PassageLab.lean','Audit.lean','audit.txt','wrong-order.txt','research-evidence.json','teaching-receipt.json','freedoom-COPYING.txt'])
     files={}
+    for level in ['e1m4','e1m9']:
+        source=SITE.parent/'evidence'/level
+        for item in sorted(source.iterdir()):
+            if item.is_file() and item.suffix in {'.json','.lean','.log','.txt'}:
+                files['resources/'+level+'/'+item.name]=item.read_bytes()
+    files['resources/combat-runs.json']=(SITE.parent/'downloads/combat-runs.json').read_bytes()
     for name in allowed:
         data=(SITE/name).read_bytes()
         if name.endswith('.html'):
@@ -77,7 +83,11 @@ def build(dirpath):
                     el['href']=url.replace('index.html','jupyter-book.html',1)
                     continue
                 path=urlsplit(url).path
-                if path=='jupyter-book.zip':
+                if path in ['../evidence/e1m4/result.json','../evidence/e1m9/result.json']:
+                    el['href']='resources/'+path.split('../evidence/')[1]
+                elif path=='../downloads/combat-runs.json':
+                    el['href']='resources/combat-runs.json'
+                elif path=='jupyter-book.zip':
                     el.decompose()
                 elif path not in allowed or path in ['obsidian-vault.zip','book-source.zip']:
                     el['href']=urljoin(READ,url)

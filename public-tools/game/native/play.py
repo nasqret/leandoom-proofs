@@ -6,21 +6,43 @@ import json
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 import secrets
+import struct
+import re
 import subprocess
 import threading
 import webbrowser
 
 ALLOWED = sum([2,4,8,16,32,64,512,4096,8192,16384,32768,65536])
 IWAD = '1d7d43be501e67d927e415e0b8f3e29c3bf33075e859721816f652a526cac771'
-LEVELS = {f'E1M{i}' for i in range(1,10)}
+MAP_LUMPS = 'THINGS LINEDEFS SIDEDEFS VERTEXES SEGS SSECTORS NODES SECTORS REJECT BLOCKMAP'.split()
 PAGES = {'game/native.html':'text/html', 'game/native.mjs':'text/javascript','game/theater.css':'text/css',
          'game/MapWorker.lean':'text/plain','game/native-routes.json':'application/json','downloads/pair.js':'text/javascript',
          'game/freedoom-start.png':'image/png','game/freedoom-COPYING.txt':'text/plain'}
 MAX_TAPE = 100000
 
+def map_slots(wad):
+    size=wad.stat().st_size
+    if not 12<=size<=512*1024*1024:
+        raise ValueError('Expected a Doom IWAD between 12 bytes and 512 MiB.')
+    with wad.open('rb') as stream:
+        magic,count,offset=struct.unpack('<4sII',stream.read(12))
+        if magic!=b'IWAD' or count>1_000_000 or offset+16*count>size:
+            raise ValueError('Invalid IWAD directory.')
+        stream.seek(offset)
+        names=[]
+        for pos,length,name in struct.iter_unpack('<II8s',stream.read(16*count)):
+            if length and pos+length>size:
+                raise ValueError('Invalid IWAD lump range.')
+            names.append(name.split(b'\0',1)[0].decode('latin1').upper())
+    slots=sorted({name for i,name in enumerate(names) if re.fullmatch(r'E[1-4]M[1-9]',name) and names[i+1:i+11]==MAP_LUMPS})
+    if not slots:
+        raise ValueError('The IWAD contains no complete E1–E4 Doom-format map groups.')
+    return slots
+
 class Session:
     def __init__(self, binary, wad):
         self.binary, self.wad = binary, wad
+        self.levels=map_slots(self.wad)
         self.proc = None
         self.owner = self.level = None
         self.row = {}
@@ -60,8 +82,8 @@ class Session:
                 raise ValueError('Missing player identity.')
             if op=='start':
                 level=data.get('level')
-                if level not in LEVELS:
-                    raise ValueError('Select E1M1 through E1M9.')
+                if level not in self.levels:
+                    raise ValueError('Select a map present in the local IWAD.')
                 self.close()
                 self.level,self.owner,self.tape=level,owner,[]
                 self.proc=subprocess.Popen([self.binary,self.wad,level],stdin=subprocess.PIPE,stdout=subprocess.PIPE)
@@ -114,7 +136,7 @@ def handler(session, webroot, prefix, wad_hash):
                 return self.reply(404,'text/plain',b'Not found')
             name=self.path[len(prefix):].split('?',1)[0]
             if name=='game/session':
-                return self.reply(200,'application/json',json.dumps({'engine':'CombatV2','iwadSha256':wad_hash,'verifiedIwad':wad_hash==IWAD}).encode())
+                return self.reply(200,'application/json',json.dumps({'engine':'CombatV2','iwadSha256':wad_hash,'verifiedIwad':wad_hash==IWAD,'levels':session.levels}).encode())
             if name not in PAGES or not (webroot/name).is_file():
                 return self.reply(404,'text/plain',b'Not found')
             return self.reply(200,PAGES[name],(webroot/name).read_bytes())
@@ -151,7 +173,10 @@ def main():
         file.seek(0);h=hashlib.sha256()
         for block in iter(lambda:file.read(1024*1024),b''):h.update(block)
     prefix='/'+secrets.token_urlsafe(24)+'/'
-    session=Session(opts.worker.resolve(),opts.iwad.resolve())
+    try:
+        session=Session(opts.worker.resolve(),opts.iwad.resolve())
+    except ValueError as error:
+        cli.error(str(error))
     with ThreadingHTTPServer(('127.0.0.1',opts.port),handler(session,webroot,prefix,h.hexdigest())) as server:
         url=f'http://127.0.0.1:{server.server_address[1]}{prefix}game/native.html'
         print('Local CombatV2 player\n'+url,flush=True)

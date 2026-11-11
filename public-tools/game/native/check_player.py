@@ -22,11 +22,10 @@ def main():
     def step(commands):
         return player.update({"owner":"test","op":"step","at":len(player.tape),"commands":commands})
     try:
-        for i in range(1,10):
-            level = "E1M" + str(i)
+        for level in player.levels:
             before, pixels = start(level)
             assert before["tick"] == 0 and before["error"] is None and len(pixels) == 192000
-            if args.freedoom_still and digest == DISTRIBUTABLE_FREEDOOM and i == 1:
+            if args.freedoom_still and digest == DISTRIBUTABLE_FREEDOOM and level == 'E1M1':
                 args.freedoom_still.write_bytes(b"P6\n320 200\n255\n"+pixels)
             at_four, after_pixels = step([2,4,32,0])
             assert at_four["tick"] == 4 and at_four["error"] is None

@@ -1,0 +1,58 @@
+{
+  "schema": "proof-lab-receipt-v1",
+  "recordingSha256": "12871eefad8ff822ab10e592b9e8e7cd0f51dd37008650e13ef5704c5c112a66",
+  "attempt": "check-khcu8dv5",
+  "status": "compiler-prefix",
+  "passage": false,
+  "level": "E1M9",
+  "engine": "CombatV2",
+  "commands": 1811,
+  "commandsU32LESha256": "0582a87bb45ee0d4dbba3855a45eef643aa8ef120d950079aec6ef3607db6bf5",
+  "trust": "compiler",
+  "final": {
+    "armor": 0,
+    "bullets": 196,
+    "errorFree": true,
+    "exit": false,
+    "health": 2,
+    "kills": 16,
+    "shells": 4,
+    "shots": 12,
+    "tick": 1811,
+    "x": 44178831,
+    "y": 26296373
+  },
+  "message": "Recording checked; exact first safe exit condition is false with Lean compiler trust.",
+  "axioms": {
+    "Recording.incomplete": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound",
+      "Recording.incomplete._native.native_decide.ax_1_1"
+    ],
+    "Recording.finalObservation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound",
+      "Recording.finalObservation._native.native_decide.ax_1_1"
+    ]
+  },
+  "lean": "Lean (version 4.33.0, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)",
+  "worldSha256": "1d7d43be501e67d927e415e0b8f3e29c3bf33075e859721816f652a526cac771",
+  "rulesSha256": "841ef1221cd98c2c7e3c56c9709ea100970e176751f2f7e9f046605dc6a0b8f1",
+  "proofSharedLibraries": {
+    "@lean-doom/Doom:shared": "e35dec75abb8a5751a4b4791ea016f8bd1798f425a523ba64e33bb7069f4e247",
+    "LeanDoomProofs:shared": "a1e660cce5f7aa21bc787e1caf6e9ac87993af267161c7e644be1398896cf208",
+    "+OriginalReplay:dynlib": "d828d14316a3ec3f16a954c7b15e382df184e6044cf79631555b398ec65047b6"
+  },
+  "sources": {
+    "Audit.lean": "2c19824408f1c6f98f11e34a5f688c4944e8b82906db3d9e264fda6040df4933",
+    "Certificate.lean": "f5d41b0a24bcee6ae4c2267390a53a4e4d2bd14ce9ca36e1335169ce49cf40fe",
+    "Inputs.lean": "0e5e24079643bab81edf8a9841a3839fda9626b6b13b00676344877baa6e9a95",
+    "Inspect.lean": "a19720c31a516efe9ddef952c1a0a23ecbb66119409bd1db2c909e0d4819b174"
+  },
+  "objects": {
+    "Certificate.olean": "136c9cd96d09b135d54e821265fa2d6296f6d435fd2b0d64df159a7b2b122e35",
+    "Inputs.olean": "55f6201487b870463cad357776daeedf877f1df015697eb8c009327032677aaa"
+  }
+}

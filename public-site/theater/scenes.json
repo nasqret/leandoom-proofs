@@ -1,0 +1,447 @@
+{
+  "schema": "lean-doom-scene-editions-v1",
+  "credits": {
+    "Doom": "id Software",
+    "(Lean)DOOM": "Alaska Hoffman",
+    "presentation": "Lean Doom Lab — educational fan films",
+    "terms": "../about/"
+  },
+  "verification": "For each input/output pair every encoded video packet digest, size, PTS, DTS and duration matches. Both editions have the same presentation frame schedule. Each output has one H.264 video stream and zero audio streams.",
+  "scenes": [
+    {
+      "slug": "before-the-flash",
+      "title": "Before the flash",
+      "caption": "On the first input, 22 sectors hear the alert. The pistol spends its first bullet four inputs later.",
+      "map": "E1M2",
+      "engine": "CombatV2",
+      "theorem": "NuclearRecording.passage",
+      "winnerObjectSha256": "dd94f8618b7b26e25209e3f244d823479e1d159defd845115eb53c8d944499fc",
+      "proofReadings": [
+        {
+          "title": "Before the alert",
+          "module": "BeforeTheFlash",
+          "declaration": "sectorsThroughFlash"
+        },
+        {
+          "title": "The map lights up",
+          "module": "BeforeTheFlash",
+          "declaration": "alertBeforeDischarge"
+        },
+        {
+          "title": "Still no shot",
+          "module": "BeforeTheFlash",
+          "declaration": "alertBeforeDischarge"
+        },
+        {
+          "title": "The first flash",
+          "module": "BeforeTheFlash",
+          "declaration": "firstFlashKeepsTheRooms"
+        }
+      ],
+      "width": 1080,
+      "height": 1080,
+      "fps": 30,
+      "frames": 383,
+      "seconds": 12.766667,
+      "defaultEdition": "tiled",
+      "editions": {
+        "tiled": {
+          "file": "scene-films/before-the-flash-tiled.mp4",
+          "sha256": "94a733e34db7c9121604740783171bf5b8fa2071c644962490cab5875e02fab5",
+          "masterSha256": "948f5581e70590e61d94a81308914ecb10f2931f269008ccf5c600aaf9e1899c",
+          "masterReceiptSha256": "7f36d121396b3ceb0fa200a67f980f830f62a1c04d95fcb717a3c517cfcf655b",
+          "packetManifestSha256": "a3342e67be0b6cfbbeae0ae444ec669340e493780fad553cfdef21e4799ce0c0",
+          "audioStreams": 0
+        },
+        "original": {
+          "file": "scene-films/before-the-flash-original.mp4",
+          "sha256": "2a05787f1455126a58de062a980663874fa60156eece5d38ca63d162e9f2c248",
+          "masterSha256": "097229c6dca857ab489717002d7f48e51f9659d64c1155339597a0ac9cf23f2a",
+          "masterReceiptSha256": "6401b209ad95054bfa6d3b456079bbb290d3910980fd82e0826e059cf5ec11de",
+          "packetManifestSha256": "b8f9405eccc8813291bae91190ebecffa51a58b2775ae234b8c4867e7aae75ac",
+          "audioStreams": 0
+        }
+      }
+    },
+    {
+      "slug": "blue-door",
+      "title": "When does the door open?",
+      "caption": "The blue key starts a door moving. Lean measures the first two units of clearance and the eventual 124-unit opening.",
+      "map": "TWOIMP01",
+      "engine": "CombatV1",
+      "theorem": "twoImp_full_combat_passage",
+      "winnerObjectSha256": "720187e2556bbf4451c4a587529b2483de7ba3f00be03062ef6c74d6666eac17",
+      "proofReadings": [
+        {
+          "title": "A key in the passage",
+          "module": "DoorActivity",
+          "declaration": "keyRing"
+        },
+        {
+          "title": "The key is yours",
+          "module": "DoorActivity",
+          "declaration": "blueCardCollected"
+        },
+        {
+          "title": "At the closed door",
+          "module": "DoorActivity",
+          "declaration": "useStartsDoor"
+        },
+        {
+          "title": "Use starts the door",
+          "module": "DoorActivity",
+          "declaration": "useStartsDoor"
+        },
+        {
+          "title": "Light under the door",
+          "module": "DoorActivity",
+          "declaration": "doorwayOpens"
+        },
+        {
+          "title": "Room to pass",
+          "module": "DoorActivity",
+          "declaration": "doorwayOpens"
+        },
+        {
+          "title": "Two reached states",
+          "module": "DoorActivity",
+          "declaration": "doorwayOpens"
+        }
+      ],
+      "width": 1080,
+      "height": 1080,
+      "fps": 30,
+      "frames": 607,
+      "seconds": 20.233333,
+      "defaultEdition": "tiled",
+      "editions": {
+        "tiled": {
+          "file": "scene-films/blue-door-tiled.mp4",
+          "sha256": "88027db6dc7b404381e54f613129c7cc2606cd010dbb28a1f6ff18a1821d150c",
+          "masterSha256": "ddf7de410500f6d02ee63383c28581cf120b6d6ce22616b1a9ef9ebcb55752c8",
+          "masterReceiptSha256": "75b7a3616ec1a9dd09247786cef0bbb2e43afb4e144533f12fabb51232691111",
+          "packetManifestSha256": "3be0da6957ef2f24630b9b74f18da3162b13bc1dfa12d900a90bc01ebd7814df",
+          "audioStreams": 0
+        },
+        "original": {
+          "file": "scene-films/blue-door-original.mp4",
+          "sha256": "98d57b34313c566cf1db9ec1695cd18fe983655082848191966f77cb3fc216af",
+          "masterSha256": "1a81633d897e9d2d99bc1120f4e9e9507ab5d36ed2f8bdfba37cc2472b3c19f5",
+          "masterReceiptSha256": "ee85d409f1e1cc00f1de7554b7b3769685c5064e86ff0d994d422ab2542c4d22",
+          "packetManifestSha256": "3962bbec35151d6d200409569e6c074874db1d726fcc2df953be2f07ee319e6d",
+          "audioStreams": 0
+        }
+      }
+    },
+    {
+      "slug": "crossfire",
+      "title": "Who shot whom?",
+      "caption": "Follow actor 30 from target to shooter across two combat events, sixteen ticks apart.",
+      "map": "E1M2",
+      "engine": "CombatV2",
+      "theorem": "NuclearRecording.passage",
+      "winnerObjectSha256": "dd94f8618b7b26e25209e3f244d823479e1d159defd845115eb53c8d944499fc",
+      "proofReadings": [
+        {
+          "title": "Who fired that shot?",
+          "module": "CrossfireFromMap",
+          "declaration": "friendlyFireFromMap"
+        },
+        {
+          "title": "A soldier hits a soldier",
+          "module": "CrossfireReadout",
+          "declaration": "friendlyReadout"
+        },
+        {
+          "title": "Locate the hit",
+          "module": "CrossfireFromMap",
+          "declaration": "friendlyFireFromMap"
+        },
+        {
+          "title": "The victim shoots you",
+          "module": "CrossfireReadout",
+          "declaration": "woundedReadout"
+        },
+        {
+          "title": "Follow soldier 30",
+          "module": "CrossfireFromMap",
+          "declaration": "woundedShooterFromMap"
+        }
+      ],
+      "width": 1080,
+      "height": 1080,
+      "fps": 30,
+      "frames": 490,
+      "seconds": 16.333333,
+      "defaultEdition": "tiled",
+      "editions": {
+        "tiled": {
+          "file": "scene-films/crossfire-tiled.mp4",
+          "sha256": "72c383188f0ee9e525c45100e6dd6b3d9e8f53991a338157392c48661f9b9da4",
+          "masterSha256": "43a378538f0c0152cbf2adf17ad88cdeea640b092b2221de21aa7feea0a8f050",
+          "masterReceiptSha256": "4a2e9d90f0c21d7034da941aeba8f00b16389d30f5e3a7d718a13f2d38725645",
+          "packetManifestSha256": "b0d6b014459119dfa9635d51ea5bebfec5541d1a5d8c49e9c4cfbda856a7f516",
+          "audioStreams": 0
+        },
+        "original": {
+          "file": "scene-films/crossfire-original.mp4",
+          "sha256": "3fc11eca379dc3aae1822137e010179ae59c56a0be10ab3525c7fd88e9b32ccd",
+          "masterSha256": "e4481ab24641d212e912cbd689b5f83030bc1060ef1c48abd27393454830ee31",
+          "masterReceiptSha256": "d864d02806cd472a79efcb53daece1779141e9df7231bf950d1851e87163549e",
+          "packetManifestSha256": "bf8459262f0162a59cf6acccd2b953d8d9876a28e1e38050b90196eaf00f89e9",
+          "audioStreams": 0
+        }
+      }
+    },
+    {
+      "slug": "hangar-escape",
+      "title": "The last fireball",
+      "caption": "Hangar’s first exit arrives with six enemies alive and a fireball still 70 to 71 map units from the player.",
+      "map": "E1M1",
+      "engine": "CombatV2",
+      "theorem": "certifiedHangarEscapeScene",
+      "winnerObjectSha256": "18e8e827e5f24b5e8353841bd4c9110430a6c7e6b7293c676ab23d344075ccc5",
+      "proofReadings": [
+        {
+          "title": "An imp takes aim",
+          "module": "E1M1RealFireballLaunches",
+          "declaration": "launch886"
+        },
+        {
+          "title": "The fireball lands",
+          "module": "E1M1Impact923",
+          "declaration": "third_fireball_hits"
+        },
+        {
+          "title": "Another one is coming",
+          "module": "E1M1RealFireballLaunches",
+          "declaration": "launch935"
+        },
+        {
+          "title": "It is still flying",
+          "module": "E1M1LastFireball",
+          "declaration": "last_fireball_between_70_and_71"
+        },
+        {
+          "title": "Six monsters survive",
+          "module": "E1M1HangarInventory",
+          "declaration": "loadout"
+        },
+        {
+          "title": "The first exit",
+          "module": "CertifiedHangarEscapeScene",
+          "declaration": "certifiedHangarEscapeScene"
+        }
+      ],
+      "width": 1080,
+      "height": 1080,
+      "fps": 30,
+      "frames": 609,
+      "seconds": 20.3,
+      "defaultEdition": "tiled",
+      "editions": {
+        "tiled": {
+          "file": "scene-films/hangar-escape-tiled.mp4",
+          "sha256": "39ad5b483362bc10fef935118390ef9318a75cd4a3af5d07103fd8d4bc1123f2",
+          "masterSha256": "77fe1f0239dfb9ec095bb1d1dfaca1f9bcbdc713e028565786fb41f7e47ac41a",
+          "masterReceiptSha256": "904d76257b4c8041af31d46d0af301d57a8c9a8007df2b29c84b582e790b401f",
+          "packetManifestSha256": "bf2714915d6be1bd2786d86f62055803a2c5063140812490bd91b3711db253f8",
+          "audioStreams": 0
+        },
+        "original": {
+          "file": "scene-films/hangar-escape-original.mp4",
+          "sha256": "7b0796168789142bf94965a5d0b602f22a5dcff03681668ce47d07097c97b75c",
+          "masterSha256": "e9490cff9a5609eba1eff2607a68e5f86c9a2611e188f8814559474619ae8c9e",
+          "masterReceiptSha256": "e0162d593673c7548f162c89f3d450d0f4812498edb0332a6d16a0f8c95087c8",
+          "packetManifestSha256": "225039b01470f529fc3ecf07ef00f420759d885c938764ff4a38ee3e2d0329dc",
+          "audioStreams": 0
+        }
+      }
+    },
+    {
+      "slug": "imp-lift",
+      "title": "Who called the lift?",
+      "caption": "An imp crosses line 871 and starts the lift while the player stands 288 map units from its trigger.",
+      "map": "E1M2",
+      "engine": "CombatV2",
+      "theorem": "NuclearRecording.passage",
+      "winnerObjectSha256": "dd94f8618b7b26e25209e3f244d823479e1d159defd845115eb53c8d944499fc",
+      "proofReadings": [
+        {
+          "title": "Who called the lift?",
+          "module": "FullLiftFromMap",
+          "declaration": "impFromMap"
+        },
+        {
+          "title": "An imp crosses the line",
+          "module": "ImpCallsLift",
+          "declaration": "impStartsLift"
+        },
+        {
+          "title": "The lift starts",
+          "module": "FullLiftFromMap",
+          "declaration": "impOperatesLift"
+        },
+        {
+          "title": "Where is the player?",
+          "module": "FullE1M2Results",
+          "declaration": "playerDistanceOnLiftTurn"
+        }
+      ],
+      "width": 1080,
+      "height": 1080,
+      "fps": 30,
+      "frames": 395,
+      "seconds": 13.166667,
+      "defaultEdition": "tiled",
+      "editions": {
+        "tiled": {
+          "file": "scene-films/imp-lift-tiled.mp4",
+          "sha256": "4a46f0f958c16a6e2aa0c0b4ccdc008634d37fc068de5630c4176897f729a131",
+          "masterSha256": "2c5a8a21a170cabb6f7e7fb4180f8a4494de41143723424aa55188e2ebf9412a",
+          "masterReceiptSha256": "3fff15ae19be526a3d0f84c73e1b3e448484dd9e87edaafb6182a372b7ffd3d1",
+          "packetManifestSha256": "a4b26acd4ab3c18b9925fe49a80427334a57cc80cb78a5fb1d7d52ed491dab64",
+          "audioStreams": 0
+        },
+        "original": {
+          "file": "scene-films/imp-lift-original.mp4",
+          "sha256": "5f40ae0291997228262749772ea7fda3973e682b817728055903975f3296c1e1",
+          "masterSha256": "bf57c43b2eb94cd5d54cf8b05e60aa44c8dec09b08acb62a0be36fd5aafc8b7c",
+          "masterReceiptSha256": "33648b02fd5e2c8f4316e372db123414168c0d57e7c0f9b5ddc52e10891785cb",
+          "packetManifestSha256": "689029c5cdad05814e267e734f126ca29654ee366ba2e8b51317a1e245ba0b0d",
+          "audioStreams": 0
+        }
+      }
+    },
+    {
+      "slug": "off-center",
+      "title": "Half a degree off",
+      "caption": "Trace a shot whose direction differs from the player’s heading by exactly 495/1024 of a degree.",
+      "map": "E1M2",
+      "engine": "CombatV2",
+      "theorem": "NuclearRecording.passage",
+      "winnerObjectSha256": "dd94f8618b7b26e25209e3f244d823479e1d159defd845115eb53c8d944499fc",
+      "proofReadings": [
+        {
+          "title": "Where does the round go?",
+          "module": "MarchSecondShot",
+          "declaration": "firstTwoRounds"
+        },
+        {
+          "title": "The first flash",
+          "module": "WindowFifthShot",
+          "declaration": "fifthPistolSample"
+        },
+        {
+          "title": "The second flash",
+          "module": "MarchSecondShot",
+          "declaration": "secondDischarge"
+        },
+        {
+          "title": "Two different angles",
+          "module": "MarchSecondShot",
+          "declaration": "secondAngle"
+        },
+        {
+          "title": "It hits a wall",
+          "module": "MarchTrace",
+          "declaration": "trace"
+        }
+      ],
+      "width": 1080,
+      "height": 1080,
+      "fps": 30,
+      "frames": 441,
+      "seconds": 14.7,
+      "defaultEdition": "tiled",
+      "editions": {
+        "tiled": {
+          "file": "scene-films/off-center-tiled.mp4",
+          "sha256": "29dd5927dfac1c69b5ba8dc3fff8eb972434d5cefcd52363d3937d7da8cb76de",
+          "masterSha256": "0b339a348a4b850db26daa000aefb05efd8559b1064c6d1fa5962bb00f894f15",
+          "masterReceiptSha256": "c99f65dff3d2538411735d4b09ed1574e12bd9117ff1d5462512fd4a408e3b82",
+          "packetManifestSha256": "77ca13cc03cd2c8a446f2e4357a981959e291a8f5d50f352e5148fc889fca752",
+          "audioStreams": 0
+        },
+        "original": {
+          "file": "scene-films/off-center-original.mp4",
+          "sha256": "06ee2ae1d298a5a59e9714936d899bdc94f81fcb4399f42221402db38fb48f5a",
+          "masterSha256": "4e8deabad9513a9f32782ade4926c545896bbade157dd68e9ddc0970c0bfb24e",
+          "masterReceiptSha256": "2f5d24d897c6eba5264ea31690a35376a551e4455e837959adfc633ca98b53c6",
+          "packetManifestSha256": "15c051eaf9ff33af341302405a374197def3e31e953e520416d29c230a41471c",
+          "audioStreams": 0
+        }
+      }
+    },
+    {
+      "slug": "one-shell",
+      "title": "One shell, three imps",
+      "caption": "Seven pellet records account for the changes to three imps’ health and the cost of one shell.",
+      "map": "ARENA03",
+      "engine": "CombatV1",
+      "theorem": "arena_full_combat_passage",
+      "winnerObjectSha256": "84bdbafa0aaacb5453d06e76022db74285dab917e3b1a1430105bdcef920a06d",
+      "proofReadings": [
+        {
+          "title": "On the floor",
+          "module": "ArenaActivity",
+          "declaration": "shotgunPickup"
+        },
+        {
+          "title": "Eight shells",
+          "module": "ArenaActivity",
+          "declaration": "shotgunPickup"
+        },
+        {
+          "title": "The first blast",
+          "module": "ArenaActivity",
+          "declaration": "sevenPelletsPerShell"
+        },
+        {
+          "title": "Before the next shot",
+          "module": "ArenaActivity",
+          "declaration": "oneShellThreeImps"
+        },
+        {
+          "title": "One shell leaves",
+          "module": "ArenaActivity",
+          "declaration": "sevenPelletsPerShell"
+        },
+        {
+          "title": "Three targets",
+          "module": "ArenaActivity",
+          "declaration": "oneShellThreeImps"
+        },
+        {
+          "title": "Why these numbers?",
+          "module": "ArenaActivity",
+          "declaration": "oneShellThreeImps"
+        }
+      ],
+      "width": 1080,
+      "height": 1080,
+      "fps": 30,
+      "frames": 526,
+      "seconds": 17.533333,
+      "defaultEdition": "tiled",
+      "editions": {
+        "tiled": {
+          "file": "scene-films/one-shell-tiled.mp4",
+          "sha256": "a1b396f1d65ecec63e1c97fa01baad7c76a1ad8ba0ac50bef452013c47133378",
+          "masterSha256": "e2163d30a957b212302d90870946c8771840d193d318f42e31ab61b8834880f9",
+          "masterReceiptSha256": "5e66fdd75eb09c61aca6bbdbb66bb613b2be9279c11b6416e7f70759e5881abc",
+          "packetManifestSha256": "80081b68bb96af0129a282ab59dbce86284d66f7b28afea3d99ec41c7c3297cc",
+          "audioStreams": 0
+        },
+        "original": {
+          "file": "scene-films/one-shell-original.mp4",
+          "sha256": "e1b34876e5959009d8740dc9a0f097c18d6b784c8d15cec6ba2b5668b35ad2d0",
+          "masterSha256": "c96f9c4faaa9bd20dcaa963662e75fa62586a38b5e7d1fecc2f5fed9371d69ba",
+          "masterReceiptSha256": "704ebecf3ad53d495e01e0029546bca183f06355b5e7ce63ac383809a300081a",
+          "packetManifestSha256": "b07818a407752319d5b61af2277a776e409d0fd32ea39de20be9910f774f1bc2",
+          "audioStreams": 0
+        }
+      }
+    }
+  ]
+}

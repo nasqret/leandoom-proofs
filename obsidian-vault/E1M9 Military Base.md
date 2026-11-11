@@ -1,6 +1,6 @@
 # E1M9 Military Base
 
-Lean counts 23 Use inputs and zero Attack inputs on the 933-input tape. In the game it collects yellow at 126 and red at 933. A longer native replay reaches switch 362 on input 1,441 with two health. Lean also checks exit line 551 from a specified viewpoint. Full passage remains open.
+A new 1,811-input native replay collects yellow at tick 126, red at 933 and blue at 1,664. It ends alive with two health before the exit. Stock Lean identifies three 88-unit entries to the exit platform and confirms that the tagged type-20 switch leaves the map and movers unchanged in this CombatV2 dispatcher. Full passage remains open.
 
 Edition: CombatV2.
 
@@ -47,3 +47,5 @@ Source SHA-256 `d573092cd5f754dfa39a6fa6566022be04f2f3c9bbf1f0fd0cf25ecb122614eb
 Source SHA-256 `d573092cd5f754dfa39a6fa6566022be04f2f3c9bbf1f0fd0cf25ecb122614eb`. Audit SHA-256 `5ced3e3a87711e475bd40f20bd3c2be54ebfe92a1f7cac32ac75cd127622ce09`.
 
 [[Map atlas]] · [[Engine and passage]]
+
+A compiler-assisted Lean theorem confirms holding all three keys first at 1664. The independent native replay records yellow at 126 and red at 933. All 1812 states were safe. The 2179-input extension attempts the final lift switch at two health and receives the unsupported type-20 message. Stock Lean finds exactly three two-sided boundaries of the exit platform, each with an initial 88-unit rise. [Local receipts](Resources/e1m9/result.json)

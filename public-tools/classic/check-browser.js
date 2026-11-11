@@ -1,9 +1,11 @@
-// Evaluate this function in the page and supply an Episode One map number.
+// Evaluate this function in the page and supply a slot such as E1M3 or E4M9.
 // A local IWAD can be selected with the ordinary file input before running it.
 async function checkClassicMap(map) {
   const el = id => document.getElementById(id);
   const sleep = ms => new Promise(resolve => setTimeout(resolve,ms));
-  el('level').value = String(map);
+  const slot=typeof map==='number'?'E1M'+map:map;
+  el('level').value = slot;
+  if(el('level').value!==slot)throw Error('Missing map '+slot);
   el('launch').click();
   for(let i=0;i<160 && el('engineState').textContent==='Loading';i++) await sleep(90);
   if(el('engineState').textContent!=='Playing')throw Error(el('status').textContent);
@@ -34,7 +36,10 @@ async function checkClassicMap(map) {
   const key=(k,pressed)=>win.postMessage({classic:true,action:'key',key:k,pressed},location.origin);
   key('ArrowRight',true);await sleep(250);key('ArrowRight',false);await sleep(160);
   const moved=await frame();if(initial.sha256===moved.sha256)throw Error('Turn did not change the image.');
-  const result={map:'E1M'+map,width:gl.drawingBufferWidth,height:gl.drawingBufferHeight,title:win.document.title,
+  const memory=new DataView(win.Module.asm.memory.buffer);
+  const actual='E'+memory.getInt32(0xec7c0,true)+'M'+memory.getInt32(0xec310,true);
+  if(actual!==slot)throw Error('Engine loaded '+actual+' instead of '+slot);
+  const result={map:actual,width:gl.drawingBufferWidth,height:gl.drawingBufferHeight,title:win.document.title,
     spawn:initial,afterTurn:moved};
   el('pause').click();await sleep(240);
   if(el('engineState').textContent!=='Paused')throw Error('Pause control failed.');

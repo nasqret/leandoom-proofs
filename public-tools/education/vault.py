@@ -58,7 +58,7 @@ def build():
 Hangar has two stock-kernel zero-shot witnesses. Nuclear Plant’s 1,017-input standard-axiom proof and its 1,013-input compiler-assisted proof have different trust assumptions. Computer Station has a complete 4,161-input compiler-assisted passage alongside its stock-kernel first-movement result. This brings the full original-map count to three across the two trust models. Zero shots counts player actions. Monsters can still die. [[Map atlas]] · [[Engine and passage]]""")
     note('Journal',"""The historical CombatV1 primary and separate WMI build lineages finished on 2026-10-08 in jobs 281144 and 281142. Both recorded the same 277 declarations.
 
-On 2026-11-11 WMI 315851 compiled the seven teaching theorems, re-imported them and rejected the reordered airlock controller. WMI 315888 executed the Jupyter notebook, including the compiler processes. The strict Jupyter Book build 315911 documented the quiet Nuclear Plant case. After the Computer Station compiler-assisted proof arrived, WMI job 315947 re-executed all notebook cells and 315950 rebuilt the Jupyter Book with strict checks.
+On 2026-11-11 WMI 315851 compiled the seven teaching theorems, re-imported them and rejected the reordered airlock controller. WMI 315888 executed the Jupyter notebook, including the compiler processes. The strict Jupyter Book build 315911 documented the quiet Nuclear Plant case. After the Computer Station compiler-assisted proof arrived, WMI job 315947 re-executed all notebook cells and 315950 rebuilt the Jupyter Book with strict checks. The final research update adds the verified E1M4 and E1M9 local obstructions, the three-key compiler-assisted theorem and the 2179-command recording. WMI jobs 315980 and 315982 executed and rebuilt that edition.
 
 WMI 315907 extracted the public core, checked 268 frozen input hashes and 218 upstream files, and re-imported all 277 declarations using the historical compiled dependencies. Its new axiom transcript matches both historical transcripts byte for byte. [Machine-readable core record](Resources/core.json)""")
     note('Plan',"""1. For each map with a local theorem, identify the next missing move from ordinary spawn. Include keys, timers, projectiles and spatial indexing when identifying a checkpoint. [[Map atlas]]
@@ -81,6 +81,15 @@ Nuclear Plant's quiet input tape first exits on tick 1,013 with 82 health, zero 
         if row['level']=='E1M2': text.append('The newer 1,013-input case has a compiler-assisted certificate. [[Recording and checking]]')
         text.append('[[Map atlas]] · [[Engine and passage]]')
         note(key,'\n\n'.join(text))
+        if row['level'] in {'E1M4','E1M9'}:
+            filename=key+'.md'
+            if row['level']=='E1M4':extra='Stock Lean checks that both blue-card approaches have walk-over type 90. The actual type-86/90 crossing rule leaves the map unchanged. [Local proof receipt](Resources/e1m4/result.json)'
+            else:extra='A compiler-assisted Lean theorem confirms holding all three keys first at 1664. The independent native replay records yellow at 126 and red at 933. All 1812 states were safe. The 2179-input extension attempts the final lift switch at two health and receives the unsupported type-20 message. Stock Lean finds exactly three two-sided boundaries of the exit platform, each with an initial 88-unit rise. [Local receipts](Resources/e1m9/result.json)'
+            files[filename]+='\n'+extra+'\n'
+    for level in ['e1m4','e1m9']:
+        for item in sorted((proof/level).glob('*')):
+            if item.is_file() and item.suffix in {'.json','.lean','.log','.txt'}:
+                files['Resources/'+level+'/'+item.name]=item.read_bytes()
     note('Map atlas','\n'.join(levels)+'\n\n[[Memory]] · [[Proof core]]')
     groups=defaultdict(list)
     for entry in theorems:

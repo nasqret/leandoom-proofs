@@ -56,6 +56,15 @@ function show() {
     detail.append(d);
   }
   const extras = {
+    E1M9: [
+      ["Read the three-key and platform evidence", "e1m9/result.json"],
+      [
+        "Inspect the first-three-keys theorem",
+        "e1m9/three-key-certificate.json",
+      ],
+      ["Open the Military Base controller", "e1m9/prooflab-three-keys.json"],
+      ["Read the platform proof", "e1m9/MilitaryBoundary.lean"],
+    ],
     E1M4: [
       ["Read the new crossing-dispatch theorem", "e1m4/BlueDoor.lean"],
       ["Inspect the map and axiom evidence", "e1m4/result.json"],

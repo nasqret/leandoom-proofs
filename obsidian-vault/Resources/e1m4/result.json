@@ -1,0 +1,25 @@
+{
+  "map": "E1M4",
+  "edition": "CombatV2 on the pinned native Lean engine",
+  "kind": "stock-kernel local result",
+  "title": "The two blue-card approach crossings leave the map unchanged",
+  "finding": "The actual map loader returns walk-over special 90 on linedefs 686 and 687. For any world with a type 90 or type 86 linedef, applying the full crossing callback and projecting its map returns the original map. This covers players and other actors. The gate map geometry therefore receives no opening update from these crossings.",
+  "scope": "A local obstruction for the intended approach. Alternative routes and global impossibility remain open.",
+  "source": "BlueDoor.lean",
+  "auditCommands": "Audit.lean",
+  "audit": "audit.log",
+  "hashManifest": "hashes.txt",
+  "iwadSha256": "1d7d43be501e67d927e415e0b8f3e29c3bf33075e859721816f652a526cac771",
+  "mapFoundationJob": 315683,
+  "mapGroupSha256": "f0747d2924c43c190ba846c533449bee6a2341cbc4a1773e548f9e744a7b85da",
+  "toolchain": "leanprover/lean4:v4.33.0",
+  "environment": "WMI SLURM",
+  "job": 315956,
+  "status": "COMPLETED",
+  "exitCode": "0:0",
+  "elapsedSeconds": 6,
+  "declarations": {
+    "Campaign.BlueDoor.crossingDoesNotOpen": ["propext", "Quot.sound"],
+    "Campaign.BlueDoor.parsedApproaches": ["propext", "Classical.choice", "Quot.sound"]
+  }
+}

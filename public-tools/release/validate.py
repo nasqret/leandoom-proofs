@@ -1,10 +1,12 @@
 """Check distributable source, archives and Pages links."""
-import gzip, hashlib, io, json, re, sys, zipfile
+import gzip, hashlib, io, json, re, subprocess, sys, zipfile
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote,urlsplit
 root=Path(sys.argv[1]).resolve() if len(sys.argv)>1 else Path(__file__).resolve().parents[2]
 site=root/'public-site'
+if not (root/'research-core/ProofAudit.lean').is_file():
+    raise SystemExit('Pass the clean public checkout to validate the release.')
 def load(name): return json.loads((site/name).read_bytes())
 def digest(data): return hashlib.sha256(data).hexdigest()
 def check(value,message):
@@ -39,8 +41,13 @@ def inspect_asset(name,data):
         check(name.endswith('classic/freedoom1.wad.gz'),name)
         check(digest(gzip.decompress(data))=='7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d',name)
     names.append(name)
-for path in root.rglob('*'):
-    if '.git' in path.parts or '__pycache__' in path.parts or path.name=='.DS_Store' or not path.is_file(): continue
+if (root/'.git').exists():
+    listed=subprocess.check_output(['git','-C',str(root),'ls-files','--cached','--others','--exclude-standard','-z'])
+    paths=[root/name for name in listed.decode().split('\0') if name]
+else:
+    paths=root.rglob('*')
+for path in paths:
+    if not path.is_file() or any(part in ('.git','__pycache__','.lake','.proofs') for part in path.parts) or path.name=='.DS_Store': continue
     check(not path.is_symlink(),path)
     inspect_asset(path.relative_to(root).as_posix(),path.read_bytes())
 films=load('theater/films.json')
@@ -48,6 +55,11 @@ check([(f['id'],f['tick']) for f in films]==[('E1M1',993),('E1M2',1017)],'theate
 for film in films+load('theater/cuts.json'):
     name=film.get('video') or film['file']
     check(digest((site/'theater'/name).read_bytes())==film['sha256'],name)
+scenes=load('theater/scenes.json')['scenes']
+for scene in scenes:
+    check(scene['defaultEdition']=='tiled' and set(scene['editions'])=={'original','tiled'},scene['slug'])
+    for edition in scene['editions'].values():
+        check(edition['audioStreams']==0 and digest((site/'theater'/edition['file']).read_bytes())==edition['sha256'],edition['file'])
 for film in films:
     for c in film['chapters']:
         if 'sourceFile' in c:
@@ -64,11 +76,23 @@ for run in campaign['runs']:
     check(r['arrivals']==itinerary and r['stop']=='episode finale' and r['fullEpisodeViaSecret'],run['runner'])
     check(r['wasmSha256']==digest((site/'classic/websockets-doom.wasm').read_bytes()),run['runner'])
 check(digest((site/'classic/replay.cjs').read_bytes())==campaign['verifierSha256'],'classic verifier')
-check(len(load('downloads/routes.json')['routes'])==27,'routes')
+routes=load('downloads/routes.json')['routes']
+expected={level['id']+'_'+style: commands for level in load('game/episode.json')['levels'] for style,commands in level['routes'].items()}
+check(set(routes)==set(expected),'checked route names')
+for name,commands in expected.items():
+    check(routes[name]['status']=='kernel-passage' and routes[name]['commands']==len(commands),name)
+    check(routes[name]['commandsU32LESha256']==digest(b''.join(k.to_bytes(4,'little') for k in commands)),name)
+slots=load('classic/slots.json')
+levels=load('downloads/native-episode-checks.json')
+all_free={f'E{e}M{m}' for e in range(1,5) for m in range(1,10)}
+check(slots['total']==45 and slots['groups']['freedoom']['count']==36 and slots['groups']['shareware']['count']==9,'classic browser starts')
+check(set(levels['mapReceipts'])==all_free and all(r['status']=='compiler-prefix' and r['final']['tick']==4 for r in levels['mapReceipts'].values()),'native prefix matrix')
+sidecar=(site/'downloads/lean-doom-companion.sha256').read_text().split()[0]
+check(sidecar==digest((site/'downloads/lean-doom-companion.zip').read_bytes()),'companion SHA-256')
 with zipfile.ZipFile(site/'downloads/lean-doom-companion.zip') as z:
     prefix='lean-doom-companion/'
     for entry in z.read(prefix+'SHA256SUMS').decode().splitlines():
         want,name=entry.split('  ',1); check(digest(z.read(prefix+name))==want,name)
     for agent in ('.agents','.claude'):
         check(z.read(prefix+agent+'/skills/verify-doom-run/SKILL.md')==(root/agent/'skills/verify-doom-run/SKILL.md').read_bytes(),agent)
-print(f'{len(names)} files and archive members inspected; 13 map records, 277 declarations, 27 routes and two synchronized films passed.')
+print(f'{len(names)} files and archive members inspected; 13 map records, 277 declarations, {len(routes)} routes and two synchronized films passed.')

@@ -8,7 +8,8 @@
   "sha256": {
     "websockets-doom.wasm": "4a55e4381d374b9bf347116e8c6f52547bb990fd7fc28a5e21af354830f80f78",
     "websockets-doom.js": "f8670d5e86cc7a96426b56da7a164b46473879f2338f2fe24c192cb1628a30b1",
-    "freedoom1.wad": "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d"
+    "freedoom1.wad": "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d",
+    "freedoom1.wad.gz": "a41e47f1df78c7a7d4d932a8ebee3fd87fe8a401952715db659429ddc3cf5c01"
   },
   "buildUrl": "https://github.com/Saketh-Chandra/doom-wasm-pwa/tree/5b1e1fe7385b6f0b19d60dece6adbf88f6842e20/src",
   "sourceUrl": "https://github.com/Saketh-Chandra/doom-wasm-pwa/tree/a77edfd8bbc7e66b119a49c954f69a8b24e59206",

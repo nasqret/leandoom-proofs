@@ -50,7 +50,7 @@ def parse(data):
     schema = (doc.get('schema'), doc.get('engine'))
     if schema not in (GRID, COMBAT):
         raise ValueError('unsupported recording schema or engine')
-    pattern = r'L0[1-9]' if schema == GRID else r'E1M[1-9]'
+    pattern = r'L0[1-9]' if schema == GRID else r'E[1-4]M[1-9]'
     if not isinstance(doc.get('level'),str) or not re.fullmatch(pattern,doc['level']):
         raise ValueError('unknown level for this engine')
     cmd = doc.get('commands')

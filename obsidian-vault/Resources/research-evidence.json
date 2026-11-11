@@ -236,7 +236,7 @@
     },
     "E1M9": {
       "title": "Military Base",
-      "description": "The exact 933-command tape contains 23 Use masks, no Attack masks and no restart. Native observations put the first yellow and red keys at ticks 126 and 933. These observations have a separate status from the input theorem.",
+      "description": "The 933-command tape has a stock-kernel control audit. The longer ordinary tape has a compiler-assisted theorem for holding all three keys first at input 1664. A further 2179-input native recording attempts the unavailable platform switch alive. Separate stock-kernel theorems enumerate all exit-platform boundary rises and check the unsupported dispatcher.",
       "declarations": [
         {
           "title": "Count the action buttons in the two-key run",
@@ -251,7 +251,14 @@
             "Quot.sound"
           ]
         }
-      ]
+      ],
+      "currentResearch": "../evidence/e1m9/result.json"
+    },
+    "E1M4": {
+      "title": "Command Control",
+      "description": "The parsed blue-card approaches have type 90. The full crossing callback preserves its map for any world with a type-90 or type-86 line.",
+      "declarations": [],
+      "currentResearch": "../evidence/e1m4/result.json"
     }
   }
 }

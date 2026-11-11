@@ -31,6 +31,14 @@
       "http_status": 200
     },
     {
+      "url": "https://dsdarchive.com/files/demos/doom/85155/ep1m1749.zip",
+      "http_status": 200
+    },
+    {
+      "url": "https://dsdarchive.com/files/demos/doom/87682/Ep1m-1617.zip",
+      "http_status": 200
+    },
+    {
       "url": "https://freedoom.github.io/",
       "http_status": 200
     },
@@ -72,6 +80,10 @@
     },
     {
       "url": "https://github.com/id-Software/DOOM/blob/master/linuxdoom-1.10/p_map.c",
+      "http_status": 200
+    },
+    {
+      "url": "https://github.com/id-Software/DOOM/blob/master/linuxdoom-1.10/p_switch.c#L355-L359",
       "http_status": 200
     },
     {

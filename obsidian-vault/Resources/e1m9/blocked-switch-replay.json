@@ -1,0 +1,68 @@
+{
+  "map": "E1M9",
+  "input_sha256": "fa0da59f4069b3ef2d26e3ffeebb64a7c01f74ac6803886be112f1d9a91cb66b",
+  "iwad_sha256": "1d7d43be501e67d927e415e0b8f3e29c3bf33075e859721816f652a526cac771",
+  "states": 2180,
+  "trace_sha256": "91db815782b4789b01c4dcc09a2e18118bab58c65ecc930b2ed08815a915f313",
+  "final": {
+    "angle": 3535798272,
+    "armor": 0,
+    "blue": true,
+    "bullets": 196,
+    "error": null,
+    "exit": false,
+    "health": 2,
+    "kills": 16,
+    "red": true,
+    "shells": 0,
+    "shots": 16,
+    "t": 2179,
+    "x": 24902786,
+    "y": 93346777,
+    "yellow": true,
+    "z": 524288
+  },
+  "first_key": {
+    "red": 933,
+    "blue": 1664,
+    "yellow": 126
+  },
+  "min_health": 2,
+  "switches": {
+    "302": {
+      "initial_special": 34,
+      "final_special": 0,
+      "first_cleared": 801
+    },
+    "342": {
+      "initial_special": 33,
+      "final_special": 0,
+      "first_cleared": 1176
+    },
+    "362": {
+      "initial_special": 103,
+      "final_special": 0,
+      "first_cleared": 1441
+    },
+    "533": {
+      "initial_special": 32,
+      "final_special": 0,
+      "first_cleared": 1841
+    },
+    "534": {
+      "initial_special": 32,
+      "final_special": 32,
+      "first_cleared": null
+    },
+    "551": {
+      "initial_special": 11,
+      "final_special": 11,
+      "first_cleared": null
+    },
+    "567": {
+      "initial_special": 20,
+      "final_special": 20,
+      "first_cleared": null
+    }
+  }
+}

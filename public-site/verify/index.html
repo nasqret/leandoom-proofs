@@ -18,7 +18,7 @@ python3 verify.py check examples/prooflab-first-room.json</code></pre>
 <pre><code>mkdir -p paired-runs
 python3 verify.py watch paired-runs</code></pre>
 <p>Take control and reach the exit, or choose <strong>Save input tape</strong> to check an unfinished attempt. The watcher reads files named <code>prooflab-*.json</code>. A paired page displays the returned receipt automatically.</p><p>In browsers without directory pairing, save the tape into the watched folder and read the result in the terminal. A single recording can also be checked with <code>python3 verify.py check /path/to/run.json</code>.</p></article>
-<article class="sheet"><h2>Record the Lean port</h2><p>For a CombatV2 tape, supply the same local IWAD used to play. Freedoom: Phase 1 and a legally obtained Doom Episode One IWAD are supported. Lake needs a working C toolchain. <a href="../game/native.html">Native player instructions</a>.</p>
+<article class="sheet"><h2>Record the Lean port</h2><p>For a CombatV2 tape, supply the same local IWAD used to play. The player lists complete Doom-format maps in episodes one through four, including Freedoom: Phase 1 and maps in your legally obtained Doom IWAD. Lake needs a working C toolchain. <a href="../game/native.html">Native player instructions</a>.</p>
 <pre><code>(cd combat &amp;&amp; lake build map-player)
 python3 play.py /path/to/your.wad</code></pre>
 <p>In a second terminal, from the extracted kit, start the watcher with the IWAD. Pair its folder in the native player.</p>
