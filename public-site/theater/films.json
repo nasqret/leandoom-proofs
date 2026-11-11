@@ -201,7 +201,9 @@
       "tick": 993,
       "x": 191904993,
       "y": -312563964
-    }
+    },
+    "proofTier": "stock-kernel",
+    "commandsU32LESha256": "bac0988e77cddb0ebaecc5e0fd87ce524c1886ec20d25e73f89bc2cdce124307"
   },
   {
     "id": "E1M2",
@@ -440,6 +442,235 @@
       "y": 153723710,
       "yellow": false,
       "z": -15204352
-    }
+    },
+    "proofTier": "stock-kernel",
+    "commandsU32LESha256": "3d023e950ffab2f875a7dfa8177d17bbee4cdfdfa5af52147a7831b6e6df66e8"
+  },
+  {
+    "id": "E1M7",
+    "title": "Computer Station",
+    "fps": 35,
+    "frames": 4162,
+    "tick": 4161,
+    "engine": "CombatV2",
+    "video": "computer-station.mp4",
+    "chapters": [
+      {
+        "frame": 0,
+        "name": "Spawn",
+        "description": "CombatV2 constructs the ordinary spawn. The passage theorem checks this entire tape through its first safe exit using compiler evaluation.",
+        "module": "Certificate",
+        "line": 5,
+        "excerpt": [
+          [
+            4,
+            "namespace Recording"
+          ],
+          [
+            5,
+            "theorem passage : OriginalReplay.passage group mapName tape = true := by native_decide"
+          ],
+          [
+            6,
+            "theorem finalObservation : OriginalReplay.observation group mapName tape = some ⟨4161,126860204,-151903512,45,25,35,0,93,27,true,true⟩ := by native_decide"
+          ]
+        ],
+        "declaration": "Recording.passage",
+        "sourceSha256": "e2b48ef0830b5af6b027376d8503fde981f240f15f2ff69541f7d6c4d58d3ddb",
+        "objectSha256": "b0ed79de139af1aa64489e9f459c68314b6a6c2bdd86e75fb367a6839ab81314",
+        "sourceFile": "source/e1m7/Certificate.lean"
+      },
+      {
+        "frame": 555,
+        "name": "Yellow key",
+        "description": "The yellow key appears in the recorded inventory. Both routes use the same controls here.",
+        "module": "TapeFork",
+        "line": 360,
+        "excerpt": [
+          [
+            360,
+            "theorem common : first.take 4140 = second.take 4140 := by decide +kernel"
+          ]
+        ],
+        "declaration": "RecordedForkE1M7.common",
+        "sourceSha256": "d33586cf5770e7fe185e23d5804ff07c704d8e3fd755fe70d21be629fb1c52ed",
+        "objectSha256": "68a5a5bf22934c9b378ac7ec49e34ceb5f0c2a5ca9a21fa851bc4ad3ac80f3d8",
+        "sourceFile": "source/e1m7/TapeFork.lean"
+      },
+      {
+        "frame": 1612,
+        "name": "Red key",
+        "description": "The recording adds the red key. From the same spawn, both tapes yield identical states this far.",
+        "module": "TapeFork",
+        "line": 362,
+        "excerpt": [
+          [
+            362,
+            "theorem same_states (s : Simulation) (j : Nat) (hj : j ≤ 4140) :"
+          ],
+          [
+            363,
+            "    run CheckedReplay.step s (first.take j) = run CheckedReplay.step s (second.take j) :="
+          ],
+          [
+            364,
+            "  congrArg (run CheckedReplay.step s) (RecordedRoute.same_before common hj)"
+          ]
+        ],
+        "declaration": "RecordedForkE1M7.same_states",
+        "sourceSha256": "d33586cf5770e7fe185e23d5804ff07c704d8e3fd755fe70d21be629fb1c52ed",
+        "objectSha256": "68a5a5bf22934c9b378ac7ec49e34ceb5f0c2a5ca9a21fa851bc4ad3ac80f3d8",
+        "sourceFile": "source/e1m7/TapeFork.lean"
+      },
+      {
+        "frame": 2266,
+        "name": "Finger off the trigger",
+        "description": "A 229-input stretch begins. Lean checks that Fire stays released in this and two later stretches.",
+        "module": "ScreenedControls",
+        "line": 19,
+        "excerpt": [
+          [
+            19,
+            "theorem noFireInScreening : ∀ k ∈ screenedControls, keyDown k 8192 = false := by"
+          ],
+          [
+            20,
+            "  have checked : screenedControls.all (fun k => !keyDown k 8192) = true := by decide +kernel"
+          ],
+          [
+            21,
+            "  intro k hk"
+          ],
+          [
+            22,
+            "  simpa using List.all_eq_true.mp checked k hk"
+          ]
+        ],
+        "declaration": "RecordedForkE1M7.noFireInScreening",
+        "sourceSha256": "5f3a8a59b048964faae1ec7fc0c3886d7c83c119cd55a93fdbc00264a22819fa",
+        "objectSha256": "4b26100a3a16bc3304065aa716a7313581e3571b409513a40e74f297082601f4",
+        "sourceFile": "source/e1m7/ScreenedControls.lean"
+      },
+      {
+        "frame": 2996,
+        "name": "Blue key",
+        "description": "The blue key completes the recorded set. Both tapes still follow the same route.",
+        "module": "TapeFork",
+        "line": 362,
+        "excerpt": [
+          [
+            362,
+            "theorem same_states (s : Simulation) (j : Nat) (hj : j ≤ 4140) :"
+          ],
+          [
+            363,
+            "    run CheckedReplay.step s (first.take j) = run CheckedReplay.step s (second.take j) :="
+          ],
+          [
+            364,
+            "  congrArg (run CheckedReplay.step s) (RecordedRoute.same_before common hj)"
+          ]
+        ],
+        "declaration": "RecordedForkE1M7.same_states",
+        "sourceSha256": "d33586cf5770e7fe185e23d5804ff07c704d8e3fd755fe70d21be629fb1c52ed",
+        "objectSha256": "68a5a5bf22934c9b378ac7ec49e34ceb5f0c2a5ca9a21fa851bc4ad3ac80f3d8",
+        "sourceFile": "source/e1m7/TapeFork.lean"
+      },
+      {
+        "frame": 4140,
+        "name": "The routes split",
+        "description": "After 4,140 shared inputs the next masks differ. This camera follows the 21-input ending.",
+        "module": "TapeFork",
+        "line": 361,
+        "excerpt": [
+          [
+            361,
+            "theorem divergent : first[4140]? ≠ second[4140]? := by decide +kernel"
+          ]
+        ],
+        "declaration": "RecordedForkE1M7.divergent",
+        "sourceSha256": "d33586cf5770e7fe185e23d5804ff07c704d8e3fd755fe70d21be629fb1c52ed",
+        "objectSha256": "68a5a5bf22934c9b378ac7ec49e34ceb5f0c2a5ca9a21fa851bc4ad3ac80f3d8",
+        "sourceFile": "source/e1m7/TapeFork.lean"
+      },
+      {
+        "frame": 4160,
+        "name": "Line 810",
+        "description": "At the final viewpoint the Use ray tests just line 810 in the quoted predecessor scene.",
+        "module": "E1M7ShortExit",
+        "line": 28,
+        "excerpt": [
+          [
+            28,
+            "theorem cachedRay :"
+          ],
+          [
+            29,
+            "    (s4160.player.scene.map rayResult) = some (.ok (.special 810 false, #[810])) := by"
+          ],
+          [
+            30,
+            "  rw [cachedScene]"
+          ],
+          [
+            31,
+            "  exact congrArg some directRay"
+          ]
+        ],
+        "declaration": "Campaign.E1M7.ShortExit.cachedRay",
+        "sourceSha256": "6b1c60efd9203f5de637d636b724f59cbd04a8b9d73a2aa4bd7c6583124eca97",
+        "objectSha256": "e1042cb33c31d7b6c462be79501e9512533e70b8f5a92a5d6008ec245ccd1340",
+        "sourceFile": "source/e1m7/E1M7ShortExit.lean"
+      },
+      {
+        "frame": 4161,
+        "name": "Exit switch",
+        "description": "The 4,161st input reaches the exit with 45 health and 35 bullets. The compiler-assisted endpoint theorem also checks 93 shots and 27 credited kills.",
+        "module": "Certificate",
+        "line": 6,
+        "excerpt": [
+          [
+            4,
+            "namespace Recording"
+          ],
+          [
+            5,
+            "theorem passage : OriginalReplay.passage group mapName tape = true := by native_decide"
+          ],
+          [
+            6,
+            "theorem finalObservation : OriginalReplay.observation group mapName tape = some ⟨4161,126860204,-151903512,45,25,35,0,93,27,true,true⟩ := by native_decide"
+          ]
+        ],
+        "declaration": "Recording.finalObservation",
+        "sourceSha256": "e2b48ef0830b5af6b027376d8503fde981f240f15f2ff69541f7d6c4d58d3ddb",
+        "objectSha256": "b0ed79de139af1aa64489e9f459c68314b6a6c2bdd86e75fb367a6839ab81314",
+        "sourceFile": "source/e1m7/Certificate.lean"
+      }
+    ],
+    "summary": "Collect all three keys and reach the exit with 45 health. The whole passage has a compiler-assisted Lean proof.",
+    "sha256": "a0e660c9a011a351a8b4dad8211e383784022ce9ab689f166ef9988e3337c8a2",
+    "originalMovieSha256": "2a614b926d74d68bb47bd9b615a1303d4969621489996a42a2e530990129f907",
+    "videoPacketSha256": "0b4542145322c4fcbf28a597083fb02d50cf4b05467cc7c9ccdb6dedd96b234f",
+    "proofTier": "compiler-assisted",
+    "proofJob": 315934,
+    "root": "Recording.passage",
+    "final": {
+      "armor": 25,
+      "bullets": 35,
+      "errorFree": true,
+      "exit": true,
+      "health": 45,
+      "kills": 27,
+      "shells": 0,
+      "shots": 93,
+      "tick": 4161,
+      "x": 126860204,
+      "y": -151903512
+    },
+    "captureJob": 315568,
+    "captureTapeSha256": "fe2205df0f56c62d00b854b48d209a0a5f1f3c33ef70ce824a43abf0cfdc1b0b",
+    "recordingSha256": "f6b6f451f464c6eab3e57e361585b277c783b2ba45399cf98dcfea98b5685916",
+    "commandsU32LESha256": "caa3b29a678a1e9be5d6d54d7f7595f4ae2a7cecca7594d2e30d1b3408d66fad"
   }
 ]

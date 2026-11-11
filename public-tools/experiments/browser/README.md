@@ -40,3 +40,16 @@ agent-browser --session replay-regression set viewport 390 844
 agent-browser --session replay-regression eval 'checkReplayLab("mobile")'
 agent-browser --session replay-regression close
 ```
+
+The homepage and the main [Proof Theater](https://nasqret.github.io/leandoom-proofs/theater/?level=E1M7) share a player. This check opens Computer Station by direct link, plays and pauses it, seeks to an event and the exit, reads the highlighted line from the hashed Lean source, samples the decoded final picture, and switches levels. Run it on either page.
+
+```sh
+agent-browser --session proof-theater open 'http://127.0.0.1:4173/theater/?level=E1M7'
+agent-browser --session proof-theater eval --stdin < public-tools/experiments/browser/theater.js
+agent-browser --session proof-theater eval 'checkStationTheater()'
+agent-browser --session proof-theater set viewport 390 844
+agent-browser --session proof-theater open 'http://127.0.0.1:4173/?level=E1M7#theater'
+agent-browser --session proof-theater eval --stdin < public-tools/experiments/browser/theater.js
+agent-browser --session proof-theater eval 'checkStationTheater()'
+agent-browser --session proof-theater close
+```

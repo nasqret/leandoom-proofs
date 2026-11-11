@@ -51,7 +51,12 @@ for path in paths:
     check(not path.is_symlink(),path)
     inspect_asset(path.relative_to(root).as_posix(),path.read_bytes())
 films=load('theater/films.json')
-check([(f['id'],f['tick']) for f in films]==[('E1M1',993),('E1M2',1017)],'theater')
+tiers={'Passage proved':'stock-kernel','Compiler-assisted passage':'compiler-assisted'}
+proved_levels={m['level']:tiers[m['status']] for m in load('evidence/maps.json')
+               if m['edition']=='CombatV2' and re.fullmatch(r'E\d+M\d+',m['level']) and m['status'] in tiers}
+check(len(films)==len(proved_levels) and {f['id']:f['proofTier'] for f in films}==proved_levels,
+      'theater coverage and trust tiers must match the original-map passage catalog')
+receipts=load('downloads/combat-runs.json')
 for film in films+load('theater/cuts.json'):
     name=film.get('video') or film['file']
     check(digest((site/'theater'/name).read_bytes())==film['sha256'],name)
@@ -61,9 +66,24 @@ for scene in scenes:
     for edition in scene['editions'].values():
         check(edition['audioStreams']==0 and digest((site/'theater'/edition['file']).read_bytes())==edition['sha256'],edition['file'])
 for film in films:
+    tick=film['tick']
+    key=f"{film['id'].lower()}-{tick}"
+    receipt=receipts[key]
+    full=json.loads((root/'public-tools/verifier/validation/combat'/key/'receipt.json').read_bytes())
+    check(full['engine']==film['engine'] and full['level']==receipt['level']==film['id'] and
+          full['commands']==receipt['commands']==tick and full['passage'] and receipt['passage'] and
+          full['commandsU32LESha256']==receipt['commandsU32LESha256']==film['commandsU32LESha256'] and
+          all(film['final'][k]==full['final'][k]==receipt['final'][k] for k in ('tick','x','y','health','shots','kills','exit')),
+          (film['id'],'film and certified controller must have the same first exit and endpoint'))
+    marks=[chapter['frame'] for chapter in film['chapters']]
+    check(film['fps']==35 and film['frames']>tick and marks==sorted(set(marks)) and marks[0]==0
+          and marks[-1]==tick,(film['id'],'chapters must cover spawn through first exit'))
     for c in film['chapters']:
         if 'sourceFile' in c:
-            check(digest((site/'theater'/c['sourceFile']).read_bytes())==c['sourceSha256'],c['module'])
+            source=(site/'theater'/c['sourceFile']).read_bytes()
+            lines=source.decode().splitlines()
+            check(digest(source)==c['sourceSha256'] and all(1<=n<=len(lines) and lines[n-1]==line
+                  for n,line in c['excerpt']),c['module'])
         check(0<=c['frame']<film['frames'] and c['line'] in [i for i,_ in c['excerpt']],c['declaration'])
 check(digest((site/'evidence/core-source.zip').read_bytes())==load('evidence/core.json')['archive_sha256'],'core')
 check(len(load('evidence/declarations.json')['records'])==277,'declarations')

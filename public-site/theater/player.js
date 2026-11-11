@@ -26,7 +26,7 @@ function displayLine(number, code, active) {
 function theater(root, films) {
   root.className = "theater";
   root.innerHTML =
-    '<div class="film-tabs" aria-label="Film selection"></div><div class="screens"><section class="codepanel"><div class="panel-title"><span><i></i>Lean source</span><span>Lean 4</span></div><div class="editor"></div><div class="chapter-note"><strong></strong><span></span></div></section><section><div class="panel-title"><span><i></i>Player camera</span><span class="counter"></span></div><div class="video"><video playsinline muted preload="auto" aria-label="Recorded gameplay"></video></div></section></div><div class="toolbar"><button data-act="play">▶ Play</button><button data-act="prev" aria-label="Previous event">◀◀</button><button data-act="next" aria-label="Next event">▶▶</button><input type="range" aria-label="Film frame" step="1" min="0" value="0"><label>Speed <select class="rate"><option>0.25</option><option>0.5</option><option selected>1</option><option>1.5</option><option>2</option></select>×</label></div><div class="chapterbar"><label>Event <select class="chapters"></select></label><a class="download" download>Download silent film ↓</a></div>';
+    '<div class="film-tabs" aria-label="Film selection"></div><div class="screens"><section class="codepanel"><div class="panel-title"><span><i></i>Lean source</span><span class="proof-tier"></span></div><div class="editor"></div><div class="chapter-note"><strong></strong><span></span></div></section><section><div class="panel-title"><span><i></i>Player camera</span><span class="counter"></span></div><div class="video"><video playsinline muted preload="auto" aria-label="Recorded gameplay"></video></div></section></div><div class="toolbar"><button data-act="play">▶ Play</button><button data-act="prev" aria-label="Previous event">◀◀</button><button data-act="next" aria-label="Next event">▶▶</button><input type="range" aria-label="Film frame" step="1" min="0" value="0"><label>Speed <select class="rate"><option>0.25</option><option>0.5</option><option selected>1</option><option>1.5</option><option>2</option></select>×</label></div><div class="chapterbar"><label>Event <select class="chapters"></select></label><a class="download" download>Download silent film ↓</a></div>';
   const find = (selector) => root.querySelector(selector);
   const video = find("video"),
     tabs = find(".film-tabs"),
@@ -34,7 +34,8 @@ function theater(root, films) {
     picker = find(".chapters");
   let film,
     last = -1,
-    frameRequest;
+    frameRequest,
+    pendingFrame;
   function render(time) {
     const frame = Math.max(
       0,
@@ -82,15 +83,22 @@ function theater(root, films) {
   }
   function seek(frame) {
     const selected = Math.min(film.frames - 1, Math.max(0, frame));
-    if (Number.isFinite(video.duration))
+    if (video.readyState >= HTMLMediaElement.HAVE_METADATA) {
       video.currentTime = (selected + 0.15) / film.fps;
+      pendingFrame = undefined;
+    } else {
+      pendingFrame = selected;
+    }
     render(selected / film.fps);
   }
   function choose(i) {
     stopFrames();
     video.pause();
     film = films[i];
+    pendingFrame = undefined;
     last = -1;
+    find(".proof-tier").textContent = film.proofTier === "compiler-assisted"
+      ? "Compiler-assisted passage" : "Stock-kernel passage";
     [...tabs.querySelectorAll("button")].forEach((button, n) =>
       button.setAttribute("aria-pressed", n === i),
     );
@@ -105,7 +113,13 @@ function theater(root, films) {
   }
   films.forEach((f, i) => {
     const button = make("button", f.id + " / " + f.title);
-    button.onclick = () => choose(i);
+    button.onclick = () => {
+      if (film === f) return;
+      choose(i);
+      const url = new URL(location.href);
+      url.searchParams.set("level", f.id);
+      history.replaceState(history.state, "", url);
+    };
     tabs.append(button);
   });
   tabs.append(make("span", "CombatV2 · 35 ticks/s", "film-story"));
@@ -133,6 +147,7 @@ function theater(root, films) {
   };
   video.onloadedmetadata = () => {
     video.playbackRate = Number(find(".rate").value);
+    if (pendingFrame !== undefined) seek(pendingFrame);
   };
   video.onclick = () => play.click();
   find(".rate").onchange = (e) => {
@@ -150,7 +165,8 @@ function theater(root, films) {
           Math.min(film.chapters.length - 1, Math.max(0, last + delta))
         ].frame,
       );
-  choose(0);
+  const requested = new URLSearchParams(location.search).get("level");
+  choose(Math.max(0, films.findIndex((item) => item.id === requested)));
 }
 const target = document.querySelector("[data-theater]");
 try {
