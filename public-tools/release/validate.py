@@ -58,6 +58,7 @@ revised={m['level']:m['revisedPassage'] for m in load('evidence/maps.json') if '
 proved_levels.update({k:v['proofTier'] for k,v in revised.items()})
 check(len(films)==len(proved_levels) and {f['id']:f['proofTier'] for f in films}==proved_levels,
       'theater coverage and trust tiers must match the original-map passage catalog')
+check(f'<b data-passage-count>{len(films):02}</b>' in (site/'index.html').read_text(),'home passage count')
 receipts=load('downloads/combat-runs.json')
 for film in films+load('theater/cuts.json'):
     name=film.get('video') or film['file']

@@ -1,0 +1,51 @@
+{
+  "map": "E1M6",
+  "engine": "CombatV2-Spectre-v1",
+  "tier": "compiler-assisted (native_decide)",
+  "passage": true,
+  "commands": 3207,
+  "commandU32LESha256": "de7cdf848860b2110ca44a56d5cf6501f2e3f156d005a85986a61d6bde7e86aa",
+  "iwadSha256": "1d7d43be501e67d927e415e0b8f3e29c3bf33075e859721816f652a526cac771",
+  "rulesSha256": "7db637c162c08be9071c140d486673e682eb8864ab111648c6fe63ef0cde0527",
+  "originalCombatV2RulesSha256": "841ef1221cd98c2c7e3c56c9709ea100970e176751f2f7e9f046605dc6a0b8f1",
+  "patchSha256": "5fd2a94d6375e7d9aa830f66bc72f54a6d7f733bd42ab0d720fa082a9708215a",
+  "firstEvents": {
+    "red": 169,
+    "blue": 597,
+    "yellow": 1396,
+    "822": 2083,
+    "599": 2459,
+    "wing": 3156
+  },
+  "final": {
+    "angle": 113246208,
+    "armor": 83,
+    "attacker": 248,
+    "blue": true,
+    "bullets": 81,
+    "error": null,
+    "exit": true,
+    "health": 40,
+    "kills": 25,
+    "ready": 2,
+    "red": true,
+    "sector": 31,
+    "shells": 4,
+    "shots": 70,
+    "t": 3207,
+    "x": -125996702,
+    "y": 132126572,
+    "yellow": true,
+    "z": -1572864
+  },
+  "minimumHealth": 14,
+  "job": "26061600",
+  "hashes": {
+    "Passage.lean": "ed2e0a55c8c1c7ce4b06c5ff6f9fe45e0caf6195cd73f6eb506053a5b0963abe",
+    "Passage.olean": "0e872404e0e086e15171dc0cb28c3c565aa59a4266565d2a482881c1977c8d3c",
+    "CentralInputs.lean": "53b8f25f5c61257a40985e86f94284b9a67ff50661f2469d91d1867d90712fc4",
+    "audit.log": "fc90b22bc1619c6a729adc73d6636626e85ac2a0b5899a8cd19be48dd6311963",
+    "trace.jsonl.gz": "b14e1ab9e2931e159ca734931c71dbf42e4d9282586e24e6315f98315e9d84a6",
+    "recording.json": "ef1876da4a3422aa3ad20961566bf042fb5cee4e505ac3406cbe8c755e56134d"
+  }
+}

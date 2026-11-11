@@ -1,0 +1,23 @@
+{
+  "frame": 1945,
+  "name": "The secret soulsphere",
+  "description": "One input collects map thing 169, Doom\u2019s soulsphere, and raises health from 55 to 155. Lean checks it was active before the input and removed afterward.",
+  "declaration": "Recording.soulspherePickup",
+  "source": "Soulsphere.lean",
+  "audit": "soulsphere.log",
+  "job": 26061595,
+  "sourceSha256": "84dafe6c3ee7b47f46b0a457c1f3ee04db4049cba78c9b8aff7172769012bfe0",
+  "objectSha256": "496f0ed4b7dd9db1e283bddfae6d3f0c3a57140d336274e72921fea0020dddf6",
+  "auditSha256": "138c6da7d8a93c8ba0353debda44df0a8e89d4110e55d518b79f19a5cf170841",
+  "recordingSha256": "8e0e46dbdd85007dbbf2a34b61696bf7f9b11fda1a87d73d54065d2c6f1be1e9",
+  "rulesSha256": "794d195d7591ce876712ee22e17f7cf056914b882cbbbc09b16b68b9f3c8d248",
+  "inputsSourceSha256": "45650d64183cc22f2b38a57567bed4c6e8e142a3d957c0da0082e3537162b9f1",
+  "axioms": {
+    "Recording.soulspherePickup": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound",
+      "Recording.soulspherePickup._native.native_decide.ax_1_1"
+    ]
+  }
+}

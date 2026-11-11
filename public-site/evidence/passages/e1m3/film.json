@@ -1,0 +1,168 @@
+{
+  "id": "E1M3",
+  "title": "Toxin Refinery",
+  "fps": 35,
+  "frames": 1771,
+  "tick": 1770,
+  "engine": "CombatV2-Floors1",
+  "video": "e1m3-passage.mp4",
+  "chapters": [
+    {
+      "frame": 0,
+      "name": "Ordinary spawn",
+      "description": "The map parser constructs Toxin Refinery. Lean replays all 1,770 inputs and checks that each earlier state stays alive with its exit flag clear.",
+      "module": "Certificate",
+      "declaration": "Recording.passage",
+      "line": 5,
+      "excerpt": [
+        [
+          5,
+          "theorem passage : OriginalReplay.passage group mapName tape = true := by native_decide"
+        ]
+      ],
+      "sourceFile": "source/e1m3/Certificate.lean",
+      "sourceSha256": "c281f23786388e7fab5f7b6322c26bcc89027b87c11139ea78adf28b7413fad2",
+      "objectSha256": "d15c1f1e1dc8fcfa04a51df02af5bac449419bd978ebd092e220d443609d2249"
+    },
+    {
+      "frame": 5,
+      "name": "First shot",
+      "description": "The shot counter first becomes positive at tick 5.",
+      "module": "Milestones",
+      "declaration": "Recording.milestones",
+      "line": 32,
+      "excerpt": [
+        [
+          32,
+          "theorem milestones :"
+        ],
+        [
+          33,
+          "    RouteMilestones.inspect group mapName tape ="
+        ],
+        [
+          34,
+          "      some ⟨some 662, none, none, some 5, 9⟩ := by native_decide"
+        ]
+      ],
+      "sourceFile": "source/e1m3/Milestones.lean",
+      "sourceSha256": "e6e1a32b4747a76127c6025f04ff0234d621f7f361f1682273af6fbb8e1dd2e6",
+      "objectSha256": "1cf95b8ca2c529cf2cef8a4e9b2313ec25e468d710db4aa5e74b1b63d185657f"
+    },
+    {
+      "frame": 662,
+      "name": "Blue key",
+      "description": "Tick 662 is the first state with the blue key in the inventory.",
+      "module": "Milestones",
+      "declaration": "Recording.milestones",
+      "line": 32,
+      "excerpt": [
+        [
+          32,
+          "theorem milestones :"
+        ],
+        [
+          33,
+          "    RouteMilestones.inspect group mapName tape ="
+        ],
+        [
+          34,
+          "      some ⟨some 662, none, none, some 5, 9⟩ := by native_decide"
+        ]
+      ],
+      "sourceFile": "source/e1m3/Milestones.lean",
+      "sourceSha256": "e6e1a32b4747a76127c6025f04ff0234d621f7f361f1682273af6fbb8e1dd2e6",
+      "objectSha256": "1cf95b8ca2c529cf2cef8a4e9b2313ec25e468d710db4aa5e74b1b63d185657f"
+    },
+    {
+      "frame": 1241,
+      "name": "Minimum health",
+      "description": "The player reaches 9 health here. Lean checks this is the lowest health in the entire run.",
+      "module": "Milestones",
+      "declaration": "Recording.milestones",
+      "line": 32,
+      "excerpt": [
+        [
+          32,
+          "theorem milestones :"
+        ],
+        [
+          33,
+          "    RouteMilestones.inspect group mapName tape ="
+        ],
+        [
+          34,
+          "      some ⟨some 662, none, none, some 5, 9⟩ := by native_decide"
+        ]
+      ],
+      "sourceFile": "source/e1m3/Milestones.lean",
+      "sourceSha256": "e6e1a32b4747a76127c6025f04ff0234d621f7f361f1682273af6fbb8e1dd2e6",
+      "objectSha256": "1cf95b8ca2c529cf2cef8a4e9b2313ec25e468d710db4aa5e74b1b63d185657f"
+    },
+    {
+      "frame": 1638,
+      "name": "Onto the upper landing",
+      "description": "Crossing line 967 started a staircase. The final tread began at 48 units and rose within one step of the landing. At tick 1,638 the player goes from 122½ to 136 units.",
+      "module": "Staircase",
+      "declaration": "Recording.stairLanding",
+      "line": 36,
+      "excerpt": [
+        [
+          36,
+          "theorem stairLanding :"
+        ],
+        [
+          37,
+          "    ToxinRefinery.landing group mapName tape 1637 ="
+        ],
+        [
+          38,
+          "      some ⟨8, 0, 48, true, 8028160, 8912896, 1638⟩ := by native_decide"
+        ]
+      ],
+      "sourceFile": "source/e1m3/Staircase.lean",
+      "sourceSha256": "68403b8cd9a06b3e677a0da89c9da99b4c9ba96ef22a15935fff236911ffcfb5",
+      "objectSha256": "e8a1e7dc6e14e972eb821567ba7510bb86d97133da904afb24852c4575b724f8"
+    },
+    {
+      "frame": 1770,
+      "name": "First safe exit",
+      "description": "Tick 1,770 reaches the exit with 34 health, 1 armor and 53 bullets. The endpoint theorem also checks the position and shot count.",
+      "module": "Certificate",
+      "declaration": "Recording.finalObservation",
+      "line": 6,
+      "excerpt": [
+        [
+          6,
+          "theorem finalObservation : OriginalReplay.observation group mapName tape = some ⟨1770,46277445,-113879302,34,1,53,0,66,19,true,true⟩ := by native_decide"
+        ]
+      ],
+      "sourceFile": "source/e1m3/Certificate.lean",
+      "sourceSha256": "c281f23786388e7fab5f7b6322c26bcc89027b87c11139ea78adf28b7413fad2",
+      "objectSha256": "d15c1f1e1dc8fcfa04a51df02af5bac449419bd978ebd092e220d443609d2249"
+    }
+  ],
+  "summary": "1,770 ordinary inputs from spawn to exit in CombatV2-Floors1.",
+  "sha256": "73c0f355c617c1de80c3e0e987bce9c89aa1cb808428378e59c5528820e21c12",
+  "proofTier": "compiler-assisted",
+  "proofJob": 26061617,
+  "root": "Recording.passage",
+  "final": {
+    "armor": 1,
+    "bullets": 53,
+    "errorFree": true,
+    "exit": true,
+    "health": 34,
+    "kills": 19,
+    "shells": 0,
+    "shots": 66,
+    "tick": 1770,
+    "x": 46277445,
+    "y": -113879302
+  },
+  "captureJob": 26061617,
+  "recordingSha256": "5875490fbd621e49ed40d58b1367020cf2bbfa25574566f238f0f169706a4c54",
+  "commandsU32LESha256": "78ead36e07caa2c82072bfcfcde22ea08dc97437967e2622b2132cef59580508",
+  "editionEvidence": "passages/e1m3",
+  "rulesSha256": "516a81035753ed371421a43c58a2d551266d7812841068d6835b77fa5b83d051"
+}

@@ -219,7 +219,27 @@
         "sourceSha256": "8477f15a0922f4124d49e8f3f5e742c8668394644b9b679d9baabc8c8c3baa36",
         "auditSha256": "9eb9db31ef58419f3a18ff85905ac55efa67d1bb5f2896103ea36a8a759162ac"
       }
-    ]
+    ],
+    "revisedPassage": {
+      "engine": "CombatV2-Floors1",
+      "proofTier": "compiler-assisted",
+      "evidence": "passages/e1m3",
+      "tick": 1770,
+      "final": {
+        "armor": 1,
+        "bullets": 53,
+        "errorFree": true,
+        "exit": true,
+        "health": 34,
+        "kills": 19,
+        "shells": 0,
+        "shots": 66,
+        "tick": 1770,
+        "x": 46277445,
+        "y": -113879302
+      },
+      "job": 26061617
+    }
   },
   {
     "level": "E1M4",
@@ -369,7 +389,27 @@
         "sourceSha256": "414b51df196bea0c251f8b5dc5c4bc1ac3d91cc233e3de06d7f76673f3d2a7b9",
         "auditSha256": "16e2e30aed696d2ed2859762b0b5a4cfeba1f0e857a3506e8214b00a0d8f2b5e"
       }
-    ]
+    ],
+    "revisedPassage": {
+      "engine": "CombatV2-SectorActions-V1",
+      "proofTier": "compiler-assisted",
+      "evidence": "passages/e1m5",
+      "tick": 3569,
+      "final": {
+        "armor": 0,
+        "bullets": 59,
+        "errorFree": true,
+        "exit": true,
+        "health": 78,
+        "kills": 30,
+        "shells": 0,
+        "shots": 87,
+        "tick": 3569,
+        "x": -19031882,
+        "y": 162516938
+      },
+      "job": 26061547
+    }
   },
   {
     "level": "E1M6",
@@ -448,7 +488,27 @@
         "sourceSha256": "bed4c34ed48d1ee1740f9c8ec6979f14100687ff516c2bbfd6ec5efd76a93f51",
         "auditSha256": "4f5325a2acd1308802686317d84de0b1008686959f2f0f6b12d1cbba3c79fbf2"
       }
-    ]
+    ],
+    "revisedPassage": {
+      "engine": "CombatV2-Spectre-v1",
+      "proofTier": "compiler-assisted",
+      "evidence": "passages/e1m6",
+      "tick": 3207,
+      "final": {
+        "armor": 83,
+        "bullets": 81,
+        "errorFree": true,
+        "exit": true,
+        "health": 40,
+        "kills": 25,
+        "shells": 4,
+        "shots": 70,
+        "tick": 3207,
+        "x": -125996702,
+        "y": 132126572
+      },
+      "job": 26061599
+    }
   },
   {
     "level": "E1M7",

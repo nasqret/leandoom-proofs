@@ -1,0 +1,23 @@
+{
+  "frame": 1638,
+  "name": "Onto the upper landing",
+  "description": "Crossing line 967 started a staircase. The final tread began at 48 units and rose within one step of the landing. At tick 1,638 the player goes from 122\u00bd to 136 units.",
+  "declaration": "Recording.stairLanding",
+  "source": "Staircase.lean",
+  "audit": "staircase.log",
+  "job": 26061790,
+  "sourceSha256": "68403b8cd9a06b3e677a0da89c9da99b4c9ba96ef22a15935fff236911ffcfb5",
+  "objectSha256": "e8a1e7dc6e14e972eb821567ba7510bb86d97133da904afb24852c4575b724f8",
+  "auditSha256": "861eb3b23a2d3c329142632f288ba096cd4e537930102a9be2fd20f07069fa46",
+  "recordingSha256": "5875490fbd621e49ed40d58b1367020cf2bbfa25574566f238f0f169706a4c54",
+  "rulesSha256": "516a81035753ed371421a43c58a2d551266d7812841068d6835b77fa5b83d051",
+  "inputsSourceSha256": "e01c8d6f2a3705e15e2b66cc7575594e87eeb5e1b20a203ff3740910410a24bd",
+  "axioms": {
+    "Recording.stairLanding": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound",
+      "Recording.stairLanding._native.native_decide.ax_1_1"
+    ]
+  }
+}

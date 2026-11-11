@@ -1,0 +1,8 @@
+'CentralSpectrePassage.observedCheckpoints' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CentralSpectrePassage.observedCheckpoints._native.native_decide.ax_1_1]
+'CentralSpectrePassage.ordinaryPassage' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CentralSpectrePassage.ordinaryPassage._native.native_decide.ax_1_1]

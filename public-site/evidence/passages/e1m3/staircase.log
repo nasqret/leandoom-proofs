@@ -1,0 +1,4 @@
+'Recording.stairLanding' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Recording.stairLanding._native.native_decide.ax_1_1]

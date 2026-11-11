@@ -1,0 +1,17 @@
+{
+  "job": 26061550,
+  "rulesSha256": "794d195d7591ce876712ee22e17f7cf056914b882cbbbc09b16b68b9f3c8d248",
+  "recordingSha256": "8e0e46dbdd85007dbbf2a34b61696bf7f9b11fda1a87d73d54065d2c6f1be1e9",
+  "axioms": {
+    "Recording.milestones": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound",
+      "Recording.milestones._native.native_decide.ax_1_1"
+    ]
+  },
+  "inputsSourceSha256": "45650d64183cc22f2b38a57567bed4c6e8e142a3d957c0da0082e3537162b9f1",
+  "sourceSha256": "ac387db59bbcf8d4a6baddbc7a2c313e2da87a8c08f08f0ccda1ccde1a0ac426",
+  "objectSha256": "46aa6fa8987fc772c847949b74047c079fe7704a3b664236083f3f42b9346918",
+  "auditSha256": "41b389357e08802d739c633c6d5e29bf3d5ae2eb536e5e6a9268c87dfd4a145a"
+}

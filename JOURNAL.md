@@ -35,3 +35,7 @@ The main Proof Theater selector now pairs the 4,161-input Computer Station film 
 Command Control reached its first safe exit after 1,233 ordinary keyboard inputs in CombatV2-SectorActions-V1. The first clean-source reproduction and a second fresh milestone audit preserved the route, exact endpoint, key ticks and lowest health. The camera matched 1,234 states.
 
 Command Control passed a full ordinary-spawn passage and endpoint check on Helios (26060263). The public verifier rebuilt the revised engine from its seven registered sources and repeated both checks (26060461). The film independently matched 1,234 frames (26060337). A separate full-tape scan checked key acquisition, the first shot and minimum health (26060522).
+
+## 2026-11-11 · Three more original-map passages
+
+Toxin Refinery, Phobos Lab and Central Processing gained complete compiler-assisted passages, independent camera checks and clean-source rebuilds. Toxin Refinery uses 1,770 ordinary inputs and exits with 34 health. Phobos Lab uses 3,569 and exits with 78. A separate theorem identifies the exact soulsphere pickup at tick 1,945. Central Processing uses 3,207 and exits with 40. Its switch and location theorem pins the two remote switches at 2,083 and 2,459 and first entry to the exit wing at 3,156.

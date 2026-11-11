@@ -174,7 +174,9 @@
     max-height: 45vh;
   }
   .film-story {
-    display: none;
+    width: 100%;
+    margin: 2px 0 0;
+    overflow-wrap: anywhere;
   }
 }
 @media (min-width: 741px) {

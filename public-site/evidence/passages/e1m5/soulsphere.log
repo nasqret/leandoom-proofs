@@ -1,0 +1,4 @@
+'Recording.soulspherePickup' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Recording.soulspherePickup._native.native_decide.ax_1_1]

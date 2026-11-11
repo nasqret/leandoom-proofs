@@ -1,0 +1,256 @@
+{
+  "id": "E1M6",
+  "title": "Central Processing",
+  "fps": 35,
+  "frames": 3208,
+  "tick": 3207,
+  "engine": "CombatV2-Spectre-v1",
+  "video": "e1m6-passage.mp4",
+  "chapters": [
+    {
+      "frame": 0,
+      "name": "Ordinary spawn",
+      "description": "The map parser constructs Central Processing. Lean replays all 3,207 inputs and checks that each earlier state stays alive with its exit flag clear.",
+      "module": "Certificate",
+      "declaration": "Recording.passage",
+      "line": 5,
+      "excerpt": [
+        [
+          5,
+          "theorem passage : OriginalReplay.passage group mapName tape = true := by native_decide"
+        ]
+      ],
+      "sourceFile": "source/e1m6/Certificate.lean",
+      "sourceSha256": "34e46444b0b64135c49b80137ee780f78d3d964cbd2694b4b930137876c58b40",
+      "objectSha256": "4ebc7ba954e7615d41b62a292c5dc07246a19a3c1e3baa40dbb570d7407cda19"
+    },
+    {
+      "frame": 5,
+      "name": "First shot",
+      "description": "The shot counter first becomes positive at tick 5.",
+      "module": "Milestones",
+      "declaration": "Recording.milestones",
+      "line": 32,
+      "excerpt": [
+        [
+          32,
+          "theorem milestones :"
+        ],
+        [
+          33,
+          "    RouteMilestones.inspect group mapName tape ="
+        ],
+        [
+          34,
+          "      some ⟨some 597, some 1396, some 169, some 5, 14⟩ := by native_decide"
+        ]
+      ],
+      "sourceFile": "source/e1m6/Milestones.lean",
+      "sourceSha256": "c5a9f260f8c6bf969145e3f8cb802b55e6221b4c653569457deb903976284b9f",
+      "objectSha256": "18de53dedafc0c4d9486d7aaf3699d36e17fac05edd5a2eecbd8f5860d72874d"
+    },
+    {
+      "frame": 169,
+      "name": "Red key",
+      "description": "Tick 169 is the first state with the red key in the inventory.",
+      "module": "Milestones",
+      "declaration": "Recording.milestones",
+      "line": 32,
+      "excerpt": [
+        [
+          32,
+          "theorem milestones :"
+        ],
+        [
+          33,
+          "    RouteMilestones.inspect group mapName tape ="
+        ],
+        [
+          34,
+          "      some ⟨some 597, some 1396, some 169, some 5, 14⟩ := by native_decide"
+        ]
+      ],
+      "sourceFile": "source/e1m6/Milestones.lean",
+      "sourceSha256": "c5a9f260f8c6bf969145e3f8cb802b55e6221b4c653569457deb903976284b9f",
+      "objectSha256": "18de53dedafc0c4d9486d7aaf3699d36e17fac05edd5a2eecbd8f5860d72874d"
+    },
+    {
+      "frame": 597,
+      "name": "Blue key",
+      "description": "Tick 597 is the first state with the blue key in the inventory.",
+      "module": "Milestones",
+      "declaration": "Recording.milestones",
+      "line": 32,
+      "excerpt": [
+        [
+          32,
+          "theorem milestones :"
+        ],
+        [
+          33,
+          "    RouteMilestones.inspect group mapName tape ="
+        ],
+        [
+          34,
+          "      some ⟨some 597, some 1396, some 169, some 5, 14⟩ := by native_decide"
+        ]
+      ],
+      "sourceFile": "source/e1m6/Milestones.lean",
+      "sourceSha256": "c5a9f260f8c6bf969145e3f8cb802b55e6221b4c653569457deb903976284b9f",
+      "objectSha256": "18de53dedafc0c4d9486d7aaf3699d36e17fac05edd5a2eecbd8f5860d72874d"
+    },
+    {
+      "frame": 1396,
+      "name": "Yellow key",
+      "description": "Tick 1396 is the first state with the yellow key in the inventory.",
+      "module": "Milestones",
+      "declaration": "Recording.milestones",
+      "line": 32,
+      "excerpt": [
+        [
+          32,
+          "theorem milestones :"
+        ],
+        [
+          33,
+          "    RouteMilestones.inspect group mapName tape ="
+        ],
+        [
+          34,
+          "      some ⟨some 597, some 1396, some 169, some 5, 14⟩ := by native_decide"
+        ]
+      ],
+      "sourceFile": "source/e1m6/Milestones.lean",
+      "sourceSha256": "c5a9f260f8c6bf969145e3f8cb802b55e6221b4c653569457deb903976284b9f",
+      "objectSha256": "18de53dedafc0c4d9486d7aaf3699d36e17fac05edd5a2eecbd8f5860d72874d"
+    },
+    {
+      "frame": 2083,
+      "name": "First remote switch",
+      "description": "Linedef 822 has just consumed its one-time door action.",
+      "module": "Passage",
+      "declaration": "CentralSpectrePassage.observedCheckpoints",
+      "line": 57,
+      "excerpt": [
+        [
+          57,
+          "theorem observedCheckpoints :"
+        ],
+        [
+          58,
+          "    CentralSpectrePassage.checkpoints Recording.group Recording.tape = some ⟨3207,(169,597,1396),(2083,2459),3156,40,14,83,70,25,-125996702,132126572,true,true⟩ := by native_decide"
+        ]
+      ],
+      "sourceFile": "source/e1m6/Passage.lean",
+      "sourceSha256": "ed2e0a55c8c1c7ce4b06c5ff6f9fe45e0caf6195cd73f6eb506053a5b0963abe",
+      "objectSha256": "0e872404e0e086e15171dc0cb28c3c565aa59a4266565d2a482881c1977c8d3c"
+    },
+    {
+      "frame": 2459,
+      "name": "Second remote switch",
+      "description": "The second switch, linedef 599, opens the route toward the exit.",
+      "module": "Passage",
+      "declaration": "CentralSpectrePassage.observedCheckpoints",
+      "line": 57,
+      "excerpt": [
+        [
+          57,
+          "theorem observedCheckpoints :"
+        ],
+        [
+          58,
+          "    CentralSpectrePassage.checkpoints Recording.group Recording.tape = some ⟨3207,(169,597,1396),(2083,2459),3156,40,14,83,70,25,-125996702,132126572,true,true⟩ := by native_decide"
+        ]
+      ],
+      "sourceFile": "source/e1m6/Passage.lean",
+      "sourceSha256": "ed2e0a55c8c1c7ce4b06c5ff6f9fe45e0caf6195cd73f6eb506053a5b0963abe",
+      "objectSha256": "0e872404e0e086e15171dc0cb28c3c565aa59a4266565d2a482881c1977c8d3c"
+    },
+    {
+      "frame": 2707,
+      "name": "Minimum health",
+      "description": "The player reaches 14 health here. Lean checks this is the lowest health in the entire run.",
+      "module": "Milestones",
+      "declaration": "Recording.milestones",
+      "line": 32,
+      "excerpt": [
+        [
+          32,
+          "theorem milestones :"
+        ],
+        [
+          33,
+          "    RouteMilestones.inspect group mapName tape ="
+        ],
+        [
+          34,
+          "      some ⟨some 597, some 1396, some 169, some 5, 14⟩ := by native_decide"
+        ]
+      ],
+      "sourceFile": "source/e1m6/Milestones.lean",
+      "sourceSha256": "c5a9f260f8c6bf969145e3f8cb802b55e6221b4c653569457deb903976284b9f",
+      "objectSha256": "18de53dedafc0c4d9486d7aaf3699d36e17fac05edd5a2eecbd8f5860d72874d"
+    },
+    {
+      "frame": 3156,
+      "name": "Enter the exit wing",
+      "description": "This is the first tick whose location lies in the exit-wing sectors 29 through 33.",
+      "module": "Passage",
+      "declaration": "CentralSpectrePassage.observedCheckpoints",
+      "line": 57,
+      "excerpt": [
+        [
+          57,
+          "theorem observedCheckpoints :"
+        ],
+        [
+          58,
+          "    CentralSpectrePassage.checkpoints Recording.group Recording.tape = some ⟨3207,(169,597,1396),(2083,2459),3156,40,14,83,70,25,-125996702,132126572,true,true⟩ := by native_decide"
+        ]
+      ],
+      "sourceFile": "source/e1m6/Passage.lean",
+      "sourceSha256": "ed2e0a55c8c1c7ce4b06c5ff6f9fe45e0caf6195cd73f6eb506053a5b0963abe",
+      "objectSha256": "0e872404e0e086e15171dc0cb28c3c565aa59a4266565d2a482881c1977c8d3c"
+    },
+    {
+      "frame": 3207,
+      "name": "First safe exit",
+      "description": "Tick 3,207 reaches the exit with 40 health, 83 armor and 81 bullets. The endpoint theorem also checks the position and shot count.",
+      "module": "Certificate",
+      "declaration": "Recording.finalObservation",
+      "line": 6,
+      "excerpt": [
+        [
+          6,
+          "theorem finalObservation : OriginalReplay.observation group mapName tape = some ⟨3207,-125996702,132126572,40,83,81,4,70,25,true,true⟩ := by native_decide"
+        ]
+      ],
+      "sourceFile": "source/e1m6/Certificate.lean",
+      "sourceSha256": "34e46444b0b64135c49b80137ee780f78d3d964cbd2694b4b930137876c58b40",
+      "objectSha256": "4ebc7ba954e7615d41b62a292c5dc07246a19a3c1e3baa40dbb570d7407cda19"
+    }
+  ],
+  "summary": "3,207 ordinary inputs from spawn to exit in CombatV2-Spectre-v1.",
+  "sha256": "a5f6d0f557a10a417c0444fa99d3075ffc694f9dd839554655df182abb7aa437",
+  "proofTier": "compiler-assisted",
+  "proofJob": 26061599,
+  "root": "Recording.passage",
+  "final": {
+    "armor": 83,
+    "bullets": 81,
+    "errorFree": true,
+    "exit": true,
+    "health": 40,
+    "kills": 25,
+    "shells": 4,
+    "shots": 70,
+    "tick": 3207,
+    "x": -125996702,
+    "y": 132126572
+  },
+  "captureJob": 26061599,
+  "recordingSha256": "ed0fd0fbf84c068fa2498958ffe46b4c82a2c7895c192ca46e5d4856f7366d24",
+  "commandsU32LESha256": "de7cdf848860b2110ca44a56d5cf6501f2e3f156d005a85986a61d6bde7e86aa",
+  "editionEvidence": "passages/e1m6",
+  "rulesSha256": "7db637c162c08be9071c140d486673e682eb8864ab111648c6fe63ef0cde0527"
+}
