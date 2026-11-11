@@ -11,7 +11,7 @@ const checks = await (await fetch("../downloads/combat-runs.json")).json();
 for (const map of maps) {
   const a = make("a", map.level + " · " + map.name);
   a.href = "#" + map.level;
-  a.append(make("small", map.status));
+  a.append(make("small", map.revisedPassage ? "Passage in revised engine" : map.status));
   nav.append(a);
 }
 function show() {
@@ -26,6 +26,19 @@ function show() {
     make("p", m.status, "status"),
     make("p", m.description),
   );
+  if (m.revisedPassage) {
+    const r = m.revisedPassage, panel = make("section", "", "sheet");
+    panel.append(make("h3", "Full passage · " + r.engine),
+      make("p", r.tick.toLocaleString("en-US") + " ordinary inputs reach the first safe exit with " +
+        r.final.health + " health. Lean checked every prefix using compiler evaluation."));
+    const links = make("div", "", "actions");
+    for (const [label, href] of [["Watch the passage", "../theater/?level=" + m.level],
+      ["Inputs", r.evidence + "/recording.json"], ["Lean receipt", r.evidence + "/receipt.json"],
+      ["Axiom audit", r.evidence + "/audit.log"], ["Frame checks", r.evidence + "/camera.json"]]) {
+      const a = make("a", label, "btn"); a.href = href; links.append(a);
+    }
+    panel.append(links); detail.append(panel);
+  }
   for (const [id, run] of Object.entries(checks).filter(
     ([id, r]) => r.level === m.level && r.passage && id.startsWith("e1m"),
   )) {

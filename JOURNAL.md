@@ -29,3 +29,7 @@ Helios job 26056501 additionally proved the exact exceptional sets as list equal
 Helios 26056641 checked all 2,750 final-turn tapes, including 94,875 per-tick positions and headings, from the shared ordinary-spawn prefix. There are 651 safe zero-shot exits and eight fastest settings. The compiler-assisted finite-family bound is exactly 977 ticks. A faster controller outside the grid remains possible. The 25 replay equalities supply native-decision axioms; Lean derives the minimum and named witnesses by kernel reduction. Strict student-book build 26056679 incorporates the result, its quantified Lean statement and the revised map comparison. [Family certificate](https://nasqret.github.io/leandoom-proofs/evidence/experiments/turns/study/Certificate.lean)
 
 The main Proof Theater selector now pairs the 4,161-input Computer Station film with the checked passage, alongside Hangar and Nuclear Plant. The camera and the certificate use the same controls. Eight chapters distinguish observed key pickups, local Lean results and the compiler-assisted exit theorem. Release validation checks theater coverage against the original maps with full passages. [Watch Computer Station](https://nasqret.github.io/leandoom-proofs/theater/?level=E1M7)
+
+## 2026-11-11 · Command Control
+
+Command Control reached its first safe exit after 1,233 ordinary keyboard inputs in CombatV2-SectorActions-V1. The first clean-source reproduction and a second fresh milestone audit preserved the route, exact endpoint, key ticks and lowest health. The camera matched 1,234 states.

@@ -47,3 +47,7 @@ Test project-path deployment, desktop and narrow viewports, actual playback, loc
 The public map selector also covers all four classic episode prefixes present in a visitor’s IWAD. WMI 315975 checked 36 Freedoom and nine shareware starts in the native worker. WMI 315969 checked a four-input native CombatV2 prefix and final observation for each of the 36 Freedoom levels. These are start and prefix claims.
 
 The replay lab now includes the certified minimum for the 2,750 final-turn edits and their individual paths. To extend the bound, specify which earlier controls may change and account for every additional continuation.
+
+## 2026-11-11 · Command Control
+
+Command Control is complete in the sector-actions revision. Continue route synthesis and proof checking on the remaining original maps, and publish each synchronized film with its engine, inputs, trust tier and independent camera evidence.

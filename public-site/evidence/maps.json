@@ -284,7 +284,27 @@
         "sourceSha256": "f32f693d530848edfc32c894e565644e8a4ec538a38822b0703263c5f46fcf62",
         "auditSha256": "7c1f9c34e96f98432c8d5881fabc51f8130f2d82065958e2972f33287ab5fa8a"
       }
-    ]
+    ],
+    "revisedPassage": {
+      "engine": "CombatV2-SectorActions-V1",
+      "proofTier": "compiler-assisted",
+      "evidence": "passages/e1m4",
+      "tick": 1233,
+      "final": {
+        "armor": 89,
+        "bullets": 19,
+        "errorFree": true,
+        "exit": true,
+        "health": 82,
+        "kills": 3,
+        "shells": 8,
+        "shots": 51,
+        "tick": 1233,
+        "x": -102500213,
+        "y": 123718275
+      },
+      "job": 26060263
+    }
   },
   {
     "level": "E1M5",

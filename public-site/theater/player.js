@@ -26,7 +26,7 @@ function displayLine(number, code, active) {
 function theater(root, films) {
   root.className = "theater";
   root.innerHTML =
-    '<div class="film-tabs" aria-label="Film selection"></div><div class="screens"><section class="codepanel"><div class="panel-title"><span><i></i>Lean source</span><span class="proof-tier"></span></div><div class="editor"></div><div class="chapter-note"><strong></strong><span></span></div></section><section><div class="panel-title"><span><i></i>Player camera</span><span class="counter"></span></div><div class="video"><video playsinline muted preload="auto" aria-label="Recorded gameplay"></video></div></section></div><div class="toolbar"><button data-act="play">▶ Play</button><button data-act="prev" aria-label="Previous event">◀◀</button><button data-act="next" aria-label="Next event">▶▶</button><input type="range" aria-label="Film frame" step="1" min="0" value="0"><label>Speed <select class="rate"><option>0.25</option><option>0.5</option><option selected>1</option><option>1.5</option><option>2</option></select>×</label></div><div class="chapterbar"><label>Event <select class="chapters"></select></label><a class="download" download>Download silent film ↓</a></div>';
+    '<div class="film-tabs" aria-label="Film selection"></div><div class="screens"><section class="codepanel"><div class="panel-title"><span><i></i>Lean source</span><span class="proof-tier"></span></div><div class="editor"></div><div class="chapter-note"><strong></strong><span></span></div></section><section><div class="panel-title"><span><i></i>Player camera</span><span class="counter"></span></div><div class="video"><video playsinline muted preload="auto" aria-label="Recorded gameplay"></video></div></section></div><div class="toolbar"><button data-act="play">▶ Play</button><button data-act="prev" aria-label="Previous event">◀◀</button><button data-act="next" aria-label="Next event">▶▶</button><input type="range" aria-label="Film frame" step="1" min="0" value="0"><label>Speed <select class="rate"><option>0.25</option><option>0.5</option><option selected>1</option><option>1.5</option><option>2</option></select>×</label></div><div class="chapterbar"><label>Event <select class="chapters"></select></label><a class="edition-evidence">Level evidence ↗</a><a class="download" download>Download silent film ↓</a></div>';
   const find = (selector) => root.querySelector(selector);
   const video = find("video"),
     tabs = find(".film-tabs"),
@@ -91,10 +91,13 @@ function theater(root, films) {
     }
     render(selected / film.fps);
   }
+  const edition = make("span", "", "film-story");
   function choose(i) {
     stopFrames();
     video.pause();
     film = films[i];
+    edition.textContent = film.engine + " · " + film.fps + " ticks/s";
+    find(".edition-evidence").href = "../evidence/#" + film.id;
     pendingFrame = undefined;
     last = -1;
     find(".proof-tier").textContent = film.proofTier === "compiler-assisted"
@@ -122,7 +125,7 @@ function theater(root, films) {
     };
     tabs.append(button);
   });
-  tabs.append(make("span", "CombatV2 · 35 ticks/s", "film-story"));
+  tabs.append(edition);
   const play = find("[data-act=play]");
   play.onclick = () =>
     video.paused

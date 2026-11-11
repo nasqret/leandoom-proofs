@@ -1,0 +1,168 @@
+{
+  "id": "E1M4",
+  "title": "Command Control",
+  "fps": 35,
+  "frames": 1234,
+  "tick": 1233,
+  "engine": "CombatV2-SectorActions-V1",
+  "video": "e1m4-passage.mp4",
+  "chapters": [
+    {
+      "frame": 0,
+      "name": "Ordinary spawn",
+      "description": "The map parser constructs Command Control. Lean replays all 1,233 inputs and checks that each earlier state stays alive with its exit flag clear.",
+      "module": "Certificate",
+      "declaration": "Recording.passage",
+      "line": 5,
+      "excerpt": [
+        [
+          5,
+          "theorem passage : OriginalReplay.passage group mapName tape = true := by native_decide"
+        ]
+      ],
+      "sourceFile": "source/e1m4/Certificate.lean",
+      "sourceSha256": "8b93c21544af487d6c90600df80ecf2d3f13cd8d3f69c5abf91da3c0e463c1b8",
+      "objectSha256": "73aa80a45ed0140bb77c5b9fb8be621ac304aff18eb97d888aa53c24c9752bb6"
+    },
+    {
+      "frame": 515,
+      "name": "Blue key",
+      "description": "Tick 515 is the first state with the blue key in the inventory.",
+      "module": "Milestones",
+      "declaration": "Recording.milestones",
+      "line": 32,
+      "excerpt": [
+        [
+          32,
+          "theorem milestones :"
+        ],
+        [
+          33,
+          "    RouteMilestones.inspect group mapName tape ="
+        ],
+        [
+          34,
+          "      some ⟨some 515, some 883, none, some 520, 80⟩ := by native_decide"
+        ]
+      ],
+      "sourceFile": "source/e1m4/Milestones.lean",
+      "sourceSha256": "ef116ecf1b4afcbffb3f05eb5c4f6e0f21eea55a6a7a567e795dded6676b9e5e",
+      "objectSha256": "827e4c0644de1b12bab2685fab79239f9541141898b14230cb4488c81d2eef6d"
+    },
+    {
+      "frame": 520,
+      "name": "First shot",
+      "description": "The shot counter first becomes positive at tick 520.",
+      "module": "Milestones",
+      "declaration": "Recording.milestones",
+      "line": 32,
+      "excerpt": [
+        [
+          32,
+          "theorem milestones :"
+        ],
+        [
+          33,
+          "    RouteMilestones.inspect group mapName tape ="
+        ],
+        [
+          34,
+          "      some ⟨some 515, some 883, none, some 520, 80⟩ := by native_decide"
+        ]
+      ],
+      "sourceFile": "source/e1m4/Milestones.lean",
+      "sourceSha256": "ef116ecf1b4afcbffb3f05eb5c4f6e0f21eea55a6a7a567e795dded6676b9e5e",
+      "objectSha256": "827e4c0644de1b12bab2685fab79239f9541141898b14230cb4488c81d2eef6d"
+    },
+    {
+      "frame": 883,
+      "name": "Yellow key",
+      "description": "Tick 883 is the first state with the yellow key in the inventory.",
+      "module": "Milestones",
+      "declaration": "Recording.milestones",
+      "line": 32,
+      "excerpt": [
+        [
+          32,
+          "theorem milestones :"
+        ],
+        [
+          33,
+          "    RouteMilestones.inspect group mapName tape ="
+        ],
+        [
+          34,
+          "      some ⟨some 515, some 883, none, some 520, 80⟩ := by native_decide"
+        ]
+      ],
+      "sourceFile": "source/e1m4/Milestones.lean",
+      "sourceSha256": "ef116ecf1b4afcbffb3f05eb5c4f6e0f21eea55a6a7a567e795dded6676b9e5e",
+      "objectSha256": "827e4c0644de1b12bab2685fab79239f9541141898b14230cb4488c81d2eef6d"
+    },
+    {
+      "frame": 1074,
+      "name": "Minimum health",
+      "description": "The player reaches 80 health here. Lean checks this is the lowest health in the entire run.",
+      "module": "Milestones",
+      "declaration": "Recording.milestones",
+      "line": 32,
+      "excerpt": [
+        [
+          32,
+          "theorem milestones :"
+        ],
+        [
+          33,
+          "    RouteMilestones.inspect group mapName tape ="
+        ],
+        [
+          34,
+          "      some ⟨some 515, some 883, none, some 520, 80⟩ := by native_decide"
+        ]
+      ],
+      "sourceFile": "source/e1m4/Milestones.lean",
+      "sourceSha256": "ef116ecf1b4afcbffb3f05eb5c4f6e0f21eea55a6a7a567e795dded6676b9e5e",
+      "objectSha256": "827e4c0644de1b12bab2685fab79239f9541141898b14230cb4488c81d2eef6d"
+    },
+    {
+      "frame": 1233,
+      "name": "First safe exit",
+      "description": "Tick 1,233 reaches the exit with 82 health, 89 armor and 19 bullets. The endpoint theorem also checks the position and shot count.",
+      "module": "Certificate",
+      "declaration": "Recording.finalObservation",
+      "line": 6,
+      "excerpt": [
+        [
+          6,
+          "theorem finalObservation : OriginalReplay.observation group mapName tape = some ⟨1233,-102500213,123718275,82,89,19,8,51,3,true,true⟩ := by native_decide"
+        ]
+      ],
+      "sourceFile": "source/e1m4/Certificate.lean",
+      "sourceSha256": "8b93c21544af487d6c90600df80ecf2d3f13cd8d3f69c5abf91da3c0e463c1b8",
+      "objectSha256": "73aa80a45ed0140bb77c5b9fb8be621ac304aff18eb97d888aa53c24c9752bb6"
+    }
+  ],
+  "summary": "1,233 ordinary inputs from spawn to exit in CombatV2-SectorActions-V1.",
+  "sha256": "8c009ca056580ea48a02258ca5ca4939820c74497025e813050e8068510483b7",
+  "proofTier": "compiler-assisted",
+  "proofJob": 26060263,
+  "root": "Recording.passage",
+  "final": {
+    "armor": 89,
+    "bullets": 19,
+    "errorFree": true,
+    "exit": true,
+    "health": 82,
+    "kills": 3,
+    "shells": 8,
+    "shots": 51,
+    "tick": 1233,
+    "x": -102500213,
+    "y": 123718275
+  },
+  "captureJob": 26060337,
+  "recordingSha256": "609b709569156d946300e6b85591ea5d5893ebff09453e1386503500b9ec9172",
+  "commandsU32LESha256": "f1358de049812a7b31002da6618e26d4281e691cdd68ff0a21f2f07a3cf4524c",
+  "editionEvidence": "passages/e1m4",
+  "rulesSha256": "794d195d7591ce876712ee22e17f7cf056914b882cbbbc09b16b68b9f3c8d248"
+}

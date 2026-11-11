@@ -1,0 +1,37 @@
+{
+  "CombatV2-SectorActions-V1": {
+    "baseRulesSha256": "841ef1221cd98c2c7e3c56c9709ea100970e176751f2f7e9f046605dc6a0b8f1",
+    "overlays": [
+      {
+        "path": "upstream/Doom/Collision.lean",
+        "sha256": "ae9df43eb21b6f51147d489313ab06fad9dbbaa44f63ec78fb25e7a9db830204"
+      },
+      {
+        "path": "upstream/Doom/FloorMover.lean",
+        "sha256": "ee3d8c81dce4b7aac6749d4cf0b61ecd8936e20299910439985894d8e29795ae"
+      },
+      {
+        "path": "upstream/Doom/Map.lean",
+        "sha256": "3a4ee2d1b53312bb2dfc22ef758de3c64dbcfa7da9a299725605bb27c7deb008"
+      },
+      {
+        "path": "upstream/Doom/Player.lean",
+        "sha256": "ff23ddb96fd4273ed25f15004aeb79d840532913f62e22ed6a0e5cacf44d8d57"
+      },
+      {
+        "path": "upstream/Doom/SectorLights.lean",
+        "sha256": "67fd807dd0561681c28694384397b77f18836761df4d3d93900c17832e2caf46"
+      },
+      {
+        "path": "upstream/Doom/Sight.lean",
+        "sha256": "a95d3a128eea99e76867454e2d4d2c6591b65ae2d59eba3421fc9de12fd4b14a"
+      },
+      {
+        "path": "upstream/Doom/Simulation.lean",
+        "sha256": "9b47db537122736064a002ed01ecd77f3b50ce238f751502657cf0324a21853e"
+      }
+    ],
+    "rulesSha256": "794d195d7591ce876712ee22e17f7cf056914b882cbbbc09b16b68b9f3c8d248",
+    "schema": "combatv2-sector-actions-v1-run"
+  }
+}

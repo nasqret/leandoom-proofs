@@ -38,7 +38,7 @@ Stock Lean also proves that the Episode One level-successor relation admits exac
 
 Across all 36 Freedoom: Phase 1 levels, the native player rendered a start and the verifier certified a four-input prefix and its endpoint. [Per-map prefix certificates](public-site/downloads/native-episode-checks.json)
 
-The two original maps with historical whole-route kernel proofs are E1M1 and E1M2 in CombatV2. Computer Station (E1M7) has a complete compiler-assisted first-safe-exit theorem for 4,161 inputs, ending at 45 health. Nine original ordinary starts and four constructed scene completions have additional checked results. The original Doom executable, the browser’s classic port, the native Lean port, and the small proof course have different semantics. See the dashboard and the local-verifier receipts for current coverage and trust tiers.
+The two original maps with historical whole-route kernel proofs are E1M1 and E1M2 in CombatV2. Computer Station (E1M7) has a complete compiler-assisted first-safe-exit theorem for 4,161 inputs, ending at 45 health. Command Control (E1M4) has a 1,233-input compiler-assisted passage in CombatV2-SectorActions-V1. Its first-shot and key theorems are synchronized with the first-person film. [Reproduce this edition](public-tools/episode-passages/README.md). Nine original ordinary starts and four constructed scene completions have additional checked results. The original Doom executable, the browser’s classic port, the native Lean port, and the small proof course have different semantics. See the dashboard and the local-verifier receipts for current coverage and trust tiers.
 
 ## Work on the site
 

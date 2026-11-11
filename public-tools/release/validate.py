@@ -54,6 +54,8 @@ films=load('theater/films.json')
 tiers={'Passage proved':'stock-kernel','Compiler-assisted passage':'compiler-assisted'}
 proved_levels={m['level']:tiers[m['status']] for m in load('evidence/maps.json')
                if m['edition']=='CombatV2' and re.fullmatch(r'E\d+M\d+',m['level']) and m['status'] in tiers}
+revised={m['level']:m['revisedPassage'] for m in load('evidence/maps.json') if 'revisedPassage' in m}
+proved_levels.update({k:v['proofTier'] for k,v in revised.items()})
 check(len(films)==len(proved_levels) and {f['id']:f['proofTier'] for f in films}==proved_levels,
       'theater coverage and trust tiers must match the original-map passage catalog')
 receipts=load('downloads/combat-runs.json')
@@ -68,8 +70,29 @@ for scene in scenes:
 for film in films:
     tick=film['tick']
     key=f"{film['id'].lower()}-{tick}"
-    receipt=receipts[key]
-    full=json.loads((root/'public-tools/verifier/validation/combat'/key/'receipt.json').read_bytes())
+    if film['id'] in revised:
+        item=revised[film['id']]
+        folder=site/'evidence'/item['evidence']
+        read=lambda n: json.loads((folder/n).read_bytes())
+        receipt=read('receipt.json')
+        full=read('clean-build.json') if (folder/'clean-build.json').is_file() else receipt
+        camera=read('camera.json'); milestones=read('milestones.json'); record=read('recording.json')
+        editions=json.loads((root/'public-tools/episode-passages/editions.json').read_bytes())
+        check(film==read('film.json') and item['engine']==film['engine']==record['engine'],key)
+        check(receipt['rulesSha256']==film['rulesSha256']==camera['rulesSha256']==milestones['rulesSha256']
+              ==editions[film['engine']]['rulesSha256'],key)
+        check(receipt['recordingSha256']==camera['recordingSha256']==milestones['recordingSha256']
+              ==digest((folder/'recording.json').read_bytes()),key)
+        check(digest(b''.join(i.to_bytes(4,'little') for i in record['commands']))==receipt['commandsU32LESha256'],key)
+        check(camera['decodedFrames']==camera['frames']==tick+1 and camera['firstExit']==tick and
+              camera['mp4Sha256']==film['sha256'] and camera['final']==receipt['final'],key)
+        check(digest(gzip.decompress((folder/'observations.jsonl.gz').read_bytes()))==camera['traceSha256'],key)
+        check(digest((folder/'milestones.log').read_bytes())==milestones['auditSha256'],key)
+        for overlay in editions[film['engine']]['overlays']:
+            check(digest((root/'public-tools/episode-passages/editions'/film['engine']/overlay['path']).read_bytes())==overlay['sha256'],overlay['path'])
+    else:
+        receipt=receipts[key]
+        full=json.loads((root/'public-tools/verifier/validation/combat'/key/'receipt.json').read_bytes())
     check(full['engine']==film['engine'] and full['level']==receipt['level']==film['id'] and
           full['commands']==receipt['commands']==tick and full['passage'] and receipt['passage'] and
           full['commandsU32LESha256']==receipt['commandsU32LESha256']==film['commandsU32LESha256'] and
