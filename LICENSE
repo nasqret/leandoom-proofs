@@ -1,0 +1,11 @@
+Lean Doom Lab license map
+
+MIT applies to this project's independently authored interface, tooling, educational prose, training maps, controller recordings and original illustration, to the extent contributors hold rights. See LICENSE-MIT.
+
+The upstream Lean port and derivative CombatV1 and CombatV2 engine components retain GPL-2.0-or-later. See research-core/COPYING.md (or its accompanying COPYING file), public-tools/verifier/combat/COPYING.md and public-tools/verifier/combat/NOTICE.md. The Chocolate Doom WebAssembly build, loader and corresponding source are distributed under their source license. See public-site/classic/ENGINE-COPYING.txt and engine-source.zip.
+
+Freedoom data, credit notices and depictions of Freedoom artwork retain the Freedoom project's BSD terms in public-site/classic/freedoom-COPYING.txt. The three locally hosted font families retain the SIL Open Font Licenses in public-site/assets/. The prebuilt Jupyter Book carries its embedded dependencies' licenses.
+
+Doom footage in public-site/theater is free educational fan video shown under https://bethesda.net/en-US/news/bethesda-video-policy . Doom game content remains the property of its respective rights holders. No license to original game assets or trademarks is granted by this project. The original IWAD and its map bytes are not distributed.
+
+Dependency-specific notices control their respective material.
