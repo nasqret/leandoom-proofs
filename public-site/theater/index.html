@@ -1,1 +1,53 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Proof theater · Lean Doom Lab</title><link rel="stylesheet" href="../assets/site.css"><link rel="stylesheet" href="theater.css"></head><body><header data-header></header><main class="section wrap" id="main"><p class="kicker">CombatV2 / Recorded passages</p><h1>Proof theater</h1><p>Two complete passages, from ordinary spawn to exit. Pause on a line of Lean, jump to an event or watch at a slower speed.</p><div data-theater></div><p class="legal">Gameplay footage contains fantasy combat. The code and camera share a game-tick clock. Frames after the exit hold the final result. <a href="films.json">Download the frame and source index</a> · <a href="../evidence/">Explore the level proofs</a></p><section class="section"><p class="kicker">Edited films</p><h2>The screening room</h2><label for="cut">Choose a film </label><select id="cut" class="control"></select><p id="cutdesc"></p><video id="cutvideo" controls playsinline muted preload="metadata" style="display:block;max-height:65vh;width:100%;background:#10110e"></video><a href="cuts.json">Film hashes and durations</a></section></main><footer data-footer></footer><script src="../assets/shell.js"></script><script type="module" src="player.js"></script><script type="module" src="cuts.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Proof theater · Lean Doom Lab</title>
+    <link rel="stylesheet" href="../assets/site.css" />
+    <link rel="stylesheet" href="theater.css" />
+  </head>
+  <body>
+    <header data-header></header>
+    <main class="section wrap" id="main">
+      <p class="kicker">CombatV2 / Recorded passages</p>
+      <h1>Proof theater</h1>
+      <p>
+        Two complete passages, from ordinary spawn to exit. Pause on a line of
+        Lean, jump to an event or watch at a slower speed.
+      </p>
+      <div data-theater></div>
+      <p class="legal">
+        Gameplay footage contains fantasy combat. The code and camera share a
+        game-tick clock. Frames after the exit hold the final result.
+        <a href="films.json">Download the frame and source index</a> ·
+        <a href="../evidence/">Explore the level proofs</a>
+      </p>
+      <section class="section">
+        <p class="kicker">Edited films</p>
+        <h2>The screening room</h2>
+        <label for="cut">Choose a film </label
+        ><select id="cut" class="control"></select>
+        <p id="cutdesc"></p>
+        <video
+          id="cutvideo"
+          controls
+          playsinline
+          muted
+          preload="metadata"
+          style="
+            display: block;
+            max-height: 65vh;
+            width: 100%;
+            background: #10110e;
+          "
+        ></video
+        ><a href="cuts.json">Film hashes and durations</a>
+      </section>
+    </main>
+    <footer data-footer></footer>
+    <script src="../assets/shell.js"></script>
+    <script type="module" src="player.js"></script>
+    <script type="module" src="cuts.js"></script>
+  </body>
+</html>

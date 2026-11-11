@@ -110,11 +110,45 @@
             "Quot.sound"
           ]
         }
-      ]
+      ],
+      "additionalCompilerAssisted": {
+        "job": "315890_1",
+        "commands": 1013,
+        "commandsU32LESha256": "429dfb635690bf931a1168d6dab0bf46044148f3978fbda90904e05800e7939a",
+        "trust": "compiler",
+        "passage": true,
+        "final": {
+          "armor": 0,
+          "bullets": 70,
+          "errorFree": true,
+          "exit": true,
+          "health": 82,
+          "kills": 1,
+          "shells": 20,
+          "shots": 0,
+          "tick": 1013,
+          "x": -20833938,
+          "y": 153198279
+        },
+        "axioms": {
+          "Recording.passage": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound",
+            "Recording.passage._native.native_decide.ax_1_1"
+          ],
+          "Recording.finalObservation": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound",
+            "Recording.finalObservation._native.native_decide.ax_1_1"
+          ]
+        }
+      }
     },
     "E1M7": {
       "title": "Computer Station",
-      "description": "The original first movement attempt collects a clip, changes ammunition from 50 to 60 and re-links the player in sector 60 and blockmap cell 846. A longer winning replay exists. This theorem covers a single movement call.",
+      "description": "The first collision move, clip pickup and spatial re-link are stock-kernel results. A later 4,161-input controller has a full compiler-assisted passage. Its generated native-decision assumptions are reported separately below.",
       "declarations": [
         {
           "title": "Does the engine accept the first move?",
@@ -130,7 +164,41 @@
             "Quot.sound"
           ]
         }
-      ]
+      ],
+      "additionalCompilerAssisted": {
+        "job": "315934",
+        "commands": 4161,
+        "commandsU32LESha256": "caa3b29a678a1e9be5d6d54d7f7595f4ae2a7cecca7594d2e30d1b3408d66fad",
+        "trust": "compiler",
+        "passage": true,
+        "final": {
+          "armor": 25,
+          "bullets": 35,
+          "errorFree": true,
+          "exit": true,
+          "health": 45,
+          "kills": 27,
+          "shells": 0,
+          "shots": 93,
+          "tick": 4161,
+          "x": 126860204,
+          "y": -151903512
+        },
+        "axioms": {
+          "Recording.passage": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound",
+            "Recording.passage._native.native_decide.ax_1_1"
+          ],
+          "Recording.finalObservation": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound",
+            "Recording.finalObservation._native.native_decide.ax_1_1"
+          ]
+        }
+      }
     },
     "E1M8": {
       "title": "Phobos Anomaly",

@@ -1,6 +1,6 @@
 # E1M7 Computer Station
 
-The first movement attempt collects a clip, raising 50 bullets to 60. Lean proves the move succeeds and relinks the player in sector 60 and blockmap cell 846 with zero special-line crossings. The 4,161- and 4,209-input native wins share their first 4,140 inputs. Full passage remains open.
+A 4,161-input CombatV2 route reaches the first safe exit with 45 health, 25 armor and 35 bullets. The portable first-exit and endpoint theorems use native_decide. Stock-kernel proofs below cover the opening pickup and the shared prefix of two tapes.
 
 Edition: CombatV2.
 
@@ -77,5 +77,7 @@ Source SHA-256 `6b1c60efd9203f5de637d636b724f59cbd04a8b9d73a2aa4bd7c6583124eca97
 'LeanDoomProofs.E1M7.loaded_spawn' depends on axioms: [propext, Classical.choice, Quot.sound]
 
 Source SHA-256 `0c55b1bd5d98aa972f7c74794ee35d75c129a144eaa5ee85d1ecfe089418cf09`. Audit SHA-256 `4e74a98bafc917851ff7903cdc60f1a745096c71937dcf7f781fbf9d62ec9895`.
+
+The 4,161-input controller now has a full compiler-assisted Lean passage and checked endpoint, with 45 health, 25 armor, 35 bullets, 93 shots and 27 credited kills. Its native-decision axiom is explicit in [the receipt](Resources/combat-runs.json). A joined standard-axiom proof remains open.
 
 [[Map atlas]] · [[Engine and passage]]

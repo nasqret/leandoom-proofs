@@ -50,10 +50,20 @@ for film in films+load('theater/cuts.json'):
     check(digest((site/'theater'/name).read_bytes())==film['sha256'],name)
 for film in films:
     for c in film['chapters']:
+        if 'sourceFile' in c:
+            check(digest((site/'theater'/c['sourceFile']).read_bytes())==c['sourceSha256'],c['module'])
         check(0<=c['frame']<film['frames'] and c['line'] in [i for i,_ in c['excerpt']],c['declaration'])
 check(digest((site/'evidence/core-source.zip').read_bytes())==load('evidence/core.json')['archive_sha256'],'core')
 check(len(load('evidence/declarations.json')['records'])==277,'declarations')
 check(len(load('evidence/maps.json'))==13,'maps')
+campaign=load('classic/campaign.json')
+itinerary=['E1M1','E1M2','E1M3','E1M9','E1M4','E1M5','E1M6','E1M7','E1M8']
+check(len(campaign['runs'])>=2,'classic independent tapes')
+for run in campaign['runs']:
+    r=run['evidence']
+    check(r['arrivals']==itinerary and r['stop']=='episode finale' and r['fullEpisodeViaSecret'],run['runner'])
+    check(r['wasmSha256']==digest((site/'classic/websockets-doom.wasm').read_bytes()),run['runner'])
+check(digest((site/'classic/replay.cjs').read_bytes())==campaign['verifierSha256'],'classic verifier')
 check(len(load('downloads/routes.json')['routes'])==27,'routes')
 with zipfile.ZipFile(site/'downloads/lean-doom-companion.zip') as z:
     prefix='lean-doom-companion/'

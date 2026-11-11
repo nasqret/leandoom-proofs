@@ -1,0 +1,146 @@
+{
+  "schema": "classic-campaign-receipt-v1",
+  "engine": "Chocolate Doom WebSockets port, Episode One level-successor abstraction",
+  "scope": "An individual level completion is one abstract event. The theorem classifies all completed map itineraries admitted by ordinary/secret completion events, with no warp, reset, load or console map selection. C source correspondence and IWAD exit-marker enumeration are separate finite inspections.",
+  "stockLean": "4.33.0 (d8b18978322de05a8f3dba51ef03cf5461676c17)",
+  "job": "315957",
+  "elapsedSeconds": 2,
+  "source": "ClassicCampaign.lean",
+  "sourceSha256": "c8ee48ebd421d96736498c75c2ec8da136f2a1b2e283985511f647d8cb629063",
+  "auditDriver": "ClassicCampaignAudit.lean",
+  "driverSha256": "e4285143e7f467b6d4a78269ac5d22135f43227b899d249b464c99f4e6d5b8ee",
+  "objectSha256": "e2c8a7335e1fe5c7e61b6e4144c6198edfff2305db08522afc77b7a2e32c2572",
+  "audit": "ClassicCampaign.audit.log",
+  "auditSha256": "f472c4caae0db8054ba8e284a6c334f94ec68aa8bf8b82d0709bc6dcf84a376f",
+  "axioms": {
+    "ClassicCampaign.normal_complete": [
+      "propext"
+    ],
+    "ClassicCampaign.secret_complete": [
+      "propext"
+    ],
+    "ClassicCampaign.itinerary_iff": [
+      "propext"
+    ],
+    "ClassicCampaign.attained_lengths": [
+      "propext"
+    ]
+  },
+  "normal": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "secret": [
+    1,
+    2,
+    3,
+    9,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "exactAttainedLengths": [
+    8,
+    9
+  ],
+  "sourceBindings": {
+    "completionAndFinale": "https://github.com/Saketh-Chandra/doom-wasm-pwa/blob/a77edfd8bbc7e66b119a49c954f69a8b24e59206/src/doom/g_game.c#L1204-L1263",
+    "zeroBasedIntermissionToMap": "https://github.com/Saketh-Chandra/doom-wasm-pwa/blob/a77edfd8bbc7e66b119a49c954f69a8b24e59206/src/doom/g_game.c#L1344-L1349",
+    "secretOnCross": "https://github.com/Saketh-Chandra/doom-wasm-pwa/blob/a77edfd8bbc7e66b119a49c954f69a8b24e59206/src/doom/p_spec.c#L782-L785",
+    "secretOnUse": "https://github.com/Saketh-Chandra/doom-wasm-pwa/blob/a77edfd8bbc7e66b119a49c954f69a8b24e59206/src/doom/p_switch.c#L419-L422",
+    "mapInventoryScript": "classic-map-edges.py",
+    "mapInventoryScriptSha256": "27ab0e3519d8796b91f1457019e113c84b4d2c8f70f7c52d9dcc12112483576e"
+  },
+  "mapInventory": {
+    "freedoom": {
+      "sha256": "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d",
+      "counts": {
+        "E1M1": {
+          "normalExitLinedefs": 1,
+          "secretExitLinedefs": 0
+        },
+        "E1M2": {
+          "normalExitLinedefs": 1,
+          "secretExitLinedefs": 0
+        },
+        "E1M3": {
+          "normalExitLinedefs": 1,
+          "secretExitLinedefs": 1
+        },
+        "E1M4": {
+          "normalExitLinedefs": 1,
+          "secretExitLinedefs": 0
+        },
+        "E1M5": {
+          "normalExitLinedefs": 1,
+          "secretExitLinedefs": 0
+        },
+        "E1M6": {
+          "normalExitLinedefs": 1,
+          "secretExitLinedefs": 0
+        },
+        "E1M7": {
+          "normalExitLinedefs": 2,
+          "secretExitLinedefs": 0
+        },
+        "E1M8": {
+          "normalExitLinedefs": 8,
+          "secretExitLinedefs": 0
+        },
+        "E1M9": {
+          "normalExitLinedefs": 1,
+          "secretExitLinedefs": 0
+        }
+      }
+    },
+    "shareware": {
+      "sha256": "1d7d43be501e67d927e415e0b8f3e29c3bf33075e859721816f652a526cac771",
+      "counts": {
+        "E1M1": {
+          "normalExitLinedefs": 1,
+          "secretExitLinedefs": 0
+        },
+        "E1M2": {
+          "normalExitLinedefs": 1,
+          "secretExitLinedefs": 0
+        },
+        "E1M3": {
+          "normalExitLinedefs": 1,
+          "secretExitLinedefs": 1
+        },
+        "E1M4": {
+          "normalExitLinedefs": 1,
+          "secretExitLinedefs": 0
+        },
+        "E1M5": {
+          "normalExitLinedefs": 1,
+          "secretExitLinedefs": 0
+        },
+        "E1M6": {
+          "normalExitLinedefs": 1,
+          "secretExitLinedefs": 0
+        },
+        "E1M7": {
+          "normalExitLinedefs": 1,
+          "secretExitLinedefs": 0
+        },
+        "E1M8": {
+          "normalExitLinedefs": 0,
+          "secretExitLinedefs": 0
+        },
+        "E1M9": {
+          "normalExitLinedefs": 1,
+          "secretExitLinedefs": 0
+        }
+      }
+    }
+  }
+}

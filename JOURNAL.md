@@ -11,3 +11,7 @@ WMI job 315887 checked all 27 authored courses with stock Lean, imported the agg
 The gallery links to per-map statements, an original-input verifier, the executed notebook, the study vault and licenses. The classic WebAssembly player and CombatV2 recording format use different simulation semantics.
 
 WMI 315929 certified the complete 4,161-input CombatV2 Computer Station tape with compiler-assisted Lean reduction and a fresh audit. The player had 45 health and 25 armor at the exit. The historical stock-kernel whole-passage count remains two.
+
+WMI 315951 ran two independent Ultra-Violence demos in the exact shipped WebAssembly. Both reached the original finale through all nine maps. WMI 315940 cold-tested the downloadable companion in 156 seconds, including the Computer Station compiler-assisted passage and a separate stock-kernel fixture.
+
+WMI 315957 checked the universal classic episode itinerary classification and both attained lengths. This abstracts over each map’s completion event. It complements the independent whole-episode execution traces.

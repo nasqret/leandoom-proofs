@@ -34,7 +34,8 @@
         ],
         "declaration": "certifiedHangarEscapeScene",
         "sourceSha256": "16a79da9f2e14fda68ead45875f04424a6f5356b6cd6deb53feee2a1f7317afe",
-        "objectSha256": "18e8e827e5f24b5e8353841bd4c9110430a6c7e6b7293c676ab23d344075ccc5"
+        "objectSha256": "18e8e827e5f24b5e8353841bd4c9110430a6c7e6b7293c676ab23d344075ccc5",
+        "sourceFile": "source/CertifiedHangarEscapeScene.lean"
       },
       {
         "frame": 611,
@@ -62,7 +63,8 @@
         ],
         "declaration": "launch611",
         "sourceSha256": "0b60e3504df36f2398136a62c0ff6959057cf7a7a43aff17fb218d5cb904e347",
-        "objectSha256": "1d12f6e3c3f5219721de2231c88c7facf6f4c04e3d5f7f6621807e416b2a2019"
+        "objectSha256": "1d12f6e3c3f5219721de2231c88c7facf6f4c04e3d5f7f6621807e416b2a2019",
+        "sourceFile": "source/E1M1RealFireballLaunches.lean"
       },
       {
         "frame": 837,
@@ -90,7 +92,8 @@
         ],
         "declaration": "launch837",
         "sourceSha256": "0b60e3504df36f2398136a62c0ff6959057cf7a7a43aff17fb218d5cb904e347",
-        "objectSha256": "1d12f6e3c3f5219721de2231c88c7facf6f4c04e3d5f7f6621807e416b2a2019"
+        "objectSha256": "1d12f6e3c3f5219721de2231c88c7facf6f4c04e3d5f7f6621807e416b2a2019",
+        "sourceFile": "source/E1M1RealFireballLaunches.lean"
       },
       {
         "frame": 923,
@@ -118,7 +121,8 @@
         ],
         "declaration": "third_fireball_hits",
         "sourceSha256": "6bfd38ccf462ad2751d3b7ae07760d5797fe4057f4ad040cf206d40ea2f2007d",
-        "objectSha256": "b05967b06eafc866f246de7e941a8fca1f9a956e48c42f6238aee4b801d0dad2"
+        "objectSha256": "b05967b06eafc866f246de7e941a8fca1f9a956e48c42f6238aee4b801d0dad2",
+        "sourceFile": "source/E1M1Impact923.lean"
       },
       {
         "frame": 935,
@@ -146,7 +150,8 @@
         ],
         "declaration": "launch935",
         "sourceSha256": "0b60e3504df36f2398136a62c0ff6959057cf7a7a43aff17fb218d5cb904e347",
-        "objectSha256": "1d12f6e3c3f5219721de2231c88c7facf6f4c04e3d5f7f6621807e416b2a2019"
+        "objectSha256": "1d12f6e3c3f5219721de2231c88c7facf6f4c04e3d5f7f6621807e416b2a2019",
+        "sourceFile": "source/E1M1RealFireballLaunches.lean"
       },
       {
         "frame": 993,
@@ -174,7 +179,8 @@
         ],
         "declaration": "certifiedHangarEscapeScene",
         "sourceSha256": "16a79da9f2e14fda68ead45875f04424a6f5356b6cd6deb53feee2a1f7317afe",
-        "objectSha256": "18e8e827e5f24b5e8353841bd4c9110430a6c7e6b7293c676ab23d344075ccc5"
+        "objectSha256": "18e8e827e5f24b5e8353841bd4c9110430a6c7e6b7293c676ab23d344075ccc5",
+        "sourceFile": "source/CertifiedHangarEscapeScene.lean"
       }
     ],
     "summary": "Run through the computer room, dodge fireballs and reach the exit on 48 health. The player never fires.",
@@ -232,7 +238,8 @@
         ],
         "declaration": "loaded_spawn",
         "sourceSha256": "e128ce247eac10ce3b7b28b474d0f141ea09c2540a7bf452afcabeb2c5091fa4",
-        "objectSha256": "e7bdb7690c0b303b196fbda5ee0f0568cb0ea7b679176e4391508243cb06c397"
+        "objectSha256": "e7bdb7690c0b303b196fbda5ee0f0568cb0ea7b679176e4391508243cb06c397",
+        "sourceFile": "source/E1M2Foundation.lean"
       },
       {
         "frame": 5,
@@ -256,7 +263,8 @@
         ],
         "declaration": "firstPistolDischarge",
         "sourceSha256": "4185329ecdc0014809aa97564567040ccb9b5538564a10c56481c4fab6557a8e",
-        "objectSha256": "9d7344f76afe3c24f6e9859b9a0fb031cc543f7f0565f99409ca106fa0ee8b1f"
+        "objectSha256": "9d7344f76afe3c24f6e9859b9a0fb031cc543f7f0565f99409ca106fa0ee8b1f",
+        "sourceFile": "source/WindowFifthShot.lean"
       },
       {
         "frame": 191,
@@ -280,7 +288,8 @@
         ],
         "declaration": "friendlyFireFromMap",
         "sourceSha256": "cc6554c7bba9a4af570800df6fe7a8866c256e6720c493911d33fc7d3a0a0659",
-        "objectSha256": "37ca09843e4b863c918e489a486b7a80ea1086163f91026192c17bcb73880300"
+        "objectSha256": "37ca09843e4b863c918e489a486b7a80ea1086163f91026192c17bcb73880300",
+        "sourceFile": "source/CrossfireFromMap.lean"
       },
       {
         "frame": 202,
@@ -304,7 +313,8 @@
         ],
         "declaration": "redKeyAt202",
         "sourceSha256": "48bd8c7a91a392c202f75b109d9713214eaf049c70de5e7e55424efa7f67d506",
-        "objectSha256": "ac6c9824e36b1145004709ef700f63a680107cd895eef48b7bf604475dd3a501"
+        "objectSha256": "ac6c9824e36b1145004709ef700f63a680107cd895eef48b7bf604475dd3a501",
+        "sourceFile": "source/FullRedKey202.lean"
       },
       {
         "frame": 505,
@@ -376,7 +386,8 @@
         ],
         "declaration": "impTurnFromMap",
         "sourceSha256": "94d2cc6db4725abaaac613339ba23d077da850ed20133deb44c1467debfc961d",
-        "objectSha256": "300601ec616634b6c4bee85a576be39bcda0821f6c052dded83318f6e6ff913e"
+        "objectSha256": "300601ec616634b6c4bee85a576be39bcda0821f6c052dded83318f6e6ff913e",
+        "sourceFile": "source/FullLiftFromMap.lean"
       },
       {
         "frame": 1017,
@@ -400,7 +411,8 @@
         ],
         "declaration": "passage",
         "sourceSha256": "87fbc59f7610a3cade704651001fbd500423d88c27868cecd28ee95b3fad096a",
-        "objectSha256": "dd94f8618b7b26e25209e3f244d823479e1d159defd845115eb53c8d944499fc"
+        "objectSha256": "dd94f8618b7b26e25209e3f244d823479e1d159defd845115eb53c8d944499fc",
+        "sourceFile": "source/CampaignWinner.lean"
       }
     ],
     "summary": "Race up the blue stairs and collect the red key. The player fires 73 shots and reaches the exit with two bullets.",

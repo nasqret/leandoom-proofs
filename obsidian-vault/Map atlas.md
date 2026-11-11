@@ -6,7 +6,7 @@
 - [[E1M4 Command Control]] — Local theorems
 - [[E1M5 Phobos Lab]] — Local theorems
 - [[E1M6 Central Processing]] — Local theorems
-- [[E1M7 Computer Station]] — Native win
+- [[E1M7 Computer Station]] — Compiler-assisted passage
 - [[E1M8 Phobos Anomaly]] — Local theorems
 - [[E1M9 Military Base]] — Local theorems
 - [[ARENA03 Three-imp arena]] — Passage proved

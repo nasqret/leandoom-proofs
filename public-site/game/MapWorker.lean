@@ -3,7 +3,7 @@ import Doom.App
 import Doom.CombatView
 import Lean.Data.Json
 
-/-! Local graphical player for the walking CombatV2 rules on episode-one maps.
+/-! Local graphical player for the walking CombatV2 rules on Doom episode maps.
 The local bridge hashes the IWAD for recorded inputs. Rendering reads the simulation and owns its
 own fuzz phase. No presentation or audio state is written into the game. -/
 
@@ -28,8 +28,10 @@ private def serve (iwad level : String) : IO Unit := do
   let wad ← checked (Wad.parse (← IO.FS.readBinFile iwad))
   unless wad.kind == "IWAD" do
     throw (IO.userError "expected a local IWAD")
-  unless (["E1M1", "E1M2", "E1M3", "E1M4", "E1M5", "E1M6", "E1M7", "E1M8", "E1M9"] : List String).contains level do
-    throw (IO.userError "select a map from E1M1 to E1M9")
+  let supported := ([1, 2, 3, 4] : List Nat).any fun episode =>
+    (List.range 9).any fun i => level == s!"E{episode}M{i + 1}"
+  unless supported do
+    throw (IO.userError "select a map slot E1M1 through E4M9")
   let map ← checked (Doom.Map.load wad.lumps level)
   let assets ← checked (Assets.load wad.lumps map true true)
   let start ← checked (Simulation.spawn map true 1)

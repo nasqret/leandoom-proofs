@@ -1,0 +1,4 @@
+'ClassicCampaign.normal_complete' depends on axioms: [propext]
+'ClassicCampaign.secret_complete' depends on axioms: [propext]
+'ClassicCampaign.itinerary_iff' depends on axioms: [propext]
+'ClassicCampaign.attained_lengths' depends on axioms: [propext]

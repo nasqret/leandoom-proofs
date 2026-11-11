@@ -1,0 +1,2 @@
+'Campaign.BlueDoor.crossingDoesNotOpen' depends on axioms: [propext, Quot.sound]
+'Campaign.BlueDoor.parsedApproaches' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,6 @@
+'OriginalReplay.scan_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OriginalReplay.passage_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Recording.station_all_prefixes' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Recording.passage._native.native_decide.ax_1_1]

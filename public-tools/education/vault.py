@@ -55,10 +55,10 @@ def build():
         files['Resources/'+name]=(SITE.parent/'downloads'/name).read_bytes()
     note('Memory',"""A result binds a map foundation, rules edition, initial state, input tape and observation. The frozen CombatV1 core contains the constructed fixtures. CombatV2 is the edition of the original-map passage research. The public ProofGrid courses and the notebook airlock each have their own explicit transitions. Keep these four identities in future comparisons.
 
-Hangar has two stock-kernel zero-shot witnesses. Nuclear Plant’s 1,017-input standard-axiom proof and its 1,013-input compiler-assisted proof have different trust assumptions. Quiet records player shooting; environmental damage can still kill a monster. [[Map atlas]] · [[Engine and passage]]""")
+Hangar has two stock-kernel zero-shot witnesses. Nuclear Plant’s 1,017-input standard-axiom proof and its 1,013-input compiler-assisted proof have different trust assumptions. Computer Station has a complete 4,161-input compiler-assisted passage alongside its stock-kernel first-movement result. This brings the full original-map count to three across the two trust models. Zero shots counts player actions. Monsters can still die. [[Map atlas]] · [[Engine and passage]]""")
     note('Journal',"""The historical CombatV1 primary and separate WMI build lineages finished on 2026-10-08 in jobs 281144 and 281142. Both recorded the same 277 declarations.
 
-On 2026-11-11 WMI 315851 compiled the seven teaching theorems, re-imported them and rejected the reordered airlock controller. WMI 315888 executed the Jupyter notebook, including the compiler processes. The strict Jupyter Book build 315911 included the newly distinguished quiet Nuclear Plant case.
+On 2026-11-11 WMI 315851 compiled the seven teaching theorems, re-imported them and rejected the reordered airlock controller. WMI 315888 executed the Jupyter notebook, including the compiler processes. The strict Jupyter Book build 315911 documented the quiet Nuclear Plant case. After the Computer Station compiler-assisted proof arrived, WMI job 315947 re-executed all notebook cells and 315950 rebuilt the Jupyter Book with strict checks.
 
 WMI 315907 extracted the public core, checked 268 frozen input hashes and 218 upstream files, and re-imported all 277 declarations using the historical compiled dependencies. Its new axiom transcript matches both historical transcripts byte for byte. [Machine-readable core record](Resources/core.json)""")
     note('Plan',"""1. For each map with a local theorem, identify the next missing move from ordinary spawn. Include keys, timers, projectiles and spatial indexing when identifying a checkpoint. [[Map atlas]]
@@ -77,6 +77,7 @@ Nuclear Plant's quiet input tape first exits on tick 1,013 with 82 health, zero 
         text=[row['description'],'Edition: '+row['edition']+'.','## Checked statements']
         for entry in row['proofs']:
             text.append('### '+entry['title']+'\n\n`'+entry['declaration']+'`\n\n'+entry['auditText']+'\n\nSource SHA-256 `'+entry['sourceSha256']+'`. Audit SHA-256 `'+entry['auditSha256']+'`.')
+        if row['level']=='E1M7': text.append('The 4,161-input controller now has a full compiler-assisted Lean passage and checked endpoint, with 45 health, 25 armor, 35 bullets, 93 shots and 27 credited kills. Its native-decision axiom is explicit in [the receipt](Resources/combat-runs.json). A joined standard-axiom proof remains open.')
         if row['level']=='E1M2': text.append('The newer 1,013-input case has a compiler-assisted certificate. [[Recording and checking]]')
         text.append('[[Map atlas]] · [[Engine and passage]]')
         note(key,'\n\n'.join(text))

@@ -1,5 +1,7 @@
 # Lean Doom Lab
 
+[![An explorer approaches a firelit base beneath an eclipse](public-site/assets/base.webp)](https://nasqret.github.io/leandoom-proofs/)
+
 Play a route, pause on a game tick and inspect its Lean proof. [Launch the lab](https://nasqret.github.io/leandoom-proofs/) · [Proof theater](https://nasqret.github.io/leandoom-proofs/theater/) · [Level dashboard](https://nasqret.github.io/leandoom-proofs/evidence/)
 
 | Where to start | What you can do |
@@ -25,9 +27,13 @@ Select **Pair local Lean** in the course and choose that folder. Browsers withou
 
 The Codex and Claude Code skills are included both in the kit and in this repository. Open the extracted kit in either agent and ask “Verify my latest recording and show its first-exit theorem, trust mode, and receipt.”
 
+The published classic WebAssembly reached the episode finale on two independent Ultra-Violence recordings by kuckkuck and Zero-Master. Both play all nine original maps, including the secret exit and return. [Campaign transcripts and recording credits](https://nasqret.github.io/leandoom-proofs/classic/#campaign)
+
 ## Mathematical scope
 
 For a given map, ordinary spawn and controller, the replay fixes every successor state. A first-safe-exit theorem says that the player remains alive, physics succeeds, every strict prefix has a clear exit flag and the last input raises it. A shorter route, different engine or arbitrary player requires a new argument. A route of length 993 proves an upper bound on the best completion time. A zero-shot completion also proves the optimal shot count, because shot counts are natural numbers.
+
+Stock Lean also proves that the Episode One level-successor relation admits exactly two complete itineraries from Hangar: eight maps directly, or nine via Military Base. [Itinerary theorem and audit](public-site/evidence/ClassicCampaign.json)
 
 The two original maps with historical whole-route kernel proofs are E1M1 and E1M2 in CombatV2. Computer Station (E1M7) has a complete compiler-assisted first-safe-exit theorem for 4,161 inputs, ending at 45 health. Nine original ordinary starts and four constructed scene completions have additional checked results. The original Doom executable, the browser’s classic port, the native Lean port, and the small proof course have different semantics. See the dashboard and the local-verifier receipts for current coverage and trust tiers.
 

@@ -12,5 +12,7 @@
   },
   "buildUrl": "https://github.com/Saketh-Chandra/doom-wasm-pwa/tree/5b1e1fe7385b6f0b19d60dece6adbf88f6842e20/src",
   "sourceUrl": "https://github.com/Saketh-Chandra/doom-wasm-pwa/tree/a77edfd8bbc7e66b119a49c954f69a8b24e59206",
-  "freedoomUrl": "https://github.com/freedoom/freedoom/releases/tag/v0.13.0"
+  "freedoomUrl": "https://github.com/freedoom/freedoom/releases/tag/v0.13.0",
+  "buildSourceBinding": "The upstream gh-pages deployment commit message names the exact source commit in its build.",
+  "buildCommitUrl": "https://github.com/Saketh-Chandra/doom-wasm-pwa/commit/5b1e1fe7385b6f0b19d60dece6adbf88f6842e20"
 }

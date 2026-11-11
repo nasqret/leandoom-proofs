@@ -381,5 +381,11 @@
     "E1M9 normal exit": "E1M4",
     "E1M8 completion": "episode finale",
     "scope": "Inspected corresponding C source and IWAD markers; launch and rendering tests start each map separately."
+  },
+  "continuousEpisode": {
+    "receipt": "campaign.json",
+    "controllers": 2,
+    "fullEpisodesThroughSecretMap": 2,
+    "trustedLayer": "Exact shipped WebAssembly execution, WMI 315951"
   }
 }

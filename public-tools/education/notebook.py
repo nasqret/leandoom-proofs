@@ -4,6 +4,7 @@ from hashlib import sha256
 from pathlib import Path
 from textwrap import dedent
 import json
+import sys
 import nbformat as nb
 
 here = Path(__file__).resolve().parent
@@ -154,7 +155,7 @@ note(r"""
 
 In CombatV2 Hangar has two complete zero-shot witnesses. Replacing the 993-input witness by the 978-input witness improves an **upper** bound by 15. Nuclear Plant has a complete armed 1,017-input witness and its ordinary spawn is not an exit. In a surviving, error-free passage one must account for all 1,018 states including the start. The main suffix of that witness contains 998 ticks with 65 ordered actor slots per tick. These counts illustrate the work inside a particular certificate. [Hangar evidence](records.html#e1m1) · [Nuclear Plant evidence](records.html#e1m2)
 
-Computer Station supplies a particularly instructive *partial* result. Its first checked collision move collects a clip, raising ammunition from 50 to 60, and relinks the player to the spatial lists for sector 60 and blockmap cell 846. Omitting the relink can change the next collision query. Military Base has a checked 933-input control tape with 23 Use masks and zero Attack masks. Seeing two keys in a replay is still an observation until the inventory transitions are proved. [Computer Station evidence](records.html#e1m7) · [Military Base evidence](records.html#e1m9) · [Original movement code](https://github.com/id-Software/DOOM/blob/master/linuxdoom-1.10/p_map.c)
+Computer Station supplies a particularly instructive *partial* result. Its first checked collision move collects a clip, raising ammunition from 50 to 60, and relinks the player to the spatial lists for sector 60 and blockmap cell 846. Omitting the relink can change the next collision query. A separate compiler-assisted Lean proof now follows all 4,161 inputs, reaches the first exit with 45 health and 25 armor, and reports 93 shots and 27 credited kills. Its imported `Recording.passage` declaration lists a generated native-decision axiom. The stock-kernel full-run decomposition remains open. [Explicit compiler-assisted axiom reports](../downloads/combat-runs.json) Military Base has a checked 933-input control tape with 23 Use masks and zero Attack masks. Seeing two keys in a replay is still an observation until the inventory transitions are proved. [Computer Station evidence](records.html#e1m7) · [Military Base evidence](records.html#e1m9) · [Original movement code](https://github.com/id-Software/DOOM/blob/master/linuxdoom-1.10/p_map.c)
 """)
 
 program("""
@@ -254,4 +255,4 @@ for index, cell in enumerate(cells):
     cell.id = f"passage-{index+1:02d}"
 notebook = nb.v4.new_notebook(cells=cells, metadata={"kernelspec": {"name":"python3","language":"python","display_name":"Python 3"}, "language_info":{"name":"python"}})
 nb.validate(notebook)
-nb.write(notebook, site/"passage-lab.ipynb")
+nb.write(notebook, Path(sys.argv[1]) if len(sys.argv)>1 else site/"passage-lab.ipynb")
