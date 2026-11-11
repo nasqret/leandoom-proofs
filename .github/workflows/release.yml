@@ -1,0 +1,36 @@
+name: Package the public edition
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+permissions:
+  contents: read
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Validate the tagged edition
+        run: python3 public-tools/release/validate.py
+      - name: Assemble published downloads
+        run: |
+          set -euo pipefail
+          mkdir package
+          cp public-site/downloads/lean-doom-companion.zip public-site/evidence/core-source.zip package/
+          cp public-site/learn/{book-source.zip,jupyter-book.zip,passage-lab.ipynb,obsidian-vault.zip} package/
+          (cd package && sha256sum *.zip *.ipynb > SHA256SUMS)
+      - name: Publish the release and checksums
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          if ! gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release create "$TAG" --verify-tag --draft --repo "$GITHUB_REPOSITORY" --title "Lean Doom Lab $TAG" --notes-file RELEASE.md
+          fi
+          gh release upload "$TAG" --repo "$GITHUB_REPOSITORY" --clobber package/*
+          gh release edit "$TAG" --repo "$GITHUB_REPOSITORY" --draft=false

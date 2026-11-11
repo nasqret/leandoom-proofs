@@ -33,3 +33,5 @@ Check code highlighting after seeking, keyboard controls, the manual record/expo
 ```sh
 python3 public-tools/release/verify_live.py --revision "$(git rev-parse HEAD)"
 ```
+
+An annotated `vMAJOR.MINOR.PATCH` tag packages the companion, research core, student notebook, two book archives and study vault as a public GitHub Release. Update `RELEASE.md` before creating that tag. The release workflow publishes a checksum list alongside the downloads.
