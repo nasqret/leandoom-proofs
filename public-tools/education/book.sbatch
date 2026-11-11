@@ -16,5 +16,5 @@ python3 -m venv "$stage/venv"
 "$stage/venv/bin/jupyter-book" build "$stage/source" -W -n --all --keep-going > "$out/build.txt" 2>&1
 test -s "$stage/source/_build/html/index.html"
 test -s "$stage/source/_build/html/lab.html"
-cp "$stage/source/_build/html/index.html" "$stage/source/_build/html/lab.html" "$out/"
+cp "$stage/source/_build/html/"{index,lab,experiments}.html "$out/"
 sha256sum book-source.zip > "$out/archive.sha256"

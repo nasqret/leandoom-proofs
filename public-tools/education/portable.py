@@ -53,16 +53,19 @@ def offline_article(path,destination):
             a['href']='jupyter-lab.html'
         elif target=='index.html':
             a['href']='jupyter-book.html'
+        elif target=='experiments.html':
+            a['href']='replay-experiments.html'
     title=article.h1.get_text(strip=True)
-    tools='<nav class="tools" aria-label="Jupyter Book navigation"><a href="jupyter-book.html">1 · Engine and proof</a><a href="jupyter-lab.html">2 · Executable lab</a><a href="jupyter-book.zip" download>Offline book ↓</a><a href="book-source.zip" download>Book sources ↓</a></nav>'
+    tools='<nav class="tools" aria-label="Jupyter Book navigation"><a href="jupyter-book.html">Engine and proof</a><a href="jupyter-lab.html">Executable lab</a><a href="replay-experiments.html">Replay experiments</a><a href="jupyter-book.zip" download>Offline book ↓</a><a href="book-source.zip" download>Book sources ↓</a></nav>'
     destination.write_text(shell(title+' · Jupyter Book',tools+str(article)))
 
 def build(dirpath):
-    for original,pub in [('index.html','jupyter-book.html'),('lab.html','jupyter-lab.html')]:
+    for original,pub in [('index.html','jupyter-book.html'),('lab.html','jupyter-lab.html'),('experiments.html','replay-experiments.html')]:
         offline_article(dirpath/original,SITE/pub)
     allowed={p.relative_to(SITE).as_posix() for p in (SITE/'media').glob('*.png')}
     allowed.update(['reader.css','index.html','notebook.html','jupyter-book.html','jupyter-lab.html','records.html','kernel.html','passage-lab.ipynb','PassageLab.lean','Audit.lean','audit.txt','wrong-order.txt','research-evidence.json','teaching-receipt.json','freedoom-COPYING.txt'])
     files={}
+    allowed.add('replay-experiments.html')
     for level in ['e1m4','e1m9']:
         source=SITE.parent/'evidence'/level
         for item in sorted(source.iterdir()):
@@ -93,7 +96,7 @@ def build(dirpath):
                     el['href']=urljoin(READ,url)
             data=str(doc).encode()
         files[name]=data
-    files['README.txt']=b'Open index.html in a browser. Both chapters, mathematical typesetting, pictures, code, and the executed notebook are local. External references and the games require an internet connection. The source Jupyter Book is linked from the chapter navigation.\n'
+    files['README.txt']=b'Open index.html in a browser. All three chapters, mathematical typesetting, pictures, code, and the executed notebook are local. External references and the interactive games require an internet connection. The source Jupyter Book is linked from the chapter navigation.\n'
     archive(SITE/'jupyter-book.zip',files)
 
 if __name__=='__main__':

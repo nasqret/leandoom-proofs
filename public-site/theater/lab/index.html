@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Replay lab · Lean Doom Lab</title>
+    <link rel="stylesheet" href="../../assets/site.css" />
+    <link rel="stylesheet" href="lab.css" />
+  </head>
+  <body>
+    <header data-header></header>
+    <main id="main" class="wrap lab">
+      <p class="kicker">Proof theater / Experiments</p>
+      <h1>Replay lab</h1>
+      <p class="lead">
+        Change one input. Change the gameplay RNG index. See where a recorded
+        passage goes next.
+      </p>
+      <nav class="tabs" aria-label="Choose an experiment">
+        <button data-tab="compare" aria-pressed="true">Compare routes</button
+        ><button data-tab="fork" aria-pressed="false">Fireball fork</button
+        ><button data-tab="rng" aria-pressed="false">Random index</button>
+      </nav>
+      <p id="load-status" role="status">Loading measured CombatV2 traces…</p>
+      <section id="route-panel" hidden aria-labelledby="route-title">
+        <p class="kicker">E1M1 / Hangar</p>
+        <h2 id="route-title"></h2>
+        <p class="description" id="route-summary"></p>
+        <div class="selector-strip">
+          <div class="choices" id="compare-choices">
+            <label>Left route<select id="left-route"></select></label
+            ><label>Right route<select id="right-route"></select></label>
+          </div>
+          <div class="choices" id="fork-choices" hidden>
+            <label>Edit at input<select id="fork-tick"></select></label
+            ><label
+              >Change to recorded input<select id="fork-action"></select></label
+            ><a class="btn" id="fork-export" download>Save edited run ↓</a
+            ><a class="secondary" href="../../verify/"
+              >Replay it with local Lean</a
+            >
+          </div>
+          <div class="choices view-controls">
+            <button id="telemetry-view" aria-pressed="false">Trajectory</button
+            ><button id="recorded-view" aria-pressed="true">
+              Recorded camera</button
+            ><label class="scale"
+              >Trajectory scale
+              <select id="plot-scale">
+                <option value="local">Around the players</option>
+                <option value="all">Entire passage</option>
+              </select></label
+            >
+          </div>
+        </div>
+        <div class="screens" id="route-screens"></div>
+        <p class="view-note" id="view-note"></p>
+        <div class="transport">
+          <button id="route-play" class="primary">Play</button
+          ><button id="route-prev" aria-label="Previous tick">−1</button
+          ><button id="route-next" aria-label="Next tick">+1</button
+          ><label
+            >Speed
+            <select id="route-speed">
+              <option value=".25">¼×</option>
+              <option value=".5" selected>½×</option>
+              <option value="1">1×</option>
+              <option value="2">2×</option>
+              <option value="4">4×</option>
+            </select></label
+          ><output id="route-clock" for="route-time"></output>
+        </div>
+        <label class="timeline"
+          >Game tick<input
+            type="range"
+            min="0"
+            value="0"
+            id="route-time"
+            step="1"
+        /></label>
+        <div class="cues">
+          <button id="jump-input"></button><button id="jump-impact"></button
+          ><button id="jump-end">Last frame</button
+          ><label
+            >Recorded events
+            <select
+              id="route-events"
+              aria-label="Jump to a recorded event"
+            ></select
+          ></label>
+        </div>
+        <p id="route-note"></p>
+        <div class="sources" id="route-proofs"></div>
+        <details id="route-lean" class="world">
+          <summary>Read the selected Lean statements</summary>
+          <div id="route-statements"></div>
+        </details>
+        <details class="world" id="turn-workbench">
+          <summary>Try your own turn</summary>
+          <div id="turn-explorer"></div>
+        </details>
+        <details class="world">
+          <summary>First-person geometry from your local IWAD</summary>
+          <p>
+            Open the original shareware v1.9 IWAD to see E1M1 walls from each
+            recorded player position and heading. The schematic uses the map’s
+            initial sector heights. The drawing shows static walls. Player poses
+            follow the replay. The fireball bearing comes from its recorded
+            horizontal coordinates. Your file stays in this browser.
+          </p>
+          <label
+            >Local DOOM1.WAD <input type="file" id="local-iwad" accept=".wad"
+          /></label>
+          <p id="world-status" role="status"></p>
+          <div class="cues">
+            <button id="track-view" aria-pressed="true">Trajectory view</button
+            ><button id="camera-view" aria-pressed="false" disabled>
+              First-person geometry
+            </button>
+          </div>
+        </details>
+      </section>
+      <section id="rng-panel" hidden aria-labelledby="rng-title">
+        <p class="kicker">CombatV2 / RNG sensitivity</p>
+        <h2 id="rng-title">The 256-way replay</h2>
+        <p class="description">
+          Keep every recorded input. Choose the initial gameplay RNG table index
+          after the level has spawned, then inspect the outcome of replaying
+          that same tape.
+        </p>
+        <div class="choices">
+          <label>Level<select id="rng-level"></select></label
+          ><label
+            >Index (0–255)<input
+              id="rng-index"
+              type="number"
+              step="1"
+              min="0"
+              max="255" /></label
+          ><button id="rng-baseline">Ordinary spawn index</button
+          ><label id="rng-examples"
+            >Examples<select id="rng-alternate"></select
+          ></label>
+        </div>
+        <div class="rng-layout">
+          <section class="rng-board" aria-label="Random-index outcomes">
+            <div class="board-head">
+              <h3>Index table</h3>
+              <label
+                >Color by
+                <select id="rng-color">
+                  <option value="outcome">Outcome</option>
+                  <option value="health">Final health</option>
+                  <option value="divergence">First divergence</option>
+                </select></label
+              ><span>00–FF / hex</span>
+            </div>
+            <div
+              id="rng-grid"
+              role="group"
+              aria-label="Select a replay by index"
+            ></div>
+            <p id="rng-legend"></p>
+          </section>
+          <section class="rng-case">
+            <p class="kicker">Selected replay</p>
+            <h3 id="rng-heading"></h3>
+            <dl id="rng-fields"></dl>
+            <canvas
+              id="rng-trace"
+              role="img"
+              aria-label="Selected random-index replay trajectory"
+            ></canvas>
+            <p id="rng-trace-caption"></p>
+            <div id="rng-playback">
+              <label class="timeline"
+                >Recorded sample<input
+                  type="range"
+                  id="rng-time"
+                  min="0"
+                  step="1"
+                  value="0"
+              /></label>
+              <div class="cues">
+                <button id="rng-prev" aria-label="Previous measured sample">
+                  −1</button
+                ><button id="rng-next" aria-label="Next measured sample">
+                  +1</button
+                ><button id="rng-event">First change</button>
+              </div>
+              <p id="rng-frame"></p>
+            </div>
+            <details class="world" id="rng-media" hidden>
+              <summary>Watch this replay</summary>
+              <video
+                id="rng-video"
+                controls
+                muted
+                playsinline
+                preload="metadata"
+              ></video
+              ><output id="rng-video-tick"></output>
+            </details>
+            <p id="rng-explain"></p>
+            <div class="sources" id="rng-evidence"></div>
+            <details class="world">
+              <summary>What changes in Lean?</summary>
+              <pre><code>def withPlay (s : Simulation) (index : UInt8) :
+    Simulation :=
+  { s with rng := { s.rng with play := index } }</code></pre>
+              <p>
+                CombatV2 first constructs the ordinary spawn state. This record
+                update changes one field. Each replay then applies the same
+                sequence of input masks with the same transition function.
+              </p>
+            </details>
+          </section>
+        </div>
+      </section>
+      <nav class="readings" aria-label="Sources and teaching notes">
+        <a href="../../learn/replay-experiments.html"
+          >Read the experiment and Lean proofs</a
+        ><a href="../../evidence/experiments/forks.json">Route telemetry JSON</a
+        ><a href="../../evidence/experiments/rng.json">RNG outcomes JSON</a>
+      </nav>
+    </main>
+    <footer data-footer></footer>
+    <script src="../../assets/shell.js"></script>
+    <script type="module" src="lab.mjs"></script>
+    <script type="module" src="turns.mjs"></script>
+  </body>
+</html>

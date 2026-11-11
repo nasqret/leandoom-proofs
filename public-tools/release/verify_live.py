@@ -10,7 +10,12 @@ parser.add_argument('--output',type=Path)
 args=parser.parse_args()
 root=Path(__file__).resolve().parents[2]/'public-site'
 records={}
-for name in ['index.html','evidence/maps.json','evidence/core-source.zip','theater/films.json','theater/cuts.json','theater/scenes.json','downloads/combat-runs.json','downloads/lean-doom-companion.zip','learn/passage-lab.ipynb','learn/jupyter-book.zip','learn/obsidian-vault.zip','classic/checks.json','classic/campaign.json','classic/slots.json','downloads/native-episode-checks.json','evidence/ClassicCampaign.json','evidence/e1m9/three-key-certificate.json','evidence/companion-release.json','game/native-verification.json']:
+for name in ['index.html','evidence/maps.json','evidence/core-source.zip','theater/films.json','theater/cuts.json','theater/scenes.json','downloads/combat-runs.json','downloads/lean-doom-companion.zip','learn/passage-lab.ipynb','learn/jupyter-book.zip','learn/obsidian-vault.zip','classic/checks.json','classic/campaign.json','classic/slots.json','downloads/native-episode-checks.json','evidence/ClassicCampaign.json','evidence/e1m9/three-key-certificate.json','evidence/companion-release.json','game/native-verification.json'] + ['theater/lab/index.html','theater/lab/lab.mjs','theater/lab/rng.mjs',
+             'theater/lab/camera/cameras.json','theater/lab/camera/rng.json','evidence/experiments/rng.json',
+             'evidence/experiments/forks.json','evidence/experiments/damage-roll.json','learn/replay-experiments.html',
+             'theater/index.html','theater/lab/checks.json','theater/lab/camera/strafe-910-right.mp4',
+             'theater/lab/turn-path.mjs','evidence/experiments/turns/study/Certificate.lean',
+             'evidence/experiments/turns/study/receipt.json','evidence/experiments/turns/study/paths-6.json']:
     expected=hashlib.sha256((root/name).read_bytes()).hexdigest()
     url=urljoin(args.base,name)+'?revision='+args.revision
     request=Request(url,headers={'User-Agent':'Lean-Doom-Lab public verification'})

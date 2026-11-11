@@ -7,3 +7,9 @@ The reusable CombatV1 core has 277 named declarations in 162 modules. All origin
 User game data stays on the device running the game or validator. Preserve the original input JSON with its SHA-256 and record a fresh audit for each new theorem. Receipts identify a native observation, a compiler-assisted Lean theorem or a kernel-reduced theorem.
 
 WMI 315929 certified the complete 4,161-input CombatV2 Computer Station tape with compiler-assisted Lean reduction and a fresh audit. The player had 45 health and 25 armor at the exit. The historical stock-kernel whole-passage count remains two.
+
+## Replay experiments
+
+The Hangar 993-input and Nuclear Plant 1,017-input tapes have compiler-assisted classifications for each of the 256 post-spawn gameplay RNG cursor values. Exactly 254 and 8 reach a safe exit. The ordinary indices are 5 and 25. All 72 single-tick Hangar strafe edits between fireball launch and impact still exit and still receive that missile's hit. The 13 delayed hits show why checking only the original impact tick would give the wrong conclusion. The historical three Hangar passage witnesses remain stock-kernel results. [Replay lab](https://nasqret.github.io/leandoom-proofs/theater/lab/) · [Teaching chapter](https://nasqret.github.io/leandoom-proofs/learn/replay-experiments.html)
+
+Hangar's final-turn family now has a compiler-assisted lower bound of 977 ticks, attained by eight of 2,750 controllers. Three separate stock-kernel witnesses finish at 978, 992 and 993 ticks. Whether any controller can finish faster than 977 ticks is open. A stock-kernel replay at 977 is also open. [Finite theorem and minimizers](https://nasqret.github.io/leandoom-proofs/evidence/experiments/turns/study/Certificate.lean)

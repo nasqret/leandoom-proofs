@@ -69,13 +69,13 @@ R_e(s,u{+\!+}v)=R_e(R_e(s,u),v).
 <tbody>
 <tr>
 <td>Hangar, E1M1</td>
-<td>The 993- and 978-input controllers each reach the normal exit with 48 health and zero player shots.</td>
-<td>Can a shorter ordinary controller win?</td>
+<td>The stock-kernel controllers finish in 993, 992 and 978 inputs with 48 health and zero shots. A compiler-assisted census finds eight 977-tick winners in the final-turn family.</td>
+<td>Can an earlier change beat 977 ticks?</td>
 </tr>
 <tr>
 <td>Nuclear Plant, E1M2</td>
 <td>The armed 1,017-input controller first exits alive. All 1,018 states are safe. It ends with 73 health and 73 shots.</td>
-<td>Can a different controller win in fewer inputs?</td>
+<td>Can a controller that reacts to enemies win from all 256 post-spawn gameplay cursors?</td>
 </tr>
 <tr>
 <td>Computer Station, E1M7</td>
@@ -99,6 +99,7 @@ R_e(s,u{+\!+}v)=R_e(R_e(s,u),v).
 <figcaption aria-hidden="true">In the teaching airlock, interchanging the collect and use inputs prevents the last walk from reaching rank three. The notebook proves a universal step bound for this rank.</figcaption>
 </figure>
 <h2 id="reading">A reading path</h2>
+<p>The <a href="https://nasqret.github.io/leandoom-proofs/learn/replay-experiments.html">replay experiments chapter</a> uses the Hangar fireball to distinguish proving one run from proving a statement about a family of runs.</p>
 <h3 id="learn-enough-lean-to-read-the-certificates">Learn enough Lean to read the certificates</h3>
 <ul>
 <li><strong>Lean installation and editor.</strong> Install the toolchain manager and try the interactive infoview. Open a theorem and place the cursor inside its proof to see the current goal. <a href="https://lean-lang.org/install/">Official installation guide</a></li>

@@ -1,5 +1,7 @@
 # Reading
 
+The [replay experiments chapter](https://nasqret.github.io/leandoom-proofs/learn/replay-experiments.html) uses the Hangar fireball to distinguish proving one run from proving a statement about a family of runs.
+
 ### Learn enough Lean to read the certificates
 
 - **Lean installation and editor.** Install the toolchain manager and try the interactive infoview. Open a theorem and place the cursor inside its proof to see the current goal. [Official installation guide](https://lean-lang.org/install/)

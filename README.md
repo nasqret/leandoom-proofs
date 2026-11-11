@@ -7,6 +7,7 @@ Play a route, pause on a game tick and inspect its Lean proof. [Launch the lab](
 | Where to start | What you can do |
 |---|---|
 | [Classic game](https://nasqret.github.io/leandoom-proofs/classic/) | Play Episode One in Chocolate Doom. Freedoom: Phase 1 ships with the site. To play id Software’s levels, select your own IWAD locally. |
+| [Replay experiments](https://nasqret.github.io/leandoom-proofs/theater/lab/) | Change one Hangar input, follow the fireball on both cameras, or replay the same controls from each of the 256 gameplay RNG positions on Hangar and Nuclear Plant. |
 | [Proof course](https://nasqret.github.io/leandoom-proofs/game/) | Play nine authored maps in the browser. Follow direct, careful or survey routes, take manual control, scrub the replay, or export new inputs. All 27 supplied route witnesses have stock Lean kernel audits. |
 | [Native Lean engine](https://nasqret.github.io/leandoom-proofs/game/native.html) | Run CombatV2 on your computer. Load your IWAD, play any available E1–E4 slot, and pair the resulting input tape with Lean. |
 | [Student edition](https://nasqret.github.io/leandoom-proofs/learn/) | Read about (Lean)DOOM, map parsing, integer physics and passage proofs. Run or modify the illustrated notebook and its Lean exercises. |

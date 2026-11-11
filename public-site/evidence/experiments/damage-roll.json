@@ -1,0 +1,40 @@
+{
+  "cluster": "Helios",
+  "job": 26056355,
+  "state": "COMPLETED",
+  "exitCode": "0:0",
+  "elapsedSeconds": 21,
+  "lean": "4.33.0",
+  "leanCommit": "d8b18978322de05a8f3dba51ef03cf5461676c17",
+  "trust": "stock Lean kernel",
+  "sourceSha256": "60a51b1978ad731218b9323ca8341f542d1b30d3934d98b5a11fa0cdd67fd5c9",
+  "objectSha256": "6dbeef633abbea09508c84a2284b6556847bb9ad812ee0f349dd70a08dab15be",
+  "auditSha256": "a5135d5b921b6bfe8228e5b3ecf978fa0f3e982250427c5c6f1d40755b1f6737",
+  "rngSourceSha256": "1528378c0b94492708939bfcf483e54d0a758020087e71228639712b266b10f1",
+  "damageValues": [
+    3,
+    6,
+    9,
+    12,
+    15,
+    18,
+    21,
+    24
+  ],
+  "perIndexCounts": [
+    32,
+    30,
+    38,
+    27,
+    34,
+    34,
+    30,
+    31
+  ],
+  "axioms": {
+    "Doom.Experiments.DamageRoll.damage_counts": [],
+    "Doom.Experiments.DamageRoll.presentation_schedule": [
+      "propext"
+    ]
+  }
+}

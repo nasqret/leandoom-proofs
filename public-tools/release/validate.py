@@ -95,4 +95,23 @@ with zipfile.ZipFile(site/'downloads/lean-doom-companion.zip') as z:
         want,name=entry.split('  ',1); check(digest(z.read(prefix+name))==want,name)
     for agent in ('.agents','.claude'):
         check(z.read(prefix+agent+'/skills/verify-doom-run/SKILL.md')==(root/agent/'skills/verify-doom-run/SKILL.md').read_bytes(),agent)
-print(f'{len(names)} files and archive members inspected; 13 map records, 277 declarations, {len(routes)} routes and two synchronized films passed.')
+experiments = root/'public-tools/experiments'
+evidence = site/'evidence/experiments'
+phase = load('evidence/experiments/rng.json')
+check(phase['status']=='verified' and [(l['level'],len(l['outcomes']),sum(r['won'] for r in l['outcomes'])) for l in phase['levels']]==[('E1M1',256,254),('E1M2',256,8)], 'two complete RNG classifications')
+subprocess.run([sys.executable,experiments/'rng/check_output.py',evidence/'rng.json'],check=True)
+subprocess.run([sys.executable,experiments/'turns/export.py','--check'],check=True)
+subprocess.run([sys.executable,'-B',experiments/'turns/study/check.py',evidence/'turns/study'],check=True)
+subprocess.run([sys.executable,experiments/'camera/check.py','--site',site],check=True)
+for name,expected_hash in load('theater/lab/checks.json')['sha256'].items():
+    check(digest((site/name).read_bytes())==expected_hash,'stale replay browser check: '+name)
+rng_films = load('theater/lab/camera/rng.json')['levels']
+check(set(rng_films)=={'E1M1','E1M2'} and sum(map(len,rng_films.values()))==7,'RNG highlight films')
+for clips in rng_films.values():
+    for clip in clips.values():
+        check(digest((site/'theater/lab/camera'/clip['file']).read_bytes())==clip['sha256'],clip['file'])
+fork = load('evidence/experiments/fork-receipt.json')
+check(fork['census']==[72,0,59,13,0,0,72] and digest((evidence/'fork-rebuild.zip').read_bytes())==fork['rebuildSha256'], 'complete input-fork certificate')
+roll = load('evidence/experiments/damage-roll.json')
+check(roll['sourceSha256']==digest((experiments/'DamageRoll.lean').read_bytes()) and roll['auditSha256']==digest((evidence/'damage-roll.audit.log').read_bytes()) and roll['rngSourceSha256']==digest((root/'public-tools/verifier/combat/upstream/Doom/Random.lean').read_bytes()), 'stock-kernel damage roll')
+print(f'{len(names)} files and archive members inspected; 13 map records, 277 declarations, {len(routes)} routes and complete replay experiments passed.')

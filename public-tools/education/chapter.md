@@ -81,8 +81,8 @@ This organization follows Leslie Lamport’s practice of giving each proof step 
 
 | CombatV2 case | Checked conclusion | Further question |
 | --- | --- | --- |
-| Hangar, E1M1 | The 993- and 978-input controllers each reach the normal exit with 48 health and zero player shots. | Can a shorter ordinary controller win? |
-| Nuclear Plant, E1M2 | The armed 1,017-input controller first exits alive. All 1,018 states are safe. It ends with 73 health and 73 shots. | Can a different controller win in fewer inputs? |
+| Hangar, E1M1 | The stock-kernel controllers finish in 993, 992 and 978 inputs with 48 health and zero shots. A compiler-assisted census finds eight 977-tick winners in the final-turn family. | Can an earlier change beat 977 ticks? |
+| Nuclear Plant, E1M2 | The armed 1,017-input controller first exits alive. All 1,018 states are safe. It ends with 73 health and 73 shots. | Can a controller that reacts to enemies win from all 256 post-spawn gameplay cursors? |
 | Computer Station, E1M7 | The first collision move, pickup and spatial re-linking are proved for the real opening. | The 4,161-input passage now has a compiler-assisted proof. A joined stock-kernel passage remains open. |
 | Military Base, E1M9 | A compiler-assisted theorem checks all three keys and safety over 1,812 states. Stock Lean checks all three exit-platform boundaries, their 88-unit rises and the unsupported type-20 switch. | The 2,179-input extension attempts the intended raising switch at two health. A full exit remains open. |
 
@@ -99,6 +99,8 @@ A win in $n$ commands gives the upper bound $d_{\min}\le n$. A lower bound $b\le
 ![In the teaching airlock, interchanging the collect and use inputs prevents the last walk from reaching rank three. The notebook proves a universal step bound for this rank.](media/phase-ranks.png)
 
 ## A reading path {#reading}
+
+The [replay experiments chapter](https://nasqret.github.io/leandoom-proofs/learn/replay-experiments.html) uses the Hangar fireball to distinguish proving one run from proving a statement about a family of runs.
 
 ### Learn enough Lean to read the certificates
 

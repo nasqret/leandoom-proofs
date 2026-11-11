@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="dark light"><title>What does it mean to prove a game level? · Jupyter Book · Lean Doom</title><link rel="stylesheet" href="reader.css"></head><body><header><div class="top"><a class="brand" href="../index.html">LEAN / DOOM</a><nav aria-label="Student materials"><a href="index.html">Chapter</a><a href="notebook.html">Notebook</a><a href="../index.html">Home</a><a href="../evidence/">Gallery</a><a href="../classic/">Play Doom</a></nav></div></header><main class=""><nav class="tools" aria-label="Jupyter Book navigation"><a href="jupyter-book.html">1 · Engine and proof</a><a href="jupyter-lab.html">2 · Executable lab</a><a href="jupyter-book.zip" download>Offline book ↓</a><a href="book-source.zip" download>Book sources ↓</a></nav><article class="bd-article">
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="dark light"><title>What does it mean to prove a game level? · Jupyter Book · Lean Doom</title><link rel="stylesheet" href="reader.css"></head><body><header><div class="top"><a class="brand" href="../index.html">LEAN / DOOM</a><nav aria-label="Student materials"><a href="index.html">Chapter</a><a href="notebook.html">Notebook</a><a href="../index.html">Home</a><a href="../evidence/">Gallery</a><a href="../classic/">Play Doom</a></nav></div></header><main class=""><nav class="tools" aria-label="Jupyter Book navigation"><a href="jupyter-book.html">Engine and proof</a><a href="jupyter-lab.html">Executable lab</a><a href="replay-experiments.html">Replay experiments</a><a href="jupyter-book.zip" download>Offline book ↓</a><a href="book-source.zip" download>Book sources ↓</a></nav><article class="bd-article">
 <section class="tex2jax_ignore mathjax_ignore" id="what-does-it-mean-to-prove-a-game-level">
 <h1>What does it mean to prove a game level?</h1>
 <p>You watch a player cross the threshold, press Use and reach the exit. What would let someone else check that the same controls really win from the ordinary starting state? The answer depends on exactly which game program interprets the controls. This chapter follows the path from a WAD file through a Lean function to a theorem about <em>every prefix</em> of a particular run. The companion notebook lets you change a controller, break a proof and inspect the checker’s response. <a class="reference internal" href="jupyter-lab.html"><span class="std std-doc">Open the worked notebook</span></a> · <a class="reference external" href="passage-lab.ipynb">Download the notebook</a></p>
@@ -69,12 +69,12 @@ s_{i+1}=T_e(s_i,k_{i+1}).</annotation></semantics></math>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Hangar, E1M1</p></td>
-<td><p>The 993- and 978-input controllers each reach the normal exit with 48 health and zero player shots.</p></td>
-<td><p>Can a shorter ordinary controller win?</p></td>
+<td><p>The stock-kernel controllers finish in 993, 992 and 978 inputs with 48 health and zero shots. A compiler-assisted census finds eight 977-tick winners in the final-turn family.</p></td>
+<td><p>Can an earlier change beat 977 ticks?</p></td>
 </tr>
 <tr class="row-odd"><td><p>Nuclear Plant, E1M2</p></td>
 <td><p>The armed 1,017-input controller first exits alive. All 1,018 states are safe. It ends with 73 health and 73 shots.</p></td>
-<td><p>Can a different controller win in fewer inputs?</p></td>
+<td><p>Can a controller that reacts to enemies win from all 256 post-spawn gameplay cursors?</p></td>
 </tr>
 <tr class="row-even"><td><p>Computer Station, E1M7</p></td>
 <td><p>The first collision move, pickup and spatial re-linking are proved for the real opening.</p></td>
@@ -96,6 +96,7 @@ s_{i+1}=T_e(s_i,k_{i+1}).</annotation></semantics></math>
 </section>
 <section id="a-reading-path">
 <span id="reading"></span><h2>A reading path</h2>
+<p>The <a class="reference external" href="replay-experiments.html">replay experiments chapter</a> uses the Hangar fireball to distinguish proving one run from proving a statement about a family of runs.</p>
 <section id="learn-enough-lean-to-read-the-certificates">
 <h3>Learn enough Lean to read the certificates</h3>
 <ul class="simple">

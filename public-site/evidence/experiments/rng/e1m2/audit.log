@@ -1,0 +1,83 @@
+'Recording.all256' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Recording.block00._native.native_decide.ax_1_1,
+ Recording.block01._native.native_decide.ax_1_1,
+ Recording.block02._native.native_decide.ax_1_1,
+ Recording.block03._native.native_decide.ax_1_1,
+ Recording.block04._native.native_decide.ax_1_1,
+ Recording.block05._native.native_decide.ax_1_1,
+ Recording.block06._native.native_decide.ax_1_1,
+ Recording.block07._native.native_decide.ax_1_1,
+ Recording.block08._native.native_decide.ax_1_1,
+ Recording.block09._native.native_decide.ax_1_1,
+ Recording.block10._native.native_decide.ax_1_1,
+ Recording.block11._native.native_decide.ax_1_1,
+ Recording.block12._native.native_decide.ax_1_1,
+ Recording.block13._native.native_decide.ax_1_1,
+ Recording.block14._native.native_decide.ax_1_1,
+ Recording.block15._native.native_decide.ax_1_1]
+'Recording.block00' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Recording.block00._native.native_decide.ax_1_1]
+'Recording.block01' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Recording.block01._native.native_decide.ax_1_1]
+'Recording.block02' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Recording.block02._native.native_decide.ax_1_1]
+'Recording.block03' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Recording.block03._native.native_decide.ax_1_1]
+'Recording.block04' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Recording.block04._native.native_decide.ax_1_1]
+'Recording.block05' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Recording.block05._native.native_decide.ax_1_1]
+'Recording.block06' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Recording.block06._native.native_decide.ax_1_1]
+'Recording.block07' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Recording.block07._native.native_decide.ax_1_1]
+'Recording.block08' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Recording.block08._native.native_decide.ax_1_1]
+'Recording.block09' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Recording.block09._native.native_decide.ax_1_1]
+'Recording.block10' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Recording.block10._native.native_decide.ax_1_1]
+'Recording.block11' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Recording.block11._native.native_decide.ax_1_1]
+'Recording.block12' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Recording.block12._native.native_decide.ax_1_1]
+'Recording.block13' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Recording.block13._native.native_decide.ax_1_1]
+'Recording.block14' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Recording.block14._native.native_decide.ax_1_1]
+'Recording.block15' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ Recording.block15._native.native_decide.ax_1_1]

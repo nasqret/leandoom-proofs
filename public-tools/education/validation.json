@@ -7,21 +7,21 @@
     "negative_control": "Lean rejected the reordered witness"
   },
   "study_html": {
-    "local_hrefs": 347,
-    "unique_external_targets": 38
+    "local_hrefs": 376,
+    "unique_external_targets": 45
   },
   "offline_book": {
-    "local_hrefs": 298,
+    "local_hrefs": 309,
     "entry": "index.html"
   },
   "vault": {
-    "markdown_notes": 40,
-    "archive_files": 84
+    "markdown_notes": 41,
+    "archive_files": 93
   },
   "sha256": {
     "passage-lab.ipynb": "9ee0498ef3e42705ce824d7634733cc9bc1abe445e8870aefba6fa8e7c46fc53",
-    "jupyter-book.zip": "a68ef2d5a96fa24e183306212ff208911ccd5a962edd1c130ea66a148be75baa",
-    "book-source.zip": "df5910301cb18ffb21118873a5904a1daddd54a0d35e30e46edb00216777feb2",
-    "obsidian-vault.zip": "ff75eaca0a9151869e959b1b462a1588663a3557b885fec03103f7be7a1c2ffa"
+    "jupyter-book.zip": "91ffa2ab06c2c5ba70a9f66f54978b515277b7753190e4a10773aafec684ccb0",
+    "book-source.zip": "54f0dfa133fa6d5abe264f9a459880701e7133172dfeac7d70465a0cbdd5aa6d",
+    "obsidian-vault.zip": "55ece91c9e91e8f35ba84bd6e6f1216b13cfe46ea2637c3637f328e04a5f6eb3"
   }
 }

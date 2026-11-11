@@ -1,6 +1,6 @@
 {
   "date": "2026-11-11",
-  "environment": "WMI SLURM CPU",
+  "environment": "WMI for the original notebook and airlock; Helios for the expanded book and replay experiments",
   "airlock": {
     "job": 315851,
     "exit_code": "0:0",
@@ -12,10 +12,12 @@
     "seconds": 12
   },
   "strict_jupyter_book": {
-    "job": 315982,
+    "cluster": "Helios",
+    "job": 26056679,
     "exit_code": "0:0",
-    "seconds": 21,
-    "builder": "jupyter-book 1.0.4.post1 -W -n --all --keep-going"
+    "seconds": 59,
+    "builder": "jupyter-book 1.0.4.post1 -W -n --all --keep-going",
+    "sourceSha256": "54f0dfa133fa6d5abe264f9a459880701e7133172dfeac7d70465a0cbdd5aa6d"
   },
   "fresh_import_of_packaged_core": {
     "job": 315907,
@@ -32,8 +34,8 @@
   },
   "sha256": {
     "passage-lab.ipynb": "9ee0498ef3e42705ce824d7634733cc9bc1abe445e8870aefba6fa8e7c46fc53",
-    "jupyter-book.zip": "a68ef2d5a96fa24e183306212ff208911ccd5a962edd1c130ea66a148be75baa",
-    "book-source.zip": "df5910301cb18ffb21118873a5904a1daddd54a0d35e30e46edb00216777feb2",
-    "obsidian-vault.zip": "ff75eaca0a9151869e959b1b462a1588663a3557b885fec03103f7be7a1c2ffa"
+    "jupyter-book.zip": "91ffa2ab06c2c5ba70a9f66f54978b515277b7753190e4a10773aafec684ccb0",
+    "book-source.zip": "54f0dfa133fa6d5abe264f9a459880701e7133172dfeac7d70465a0cbdd5aa6d",
+    "obsidian-vault.zip": "55ece91c9e91e8f35ba84bd6e6f1216b13cfe46ea2637c3637f328e04a5f6eb3"
   }
 }

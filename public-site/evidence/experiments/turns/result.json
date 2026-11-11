@@ -1,0 +1,123 @@
+{
+  "job": "309178",
+  "scorer_sha256": "6d8da0653a8be7568461f33059bebda1337cad590a399d8388601b7c99f288dc",
+  "iwad_sha256": "1d7d43be501e67d927e415e0b8f3e29c3bf33075e859721816f652a526cac771",
+  "design_sha256": "6eceba8ca3ef480ebe1bc52790007bee661ea0b6110dcc1c1086acab8654fc3c",
+  "script_sha256": "52fbc4c2c1914f0069cb1c3d8d63aa137a8feb7c577e92de3dc0faa2f747bb60",
+  "grid": 2750,
+  "calls": 2730750,
+  "winning_edits": 651,
+  "best_ticks_within_grid": 977,
+  "fastest_edits": [
+    [
+      6,
+      5,
+      9
+    ],
+    [
+      6,
+      6,
+      9
+    ],
+    [
+      6,
+      10,
+      9
+    ],
+    [
+      7,
+      9,
+      8
+    ],
+    [
+      8,
+      10,
+      7
+    ],
+    [
+      10,
+      10,
+      5
+    ],
+    [
+      11,
+      10,
+      4
+    ],
+    [
+      14,
+      10,
+      1
+    ]
+  ],
+  "representative_worker_replay": {
+    "frames": 82,
+    "sha256_final_rgb": "cd68a6124cf188a9a213ca45a01f106c383ec46be663b0e999fd7af067434610",
+    "minimum_health_sampled_each_batch": 48,
+    "endpoint": {
+      "angle": 1656750080,
+      "armor": 1,
+      "bullets": 50,
+      "bytes": 192000,
+      "error": null,
+      "exit": true,
+      "health": 48,
+      "height": 200,
+      "kills": 0,
+      "shells": 4,
+      "shots": 0,
+      "sounds": [
+        [],
+        [
+          "itemup"
+        ],
+        [],
+        [],
+        [
+          "swtchn"
+        ]
+      ],
+      "tick": 977,
+      "width": 320,
+      "x": 193759681,
+      "y": -316663357
+    }
+  },
+  "elapsed_native_seconds": 268.404,
+  "verified_original_arm_observations": 80,
+  "paired_additional_seeds": [
+    20261109,
+    20261110,
+    20261111,
+    20261112,
+    20261113,
+    20261114,
+    20261115,
+    20261116,
+    20261117,
+    20261118,
+    20261119,
+    20261120,
+    20261121,
+    20261122,
+    20261123,
+    20261124
+  ],
+  "paired_summary": {
+    "greedy": {
+      "median_best_tick": 977.0,
+      "median_wins": 7.0,
+      "hits_grid_minimum": 12
+    },
+    "knn": {
+      "median_best_tick": 978.0,
+      "median_wins": 11.0,
+      "hits_grid_minimum": 4
+    }
+  },
+  "file_sha256": {
+    "fastest.json": "8fc305ad0e0311adaa7eded11731312e836439c8fa45efee4c6fb77ccdef970b",
+    "grid.jsonl.gz": "1a478053b3c2c9e8bee89a85965433451eeefcf50cfdd7f86aa57f8f5c08f8f4",
+    "paired-queries.json": "c5e17ea3dfc22852abc15a000185df772bd9b0c98fdde51a5a87178f2c0a81e0"
+  }
+}

@@ -6,6 +6,7 @@ Open this folder as a vault in Obsidian. Everything in it also opens with an ord
 - [[Map atlas]] covers the original episode and the constructed scenarios.
 - [[Proof core]] indexes 277 fully named CombatV1 declarations and includes the complete sources.
 - [[Recording and checking]] explains how the teaching and native routes can be checked.
+- [[Replay experiments]] studies an edited control and a changed random stream in the same transition system.
 - [[Memory]], [[Journal]] and [[Plan]] retain the experimental decisions, checks and open tasks.
 - [[Reading]] lists texts, papers and reference manuals by subject.
 

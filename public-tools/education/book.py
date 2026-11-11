@@ -13,7 +13,7 @@ if not learn.is_dir():
     learn = here.parents[1] / 'learn'
 base = 'https://nasqret.github.io/leandoom-proofs/learn/'
 files = {
-    '_toc.yml': 'format: jb-book\nroot: index\nchapters:\n  - file: lab\n',
+    '_toc.yml': 'format: jb-book\nroot: index\nchapters:\n  - file: lab\n  - file: experiments\n',
     '_config.yml': '''title: Proving a passage in Lean Doom
 author: Lean Doom proof project
 only_build_toc_files: true
@@ -41,6 +41,10 @@ def links(text):
     return re.sub(r'\]\(([^)\s]+)\)',target,text)
 
 files['index.md'] = links(re.sub(r'^(#+ [^\n]+?) \{#([^}]+)\}$', lambda m:f'({m[2]})=\n{m[1]}',(here/'chapter.md').read_text(),flags=re.M))
+files['experiments.md'] = (here/'replay-experiments.md').read_text()
+files['downloads/DamageRoll.lean'] = (here.parent/'experiments/DamageRoll.lean').read_bytes()
+files['downloads/Doom/Random.lean'] = (here.parent/'verifier/combat/upstream/Doom/Random.lean').read_bytes()
+files['downloads/Doom/COPYING.md'] = (here.parent/'verifier/combat/upstream/COPYING.md').read_bytes()
 notebook = json.loads((learn/'passage-lab.ipynb').read_text())
 for cell in notebook['cells']:
     if cell['cell_type'] == 'markdown':

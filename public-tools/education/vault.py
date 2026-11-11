@@ -35,6 +35,7 @@ def build():
 - [[Map atlas]] covers the original episode and the constructed scenarios.
 - [[Proof core]] indexes 277 fully named CombatV1 declarations and includes the complete sources.
 - [[Recording and checking]] explains how the teaching and native routes can be checked.
+- [[Replay experiments]] studies an edited control and a changed random stream in the same transition system.
 - [[Memory]], [[Journal]] and [[Plan]] retain the experimental decisions, checks and open tasks.
 - [[Reading]] lists texts, papers and reference manuals by subject.
 
@@ -44,6 +45,13 @@ def build():
     end=chapter.index('## Questions for the next')
     files['Engine and passage.md']=re.sub(r' \{#\w+\}', '',note_links(chapter[:start]+chapter[end:]))
     files['Reading.md']=note_links(chapter[start:end].replace('## A reading path {#reading}','# Reading'))
+    files['Replay experiments.md']=(HERE/'replay-experiments.md').read_text()+'\n\n[[Recording and checking]] · [[Engine and passage]]\n'
+    files['Resources/DamageRoll.lean']=(HERE.parent/'experiments/DamageRoll.lean').read_bytes()
+    files['Resources/Doom/Random.lean']=(HERE.parent/'verifier/combat/upstream/Doom/Random.lean').read_bytes()
+    files['Resources/Doom/COPYING.txt']=(HERE.parent/'verifier/combat/upstream/COPYING.md').read_bytes()
+    for name in ['fork-AllForks.lean','rng/e1m1/Conclusions.lean','rng/e1m2/Conclusions.lean','turns/study/Certificate.lean','damage-roll.audit.log']:
+        files['Resources/experiments/'+name]=(proof/'experiments'/name).read_bytes()
+    files['Replay experiments.md'] += '\nOffline sources: [Damage roll](Resources/DamageRoll.lean) · [Doom RNG](Resources/Doom/Random.lean) · [Hangar strafe census](Resources/experiments/fork-AllForks.lean) · [Hangar turn minimum](Resources/experiments/turns/study/Certificate.lean) · [Hangar RNG](Resources/experiments/rng/e1m1/Conclusions.lean) · [Nuclear Plant RNG](Resources/experiments/rng/e1m2/Conclusions.lean)\n'
     for img in (SITE/'media').glob('*.png'):
         files['media/'+img.name]=img.read_bytes()
     for item in ['freedoom-COPYING.txt','PassageLab.lean','Audit.lean','audit.txt','wrong-order.txt','passage-lab.ipynb','research-evidence.json','teaching-receipt.json']:
@@ -55,7 +63,7 @@ def build():
         files['Resources/'+name]=(SITE.parent/'downloads'/name).read_bytes()
     note('Memory',"""A result binds a map foundation, rules edition, initial state, input tape and observation. The frozen CombatV1 core contains the constructed fixtures. CombatV2 is the edition of the original-map passage research. The public ProofGrid courses and the notebook airlock each have their own explicit transitions. Keep these four identities in future comparisons.
 
-Hangar has two stock-kernel zero-shot witnesses. Nuclear Plant’s 1,017-input standard-axiom proof and its 1,013-input compiler-assisted proof have different trust assumptions. Computer Station has a complete 4,161-input compiler-assisted passage alongside its stock-kernel first-movement result. This brings the full original-map count to three across the two trust models. Zero shots counts player actions. Monsters can still die. [[Map atlas]] · [[Engine and passage]]""")
+Hangar has three stock-kernel zero-shot witnesses at 993, 992 and 978 ticks. A compiler-assisted census establishes 977 as the minimum across 2,750 specified edits of the exit approach. Nuclear Plant’s 1,017-input standard-axiom proof and its 1,013-input compiler-assisted proof have different trust assumptions. Computer Station has a complete 4,161-input compiler-assisted passage alongside its stock-kernel first-movement result. This brings the full original-map count to three across the two trust models. Zero shots counts player actions. Monsters can still die. [[Map atlas]] · [[Engine and passage]]""")
     note('Journal',"""The historical CombatV1 primary and separate WMI build lineages finished on 2026-10-08 in jobs 281144 and 281142. Both recorded the same 277 declarations.
 
 On 2026-11-11 WMI 315851 compiled the seven teaching theorems, re-imported them and rejected the reordered airlock controller. WMI 315888 executed the Jupyter notebook, including the compiler processes. The strict Jupyter Book build 315911 documented the quiet Nuclear Plant case. After the Computer Station compiler-assisted proof arrived, WMI job 315947 re-executed all notebook cells and 315950 rebuilt the Jupyter Book with strict checks. The final research update adds the verified E1M4 and E1M9 local obstructions, the three-key compiler-assisted theorem and the 2179-command recording. WMI jobs 315980 and 315982 executed and rebuilt that edition.

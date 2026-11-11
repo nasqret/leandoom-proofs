@@ -1,0 +1,165 @@
+{
+  "schema": "leandoom-replay-lab-browser-qa-v1",
+  "scope": "Chromium browser presentation and metadata checks on local static HTTP with byte ranges. The separate linked Lean receipts govern simulation claims.",
+  "viewports": [
+    [
+      1280,
+      900
+    ],
+    [
+      390,
+      844
+    ]
+  ],
+  "compare": {
+    "firstChangedInput": 967,
+    "terminalHolds": [
+      978,
+      992,
+      993
+    ],
+    "matchedCameraEndFrames": [
+      978,
+      992
+    ],
+    "ordinaryFilmTick923Seconds": 26.375714
+  },
+  "fork": {
+    "measuredSingleInputEdits": 72,
+    "ordinaryExportMasksChecked": 72,
+    "nativeBranchVideosDecodedAndSought": 72,
+    "highlight": {
+      "input": 910,
+      "action": "strafe right",
+      "originalHitTick": 923,
+      "originalDamage": 24,
+      "editedHitTick": 940,
+      "editedDamage": 9,
+      "editedHealthAt923": 72,
+      "editedHealthAt940": 63,
+      "editedEndTick": 993
+    }
+  },
+  "rng": {
+    "clickableCasesAndTheirDownloadedOutcomesCompared": 512,
+    "safeExits": {
+      "E1M1": 254,
+      "E1M2": 8
+    },
+    "indicesPerMap": 256,
+    "ordinarySamples": {
+      "E1M1": 994,
+      "E1M2": 1018
+    },
+    "ordinaryHangarHP": {
+      "922": 72,
+      "923": 48
+    },
+    "recordedCamerasDecodedAndSought": {
+      "E1M1": {
+        "5": 993,
+        "40": 918,
+        "176": 993
+      },
+      "E1M2": {
+        "0": 907,
+        "1": 1017,
+        "5": 1017,
+        "25": 1017
+      }
+    },
+    "continuedCameraPastRecordedDeath": "E1M1/40"
+  },
+  "localGeometry": {
+    "file": "Shareware v1.9 DOOM1.WAD selected in the browser",
+    "validatedBy": "SHA-256",
+    "linedefs": 475,
+    "viewpointsRendered": 2
+  },
+  "mobile": {
+    "viewportWidth": 390,
+    "documentWidth": 390,
+    "horizontalOverflow": 0
+  },
+  "resolvedLinks": {
+    "branchSourceAndReceiptPairs": 75,
+    "rngCertificatesAndTrackFiles": 2,
+    "branchSuffixVideos": 74,
+    "rngVideos": 7
+  },
+  "sha256": {
+    "theater/lab/index.html": "41bdac764569e941ba0661bc62389daeed519926a6c8c21f0f1f99d4c27d565c",
+    "theater/lab/lab.css": "b90555c6379ba8e10cad86e7a7070ffd214b254f00b66537e5f455772067473b",
+    "theater/lab/draw.mjs": "b37aebf0621c77db707ff573739113af8a59293452bfed0cd78c57151b621d4c",
+    "theater/lab/rng.mjs": "b81a8cfe4450ebed027818b37af35f608e2acfe7c6f0f81d399e73d1f1b0de3b",
+    "theater/lab/lab.mjs": "9e0e5adc32c50da1ba1e672273a16bb84d6cb5c25d8f4026a76405432ff99634",
+    "theater/lab/turns.mjs": "af16ebf146e577e1ae6c778715fd34db81794f7fb3b2342a437f323c528f1c4e",
+    "theater/lab/camera/cameras.json": "a662bc3c5e80bc873343343d11ccb4790c20243ade44e11e9a88cf317ac75cdd",
+    "theater/lab/camera/rng.json": "89411d9fedfa9316a3084ddfa97f8519c29ce6ee4973c9251c9157877edcd78d",
+    "evidence/experiments/forks.json": "2e740c3befd89c2c74cfcec97408a631e7b8890ee9f0676bd026ff92fc75bb23",
+    "evidence/experiments/rng.json": "ee17ae3ec97c4f9bcfff434ea9a4e8f1a659bf29dac0df4ffafdcf409a33934f",
+    "evidence/experiments/rng/e1m1-tracks.json": "63f6e5ba9c736f67c5207e5bc729f8084ed14177c21eddcb885a9602207310b9",
+    "evidence/experiments/rng/e1m2-tracks.json": "4204898fddff46f218a159d831556af4c869d8935953a3a8bcb673bd298d7e52",
+    "theater/lab/turn-path.mjs": "87d27e53a80da32b73f9e115c6a95390e07bb71949e004446944c666e1365f94",
+    "evidence/experiments/turns/turns.json": "98030ffbbb31cd871a27026c6304d74b662412e2fb69334d566c63448184ed47",
+    "evidence/experiments/turns/study/paths-6.json": "55b2dd6c0f9e99cb078e8ff2f34b7813bab3cd26cadd9b3fdc36675b29844a6a",
+    "evidence/experiments/turns/study/receipt.json": "7195dcea4c872c67069250856f74e50a08f71273f2a0332e796c023833098ab6"
+  },
+  "browserRegression": {
+    "scope": "Chromium ran the checked-in desktop and mobile browser assertions. The driver supports Playwright and the configured Chromium CLI.",
+    "sourceDirectory": "public-tools/experiments/browser",
+    "sourceSha256": {
+      "check.cjs": "25b9bfbcdc2aa95a3338ffd95725a503cd20949914bbf8fe0a6989172a710696",
+      "scenarios.js": "6ee1c57af8924cffcedfefb48081c5811b3a8ac50c602d9763071dddc6c6259f"
+    },
+    "directions": "README.md",
+    "directEntry": "#turn-workbench",
+    "fastestTurn": {
+      "parameters": [
+        6,
+        5,
+        9
+      ],
+      "lastTick": 977,
+      "checkedSamples": [
+        {
+          "tick": 942,
+          "positionRaw": [
+            196739713,
+            -313402404
+          ],
+          "headingBAM": 3313500160
+        },
+        {
+          "tick": 977,
+          "positionRaw": [
+            193759681,
+            -316663357
+          ],
+          "headingBAM": 1656750080
+        }
+      ],
+      "comparedHeadingAndPosition": true,
+      "nonuniformCanvas": true
+    },
+    "nativeCameraPixels": true,
+    "rngCases": {
+      "E1M1": {
+        "index": 40,
+        "deathTick": 918
+      },
+      "E1M2": {
+        "index": 0,
+        "deathTick": 907
+      }
+    },
+    "smallestViewport": [
+      390,
+      844
+    ],
+    "keyboardGridMove": [
+      5,
+      6
+    ]
+  }
+}

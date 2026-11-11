@@ -1,5 +1,14 @@
 # Public edition implementation plan
 
+## Replay experiments
+
+1. Reproduce the Hangar exit at ticks 993, 992 and 978. Reuse the common prefix and expose the first differing control.
+2. Change a single control between launch and impact, preserve every later input, and track the same missile through the remainder of the tape. Record both the local collision and the full passage outcome.
+3. For Hangar and Nuclear Plant, set only the post-spawn gameplay cursor to each of its 256 positions. Check the baseline against ordinary spawn and distinguish table observations from audited Lean declarations.
+4. Use one theater entry point. Test seeking, branch selection, level changes, full-grid coverage and an independent rebuild before making the experiment public.
+
+Completed on Helios. The public bundle includes both complete RNG tables with named exceptional sets, all 72 strafe branches, 81 checked native camera clips, the turn census, and the student chapter. The recording, native playback and theorem evidence are labelled separately.
+
 ## 1. Establish the publication boundary
 Inventory the research history, including archived generated modules. Record upstream revisions, source licenses, game-data hashes, freely licensed replacements and the rights basis for displayed gameplay. Preserve the private research history. Prepare an independent, parentless public Git tree. Check file provenance, license notices, nested archives, and browser network behavior before publication.
 
@@ -36,3 +45,5 @@ Test project-path deployment, desktop and narrow viewports, actual playback, loc
 5. Push the curated public branch, inspect the GitHub Actions result and compare unauthenticated Pages responses with the release checkout. Follow `CONTRIBUTING.md` to add a new witness, map or gallery chapter.
 
 The public map selector also covers all four classic episode prefixes present in a visitor’s IWAD. WMI 315975 checked 36 Freedoom and nine shareware starts in the native worker. WMI 315969 checked a four-input native CombatV2 prefix and final observation for each of the 36 Freedoom levels. These are start and prefix claims.
+
+The replay lab now includes the certified minimum for the 2,750 final-turn edits and their individual paths. To extend the bound, specify which earlier controls may change and account for every additional continuation.

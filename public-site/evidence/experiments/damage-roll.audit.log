@@ -1,0 +1,2 @@
+'Doom.Experiments.DamageRoll.damage_counts' does not depend on any axioms
+'Doom.Experiments.DamageRoll.presentation_schedule' depends on axioms: [propext]
