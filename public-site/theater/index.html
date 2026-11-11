@@ -6,6 +6,7 @@
     <title>Proof theater · Lean Doom Lab</title>
     <link rel="stylesheet" href="../assets/site.css" />
     <link rel="stylesheet" href="theater.css" />
+    <link rel="stylesheet" href="tick-view.css" />
   </head>
   <body>
     <header data-header></header>
@@ -13,13 +14,13 @@
       <p class="kicker">Recorded passages</p>
       <h1>Proof theater</h1>
       <p>
-        Watch any of the nine original Episode One maps from ordinary spawn to its first safe exit. Choose
-        a level, then pause on a line of Lean or jump to the game tick it describes.
+        Pause any of the nine maps to step through the inputs, or choose <strong>Chapter proof</strong> to read the theorem.
+        Try <a href="?level=E1M1&amp;tick=922#passage-player">the tick before the fireball hits in Hangar</a>.
       </p>
-      <div data-theater></div>
+      <div data-theater id="passage-player"></div>
       <p class="legal">
-        Gameplay footage contains fantasy combat. The code and camera share a
-        game-tick clock. Frames after the exit hold the final result.
+        Gameplay footage contains fantasy combat. The tick view reads states recorded from the Lean engine.
+        Frames after the exit hold the final result.
         <a href="films.json">Download the frame and source index</a> ·
         <a href="../evidence/">Explore the level proofs</a> ·
         <a href="lab/">Compare routes in the replay lab</a>

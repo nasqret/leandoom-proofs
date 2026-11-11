@@ -1,0 +1,77 @@
+{
+  "E1M1": {
+    "originalMovieSha256": "1f994a552aa16a099b0d3444e1afa7d12c5c82619c90bf17b614636402922509",
+    "commandsU32LESha256": "bac0988e77cddb0ebaecc5e0fd87ce524c1886ec20d25e73f89bc2cdce124307",
+    "traceSha256": "b9c880442a3d1e96d003b0d5d206a2ded37e8313cc478e0c863d0b54b450f06d",
+    "captureReceiptSha256": "310b7a5879a0cbaeb41470a724cdd43f4ff5446850cb4a5e7b0c4e83dd811979",
+    "cameraLogDigest": "823797d818588bc82bb540e3b71622d670ae3ea678378a52d5fd46e21f5790b5",
+    "matchedStates": 994,
+    "fields": [
+      "t",
+      "x",
+      "y",
+      "angle",
+      "health",
+      "armor",
+      "bullets",
+      "shells",
+      "shots",
+      "kills",
+      "exit",
+      "error"
+    ],
+    "matchedValuesSha256": "b94749eb6bad7acc4c1ac68c0c54ca06524c9dba41115283b3dbd97660e22b2b"
+  },
+  "E1M2": {
+    "originalMovieSha256": "14a2b7cd91f0365c93525fe61810c2a077fb6f993d7544b863f5bba2ed21de5d",
+    "commandsU32LESha256": "3d023e950ffab2f875a7dfa8177d17bbee4cdfdfa5af52147a7831b6e6df66e8",
+    "traceSha256": "fe9682fe56a09278773d02694dc10562d6e60b3fee30fcb5469a9c3452e29f80",
+    "captureReceiptSha256": "dc8eb5ba9dddd858fc728cc7d66bccef07511641cfaccdd0e50073c3c78d41be",
+    "cameraLogDigest": "e9800775a13e98669baff68f452cec9404c4082e5c8694d7a54ea5017c73b502",
+    "matchedStates": 1018,
+    "fields": [
+      "t",
+      "x",
+      "y",
+      "angle",
+      "health",
+      "armor",
+      "bullets",
+      "shells",
+      "shots",
+      "kills",
+      "exit",
+      "error",
+      "z",
+      "red",
+      "blue",
+      "yellow",
+      "rng_play",
+      "rng_misc"
+    ],
+    "matchedValuesSha256": "2838e6256d2a6d75d3082b2f8b193318ccea24984862accd159543b981a2b40d"
+  },
+  "E1M7": {
+    "originalMovieSha256": "2a614b926d74d68bb47bd9b615a1303d4969621489996a42a2e530990129f907",
+    "commandsU32LESha256": "caa3b29a678a1e9be5d6d54d7f7595f4ae2a7cecca7594d2e30d1b3408d66fad",
+    "traceSha256": "59754873a60b77737b690c2f04aac0bd2feffefc686eb7d1b09be2e305c28f04",
+    "captureReceiptSha256": "301cfce0cc46b9309a11392bef07e13a2f92a3b9d05c62ac626be02d002390d8",
+    "cameraLogDigest": "c7b96030b6da4929bfadad84d354517498c5d95c6d8f72def3c5f21cba866bd2",
+    "matchedStates": 4162,
+    "fields": [
+      "t",
+      "x",
+      "y",
+      "angle",
+      "health",
+      "armor",
+      "bullets",
+      "shells",
+      "shots",
+      "kills",
+      "exit",
+      "error"
+    ],
+    "matchedValuesSha256": "d1bbe026ba2f793513cfce0ab1f88490ed4f72d83f35d257ad5618b009e6be4f"
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "baselines": [
+    {
+      "equal_input_prefix": 4140,
+      "inputs_sha256": "5531cbf2271772d1d73e6d62dda538765706cbdb6c5c11a06b49dab076125981",
+      "source_sha256": "0405c23ab2ef618be16bcf92548a94edfad81cc4819b944ce3433c21e75ed7ce"
+    }
+  ],
+  "build": {
+    "inventory.jsonl": "f04ddaae1c13b837dd7b582a39e3954b1ff0d306e74b4d21378876280cd7bf14",
+    "observe": "bc5f584e5a75617ccf750178ade20cc7cc6ae0e9626732221a6e780c16779af6",
+    "reference": "d21f53043f9636a66d7f52575479359f09178da71e64ff60fc2f1790faefa70c",
+    "toolchain.txt": "64f534c7cd1d0dbe701f44b4da6679d120b63f0f9f3bfab60540a07af143f1f2"
+  },
+  "engine": "CombatV2",
+  "engine_manifest_sha256": "de5694bd54a62184838b95a4851c2acdb4fbc072522ca3695421cc2765049162",
+  "final": {
+    "actor_slots": 99,
+    "angle": 92274688,
+    "armor": 25,
+    "blue": true,
+    "bullets": 35,
+    "doors": 1,
+    "error": null,
+    "exit": true,
+    "health": 45,
+    "imp_events": 1,
+    "kills": 27,
+    "movers": 1,
+    "projectiles": 70,
+    "red": true,
+    "rng_misc": 65,
+    "rng_play": 84,
+    "shells": 0,
+    "shot_events": 0,
+    "shots": 93,
+    "t": 4161,
+    "x": 126860204,
+    "y": -151903512,
+    "yellow": true,
+    "z": 3670016
+  },
+  "input_count": 4161,
+  "inputs_u32le_sha256": "caa3b29a678a1e9be5d6d54d7f7595f4ae2a7cecca7594d2e30d1b3408d66fad",
+  "iwad_sha256": "1d7d43be501e67d927e415e0b8f3e29c3bf33075e859721816f652a526cac771",
+  "map": "E1M7",
+  "matched_fields": [
+    "t",
+    "x",
+    "y",
+    "z",
+    "angle",
+    "health",
+    "armor",
+    "red",
+    "blue",
+    "yellow",
+    "bullets",
+    "shells",
+    "kills",
+    "shots",
+    "exit",
+    "error"
+  ],
+  "matched_states": 4162,
+  "minimum_health": 9,
+  "native_seconds": {
+    "observer": 10.867056582123041,
+    "reference": 10.927160699851811
+  },
+  "profile": {
+    "actor_slots_after_ticks": 411939,
+    "imp_events": 505,
+    "shot_events": 660,
+    "ticks_ending_with_doors": 2071,
+    "ticks_ending_with_movers": 2713,
+    "ticks_ending_with_projectiles": 4023
+  },
+  "result": "native_first_exit",
+  "slurm_job": "315439",
+  "source_sha256": "fe2205df0f56c62d00b854b48d209a0a5f1f3c33ef70ce824a43abf0cfdc1b0b",
+  "spawn": "Simulation.spawn map true 1",
+  "tape_sha256": "fe2205df0f56c62d00b854b48d209a0a5f1f3c33ef70ce824a43abf0cfdc1b0b",
+  "tick": "Simulation.tickCombatV2 mask true",
+  "toolchain": "Lean (version 4.33.0, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)",
+  "trace_sha256": "59754873a60b77737b690c2f04aac0bd2feffefc686eb7d1b09be2e305c28f04",
+  "upstream": "dd795d67c075b3c3d1149494ddec6aff756e2a64",
+  "windows_sha256": "d7cbe0d35844cf96cbc7c5ebfd19b14365ca795c4d8b27e6224069b2d1314546"
+}

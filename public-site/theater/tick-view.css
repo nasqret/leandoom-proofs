@@ -1,0 +1,118 @@
+.tick-view {
+  --trace-edge: #363c31;
+  --trace-quiet: #acb09f;
+  color: var(--ink);
+  background: #171a16;
+  font: 12px/1.4 var(--mono);
+  font-variant-numeric: tabular-nums;
+  min-width: 0;
+}
+.tick-view[hidden], .tick-view [hidden] { display: none; }
+.tick-view .tick-message { padding: 1rem; color: var(--muted); }
+.tick-content { padding: 10px 14px 8px; }
+.tick-file, .tick-trace-heading, .tick-event {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+.tick-file {
+  color: var(--trace-quiet);
+  font: 11px/1.4 var(--mono);
+}
+.tick-file a { text-decoration-color: #71806a; }
+.tick-file a:hover { color: var(--ink); }
+.tick-file > span { color: #c4ccac; }
+.tick-source-line {
+  display: grid;
+  grid-template-columns: 2.1em 1fr;
+  align-items: baseline;
+  margin: 7px 0 9px;
+  padding: 6px 7px 6px 0;
+  border-left: 2px solid #9fae77;
+  background: #272d23;
+  font-size: clamp(10px, .95vw, 13px);
+}
+.tick-source-number { text-align: center; color: #b4bf9d; }
+.tick-source-line code { overflow-wrap: anywhere; }
+.tick-source-line code, .tick-call-code { font: inherit; }
+.tick-function { color: #ffd8a7; }
+.tick-literal, .tick-boolean { color: #d2e397; }
+.tick-trace-heading, .tick-small-label, .tick-states dt {
+  color: var(--trace-quiet);
+  font-size: 10px;
+  line-height: 1.35;
+}
+.tick-trace-heading {
+  border-top: 1px solid var(--trace-edge);
+  padding-top: 8px;
+  margin-bottom: 3px;
+}
+.tick-trace-heading > :first-child, .tick-small-label, .tick-states dt {
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+.tick-history { margin-inline: -3px; }
+.tick-call {
+  display: grid;
+  grid-template-columns: 4ch minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: baseline;
+  border-left: 2px solid transparent;
+  padding: 2px 8px;
+  color: #b2b8a9;
+}
+.tick-call:not([data-current]) .tick-literal,
+.tick-call:not([data-current]) .tick-boolean { color: #a9b59b; }
+.tick-call-time, .tick-call-hp { color: #abb49d; }
+.tick-call-time { font-size: .92em; }
+.tick-call-code { white-space: pre-wrap; overflow-wrap: anywhere; }
+.tick-call-state { color: #d6bca5; }
+.tick-call-state sub { font-size: .75em; line-height: 0; }
+.tick-call-hp { font-size: 10px; }
+.tick-call[data-current] {
+  background: #343d2a;
+  border-color: var(--acid);
+  color: #f3f2dd;
+}
+.tick-call[data-current] .tick-call-time, .tick-call[data-current] .tick-call-hp { color: var(--acid); }
+.tick-spawn-call .tick-literal { margin-left: 1ch; }
+.tick-keys {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 8px;
+  align-items: baseline;
+  margin: 5px 0 7px;
+}
+.tick-keys [data-tick-field="controls"] { color: #f3c297; font-size: 11px; }
+.tick-rng { margin-left: auto; color: #c8d6b0; white-space: nowrap; font-size: 11px; }
+.tick-states {
+  display: grid;
+  grid-template-columns: minmax(max-content, 1.7fr) repeat(3, minmax(4ch, 1fr));
+  gap: 7px;
+  border-top: 1px solid var(--trace-edge);
+  margin: 0;
+  padding-block: 7px 5px;
+}
+.tick-states dt, .tick-states dd { margin: 0; }
+.tick-states dd { margin-top: 1px; font-size: clamp(11px, 1vw, 14px); }
+.tick-states > div:first-child dd { white-space: nowrap; }
+.tick-event {
+  justify-content: flex-start;
+  font-size: 11px;
+  color: #dbe3c6;
+  line-height: 1.4;
+}
+.tick-event-time { color: #b8beaa; }
+@media (max-width: 880px) {
+  .tick-content { padding-inline: 10px; }
+  .tick-call { gap: 7px; }
+}
+@media (max-width: 440px) {
+  .tick-view { font-size: 11px; }
+  .tick-states { column-gap: 9px; }
+  .tick-source-line { font-size: 11px; }
+}
+@media (max-width: 360px) {
+  .tick-states { grid-template-columns: minmax(max-content, 1fr) 1fr; gap: 4px 12px; }
+}

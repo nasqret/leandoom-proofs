@@ -20,6 +20,8 @@
 .film-tabs button,
 .toolbar button,
 .toolbar select,
+.view-switch button,
+.chapter-navigation button,
 .chapterbar select {
   background: #24261e;
   border: 1px solid #555744;
@@ -136,10 +138,43 @@
   accent-color: var(--fire);
   min-width: 80px;
 }
-.toolbar button:first-child {
+.toolbar > button:first-child {
   color: var(--acid);
   min-width: 76px;
 }
+.view-switch {
+  display: flex;
+  gap: 3px;
+  padding: 5px 11px;
+  background: #1c201a;
+  border-bottom: 1px solid var(--edge);
+}
+.view-switch button {
+  background: transparent;
+  color: var(--muted);
+  border-color: transparent;
+  padding: 4px 9px;
+}
+.view-switch [aria-pressed="true"] {
+  background: #2c3426;
+  border-color: #556246;
+  color: var(--acid);
+}
+.theater [hidden] { display: none !important; }
+.theater button:disabled { opacity: .42; cursor: default; }
+.theater :focus-visible, .theater:focus-visible {
+  outline: 2px solid var(--acid);
+  outline-offset: 2px;
+}
+.tick-step, .chapter-navigation {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.chapter-navigation, .chapter-navigation label { min-width: 0; }
+.chapter-navigation label { display: flex; align-items: center; gap: 5px; }
+.chapter-navigation button { padding: 5px 7px; }
+.toolbar .tick-step button { white-space: nowrap; }
 .chapterbar {
   justify-content: space-between;
   color: var(--muted);
@@ -161,6 +196,10 @@
   font: 11px var(--mono);
 }
 @media (max-width: 740px) {
+  .actions label:has(#cut), .actions #cut { min-width: 0; max-width: 100%; }
+  .chapter-navigation { max-width: 100%; }
+  .toolbar input { flex-basis: 100%; order: 2; }
+  .toolbar .rate { padding-right: 3px; }
   .screens {
     grid-template-columns: 1fr;
   }

@@ -47,3 +47,7 @@ All nine original Episode One map slots have separate ordinary-spawn passage wit
 ## Two alternate Theater routes · 2026-11-11
 
 Central Processing now has an independent 3,595-input exit at two health. Phobos Anomaly has a 3,092-input exit at one health. Its first 2,280 inputs match the eight-health route exactly, through the death of the second Baron. The selector exposes each route’s own recording, camera and audited declarations. Helios jobs 26062251 and 26062250 rebuilt the respective certificates and chapter proofs from the public verifier. Together the eleven films cover nine original maps and 84 synchronized chapters.
+
+## Follow a recorded tick in the Theater
+
+The primary film and each alternate now have a projection of the original controller and the independent Lean replay observations. Across eleven films this covers 27,644 input transitions and 27,655 states including spawns. The code pane follows each frame through the replay loop, decodes the input, displays state changes and switches to the empty-tape branch at the first exit. Reading a chapter theorem and stepping the replay use the same tick. Tick 922 in Hangar is a reproducible starting point for the 24-point hit on the next input. [Step through the impact](https://nasqret.github.io/leandoom-proofs/theater/?level=E1M1&tick=922) · [Build and check the observations](https://github.com/nasqret/leandoom-proofs/blob/main/public-tools/episode-passages/ticks.py)

@@ -174,6 +174,10 @@ fork = load('evidence/experiments/fork-receipt.json')
 check(fork['census']==[72,0,59,13,0,0,72] and digest((evidence/'fork-rebuild.zip').read_bytes())==fork['rebuildSha256'], 'complete input-fork certificate')
 roll = load('evidence/experiments/damage-roll.json')
 check(roll['sourceSha256']==digest((experiments/'DamageRoll.lean').read_bytes()) and roll['auditSha256']==digest((evidence/'damage-roll.audit.log').read_bytes()) and roll['rngSourceSha256']==digest((root/'public-tools/verifier/combat/upstream/Doom/Random.lean').read_bytes()), 'stock-kernel damage roll')
+check((site/'theater/source/OriginalReplay.lean').read_bytes()==
+      (root/'public-tools/verifier/combat/OriginalReplay.lean').read_bytes(),
+      'displayed replay source must match the verified definition')
+subprocess.run([sys.executable, str(root/'public-tools/episode-passages/ticks.py'), '--check', str(root)], check=True)
 from alternates import validate_alternates
 alternate_count = validate_alternates(site, root, films)
 print(f'{len(names)} files and archive members inspected; 13 map records, 277 declarations, {len(routes)} routes, {alternate_count} alternate Theater passages and complete replay experiments passed.')

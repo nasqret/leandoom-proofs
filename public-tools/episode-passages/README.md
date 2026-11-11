@@ -24,6 +24,12 @@ Let $s_0$ be the result of parsing the map and spawning the player. For a fixed 
 
 The six new full-route certificates use Lean 4.33.0 and `native_decide`. Their printed axiom dependencies disclose reliance on compiler evaluation. Hangar and Nuclear Plant have separate stock-kernel witnesses. A successful tape supplies an upper bound on ticks for the stated rules and starting state. A lower bound across all possible controllers requires a different argument. [Trust tiers and audits](https://nasqret.github.io/leandoom-proofs/evidence/)
 
+## Follow the replay one input at a time
+
+Open Hangar at tick 922 and press **+1 tick**. The next input moves the replay to tick 923, when the player's health drops from 72 to 48. Switch to **Chapter proof** to read the Lean theorem about the fireball hit. The two views use the same camera frame. The address remembers a tick when you step or pause, so you can share an exact moment. [Start at 922](https://nasqret.github.io/leandoom-proofs/theater/?level=E1M1&tick=922) · [Fireball theorem](../../public-site/theater/source/E1M1Impact923.lean)
+
+**Follow ticks** pairs each input mask with the observed state it produced and shows the corresponding branch of `OriginalReplay.scan`. Tick zero shows the spawn. At the final tick the input list is empty and the checker requires a living player, clear physics and the exit flag. The browser reads a saved replay trace. The passage theorem and its trust tier belong to the selected route. For all eleven routes, regenerate the displayed rows from the public controller, observer output and proof receipt with `python3 public-tools/episode-passages/ticks.py --check`. [Replay definition](../../public-tools/verifier/combat/OriginalReplay.lean) · [Tick-data generator](ticks.py)
+
 ## Four chapters worth pausing on
 
 - **Tick 1,638 in Toxin Refinery.** The player steps up from 122½ units to 136. The final tread began at 48 units and the game had to raise it into reach. [Landing theorem](../../public-site/theater/source/e1m3/Staircase.lean)
