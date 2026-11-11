@@ -33,3 +33,5 @@ The main Proof Theater selector now pairs the 4,161-input Computer Station film 
 ## 2026-11-11 · Command Control
 
 Command Control reached its first safe exit after 1,233 ordinary keyboard inputs in CombatV2-SectorActions-V1. The first clean-source reproduction and a second fresh milestone audit preserved the route, exact endpoint, key ticks and lowest health. The camera matched 1,234 states.
+
+Command Control passed a full ordinary-spawn passage and endpoint check on Helios (26060263). The public verifier rebuilt the revised engine from its seven registered sources and repeated both checks (26060461). The film independently matched 1,234 frames (26060337). A separate full-tape scan checked key acquisition, the first shot and minimum health (26060522).
