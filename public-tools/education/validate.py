@@ -1,0 +1,102 @@
+"""Validate public study links, portable editions, outputs and evidence without running Lean."""
+import argparse
+import base64
+import hashlib
+import json
+from pathlib import Path
+import re
+import tempfile
+from urllib.parse import unquote,urlsplit
+import zipfile
+
+from bs4 import BeautifulSoup
+import nbformat
+from render import SITE
+
+def check(condition,explanation):
+    if not condition:
+        raise ValueError(explanation)
+
+def digest(data):
+    return hashlib.sha256(data).hexdigest()
+
+def local_links(site, docs):
+    count=0
+    external=set()
+    seen={}
+    def page(p):
+        if p not in seen:
+            seen[p]=BeautifulSoup(p.read_text(),'html.parser')
+        return seen[p]
+    missing=set()
+    for path in docs:
+        document=page(path)
+        ids=[n['id'] for n in document.select('[id]')]
+        check(len(ids)==len(set(ids)),f'Duplicate id in {path.name}')
+        for node in document.select('a[href], img[src], script[src], link[href]'):
+            href=node.get('href',node.get('src'))
+            value=urlsplit(href)
+            if value.scheme in {'http','https'}:
+                if node.name=='a':external.add(href)
+                continue
+            if value.scheme or not href:
+                continue
+            relative=unquote(value.path)
+            target=((site/relative.lstrip('/')) if relative.startswith('/') else (path.parent/relative if relative else path)).resolve()
+            if target.is_dir():target=target/'index.html'
+            if not target.is_file():
+                missing.add(f'{path.name} → {href}');continue
+            if value.fragment and target.suffix=='.html':
+                key=unquote(value.fragment)
+                if page(target).find(id=key) is None and page(target).find(attrs={'name':key}) is None:
+                    missing.add(f'{path.name} → {href}')
+            count+=1
+    return count,external,missing
+
+def run():
+    data={}
+    book=nbformat.read(SITE/'passage-lab.ipynb',as_version=4)
+    nbformat.validate(book)
+    codes=[c for c in book.cells if c.cell_type=='code']
+    check([c.execution_count for c in codes]==list(range(1,8)), 'Notebook execution counters are incomplete')
+    output='\n'.join(o.text for c in codes for o in c.outputs if o.output_type=='stream')
+    check(all(o.output_type=='stream' for c in codes for o in c.outputs),'Unexpected notebook output')
+    check((SITE/'audit.txt').read_text().strip() in output and (SITE/'wrong-order.txt').read_text().strip() in output,'Fresh compiler output disagrees with standalone runs')
+    check('Lean (version 4.33.0' in output,'Wrong kernel')
+    attachments={n:base64.b64decode(b['image/png']) for c in book.cells for n,b in c.get('attachments',{}).items()}
+    check(len(attachments)==6,'Wrong figure count')
+    for name,raw in attachments.items():check(raw==(SITE/'media'/name).read_bytes(),name+' differs from screenshot')
+    check(digest((SITE/'PassageLab.lean').read_bytes()) in output,'Verified source hash mismatch')
+    data['notebook']={'cells':len(book.cells),'executed_cells':len(codes),'embedded_figures':len(attachments),'declared_axiom_reports':7,'negative_control':'Lean rejected the reordered witness'}
+    count,extern,missing=local_links(SITE.parent,SITE.glob('*.html'))
+    check(not missing,'Missing study links: '+str(sorted(missing)))
+    data['study_html']={'local_hrefs':count,'unique_external_targets':len(extern)}
+    for page,maths,imgs in [('index.html',30,3),('notebook.html',17,6),('jupyter-book.html',30,3),('jupyter-lab.html',17,6)]:
+        html=BeautifulSoup((SITE/page).read_text(),'html.parser')
+        check(len(html.select('math'))>=maths and len(html.select('img'))==imgs,'Broken mathematics or images: '+page)
+    with tempfile.TemporaryDirectory() as work:
+        sub=Path(work)/'book'
+        with zipfile.ZipFile(SITE/'jupyter-book.zip') as src:src.extractall(sub)
+        count,_,missing=local_links(sub,sub.glob('*.html'))
+        check(not missing,'Missing offline HTML links: '+str(sorted(missing)))
+        data['offline_book']={'local_hrefs':count,'entry':'index.html'}
+    with zipfile.ZipFile(SITE/'obsidian-vault.zip') as vault:
+        notes=[n for n in vault.namelist() if n.endswith('.md')]
+        for name in notes:
+            text=vault.read(name).decode()
+            for link in re.findall(r'\[\[([^\]|]+)',text):
+                check(link+'.md' in notes,'Missing vault note '+link)
+            for link in re.findall(r'\]\(([^)\s]+)\)',text):
+                url=urlsplit(link)
+                if not url.scheme and url.path:
+                    check(unquote(url.path) in vault.namelist(),name+' missing '+link)
+        check(vault.read('Resources/core-source.zip')==(SITE.parent/'evidence/core-source.zip').read_bytes(),'Vault source core is stale')
+        data['vault']={'markdown_notes':len(notes),'archive_files':len(vault.namelist())}
+    data['sha256']={name:digest((SITE/name).read_bytes()) for name in ['passage-lab.ipynb','jupyter-book.zip','book-source.zip','obsidian-vault.zip']}
+    print(json.dumps(data,indent=2))
+    return data
+
+if __name__=='__main__':
+    p=argparse.ArgumentParser(description=__doc__)
+    p.add_argument('--json',type=Path);a=p.parse_args();d=run()
+    if a.json:a.json.write_text(json.dumps(d,indent=2)+'\n')

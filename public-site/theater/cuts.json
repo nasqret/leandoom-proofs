@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Hangar on foot",
+    "caption": "A zero-shot Hangar passage, slowed down for reading the Lean.",
+    "file": "hangar-on-foot-lean.mp4",
+    "seconds": 31.29,
+    "frames": 1095,
+    "sourceSha256": "abc8d0fa7761bc8e9c842955f632affd1cc1b3afac19775f322587a175dc0dd0",
+    "sha256": "a04849ef566e7bb0c91d4bfb0e6080d60f6fc53cb7a46f7a86484019be9f5ff4",
+    "videoPacketSha256": "0e40cc43e95ce1cd82d5d3e218d65c1e0eee28e4972ec9fef12f644b21316d03"
+  },
+  {
+    "title": "Can you prove a Doom run?",
+    "caption": "The one-minute teaching reel with tiled combat scenes.",
+    "file": "doom-with-lean.mp4",
+    "seconds": 60.0,
+    "frames": 1800,
+    "sourceSha256": "2777dfa61aa0841acd03c4a9580a7a7d0a60b0e69ea654ed117c24060d0246bd",
+    "sha256": "078a1cec9164fdf9592a0b5cd95d39b5a432e377e01c39daa76eaea617bd4895",
+    "videoPacketSha256": "42ce00c64d055a72e561fabacca796b11a8ba3ac47094933968db61f825e0759"
+  },
+  {
+    "title": "Military Base \u00b7 Two keys",
+    "caption": "A 933-input prefix collects two keys. This recording ends before the exit.",
+    "file": "two-keys.mp4",
+    "seconds": 30.89,
+    "frames": 1081,
+    "sourceSha256": "c978798ef404844fdd22445224af75781576ec1fff0194b04de7087a3cc74675",
+    "sha256": "911786f428b0658b6c71c9eebf648bfe5aa50d289b0e4439da61b8f26ec0f5d1",
+    "videoPacketSha256": "cae8eff98a06e9b3c613fd7e99406a0165051acbcbf789c02385107693a670bb"
+  },
+  {
+    "title": "Computer Station",
+    "caption": "A 4,161-input run to the exit. The historical opening-move proofs and the later whole-tape companion receipt have separate evidence.",
+    "file": "computer-station.mp4",
+    "seconds": 118.91,
+    "frames": 4162,
+    "sourceSha256": "2a614b926d74d68bb47bd9b615a1303d4969621489996a42a2e530990129f907",
+    "sha256": "a0e660c9a011a351a8b4dad8211e383784022ce9ab689f166ef9988e3337c8a2",
+    "videoPacketSha256": "0b4542145322c4fcbf28a597083fb02d50cf4b05467cc7c9ccdb6dedd96b234f"
+  }
+]

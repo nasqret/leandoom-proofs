@@ -1,0 +1,7 @@
+'NuclearRecording.length' does not depend on any axioms
+'NuclearRecording.checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NuclearRecording.passage' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NuclearRecording.terminal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NuclearRecording.safeFirstExit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NuclearRecording.winnable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanDoomProofs.RecordedTapeAudit.input_identity' does not depend on any axioms

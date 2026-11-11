@@ -1,0 +1,27 @@
+{
+  "notebook": {
+    "cells": 21,
+    "executed_cells": 7,
+    "embedded_figures": 6,
+    "declared_axiom_reports": 7,
+    "negative_control": "Lean rejected the reordered witness"
+  },
+  "study_html": {
+    "local_hrefs": 329,
+    "unique_external_targets": 37
+  },
+  "offline_book": {
+    "local_hrefs": 278,
+    "entry": "index.html"
+  },
+  "vault": {
+    "markdown_notes": 40,
+    "archive_files": 62
+  },
+  "sha256": {
+    "passage-lab.ipynb": "cc2980130f4df4eb0ed4f5fd98952b5f918e48db69d194cc7f4ef4cb71708752",
+    "jupyter-book.zip": "d3627fbb86b7f61ca4bfd7ce915c9682c3ece27deb32aa932d5494d5336180c2",
+    "book-source.zip": "9b886ee48cbb6e35bc8d1a48548220da90e92abf4dff40ff57415367bd2b88a0",
+    "obsidian-vault.zip": "04f179e71cd56b5d133c47ba1b16f8c1b42f9de8670074b0fe57e2b88b25d91d"
+  }
+}

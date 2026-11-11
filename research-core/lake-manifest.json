@@ -1,0 +1,13 @@
+{"version": "1.2.0",
+ "packagesDir": ".lake/packages",
+ "packages":
+ [{"type": "path",
+   "scope": "",
+   "name": "«lean-doom»",
+   "manifestFile": "lake-manifest.json",
+   "inherited": false,
+   "dir": "vendor/leandoom",
+   "configFile": "lakefile.lean"}],
+ "name": "«leandoom-proofs»",
+ "lakeDir": ".lake",
+ "fixedToolchain": false}

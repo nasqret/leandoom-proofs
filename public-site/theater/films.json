@@ -1,0 +1,433 @@
+[
+  {
+    "id": "E1M1",
+    "title": "Hangar",
+    "fps": 35,
+    "frames": 1064,
+    "tick": 993,
+    "engine": "CombatV2",
+    "video": "e1m1.mp4",
+    "chapters": [
+      {
+        "frame": 0,
+        "name": "From Hangar spawn",
+        "description": "The route starts here. Its prefix theorem puts the first exit on input 993.",
+        "module": "CertifiedHangarEscapeScene",
+        "line": 24,
+        "excerpt": [
+          [
+            23,
+            "    HangarInventory.loadout (run step e1m1TreeSpawn e1m1Inputs) ∧"
+          ],
+          [
+            24,
+            "    (∀ j : Nat, (run step e1m1TreeSpawn (e1m1Inputs.take j)).exitRequested = decide (993 ≤ j)) :="
+          ],
+          [
+            25,
+            "  ⟨HangarEscape.observe_escape closingSegment,"
+          ],
+          [
+            26,
+            "   HangarInventory.from_segment closingSegment,"
+          ]
+        ],
+        "declaration": "certifiedHangarEscapeScene",
+        "sourceSha256": "16a79da9f2e14fda68ead45875f04424a6f5356b6cd6deb53feee2a1f7317afe",
+        "objectSha256": "18e8e827e5f24b5e8353841bd4c9110430a6c7e6b7293c676ab23d344075ccc5"
+      },
+      {
+        "frame": 611,
+        "name": "First fireball",
+        "description": "Monster 9 launches the first fireball. The player still has all 50 starting bullets.",
+        "module": "E1M1RealFireballLaunches",
+        "line": 18,
+        "excerpt": [
+          [
+            17,
+            "theorem launch611 :"
+          ],
+          [
+            18,
+            "    launchView 0 E1M1FullRoute.state610 (E1M1FullRoute.state610.tickCombatV2 546 true) = (0, 1, [(0, 9, 0)], 9, true) := by"
+          ],
+          [
+            19,
+            "  rw [e1m1RouteEdge610]"
+          ],
+          [
+            20,
+            "  decide +kernel"
+          ]
+        ],
+        "declaration": "launch611",
+        "sourceSha256": "0b60e3504df36f2398136a62c0ff6959057cf7a7a43aff17fb218d5cb904e347",
+        "objectSha256": "1d12f6e3c3f5219721de2231c88c7facf6f4c04e3d5f7f6621807e416b2a2019"
+      },
+      {
+        "frame": 837,
+        "name": "A second shooter",
+        "description": "Monster 17 launches projectile 1, the second fireball of the run.",
+        "module": "E1M1RealFireballLaunches",
+        "line": 23,
+        "excerpt": [
+          [
+            22,
+            "theorem launch837 :"
+          ],
+          [
+            23,
+            "    launchView 1 E1M1FullRoute.state836 (E1M1FullRoute.state836.tickCombatV2 578 true) = (1, 2, [(1, 17, 0)], 17, true) := by"
+          ],
+          [
+            24,
+            "  rw [e1m1RouteEdge836]"
+          ],
+          [
+            25,
+            "  decide +kernel"
+          ]
+        ],
+        "declaration": "launch837",
+        "sourceSha256": "0b60e3504df36f2398136a62c0ff6959057cf7a7a43aff17fb218d5cb904e347",
+        "objectSha256": "1d12f6e3c3f5219721de2231c88c7facf6f4c04e3d5f7f6621807e416b2a2019"
+      },
+      {
+        "frame": 923,
+        "name": "Fireball impact",
+        "description": "The third fireball hits the player for 24 damage, leaving 48 health.",
+        "module": "E1M1Impact923",
+        "line": 14,
+        "excerpt": [
+          [
+            13,
+            "        (fun s => (s.inventory.health, s.projectileEvents)) ="
+          ],
+          [
+            14,
+            "      .ok (48, #[(2, .hit 0 24), (2, .sound \"firxpl\")]) := by"
+          ],
+          [
+            15,
+            "  rw [tic923Projectiles]"
+          ],
+          [
+            16,
+            "  doom_kernel_rfl"
+          ]
+        ],
+        "declaration": "third_fireball_hits",
+        "sourceSha256": "6bfd38ccf462ad2751d3b7ae07760d5797fe4057f4ad040cf206d40ea2f2007d",
+        "objectSha256": "b05967b06eafc866f246de7e941a8fca1f9a956e48c42f6238aee4b801d0dad2"
+      },
+      {
+        "frame": 935,
+        "name": "One more fireball",
+        "description": "Monster 17 launches the fourth fireball with 58 inputs left to the exit.",
+        "module": "E1M1RealFireballLaunches",
+        "line": 33,
+        "excerpt": [
+          [
+            32,
+            "theorem launch935 :"
+          ],
+          [
+            33,
+            "    launchView 3 E1M1FullRoute.state934 (E1M1FullRoute.state934.tickCombatV2 514 true) = (3, 4, [(3, 17, 0)], 17, true) := by"
+          ],
+          [
+            34,
+            "  rw [e1m1RouteEdge934]"
+          ],
+          [
+            35,
+            "  decide +kernel"
+          ]
+        ],
+        "declaration": "launch935",
+        "sourceSha256": "0b60e3504df36f2398136a62c0ff6959057cf7a7a43aff17fb218d5cb904e347",
+        "objectSha256": "1d12f6e3c3f5219721de2231c88c7facf6f4c04e3d5f7f6621807e416b2a2019"
+      },
+      {
+        "frame": 993,
+        "name": "Exit with six monsters alive",
+        "description": "The player reaches the exit on 48 health. All six monsters survive the zero-shot run.",
+        "module": "CertifiedHangarEscapeScene",
+        "line": 22,
+        "excerpt": [
+          [
+            21,
+            "theorem certifiedHangarEscapeScene :"
+          ],
+          [
+            22,
+            "    HangarEscape.escapeScene (run step e1m1TreeSpawn e1m1Inputs) ∧"
+          ],
+          [
+            23,
+            "    HangarInventory.loadout (run step e1m1TreeSpawn e1m1Inputs) ∧"
+          ],
+          [
+            24,
+            "    (∀ j : Nat, (run step e1m1TreeSpawn (e1m1Inputs.take j)).exitRequested = decide (993 ≤ j)) :="
+          ]
+        ],
+        "declaration": "certifiedHangarEscapeScene",
+        "sourceSha256": "16a79da9f2e14fda68ead45875f04424a6f5356b6cd6deb53feee2a1f7317afe",
+        "objectSha256": "18e8e827e5f24b5e8353841bd4c9110430a6c7e6b7293c676ab23d344075ccc5"
+      }
+    ],
+    "summary": "Run through the computer room, dodge fireballs and reach the exit on 48 health. The player never fires.",
+    "sha256": "b8f2be12103be6e1feb42169a61e1ce646961a9d1b8f5c147fd33b0f5f7c917b",
+    "originalMovieSha256": "1f994a552aa16a099b0d3444e1afa7d12c5c82619c90bf17b614636402922509",
+    "videoPacketSha256": "d44a85a6433f9db791ebfef3e56b2e848bf48d8b58374ba38ae799d47a95944c",
+    "proofJob": 308941,
+    "root": "certifiedHangarEscapeScene",
+    "final": {
+      "angle": 1551892480,
+      "bullets": 50,
+      "error": null,
+      "exit": true,
+      "health": 48,
+      "kills": 0,
+      "shells": 4,
+      "shots": 0,
+      "tick": 993,
+      "x": 191904993,
+      "y": -312563964
+    }
+  },
+  {
+    "id": "E1M2",
+    "title": "Nuclear Plant",
+    "fps": 35,
+    "frames": 1088,
+    "tick": 1017,
+    "engine": "CombatV2",
+    "video": "e1m2.mp4",
+    "chapters": [
+      {
+        "frame": 0,
+        "name": "Ordinary spawn",
+        "description": "The map parser loads Nuclear Plant and the ordinary combat spawn produces the initial state.",
+        "module": "E1M2Foundation",
+        "line": 14,
+        "excerpt": [
+          [
+            13,
+            "/-- Ordinary combat initialization of the authentic Nuclear Plant literal map group. -/"
+          ],
+          [
+            14,
+            "theorem loaded_spawn :"
+          ],
+          [
+            15,
+            "    (Map.load group \"E1M2\").bind (fun m => Simulation.spawn m true 1) = .ok initial :="
+          ],
+          [
+            16,
+            "  bind_success _ _ levelMap initial map_loaded spawn_checked"
+          ]
+        ],
+        "declaration": "loaded_spawn",
+        "sourceSha256": "e128ce247eac10ce3b7b28b474d0f141ea09c2540a7bf452afcabeb2c5091fa4",
+        "objectSha256": "e7bdb7690c0b303b196fbda5ee0f0568cb0ea7b679176e4391508243cb06c397"
+      },
+      {
+        "frame": 5,
+        "name": "First pistol shot",
+        "description": "The opening four inputs leave 50 bullets. The fifth produces one shot and leaves 49.",
+        "module": "WindowFifthShot",
+        "line": 13,
+        "excerpt": [
+          [
+            13,
+            "theorem firstPistolDischarge (j : Nat) (hj : j ≤ 5) :"
+          ],
+          [
+            14,
+            "    (fromMap j).map summary = .ok (true, if j < 5 then (0,50) else (1,49)) := by"
+          ],
+          [
+            15,
+            "  apply upToFive (fun i => (fromMap i).map summary = .ok (true, if i < 5 then (0,50) else (1,49))) <;> try assumption"
+          ]
+        ],
+        "declaration": "firstPistolDischarge",
+        "sourceSha256": "4185329ecdc0014809aa97564567040ccb9b5538564a10c56481c4fab6557a8e",
+        "objectSha256": "9d7344f76afe3c24f6e9859b9a0fb031cc543f7f0565f99409ca106fa0ee8b1f"
+      },
+      {
+        "frame": 191,
+        "name": "Enemy crossfire",
+        "description": "A former human hits another former human. The parsed-map proof identifies both simulation states.",
+        "module": "CrossfireFromMap",
+        "line": 11,
+        "excerpt": [
+          [
+            11,
+            "theorem friendlyFireFromMap :"
+          ],
+          [
+            12,
+            "    ∃ before after : Simulation,"
+          ],
+          [
+            13,
+            "      NuclearWindow.fromMap 190 = .ok before ∧ NuclearWindow.fromMap 191 = .ok after ∧"
+          ]
+        ],
+        "declaration": "friendlyFireFromMap",
+        "sourceSha256": "cc6554c7bba9a4af570800df6fe7a8866c256e6720c493911d33fc7d3a0a0659",
+        "objectSha256": "37ca09843e4b863c918e489a486b7a80ea1086163f91026192c17bcb73880300"
+      },
+      {
+        "frame": 202,
+        "name": "Red key",
+        "description": "The inventory changes from no red key on tick 201 to holding the red key on tick 202.",
+        "module": "FullRedKey202",
+        "line": 5,
+        "excerpt": [
+          [
+            5,
+            "theorem redKeyAt202 :"
+          ],
+          [
+            6,
+            "    (NuclearWindow.fromMap 201).map (fun s => s.inventory.red) = .ok false ∧"
+          ],
+          [
+            7,
+            "    (NuclearWindow.fromMap 202).map (fun s => s.inventory.red) = .ok true := by"
+          ]
+        ],
+        "declaration": "redKeyAt202",
+        "sourceSha256": "48bd8c7a91a392c202f75b109d9713214eaf049c70de5e7e55424efa7f67d506",
+        "objectSha256": "ac6c9824e36b1145004709ef700f63a680107cd895eef48b7bf604475dd3a501"
+      },
+      {
+        "frame": 505,
+        "name": "A door opens",
+        "description": "The replay now has two active doors. The Lean edge identifies the full state produced by this input.",
+        "module": "FullLeaf505",
+        "line": 10,
+        "excerpt": [
+          [
+            10,
+            "theorem edge505 : s504.tickCombatV2 12834 true = s505 := by"
+          ],
+          [
+            11,
+            "  doom_kernel_exact LeanDoomProofs.NuclearFullSuffix.fullTick505 NuclearFull.Play.interact505 NuclearFullWeapon.weapon505"
+          ],
+          [
+            12,
+            "theorem scan505To505 : CheckedReplay.scan s504 [12834] = some s505 := by"
+          ]
+        ],
+        "declaration": "edge505",
+        "sourceSha256": "5003b393bd9641d22c3a4b0b507c8f4bbaafb5717dfdbf8b69cad784ae3b2561",
+        "objectSha256": "1db9a3aa87cf94c9d0df694b267c6ab9f9f7d17389ebafa82d3ee8aedb8f5366"
+      },
+      {
+        "frame": 687,
+        "name": "Shell pickup",
+        "description": "Shell inventory rises from zero to 20 in the replay. Lean checks the corresponding transition.",
+        "module": "FullLeaf687",
+        "line": 11,
+        "excerpt": [
+          [
+            11,
+            "theorem edge687 : s686.tickCombatV2 8706 true = s687 := by"
+          ],
+          [
+            12,
+            "  doom_kernel_exact LeanDoomProofs.NuclearFullSuffix.fullTick687 NuclearFull.Play.interact687 NuclearFullWeapon.weapon687 FullFloor687.floor687"
+          ],
+          [
+            13,
+            "theorem scan687To687 : CheckedReplay.scan s686 [8706] = some s687 := by"
+          ]
+        ],
+        "declaration": "edge687",
+        "sourceSha256": "24047f6ab9d6fc43621573b110734aeb4b168fa8674a2163861d500180e87c3c",
+        "objectSha256": "80c3bfd9b04eb340f6b4c3e4b229a0d94d12bb586120c2e4ef810cc1ce913bfe"
+      },
+      {
+        "frame": 954,
+        "name": "An imp starts a lift",
+        "description": "The player is away from the switch. A living imp starts the lift in sector 49.",
+        "module": "FullLiftFromMap",
+        "line": 30,
+        "excerpt": [
+          [
+            29,
+            ""
+          ],
+          [
+            30,
+            "theorem impOperatesLift : impFromMap.map NuclearFullLift.report = .ok (0,1,49,.lift,88) :="
+          ],
+          [
+            31,
+            "  NuclearFullLift.liftReport impFromMap impTurnFromMap"
+          ]
+        ],
+        "declaration": "impTurnFromMap",
+        "sourceSha256": "94d2cc6db4725abaaac613339ba23d077da850ed20133deb44c1467debfc961d",
+        "objectSha256": "300601ec616634b6c4bee85a576be39bcda0821f6c052dded83318f6e6ff913e"
+      },
+      {
+        "frame": 1017,
+        "name": "First safe exit",
+        "description": "Every recorded prefix stays alive and physics-error-free. The exit flag first becomes true on this input.",
+        "module": "CampaignWinner",
+        "line": 36,
+        "excerpt": [
+          [
+            36,
+            "theorem passage : CheckedReplay.Passage LeanDoomProofs.E1M2.group \"E1M2\" inputs :="
+          ],
+          [
+            37,
+            "  CheckedReplay.passage_of_scan LeanDoomProofs.E1M2.group \"E1M2\" LeanDoomProofs.E1M2.levelMap LeanDoomProofs.E1M2.initial NuclearFull.s1017 inputs"
+          ],
+          [
+            38,
+            "    LeanDoomProofs.E1M2.map_loaded LeanDoomProofs.E1M2.spawn_checked checked NuclearFullPassage.safe1017 NuclearFullPassage.exit1017"
+          ]
+        ],
+        "declaration": "passage",
+        "sourceSha256": "87fbc59f7610a3cade704651001fbd500423d88c27868cecd28ee95b3fad096a",
+        "objectSha256": "dd94f8618b7b26e25209e3f244d823479e1d159defd845115eb53c8d944499fc"
+      }
+    ],
+    "summary": "Race up the blue stairs and collect the red key. The player fires 73 shots and reaches the exit with two bullets.",
+    "sha256": "e803a7c0e089d9693850c4197c8f86ffb226fb8253b2d133f9ee4387704f0991",
+    "originalMovieSha256": "14a2b7cd91f0365c93525fe61810c2a077fb6f993d7544b863f5bba2ed21de5d",
+    "videoPacketSha256": "e8e34f3370337f71f901adb9830a843c6d70799d20dffd7bf171eb6343ee76fe",
+    "proofJob": 315343,
+    "root": "NuclearRecording.passage",
+    "final": {
+      "angle": 4148166656,
+      "armor": 0,
+      "blue": false,
+      "bullets": 2,
+      "error": null,
+      "exit": true,
+      "game_rng": 25,
+      "health": 73,
+      "kills": 2,
+      "misc_rng": 249,
+      "red": true,
+      "shells": 20,
+      "shots": 73,
+      "tick": 1017,
+      "x": -20626184,
+      "y": 153723710,
+      "yellow": false,
+      "z": -15204352
+    }
+  }
+]

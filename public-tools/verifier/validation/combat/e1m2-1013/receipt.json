@@ -1,0 +1,52 @@
+{
+  "schema": "proof-lab-receipt-v1",
+  "recordingSha256": "6987c10e93b0336357cd06fe76a05c1fdc3c2a89bfae192037472dee44049172",
+  "attempt": "check-7yt8qmzr",
+  "status": "compiler-passage",
+  "passage": true,
+  "level": "E1M2",
+  "engine": "CombatV2",
+  "commands": 1013,
+  "commandsU32LESha256": "429dfb635690bf931a1168d6dab0bf46044148f3978fbda90904e05800e7939a",
+  "trust": "compiler",
+  "final": {
+    "armor": 0,
+    "bullets": 70,
+    "errorFree": true,
+    "exit": true,
+    "health": 82,
+    "kills": 1,
+    "shells": 20,
+    "shots": 0,
+    "tick": 1013,
+    "x": -20833938,
+    "y": 153198279
+  },
+  "message": "First safe exit proved with Lean compiler trust.",
+  "axioms": {
+    "Recording.passage": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound",
+      "Recording.passage._native.native_decide.ax_1_1"
+    ],
+    "Recording.finalObservation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound",
+      "Recording.finalObservation._native.native_decide.ax_1_1"
+    ]
+  },
+  "lean": "Lean (version 4.33.0, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)",
+  "worldSha256": "1d7d43be501e67d927e415e0b8f3e29c3bf33075e859721816f652a526cac771",
+  "sources": {
+    "Audit.lean": "db4f304da3c3b3d72db7003e2832723fb6d0bd5492923620ebe420d8cd7906f0",
+    "Certificate.lean": "30c5ac62739aad992bfc9be2e6ff2fa996ceb08c058c0bc9ed3cf07e98e5f7d7",
+    "Inputs.lean": "b9f35e1d7c5dbc0268197ce2efc4e851a20333103dcf057ccc0ac3cd55865dab",
+    "Inspect.lean": "a19720c31a516efe9ddef952c1a0a23ecbb66119409bd1db2c909e0d4819b174"
+  },
+  "objects": {
+    "Certificate.olean": "6eb7dab12e0a8dfdc316418916a1f247e05e7ff30ef351fc4fd2b289a6d30f33",
+    "Inputs.olean": "68ade685c6defb0031e3affcaf8d97f15810bf3cbd3e75fd7653e68a76bafce2"
+  }
+}

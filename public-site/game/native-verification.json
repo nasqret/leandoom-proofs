@@ -1,0 +1,195 @@
+{
+  "scope": "Native worker spawn, four inputs and camera frames on all nine slots of each IWAD; six recorded route endpoints on the shareware baseline.",
+  "workerSha256": "78951d0d1c21fae23487744303e945207e658b5ae658402a2dd98a5c1c74525c",
+  "image": {
+    "file": "freedoom-start.png",
+    "sha256": "67689b57b9e3865678bfa45c2851b9bbd83baa4cf85e909b7058a966fc9f295a",
+    "license": "freedoom-COPYING.txt"
+  },
+  "slurm": {
+    "compile": 315873,
+    "frames": 315879,
+    "nativeBridge": 315889,
+    "allSixRoutes": 315924
+  },
+  "iwads": {
+    "1d7d43be501e67d927e415e0b8f3e29c3bf33075e859721816f652a526cac771": {
+      "maps": {
+        "E1M1": {
+          "spawn": "a6efde6098b22efb60efd553d6d684887d6c628c1b2235df37e9648cdf2c8fed",
+          "atFour": "f948953b918f3d6df4f680bffbd3970076102bece9d3f071e4fb5b1f775ba566",
+          "tick": 4,
+          "health": 100
+        },
+        "E1M2": {
+          "spawn": "5e8c63c2638b314a15c9eb30546a3171cd35f93453c1b28fc6aa762aced1e5ee",
+          "atFour": "e4c2d6ef6506de12cc53bd8a3d8ffedf94262ff1211551ac37eabcbab469d3e9",
+          "tick": 4,
+          "health": 100
+        },
+        "E1M3": {
+          "spawn": "135332111481832e711fa075ef0195538ec30dad42fe4fc6ce4490dfd1f1983a",
+          "atFour": "467d92d98e6b49d84b83f480a9434a55cc7d125b9c2af09fc313001f2cd88577",
+          "tick": 4,
+          "health": 100
+        },
+        "E1M4": {
+          "spawn": "d161a569abebe668a4cd9e1d181ef866934fd2fcae6748d5357c42d5f8d42a50",
+          "atFour": "a00e62b0975a47fe774a97471a22779ed38c6bb071b90f2009b63909a7c0acba",
+          "tick": 4,
+          "health": 100
+        },
+        "E1M5": {
+          "spawn": "92bfafb51eb8f0b371118ab510625a88539b77c941e62e8ff22cd8ec8f02fa4c",
+          "atFour": "b15b5c9b4590085e5dc3b69e75c16bffd0f33fe1a9fd76d3ab0a1edb75f062c9",
+          "tick": 4,
+          "health": 100
+        },
+        "E1M6": {
+          "spawn": "1363ce84db3219e51ee7eff83b6416ec6207292fcda1119eeb61fef0f4129db3",
+          "atFour": "48a608450daa086c708ace57a29101b62cafdc69904b9237ad905acce76be4ed",
+          "tick": 4,
+          "health": 100
+        },
+        "E1M7": {
+          "spawn": "a4a82dc10ec658dce6074f3fe4a1806eaf136a19f32dff70d7b8ed0e287c6d43",
+          "atFour": "23d8f8e32273c8d7c74cb60ad3cfca29433228e5dc9ca946cca3019d6d49d8df",
+          "tick": 4,
+          "health": 100
+        },
+        "E1M8": {
+          "spawn": "45e06910fdfe296a8f379efffb857914a8e60225f49ec0819ba79b4adeeb8d91",
+          "atFour": "e44511421eede54c7e2215f6c2e6a0d0ac3b29ad0966d10e2a82e94746e947a2",
+          "tick": 4,
+          "health": 100
+        },
+        "E1M9": {
+          "spawn": "32309872c7cf2625f50841e6e046a5d36fe15206f44002d45b8a64490d125fca",
+          "atFour": "6610ee7d4bc92f8c6be2405f0f08335418c71106799d4bb4036f048803bdfc27",
+          "tick": 4,
+          "health": 100
+        }
+      },
+      "routes": {
+        "Hangar \u00b7 learned route": {
+          "map": "E1M1",
+          "recorded": 978,
+          "health": 48,
+          "shots": 0,
+          "exit": true,
+          "error": null
+        },
+        "Hangar \u00b7 original walking route": {
+          "map": "E1M1",
+          "recorded": 993,
+          "health": 48,
+          "shots": 0,
+          "exit": true,
+          "error": null
+        },
+        "Nuclear Plant \u00b7 armed route": {
+          "map": "E1M2",
+          "recorded": 1017,
+          "health": 73,
+          "shots": 73,
+          "exit": true,
+          "error": null
+        },
+        "Nuclear Plant \u00b7 quiet route": {
+          "map": "E1M2",
+          "recorded": 1013,
+          "health": 82,
+          "shots": 0,
+          "exit": true,
+          "error": null
+        },
+        "Computer Station \u00b7 short exit": {
+          "map": "E1M7",
+          "recorded": 4161,
+          "health": 45,
+          "shots": 93,
+          "exit": true,
+          "error": null
+        },
+        "Military Base \u00b7 two keys": {
+          "map": "E1M9",
+          "recorded": 933,
+          "health": 6,
+          "shots": 0,
+          "exit": false,
+          "error": null
+        }
+      },
+      "title": "Shareware 1.9"
+    },
+    "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d": {
+      "maps": {
+        "E1M1": {
+          "spawn": "40770fef06d15a97488bbec3ca3a4aa186fcd1a69ce19d64babb98222c508b2b",
+          "atFour": "3ec496665904dece58f9ab1c564c9d74d36846aa9264fd0b78eaf0dc1d1f04cb",
+          "tick": 4,
+          "health": 100
+        },
+        "E1M2": {
+          "spawn": "0853bbc58e81d75d68a7f367c36c9d207d744243b917bde7c091d44cef5eba91",
+          "atFour": "67f683a2f74a1821d4bda46f8f05ba4d74ef0edc9028dc8ee26553089d74cc3f",
+          "tick": 4,
+          "health": 100
+        },
+        "E1M3": {
+          "spawn": "ed91aab3f9d5122d2e68e91797461f9612ee1ed5d94e0c05b959c7f66424629c",
+          "atFour": "d8db611db6f5b332a97fa075bfbd1cdcec34b9337aa4cf42ba21a2c1d8e9c64b",
+          "tick": 4,
+          "health": 100
+        },
+        "E1M4": {
+          "spawn": "a6984c04b5491afa68ff9a5cb5130c441df33ffc65f3b14d109d5e2fdbf36e34",
+          "atFour": "8c05ee8f43f8c42a49648ca6a3d9ae28a75bfcf22c3204194e10d747dabd09e8",
+          "tick": 4,
+          "health": 100
+        },
+        "E1M5": {
+          "spawn": "8bab05e38aaa6f5064e34547cef21d945c56344648f5a4fb63a1138b31b519cb",
+          "atFour": "bb370b914830e6794523976dc31a326b2e08976ad570e7c1760a811c188e0b56",
+          "tick": 4,
+          "health": 100
+        },
+        "E1M6": {
+          "spawn": "b30b840e9076d196bf1557c0f9808592a36021f4a0de27026d55fcb6cc313e23",
+          "atFour": "c2c2be4dd15d97e6c8b0b2bd6f79e449f27bdaf1ee623bc57d40b18879d22891",
+          "tick": 4,
+          "health": 100
+        },
+        "E1M7": {
+          "spawn": "95e897cf341721e41b5fa6f5367b18c92b619f0a3218a334ee5d97c16555aee6",
+          "atFour": "1f796c8176b1d15093a625125725bc60e8e9c535b2fd17ca71d60075489f7433",
+          "tick": 4,
+          "health": 100
+        },
+        "E1M8": {
+          "spawn": "2c9fbdddaecaf15cc3de9f1fe0f6cd6fe57f5328bd05c1f7dae274c3b089fe1c",
+          "atFour": "4577450cbbf447ffb922b666a529a6f70a5acaccc531545a1c12e798181a85ad",
+          "tick": 4,
+          "health": 100
+        },
+        "E1M9": {
+          "spawn": "0627acd06624e676f4fc35949a26f1b69d273aa82391769f7fc4ca4461b8bca7",
+          "atFour": "5265f800919538e5dd9af2fa272a3fa682701505fae588ab7e83b03205b570fd",
+          "tick": 4,
+          "health": 100
+        }
+      },
+      "routes": {},
+      "title": "Freedoom Phase 1"
+    }
+  },
+  "browser": {
+    "workerHost": "WMI",
+    "mapAndControl": "E1M1 timeline seek to 978, Export, E1M8 manual step",
+    "recorded": 978,
+    "health": 48,
+    "shots": 0,
+    "exit": true,
+    "browser": "Chromium 147"
+  }
+}

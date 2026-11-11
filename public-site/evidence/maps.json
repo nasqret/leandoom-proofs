@@ -1,0 +1,840 @@
+[
+  {
+    "level": "E1M1",
+    "name": "Hangar",
+    "edition": "CombatV2",
+    "status": "Passage proved",
+    "description": "The 993-input route reaches the exit with all six enemies alive. A second, learned route reaches it in 978 inputs. Both controllers fire zero shots.",
+    "proofs": [
+      {
+        "title": "Passage from the original map",
+        "declaration": "certifiedAuthenticE1M1",
+        "code": "theorem certifiedAuthenticE1M1 : E1M1Passage.authenticPassage := E1M1Passage.from_prefix992 certifiedE1M1Prefix992",
+        "line": 13,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'certifiedAuthenticE1M1' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "edc1cee688edad58f5242a8e54877c4b3eb032940621fe48174b2bdf42109d78",
+        "auditSha256": "a2f38a2d89fc82a189fb9b7cb1ecc108d9bfd55c242540c445496670a77e9c79"
+      },
+      {
+        "title": "Zero shots suffice",
+        "declaration": "certifiedE1M1LeastShots",
+        "code": "theorem certifiedE1M1LeastShots :\n    ∃ m : Map, Map.load (E1M1Parser.asLumps E1M1Parser.pinnedGroup) \"E1M1\" = .ok m ∧\n      E1M1Passage.winningShotTotal m 0 ∧\n        (∀ b : Nat, (∀ n, E1M1Passage.winningShotTotal m n → b ≤ n) ↔ b = 0) :=\n  E1M1Passage.parsed_least_shots certifiedAuthenticE1M1",
+        "line": 10,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'certifiedE1M1LeastShots' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "b61ac780f302b1f266e6515ffd87f4b84bfa77fd4e78b51053ff5a3634af72aa",
+        "auditSha256": "91eee8e4b787476c8c6a2e3ce13b461666e2f6a85ac9d53eca83ff59543743db"
+      },
+      {
+        "title": "The 978-input passage",
+        "declaration": "certifiedLearnedHangar",
+        "code": "theorem certifiedLearnedHangar :\n    HangarShortcut.SafeFirstExit learnedInputs 978 ∧\n    run step e1m1TreeSpawn learnedInputs = E1M1Learned978.endpoint := by\n  have opening : Segment e1m1TreeSpawn learnedBeforeExit E1M1Learned977.endpoint :=\n    HangarShortcut.join learnedOpening966 learnedMiddleSegment\n  exact HangarShortcut.finishWithEndpoint learnedBeforeExit 977 _ _ 4096 opening learnedBeforeExitLength\n    learnedControls learnedSafeExit977.2.2 learnedEdge978 learnedSafeExit978.2.2\n    learnedSafeExit978.1 learnedSafeExit978.2.1",
+        "line": 11,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'certifiedLearnedHangar' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "64ca39da20d67601eadcdf4fc3ba84c59355e25a7e90b42c58b39d1774e02f3e",
+        "auditSha256": "6a40fa10d1c2fc0cc3ef572ea836a7b36d0363115d93d6a5b2d9b2123ee0d1e8"
+      }
+    ]
+  },
+  {
+    "level": "E1M2",
+    "name": "Nuclear Plant",
+    "edition": "CombatV2",
+    "status": "Passage proved",
+    "description": "The 1,017-input controller reaches the first exit with 73 health. Look inside the collision, combat and lift interactions at their actual game ticks.",
+    "proofs": [
+      {
+        "title": "Passage from the original map",
+        "declaration": "NuclearFullPassage.certifiedAuthenticE1M2",
+        "code": "theorem certifiedAuthenticE1M2 : CheckedReplay.Passage group \"E1M2\" E1M2Winner.inputs :=\n  passageFrom checked1017",
+        "line": 11,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'NuclearFullPassage.certifiedAuthenticE1M2' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "23a35a9d98092916903e18450b27cfdff490c9e5dc7987c1fa217b2e184e3562",
+        "auditSha256": "a3884122b9a96dd3b76b98b401415039e85c6be6339474092b431d7c5a676cb2"
+      },
+      {
+        "title": "Alive at every prefix before the exit",
+        "declaration": "NuclearFullPassage.safeFirstExit",
+        "code": "theorem safeFirstExit :\n    (∀ j, j ≤ 1017 → combatSafe (run CheckedReplay.step initial (E1M2Winner.inputs.take j))) ∧\n    (∀ j, (run CheckedReplay.step initial (E1M2Winner.inputs.take j)).exitRequested = decide (1017 ≤ j)) :=\n  exactPrefixes certifiedAuthenticE1M2",
+        "line": 15,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'NuclearFullPassage.safeFirstExit' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "23a35a9d98092916903e18450b27cfdff490c9e5dc7987c1fa217b2e184e3562",
+        "auditSha256": "a3884122b9a96dd3b76b98b401415039e85c6be6339474092b431d7c5a676cb2"
+      }
+    ]
+  },
+  {
+    "level": "E1M3",
+    "name": "Toxin Refinery",
+    "edition": "CombatV2",
+    "status": "Local theorems",
+    "description": "The exit platform rises by 88, 128 and 128 units at its three approaches. From a specified viewpoint the Use ray finds normal exit line 982. At secret exit line 785 the dispatcher reports special 51 as unsupported. The route to either panel remains open.",
+    "proofs": [
+      {
+        "title": "Survey the three platform entries",
+        "declaration": "Campaign.E1M3.allEntryRises",
+        "code": "theorem allEntryRises :\n    measuredEntries levelMap = [some 88, some 128, some 128] := by\n  rw [measuredMapFloors, platformRises]\n  rfl",
+        "line": 29,
+        "axioms": [
+          "propext",
+          "Quot.sound"
+        ],
+        "auditText": "'Campaign.E1M3.allEntryRises' depends on axioms: [propext, Quot.sound]",
+        "sourceSha256": "96c54b2755f046b957b9b110f8b3b4606a78aeedc4382a9920b8ca31c62476dd",
+        "auditSha256": "e853c24c3c5b0cd9641038132eebc7f0429d6932116646db1bf398864c0c56fe"
+      },
+      {
+        "title": "Read the original staircase callback",
+        "declaration": "Campaign.E1M3.parsedStairCallback",
+        "code": "theorem parsedStairCallback (ts : Array FloorMover.Thinker) (busy : Array Nat)\n    (player missile : Bool) :\n    (do\n      let m ← Doom.Map.load group \"E1M3\"\n      FloorMover.cross m ts busy 967 player missile) =\n      .ok (⟨levelMap, ts, #[]⟩ : FloorMover.SpawnResult) := by\n  rw [map_loaded]\n  exact crossingType8 levelMap 967 _ stairLine rfl ts busy player missile",
+        "line": 20,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'Campaign.E1M3.parsedStairCallback' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "a6f314a86400e62732b18022cc51afafe550f2c3e15ebe5bcdd341d8d01ee0ca",
+        "auditSha256": "d814a81badf436bf81380028bfc28a07dd33659973b09f7214e03219d4f2ceaf"
+      },
+      {
+        "title": "The ordinary start follows from the parsed map",
+        "declaration": "LeanDoomProofs.E1M3.loaded_spawn",
+        "code": "theorem loaded_spawn :\n    (Map.load group \"E1M3\").bind (fun m => Simulation.spawn m true 1) = .ok initial :=\n  bind_success _ _ levelMap initial map_loaded spawn_checked",
+        "line": 14,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'LeanDoomProofs.E1M3.loaded_spawn' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "984d6a781b9f9e3ff6bc2cee614157650e85605195088980689b66871ee53127",
+        "auditSha256": "8f13aa038f29c24f7e6ab7e936a0d3c6e9e15690836e60e5b1e58923f0cf97ef"
+      },
+      {
+        "title": "The Use ray finds line 982 from the specified viewpoint",
+        "declaration": "Campaign.Panels.E1M3.spawnRay982",
+        "code": "theorem spawnRay982 : ((Map.load group \"E1M3\").bind (fun m => Simulation.spawn m true 1)).bind (fun s => sightline s (704) (-1740) 3221225472) = .ok (.special 982 false) :=\n  bind_ok _ _ initial _ loaded_spawn ray982",
+        "line": 27,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'Campaign.Panels.E1M3.spawnRay982' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "8477f15a0922f4124d49e8f3f5e742c8668394644b9b679d9baabc8c8c3baa36",
+        "auditSha256": "9eb9db31ef58419f3a18ff85905ac55efa67d1bb5f2896103ea36a8a759162ac"
+      },
+      {
+        "title": "The dispatcher requests the normal exit",
+        "declaration": "Campaign.Panels.E1M3.spawnActivation982",
+        "code": "theorem spawnActivation982 : ((Map.load group \"E1M3\").bind (fun m => Simulation.spawn m true 1)).map (fun s => activateAt s 982) = .ok (true, true, \"Exit requested — intermission is not implemented yet\") :=\n  map_ok _ _ initial _ loaded_spawn dispatched982",
+        "line": 30,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'Campaign.Panels.E1M3.spawnActivation982' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "8477f15a0922f4124d49e8f3f5e742c8668394644b9b679d9baabc8c8c3baa36",
+        "auditSha256": "9eb9db31ef58419f3a18ff85905ac55efa67d1bb5f2896103ea36a8a759162ac"
+      },
+      {
+        "title": "The switch changes its wall texture",
+        "declaration": "Campaign.Panels.E1M3.parsedFeedback982",
+        "code": "theorem parsedFeedback982 : (Map.load group \"E1M3\").map (fun m => feedback m 982) = .ok (true, 0, \"SW2COMP\", true) :=\n  map_ok _ _ levelMap _ map_loaded feedback982",
+        "line": 24,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'Campaign.Panels.E1M3.parsedFeedback982' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "8477f15a0922f4124d49e8f3f5e742c8668394644b9b679d9baabc8c8c3baa36",
+        "auditSha256": "9eb9db31ef58419f3a18ff85905ac55efa67d1bb5f2896103ea36a8a759162ac"
+      },
+      {
+        "title": "The Use ray finds line 785 from the specified viewpoint",
+        "declaration": "Campaign.Panels.E1M3.spawnRay785",
+        "code": "theorem spawnRay785 : ((Map.load group \"E1M3\").bind (fun m => Simulation.spawn m true 1)).bind (fun s => sightline s (-1088) (-1516) 3221225472) = .ok (.special 785 false) :=\n  bind_ok _ _ initial _ loaded_spawn ray785",
+        "line": 18,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'Campaign.Panels.E1M3.spawnRay785' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "8477f15a0922f4124d49e8f3f5e742c8668394644b9b679d9baabc8c8c3baa36",
+        "auditSha256": "9eb9db31ef58419f3a18ff85905ac55efa67d1bb5f2896103ea36a8a759162ac"
+      },
+      {
+        "title": "The dispatcher reports the unsupported secret exit",
+        "declaration": "Campaign.Panels.E1M3.spawnActivation785",
+        "code": "theorem spawnActivation785 : ((Map.load group \"E1M3\").bind (fun m => Simulation.spawn m true 1)).map (fun s => activateAt s 785) = .ok (false, false, \"Linedef special 51 is not implemented yet\") :=\n  map_ok _ _ initial _ loaded_spawn dispatched785",
+        "line": 21,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'Campaign.Panels.E1M3.spawnActivation785' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "8477f15a0922f4124d49e8f3f5e742c8668394644b9b679d9baabc8c8c3baa36",
+        "auditSha256": "9eb9db31ef58419f3a18ff85905ac55efa67d1bb5f2896103ea36a8a759162ac"
+      },
+      {
+        "title": "The secret switch keeps its original texture",
+        "declaration": "Campaign.Panels.E1M3.parsedFeedback785",
+        "code": "theorem parsedFeedback785 : (Map.load group \"E1M3\").map (fun m => feedback m 785) = .ok (false, 51, \"SW1BRCOM\", false) :=\n  map_ok _ _ levelMap _ map_loaded feedback785",
+        "line": 15,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'Campaign.Panels.E1M3.parsedFeedback785' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "8477f15a0922f4124d49e8f3f5e742c8668394644b9b679d9baabc8c8c3baa36",
+        "auditSha256": "9eb9db31ef58419f3a18ff85905ac55efa67d1bb5f2896103ea36a8a759162ac"
+      }
+    ]
+  },
+  {
+    "level": "E1M4",
+    "name": "Command Control",
+    "edition": "CombatV2",
+    "status": "Local theorems",
+    "description": "From the viewpoint (−1580, 1888), looking west, the Use ray finds line 554. Lean checks the normal exit dispatcher and the switch changing from SW1DIRT to SW2DIRT. Reaching this viewpoint from the ordinary start remains open.",
+    "proofs": [
+      {
+        "title": "The ordinary start follows from the parsed map",
+        "declaration": "LeanDoomProofs.E1M4.loaded_spawn",
+        "code": "theorem loaded_spawn :\n    (Map.load group \"E1M4\").bind (fun m => Simulation.spawn m true 1) = .ok initial :=\n  bind_success _ _ levelMap initial map_loaded spawn_checked",
+        "line": 14,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'LeanDoomProofs.E1M4.loaded_spawn' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "95b08de3607cec52cf3020d0df33edd18d1f64d3b1f31b349d4a95a9d68628a3",
+        "auditSha256": "51af11b6bee27c7ac9f1f138ac85cd3add08ae97bdf5455e32cf41d5b8603810"
+      },
+      {
+        "title": "The Use ray finds line 554 from the specified viewpoint",
+        "declaration": "Campaign.Panels.E1M4.spawnRay554",
+        "code": "theorem spawnRay554 : ((Map.load group \"E1M4\").bind (fun m => Simulation.spawn m true 1)).bind (fun s => sightline s (-1580) (1888) 2147483648) = .ok (.special 554 false) :=\n  bind_ok _ _ initial _ loaded_spawn ray554",
+        "line": 18,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'Campaign.Panels.E1M4.spawnRay554' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "f32f693d530848edfc32c894e565644e8a4ec538a38822b0703263c5f46fcf62",
+        "auditSha256": "7c1f9c34e96f98432c8d5881fabc51f8130f2d82065958e2972f33287ab5fa8a"
+      },
+      {
+        "title": "The dispatcher requests the normal exit",
+        "declaration": "Campaign.Panels.E1M4.spawnActivation554",
+        "code": "theorem spawnActivation554 : ((Map.load group \"E1M4\").bind (fun m => Simulation.spawn m true 1)).map (fun s => activateAt s 554) = .ok (true, true, \"Exit requested — intermission is not implemented yet\") :=\n  map_ok _ _ initial _ loaded_spawn dispatched554",
+        "line": 21,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'Campaign.Panels.E1M4.spawnActivation554' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "f32f693d530848edfc32c894e565644e8a4ec538a38822b0703263c5f46fcf62",
+        "auditSha256": "7c1f9c34e96f98432c8d5881fabc51f8130f2d82065958e2972f33287ab5fa8a"
+      },
+      {
+        "title": "The switch changes its wall texture",
+        "declaration": "Campaign.Panels.E1M4.parsedFeedback554",
+        "code": "theorem parsedFeedback554 : (Map.load group \"E1M4\").map (fun m => feedback m 554) = .ok (true, 0, \"SW2DIRT\", true) :=\n  map_ok _ _ levelMap _ map_loaded feedback554",
+        "line": 15,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'Campaign.Panels.E1M4.parsedFeedback554' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "f32f693d530848edfc32c894e565644e8a4ec538a38822b0703263c5f46fcf62",
+        "auditSha256": "7c1f9c34e96f98432c8d5881fabc51f8130f2d82065958e2972f33287ab5fa8a"
+      }
+    ]
+  },
+  {
+    "level": "E1M5",
+    "name": "Phobos Lab",
+    "edition": "CombatV2",
+    "status": "Local theorems",
+    "description": "Lean parses the original map and constructs its ordinary start. A 64-unit Use ray from a specified viewpoint reaches line 409. The normal exit dispatcher requests completion, and the panel changes its wall texture. Passage to this viewpoint remains open.",
+    "proofs": [
+      {
+        "title": "The ordinary start follows from the parsed map",
+        "declaration": "LeanDoomProofs.E1M5.loaded_spawn",
+        "code": "theorem loaded_spawn :\n    (Map.load group \"E1M5\").bind (fun m => Simulation.spawn m true 1) = .ok initial :=\n  bind_success _ _ levelMap initial map_loaded spawn_checked",
+        "line": 14,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'LeanDoomProofs.E1M5.loaded_spawn' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "3b35c5993e604ee9de27deae2c0b69b80319b878b42ebb615eeffab5db3abbd5",
+        "auditSha256": "94d806e009b14d6c6e1edd261ee6b0e38bc670462d9b30a9f82b5d82c01c093b"
+      },
+      {
+        "title": "The Use ray finds line 409 from the specified viewpoint",
+        "declaration": "Campaign.Panels.E1M5.spawnRay409",
+        "code": "theorem spawnRay409 : ((Map.load group \"E1M5\").bind (fun m => Simulation.spawn m true 1)).bind (fun s => sightline s (-288) (2476) 1073741824) = .ok (.special 409 false) :=\n  bind_ok _ _ initial _ loaded_spawn ray409",
+        "line": 18,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'Campaign.Panels.E1M5.spawnRay409' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "414b51df196bea0c251f8b5dc5c4bc1ac3d91cc233e3de06d7f76673f3d2a7b9",
+        "auditSha256": "16e2e30aed696d2ed2859762b0b5a4cfeba1f0e857a3506e8214b00a0d8f2b5e"
+      },
+      {
+        "title": "The dispatcher requests the normal exit",
+        "declaration": "Campaign.Panels.E1M5.spawnActivation409",
+        "code": "theorem spawnActivation409 : ((Map.load group \"E1M5\").bind (fun m => Simulation.spawn m true 1)).map (fun s => activateAt s 409) = .ok (true, true, \"Exit requested — intermission is not implemented yet\") :=\n  map_ok _ _ initial _ loaded_spawn dispatched409",
+        "line": 21,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'Campaign.Panels.E1M5.spawnActivation409' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "414b51df196bea0c251f8b5dc5c4bc1ac3d91cc233e3de06d7f76673f3d2a7b9",
+        "auditSha256": "16e2e30aed696d2ed2859762b0b5a4cfeba1f0e857a3506e8214b00a0d8f2b5e"
+      },
+      {
+        "title": "The switch changes its wall texture",
+        "declaration": "Campaign.Panels.E1M5.parsedFeedback409",
+        "code": "theorem parsedFeedback409 : (Map.load group \"E1M5\").map (fun m => feedback m 409) = .ok (true, 0, \"SW2STON1\", true) :=\n  map_ok _ _ levelMap _ map_loaded feedback409",
+        "line": 15,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'Campaign.Panels.E1M5.parsedFeedback409' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "414b51df196bea0c251f8b5dc5c4bc1ac3d91cc233e3de06d7f76673f3d2a7b9",
+        "auditSha256": "16e2e30aed696d2ed2859762b0b5a4cfeba1f0e857a3506e8214b00a0d8f2b5e"
+      }
+    ]
+  },
+  {
+    "level": "E1M6",
+    "name": "Central Processing",
+    "edition": "CombatV2",
+    "status": "Local theorems",
+    "description": "A 2,585-input native prefix collects all three keys and operates two switches. Lean locates three Spectres between the exit hallway walls and checks the normal exit at line 627 from a specified viewpoint. Passage from spawn remains open.",
+    "proofs": [
+      {
+        "title": "Locate the three blockers on the parsed map",
+        "declaration": "Campaign.E1M6.parsedObstructions",
+        "code": "theorem parsedObstructions :\n    (do\n      let m ← Doom.Map.load group \"E1M6\"\n      pure (spectres m, walls m)) = Except.ok\n        ([(-2080,1792,58,true),(-2016,1760,58,true),(-1952,1792,58,true)],\n         [(-2112,1664,-2112,1856,65535),(-1920,1856,-1920,1664,65535)]) := by\n  rw [map_loaded]\n  exact congrArg Except.ok concreteObstructions",
+        "line": 7,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'Campaign.E1M6.parsedObstructions' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "a2fcdf20f65518776718060fbb0db59a0379fa57c0e9ebd3bf2a1caee152e676",
+        "auditSha256": "768a8d79bfa1d57cff7c7d4fd2b0ef0f917e2da737a99855d063d3b7cc6fa2e4"
+      },
+      {
+        "title": "The ordinary start follows from the parsed map",
+        "declaration": "LeanDoomProofs.E1M6.loaded_spawn",
+        "code": "theorem loaded_spawn :\n    (Map.load group \"E1M6\").bind (fun m => Simulation.spawn m true 1) = .ok initial :=\n  bind_success _ _ levelMap initial map_loaded spawn_checked",
+        "line": 14,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'LeanDoomProofs.E1M6.loaded_spawn' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "5c4a09c05c3af69871d27968bc474bb2f4a92e4144196de169ef152f24983901",
+        "auditSha256": "c9c414f7497c5a143fc4b6c1b1922be23492928c00c3f08c47e4510e1639ca13"
+      },
+      {
+        "title": "The Use ray finds line 627 from the specified viewpoint",
+        "declaration": "Campaign.Panels.E1M6.spawnRay627",
+        "code": "theorem spawnRay627 : ((Map.load group \"E1M6\").bind (fun m => Simulation.spawn m true 1)).bind (fun s => sightline s (-1908) (2016) 0) = .ok (.special 627 false) :=\n  bind_ok _ _ initial _ loaded_spawn ray627",
+        "line": 18,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'Campaign.Panels.E1M6.spawnRay627' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "bed4c34ed48d1ee1740f9c8ec6979f14100687ff516c2bbfd6ec5efd76a93f51",
+        "auditSha256": "4f5325a2acd1308802686317d84de0b1008686959f2f0f6b12d1cbba3c79fbf2"
+      },
+      {
+        "title": "The dispatcher requests the normal exit",
+        "declaration": "Campaign.Panels.E1M6.spawnActivation627",
+        "code": "theorem spawnActivation627 : ((Map.load group \"E1M6\").bind (fun m => Simulation.spawn m true 1)).map (fun s => activateAt s 627) = .ok (true, true, \"Exit requested — intermission is not implemented yet\") :=\n  map_ok _ _ initial _ loaded_spawn dispatched627",
+        "line": 21,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'Campaign.Panels.E1M6.spawnActivation627' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "bed4c34ed48d1ee1740f9c8ec6979f14100687ff516c2bbfd6ec5efd76a93f51",
+        "auditSha256": "4f5325a2acd1308802686317d84de0b1008686959f2f0f6b12d1cbba3c79fbf2"
+      },
+      {
+        "title": "The switch changes its wall texture",
+        "declaration": "Campaign.Panels.E1M6.parsedFeedback627",
+        "code": "theorem parsedFeedback627 : (Map.load group \"E1M6\").map (fun m => feedback m 627) = .ok (true, 0, \"SW2COMP\", true) :=\n  map_ok _ _ levelMap _ map_loaded feedback627",
+        "line": 15,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'Campaign.Panels.E1M6.parsedFeedback627' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "bed4c34ed48d1ee1740f9c8ec6979f14100687ff516c2bbfd6ec5efd76a93f51",
+        "auditSha256": "4f5325a2acd1308802686317d84de0b1008686959f2f0f6b12d1cbba3c79fbf2"
+      }
+    ]
+  },
+  {
+    "level": "E1M7",
+    "name": "Computer Station",
+    "edition": "CombatV2",
+    "status": "Native win",
+    "description": "The first movement attempt collects a clip, raising 50 bullets to 60. Lean proves the move succeeds and relinks the player in sector 60 and blockmap cell 846 with zero special-line crossings. The 4,161- and 4,209-input native wins share their first 4,140 inputs. Full passage remains open.",
+    "proofs": [
+      {
+        "title": "Does the engine accept the first move?",
+        "declaration": "StationOpening.firstTryMove",
+        "code": "theorem firstTryMove (lights : Option SectorLights.World)\n    (cross : Scene → Crossing → Except String Scene) :\n    (working collector lights).tryMove 0 query.x query.y s0.map.sectorAt cross =\n      .ok ⟨linkedScene lights,⟨true,true⟩,firstPosition,#[]⟩ := by\n  doom_kernel_exact tryMove_of_clear (working collector lights) 0 query.x query.y s0.map.sectorAt cross\n    movingActor 60 destinationHeights firstPosition (clipScene lights) (freeScene lights) (linkedScene lights)\n    (workingRead lights) destinationSector (sectorHeights lights) (firstContactState lights)\n    movingDecision (firstUnlink lights) (firstRelink lights) (Eq.refl 0)",
+        "line": 70,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'StationOpening.firstTryMove' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "8c553f33ddd6248b7c3ab3d53ca8682903c92d98c0cdc7a0299fb5ecec388a19",
+        "auditSha256": "2d8f7068f509ac57bbd3f3e3d39fb30143ff694cdc4b6a69c9b11e5f2d266322"
+      },
+      {
+        "title": "Why does the first movement collect a clip?",
+        "declaration": "StationOpening.fromSynchronizedSpawn",
+        "code": "theorem fromSynchronizedSpawn (lights : Option SectorLights.World) :\n    s0.player.inventory.bullets = 50 ∧ (synchronizedContact lights).map report =\n      .ok (firstPosition, (60, #[43], #[true])) := ⟨rfl, observed lights⟩",
+        "line": 92,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'StationOpening.fromSynchronizedSpawn' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "1c043ca05ef96c8225419ab150329f7a6d6648bfff062b0954c42ff787057c3a",
+        "auditSha256": "bb58aeb06885de0bb7ec9e8be3167500408dcffdb96b53eea57eb8a3ea8af1d8"
+      },
+      {
+        "title": "Identify the complete scene after the synchronized collision",
+        "declaration": "StationOpening.fromSynchronizedSpawnState",
+        "code": "theorem fromSynchronizedSpawnState (lights : Option SectorLights.World) :\n    synchronizedContact lights = .ok (clipScene lights, firstPosition) := by\n  doom_kernel_exact bindSeed (s0.player.syncScene s0.map) (contactFrom lights) cached\n    (.ok (clipScene lights, firstPosition)) openingSynced ((fromCache lights).trans (targetState lights))",
+        "line": 112,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'StationOpening.fromSynchronizedSpawnState' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "1c043ca05ef96c8225419ab150329f7a6d6648bfff062b0954c42ff787057c3a",
+        "auditSha256": "bb58aeb06885de0bb7ec9e8be3167500408dcffdb96b53eea57eb8a3ea8af1d8"
+      },
+      {
+        "title": "How does the first clip enter the inventory?",
+        "declaration": "StationOpening.openingPickup",
+        "code": "theorem openingPickup (lights : Option SectorLights.World) :\n    s0.inventory.bullets = 50 ∧ (targetTest collector lights).map report =\n      .ok (firstPosition, (60, #[43], #[true])) := by\n  refine ⟨by rfl, ?_⟩\n  unfold targetTest\n  rw [destinationSector]\n  simp only [Bind.bind, Except.bind]\n  rw [sectorHeights]\n  exact firstContact lights",
+        "line": 33,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'StationOpening.openingPickup' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "3769cad6ab7a80e264819b4f53f5e62609d239c81ac481770ad7377938ed1b1c",
+        "auditSha256": "5e6faf81be0d8ee66bfec99676530a5921a3d8aac83ddf6a77f1857d7237429c"
+      },
+      {
+        "title": "Recover the entire scene after clip contact",
+        "declaration": "StationOpening.firstContactState",
+        "code": "theorem firstContactState (lights : Option SectorLights.World) :\n    (working collector lights).checkPositionWithEffects query destinationHeights =\n      .ok (clipScene lights, firstPosition) := by combatV2_certify",
+        "line": 25,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'StationOpening.firstContactState' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "d75bc6da0d1f3ae266db12ff53918e120f1213adce177b07866a68d2293b6f28",
+        "auditSha256": "1137355225184d97aec1bfeb2d6547beb006ece4a3e0b2fda1afb45d1a1645fd"
+      },
+      {
+        "title": "Synchronize the scene at the ordinary spawn",
+        "declaration": "LeanDoomProofs.StationSync.openingSync",
+        "code": "theorem openingSync : e1m7TreeSpawn.player.syncScene e1m7TreeSpawn.map = .ok E1M7Tree.d2567 :=\n  syncAtStart _ rfl rfl",
+        "line": 154,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'LeanDoomProofs.StationSync.openingSync' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "5dc550b6ba706b1d97febfff9c0e753ebeb4d223e6ec9835ed57d69695bd51eb",
+        "auditSha256": "9daaebd6c9553f3987b1322e011ef784651c33c56069ea6535a7d3fd278bab37"
+      },
+      {
+        "title": "The two recordings agree on 4,140 inputs",
+        "declaration": "RecordedForkE1M7.common",
+        "code": "theorem common : first.take 4140 = second.take 4140 := by decide +kernel",
+        "line": 360,
+        "axioms": [],
+        "auditText": "'RecordedForkE1M7.common' does not depend on any axioms",
+        "sourceSha256": "d33586cf5770e7fe185e23d5804ff07c704d8e3fd755fe70d21be629fb1c52ed",
+        "auditSha256": "9589acd82e4a3806a75532eb59128bf1a6dae146758535699a95972cf37516a6"
+      },
+      {
+        "title": "The final Use ray reaches the front of line 810 in the quoted state",
+        "declaration": "Campaign.E1M7.ShortExit.cachedRay",
+        "code": "theorem cachedRay :\n    (s4160.player.scene.map rayResult) = some (.ok (.special 810 false, #[810])) := by\n  rw [cachedScene]\n  exact congrArg some directRay",
+        "line": 28,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'Campaign.E1M7.ShortExit.cachedRay' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "6b1c60efd9203f5de637d636b724f59cbd04a8b9d73a2aa4bd7c6583124eca97",
+        "auditSha256": "21081026028a35fde14f2c50e261d355889ab1e9b5f1449864e46783a06dce6e"
+      },
+      {
+        "title": "The ordinary start follows from the parsed map",
+        "declaration": "LeanDoomProofs.E1M7.loaded_spawn",
+        "code": "theorem loaded_spawn :\n    (Map.load group \"E1M7\").bind (fun m => Simulation.spawn m true 1) = .ok initial :=\n  bind_success _ _ levelMap initial map_loaded spawn_checked",
+        "line": 14,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'LeanDoomProofs.E1M7.loaded_spawn' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "0c55b1bd5d98aa972f7c74794ee35d75c129a144eaa5ee85d1ecfe089418cf09",
+        "auditSha256": "4e74a98bafc917851ff7903cdc60f1a745096c71937dcf7f781fbf9d62ec9895"
+      }
+    ]
+  },
+  {
+    "level": "E1M8",
+    "name": "Phobos Anomaly",
+    "edition": "CombatV2",
+    "status": "Local theorems",
+    "description": "Sector 66 contains the teleport destination. Lean proves that no sector-adjacency walk reaches it from start sector 9. At the ordinary start, activating any of the 333 linedefs leaves the exit flag clear. In an initially mover-free world every sequence of crossing callbacks leaves that world unchanged. Full gameplay reachability remains open.",
+    "proofs": [
+      {
+        "title": "Why is the finale disconnected from the start?",
+        "declaration": "Campaign.Anomaly.parsedFinale",
+        "code": "theorem parsedFinale (m : Doom.Map) (loaded : Map.load group \"E1M8\" = .ok m) :\n    site m 0 = some (1, -128, -224, 9) ∧ site m 105 = some (14, 608, 6464, 66) ∧\n    ¬ SectorWalk m 9 66 ∧\n    ∀ (w : SectorLights.World), w.map = m → w.movers = #[] →\n       ∀ events, crosses w events = .ok w := by\n  rw [map_loaded] at loaded\n  cases loaded\n  exact ⟨sitesAndTriggers.1, sitesAndTriggers.2.1, sectorWalkCannotReachFinale, everyCrossingSequence⟩",
+        "line": 63,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'Campaign.Anomaly.parsedFinale' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "5df80560c83e36e86d31c30d8c81f3a9be9a73b40e787cfe8a3dd5d7e5450ee8",
+        "auditSha256": "074e14d126111e1d81843b6c9e54c9cd74ab3080bb19222146c7c4219f1ac4ae"
+      },
+      {
+        "title": "Can any of the 333 Use targets exit from the initial state?",
+        "declaration": "Campaign.Anomaly.parsedInitialUseTargets",
+        "code": "theorem parsedInitialUseTargets (s : Simulation)\n    (started : (Map.load group \"E1M8\").bind (fun m => Simulation.spawn m true 1) = .ok s) :\n    s.map.lines.size = 333 ∧ ∀ i : Fin 333, (activateImported s i.val).exitRequested = false := by\n  rw [loaded_spawn] at started\n  cases started\n  exact ⟨by decide +kernel, everyInitialUseTarget⟩",
+        "line": 17,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'Campaign.Anomaly.parsedInitialUseTargets' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "112d67af4fec6210a0032d131e8006b8752630f11e3763c762dbfe7a70189c9f",
+        "auditSha256": "236e58b5f640f85429bce0725b06225915a57b82dc98e4fd32e362b496f8896d"
+      },
+      {
+        "title": "What does contact with the finale floor do?",
+        "declaration": "Campaign.Anomaly.sectorElevenContact",
+        "code": "theorem sectorElevenContact (s : Simulation) (k : Nat) (sec : Sector)\n    (atSector : s.map.sectorAt s.player.body.x s.player.body.y = .ok k)\n    (atIndex : s.map.sectors[k]! = sec) (code : sec.special = 11) :\n    (sectorContact s).map (fun t => (t.exitRequested, t.inventory.health, t.secrets)) =\n      .ok (s.exitRequested, s.inventory.health, s.secrets) := by\n  unfold sectorContact\n  change ((do\n    let i ← s.map.sectorAt s.player.body.x s.player.body.y\n    let sector := s.map.sectors[i]!\n    let (tag, count) := LevelSpecials.secret sector.special s.player.body.z (Fixed.ofInt sector.floor) s.secrets\n    pure ({ s with secrets := count, map := { s.map with sectors := s.map.sectors.set! i {sector with special := tag} } } : Simulation)\n    ) : Except String Simulation).map _ = _\n  rw [atSector]\n  simp [bind, Except.bind, Except.map, atIndex, code, LevelSpecials.secret] <;> rfl",
+        "line": 54,
+        "axioms": [
+          "propext",
+          "Quot.sound"
+        ],
+        "auditText": "'Campaign.Anomaly.sectorElevenContact' depends on axioms: [propext, Quot.sound]",
+        "sourceSha256": "bff95b60015d3f1d173ec2d57de90f1c9c46e93613c7ce660e641c4fce7c1325",
+        "auditSha256": "074e14d126111e1d81843b6c9e54c9cd74ab3080bb19222146c7c4219f1ac4ae"
+      },
+      {
+        "title": "Compare the initialized actors to the two original Baron placements",
+        "declaration": "Campaign.Panels.E1M8.spawnedBossRoster",
+        "code": "theorem spawnedBossRoster : ((Map.load group \"E1M8\").bind (fun m => Simulation.spawn m true 1)).map bossRoster = .ok (53,0) :=\n  map_ok _ _ initial _ loaded_spawn initialRoster",
+        "line": 18,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'Campaign.Panels.E1M8.spawnedBossRoster' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "48e8fef76a46d84299b58e1028b5e3b8b66711a956d95af2ef6997b528111c49",
+        "auditSha256": "803fc1dda8e2faf9d7198453fa32910e58bec7d2fdcd5f08543ea659faa205a4"
+      },
+      {
+        "title": "Locate sector 66 and both Baron THINGS records",
+        "declaration": "Campaign.Panels.E1M8.parsedFinale",
+        "code": "theorem parsedFinale : (Map.load group \"E1M8\").map finalePlacement = .ok ([66],[58,59]) :=\n  map_ok _ _ levelMap _ map_loaded finaleRecords",
+        "line": 15,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'Campaign.Panels.E1M8.parsedFinale' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "48e8fef76a46d84299b58e1028b5e3b8b66711a956d95af2ef6997b528111c49",
+        "auditSha256": "803fc1dda8e2faf9d7198453fa32910e58bec7d2fdcd5f08543ea659faa205a4"
+      },
+      {
+        "title": "Enumerate the exit linedefs",
+        "declaration": "Campaign.Panels.E1M8.parsedInventory",
+        "code": "theorem parsedInventory : (Map.load group \"E1M8\").map exitLines = .ok [] :=\n  map_ok _ _ levelMap _ map_loaded inventory",
+        "line": 12,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'Campaign.Panels.E1M8.parsedInventory' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "48e8fef76a46d84299b58e1028b5e3b8b66711a956d95af2ef6997b528111c49",
+        "auditSha256": "803fc1dda8e2faf9d7198453fa32910e58bec7d2fdcd5f08543ea659faa205a4"
+      },
+      {
+        "title": "The ordinary start follows from the parsed map",
+        "declaration": "LeanDoomProofs.E1M8.loaded_spawn",
+        "code": "theorem loaded_spawn :\n    (Map.load group \"E1M8\").bind (fun m => Simulation.spawn m true 1) = .ok initial :=\n  bind_success _ _ levelMap initial map_loaded spawn_checked",
+        "line": 14,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'LeanDoomProofs.E1M8.loaded_spawn' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "2eda6d1bf91c2ea78d6f470c88367409c9034c789854ad38d72e6b58b0a29ef6",
+        "auditSha256": "70d40470cb03ab0dcb5e4b80c5417aec4bec4e375ba471dbc22acff27d97f8fb"
+      }
+    ]
+  },
+  {
+    "level": "E1M9",
+    "name": "Military Base",
+    "edition": "CombatV2",
+    "status": "Local theorems",
+    "description": "Lean counts 23 Use inputs and zero Attack inputs on the 933-input tape. In the game it collects yellow at 126 and red at 933. A longer native replay reaches switch 362 on input 1,441 with two health. Lean also checks exit line 551 from a specified viewpoint. Full passage remains open.",
+    "proofs": [
+      {
+        "title": "Count the action buttons in the two-key run",
+        "declaration": "Campaign.MilitaryBase.tapeControls",
+        "code": "theorem tapeControls :\n    inputs.length = 933 ∧\n    inputs.all ordinaryCombatInput = true ∧\n    inputs.all (fun k => !keyDown k 1024 && !keyDown k 8192) = true ∧\n    (inputs.filter (fun k => keyDown k 4096)).length = 23 := by\n  decide +kernel",
+        "line": 58,
+        "axioms": [
+          "propext",
+          "Quot.sound"
+        ],
+        "auditText": "'Campaign.MilitaryBase.tapeControls' depends on axioms: [propext, Quot.sound]",
+        "sourceSha256": "695a4868fa1385581f00c8aaaa7d58df9c31b5c110900a14d0f1502cfb207386",
+        "auditSha256": "dafef19c2b6965c3f4d5b4d258c9203d732e7cc08e1926a705a1842b9b7b0739"
+      },
+      {
+        "title": "The ordinary start follows from the parsed map",
+        "declaration": "LeanDoomProofs.E1M9.loaded_spawn",
+        "code": "theorem loaded_spawn :\n    (Map.load group \"E1M9\").bind (fun m => Simulation.spawn m true 1) = .ok initial :=\n  bind_success _ _ levelMap initial map_loaded spawn_checked",
+        "line": 14,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'LeanDoomProofs.E1M9.loaded_spawn' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "6c964d0d0749c2e8af0aeefda03414d0d4097b56eeeeed18d28498e7529ad265",
+        "auditSha256": "8811533201be177d39a78dcbf2b3c0f94e0f11705167412400d5ee09adaada5a"
+      },
+      {
+        "title": "The Use ray finds line 551 from the specified viewpoint",
+        "declaration": "Campaign.Panels.E1M9.spawnRay551",
+        "code": "theorem spawnRay551 : ((Map.load group \"E1M9\").bind (fun m => Simulation.spawn m true 1)).bind (fun s => sightline s (452) (1340) 1610612736) = .ok (.special 551 false) :=\n  bind_ok _ _ initial _ loaded_spawn ray551",
+        "line": 18,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'Campaign.Panels.E1M9.spawnRay551' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "d573092cd5f754dfa39a6fa6566022be04f2f3c9bbf1f0fd0cf25ecb122614eb",
+        "auditSha256": "5ced3e3a87711e475bd40f20bd3c2be54ebfe92a1f7cac32ac75cd127622ce09"
+      },
+      {
+        "title": "The dispatcher requests the normal exit",
+        "declaration": "Campaign.Panels.E1M9.spawnActivation551",
+        "code": "theorem spawnActivation551 : ((Map.load group \"E1M9\").bind (fun m => Simulation.spawn m true 1)).map (fun s => activateAt s 551) = .ok (true, true, \"Exit requested — intermission is not implemented yet\") :=\n  map_ok _ _ initial _ loaded_spawn dispatched551",
+        "line": 21,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'Campaign.Panels.E1M9.spawnActivation551' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "d573092cd5f754dfa39a6fa6566022be04f2f3c9bbf1f0fd0cf25ecb122614eb",
+        "auditSha256": "5ced3e3a87711e475bd40f20bd3c2be54ebfe92a1f7cac32ac75cd127622ce09"
+      },
+      {
+        "title": "The switch changes its wall texture",
+        "declaration": "Campaign.Panels.E1M9.parsedFeedback551",
+        "code": "theorem parsedFeedback551 : (Map.load group \"E1M9\").map (fun m => feedback m 551) = .ok (true, 0, \"SW2BRCOM\", true) :=\n  map_ok _ _ levelMap _ map_loaded feedback551",
+        "line": 15,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'Campaign.Panels.E1M9.parsedFeedback551' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "d573092cd5f754dfa39a6fa6566022be04f2f3c9bbf1f0fd0cf25ecb122614eb",
+        "auditSha256": "5ced3e3a87711e475bd40f20bd3c2be54ebfe92a1f7cac32ac75cd127622ce09"
+      }
+    ]
+  },
+  {
+    "level": "ARENA03",
+    "name": "Three-imp arena",
+    "edition": "CombatV1",
+    "status": "Passage proved",
+    "description": "The 206-input controller collects a shotgun, fires four shots and reaches the exit with 79 health. One shell changes the health of three imps on the same tick.",
+    "proofs": [
+      {
+        "title": "Pass the arena with three kills",
+        "declaration": "LeanDoomProofs.arena_full_combat_passage",
+        "code": "theorem arena_full_combat_passage :\n    ∃ initial finish : Simulation,\n      arenaStart = .ok initial ∧\n      arenaInitialProfile initial ∧\n      arenaInputs.length = 206 ∧\n      (∀ key ∈ arenaInputs, ordinaryCombatInput key = true) ∧\n      (∀ key ∈ arenaInputs, keyDown key 1024 = false) ∧\n      CombatSegment initial arenaInputs finish ∧\n      combatAttack (run combatStep initial (arenaInputs.take 46)) = true ∧\n      arenaFinalProfile finish := by\n  exact ⟨arena_state_0, arena_state_206, arena_spawn, arena_initial_profile,\n    arena_inputs_length, arena_inputs_ordinary, arena_inputs_no_restart,\n    arena_passage, arena_reached_attack, arena_final_profile⟩",
+        "line": 155,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'LeanDoomProofs.arena_full_combat_passage' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "65220ed90f192d9915fc7a2929c25bda2f55c92f440d4c3a0d9d709e78a6b3dc",
+        "auditSha256": "50ddd81df420d9b18658e916a185536d4d180ce4b307ecabc37438986e9280b8"
+      }
+    ]
+  },
+  {
+    "level": "ATRIUM01",
+    "name": "Blue Atrium",
+    "edition": "CombatV1",
+    "status": "Passage proved",
+    "description": "The player crosses an empty atrium, collects a blue card, waits for the gate and reaches the first exit on input 87. All earlier prefixes preserve 100 health and all 50 starting bullets.",
+    "proofs": [
+      {
+        "title": "Cross the atrium and press the exit",
+        "declaration": "BlueAtrium.fullPassage",
+        "code": "theorem fullPassage :\n    ∃ start finish : Simulation,\n      Simulation.spawn atriumMap true 1 = .ok start ∧\n      atriumInputs.length = 87 ∧\n      (∀ k ∈ atriumInputs, ordinaryCombatInput k = true ∧\n        keyDown k 8192 = false ∧ keyDown k 1024 = false) ∧\n      Passage start atriumInputs finish ∧\n      peaceful finish = true ∧ finish.exitRequested = true ∧\n      finish.exitSwitchSound = true ∧ finish.ticks = 87 := by\n  refine ⟨state0, state87, spawn, ?_, ?_, ?_, ?_⟩\n  · decide +kernel\n  · have allowed : atriumInputs.all (fun k =>\n        ordinaryCombatInput k && !keyDown k 8192 && !keyDown k 1024) = true := by decide +kernel\n    intro k hk\n    have h := List.all_eq_true.mp allowed k hk\n    simpa [Bool.and_assoc] using h\n  · doom_kernel_exact prefix87\n  · decide +kernel",
+        "line": 136,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'BlueAtrium.fullPassage' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "2ae488e6b4c3377fd679eb87c3f22d7dbbe1806dc05ae1da5fcd4962bc8062c0",
+        "auditSha256": "3096139f5ae5380d287bf9f491084dbebc27c6ab620e44fb1fa836a809af6826"
+      }
+    ]
+  },
+  {
+    "level": "PROOF01",
+    "name": "One press",
+    "edition": "CombatV2",
+    "status": "Passage proved",
+    "description": "A single Use input reaches the first exit with 100 health in a parsed test map. This is the smallest complete recording accepted by the campaign assembler.",
+    "proofs": [
+      {
+        "title": "The single-input controller wins",
+        "declaration": "RecordedOnePress.passage",
+        "code": "theorem passage : CheckedReplay.Passage OnePress.group \"PROOF01\" inputs :=\n  CheckedReplay.passage_of_scan OnePress.group \"PROOF01\" OnePress.level OnePress.start OnePress.finish inputs\n    OnePress.parser OnePress.spawn checked OnePress.safe OnePress.win",
+        "line": 17,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'RecordedOnePress.passage' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "8cb4216ccf4eea1760a4851a1882a089c6986e6063beb54c45005d56bb41a98b",
+        "auditSha256": "087f5cdb2d3639099bbf7877759220041dde110756eda1bc66a37309568e6fc2"
+      }
+    ]
+  },
+  {
+    "level": "TWOIMP01",
+    "name": "The blue door",
+    "edition": "CombatV1",
+    "status": "Passage proved",
+    "description": "Over 386 inputs the player encounters two imps, collects the blue key, opens the door and exits with 52 health. Every strict prefix is alive and has the exit flag clear.",
+    "proofs": [
+      {
+        "title": "Pass the three-sector map",
+        "declaration": "LeanDoomProofs.twoImp_full_combat_passage",
+        "code": "theorem twoImp_full_combat_passage :\n    ∃ initial finish : Simulation,\n      twoImpStart = .ok initial ∧\n      combatInitialProfile initial ∧\n      twoImpInputs.length = 386 ∧\n      (∀ key ∈ twoImpInputs, ordinaryCombatInput key = true) ∧\n      (∀ key ∈ twoImpInputs, keyDown key 1024 = false) ∧\n      CombatSegment initial twoImpInputs finish ∧\n      combatAttack (run combatStep initial (twoImpInputs.take 26)) = true ∧\n      (run combatStep initial (twoImpInputs.take 310)).deathStats[0].kills = 2 ∧\n      combatFinalProfile finish := by\n  exact ⟨twoImp_state_0, twoImp_state_386, twoImp_spawn, twoImp_initial_profile,\n    twoImp_inputs_length, twoImp_inputs_ordinary, twoImp_inputs_no_restart,\n    twoImp_passage, twoImp_reached_attack, twoImp_reached_second_kill, twoImp_final_profile⟩",
+        "line": 301,
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "auditText": "'LeanDoomProofs.twoImp_full_combat_passage' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "sourceSha256": "46ced422a2b820463c2659b6402270c24734bbfb53ccf3f3e0458aa5aa00db67",
+        "auditSha256": "929bfe2b0e827429fbdbc20a45647b94e9ca2963082b737e303676e674d4bc61"
+      }
+    ]
+  }
+]

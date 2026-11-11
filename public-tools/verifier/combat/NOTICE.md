@@ -1,0 +1,3 @@
+# Engine source and licenses
+
+Alaska Hoffman authored the (Lean)DOOM port. The upstream files distributed here are the import closure of the graphical map worker and the CombatV2 replay, selected from revision `dd795d67c075b3c3d1149494ddec6aff756e2a64`. Their exact upstream paths and digests are in `upstream/provenance.json`. The original source implementation is by id Software, with additional upstream contributors identified in the sources. The engine code and the modified CombatV2 modules carry GPL-2.0-or-later. No game archive, original level geometry, graphics or music is included. The user supplies the content locally. [Upstream at the exact revision](https://github.com/alaskahoffman/leandoom/tree/dd795d67c075b3c3d1149494ddec6aff756e2a64) · [GPL](COPYING.md)

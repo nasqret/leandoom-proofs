@@ -1,0 +1,7 @@
+'PassageLab.passage' depends on axioms: [propext]
+'PassageLab.checkedStates' depends on axioms: [propext]
+'PassageLab.noFire' does not depend on any axioms
+'PassageLab.stepBound' depends on axioms: [propext]
+'PassageLab.runBound' depends on axioms: [propext, Quot.sound]
+'PassageLab.minimumLength' depends on axioms: [propext, Quot.sound]
+'PassageLab.runAppend' depends on axioms: [propext]

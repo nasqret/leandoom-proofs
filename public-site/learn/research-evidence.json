@@ -1,0 +1,189 @@
+{
+  "research_revision": "27adffc3e56ffc1607172aa35571043a7b1330f9",
+  "scope": "Historical CombatV2 original-map research. These selections identify statements and receipts. The sources and full import closures are separate from this teaching package.",
+  "levels": {
+    "E1M1": {
+      "title": "Hangar",
+      "description": "Two certified controllers first exit in 993 and 978 inputs. Both finish with 48 health and zero player shots.",
+      "declarations": [
+        {
+          "title": "Passage from the original map",
+          "declaration": "certifiedAuthenticE1M1",
+          "line": 13,
+          "sourceSha256": "edc1cee688edad58f5242a8e54877c4b3eb032940621fe48174b2bdf42109d78",
+          "auditLine": 1,
+          "auditSha256": "a2f38a2d89fc82a189fb9b7cb1ecc108d9bfd55c242540c445496670a77e9c79",
+          "auditText": "'certifiedAuthenticE1M1' depends on axioms: [propext, Classical.choice, Quot.sound]",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "title": "Zero shots suffice",
+          "declaration": "certifiedE1M1LeastShots",
+          "line": 10,
+          "sourceSha256": "b61ac780f302b1f266e6515ffd87f4b84bfa77fd4e78b51053ff5a3634af72aa",
+          "auditLine": 1,
+          "auditSha256": "91eee8e4b787476c8c6a2e3ce13b461666e2f6a85ac9d53eca83ff59543743db",
+          "auditText": "'certifiedE1M1LeastShots' depends on axioms: [propext, Classical.choice, Quot.sound]",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "title": "The 978-input passage",
+          "declaration": "certifiedLearnedHangar",
+          "line": 11,
+          "sourceSha256": "64ca39da20d67601eadcdf4fc3ba84c59355e25a7e90b42c58b39d1774e02f3e",
+          "auditLine": 1,
+          "auditSha256": "6a40fa10d1c2fc0cc3ef572ea836a7b36d0363115d93d6a5b2d9b2123ee0d1e8",
+          "auditText": "'certifiedLearnedHangar' depends on axioms: [propext, Classical.choice, Quot.sound]",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        }
+      ]
+    },
+    "E1M2": {
+      "title": "Nuclear Plant",
+      "description": "One 1,017-input controller survives all 1,018 prefix states. Its terminal readout includes 73 health and 73 shots. The shortest safe winning controller has length between 1 and 1,017.",
+      "declarations": [
+        {
+          "title": "Passage from the original map",
+          "declaration": "NuclearFullPassage.certifiedAuthenticE1M2",
+          "line": 11,
+          "sourceSha256": "23a35a9d98092916903e18450b27cfdff490c9e5dc7987c1fa217b2e184e3562",
+          "auditLine": 1,
+          "auditSha256": "a3884122b9a96dd3b76b98b401415039e85c6be6339474092b431d7c5a676cb2",
+          "auditText": "'NuclearFullPassage.certifiedAuthenticE1M2' depends on axioms: [propext, Classical.choice, Quot.sound]",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "title": "Alive at every prefix before the exit",
+          "declaration": "NuclearFullPassage.safeFirstExit",
+          "line": 15,
+          "sourceSha256": "23a35a9d98092916903e18450b27cfdff490c9e5dc7987c1fa217b2e184e3562",
+          "auditLine": 3,
+          "auditSha256": "a3884122b9a96dd3b76b98b401415039e85c6be6339474092b431d7c5a676cb2",
+          "auditText": "'NuclearFullPassage.safeFirstExit' depends on axioms: [propext, Classical.choice, Quot.sound]",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "title": "Read the endpoint",
+          "declaration": "NuclearFullPassage.terminalFromMap",
+          "line": 19,
+          "sourceSha256": "23a35a9d98092916903e18450b27cfdff490c9e5dc7987c1fa217b2e184e3562",
+          "auditLine": 4,
+          "auditSha256": "a3884122b9a96dd3b76b98b401415039e85c6be6339474092b431d7c5a676cb2",
+          "auditText": "'NuclearFullPassage.terminalFromMap' depends on axioms: [propext, Classical.choice, Quot.sound]",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "title": "Bound the minimum length",
+          "declaration": "NuclearFullPassage.shortestLengthBounds",
+          "line": 21,
+          "sourceSha256": "23a35a9d98092916903e18450b27cfdff490c9e5dc7987c1fa217b2e184e3562",
+          "auditLine": 5,
+          "auditSha256": "a3884122b9a96dd3b76b98b401415039e85c6be6339474092b431d7c5a676cb2",
+          "auditText": "'NuclearFullPassage.shortestLengthBounds' depends on axioms: [propext, Classical.choice, Quot.sound]",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        }
+      ]
+    },
+    "E1M7": {
+      "title": "Computer Station",
+      "description": "The original first movement attempt collects a clip, changes ammunition from 50 to 60 and re-links the player in sector 60 and blockmap cell 846. A longer winning replay exists. This theorem covers a single movement call.",
+      "declarations": [
+        {
+          "title": "Does the engine accept the first move?",
+          "declaration": "StationOpening.firstTryMove",
+          "line": 70,
+          "sourceSha256": "8c553f33ddd6248b7c3ab3d53ca8682903c92d98c0cdc7a0299fb5ecec388a19",
+          "auditLine": 7,
+          "auditSha256": "2d8f7068f509ac57bbd3f3e3d39fb30143ff694cdc4b6a69c9b11e5f2d266322",
+          "auditText": "'StationOpening.firstTryMove' depends on axioms: [propext, Classical.choice, Quot.sound]",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        }
+      ]
+    },
+    "E1M8": {
+      "title": "Phobos Anomaly",
+      "description": "All 333 initial Use targets leave the exit flag false. A separate graph result describes the isolated finale sector. Completion by arbitrary keyboard input remains open.",
+      "declarations": [
+        {
+          "title": "Can any of the 333 Use targets exit from the initial state?",
+          "declaration": "Campaign.Anomaly.parsedInitialUseTargets",
+          "line": 17,
+          "sourceSha256": "112d67af4fec6210a0032d131e8006b8752630f11e3763c762dbfe7a70189c9f",
+          "auditLine": 2,
+          "auditSha256": "236e58b5f640f85429bce0725b06225915a57b82dc98e4fd32e362b496f8896d",
+          "auditText": "'Campaign.Anomaly.parsedInitialUseTargets' depends on axioms: [propext, Classical.choice, Quot.sound]",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        {
+          "title": "Why is the finale disconnected from the start?",
+          "declaration": "Campaign.Anomaly.parsedFinale",
+          "line": 63,
+          "sourceSha256": "5df80560c83e36e86d31c30d8c81f3a9be9a73b40e787cfe8a3dd5d7e5450ee8",
+          "auditLine": 8,
+          "auditSha256": "074e14d126111e1d81843b6c9e54c9cd74ab3080bb19222146c7c4219f1ac4ae",
+          "auditText": "'Campaign.Anomaly.parsedFinale' depends on axioms: [propext, Classical.choice, Quot.sound]",
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        }
+      ]
+    },
+    "E1M9": {
+      "title": "Military Base",
+      "description": "The exact 933-command tape contains 23 Use masks, no Attack masks and no restart. Native observations put the first yellow and red keys at ticks 126 and 933. These observations have a separate status from the input theorem.",
+      "declarations": [
+        {
+          "title": "Count the action buttons in the two-key run",
+          "declaration": "Campaign.MilitaryBase.tapeControls",
+          "line": 58,
+          "sourceSha256": "695a4868fa1385581f00c8aaaa7d58df9c31b5c110900a14d0f1502cfb207386",
+          "auditLine": 1,
+          "auditSha256": "dafef19c2b6965c3f4d5b4d258c9203d732e7cc08e1926a705a1842b9b7b0739",
+          "auditText": "'Campaign.MilitaryBase.tapeControls' depends on axioms: [propext, Quot.sound]",
+          "axioms": [
+            "propext",
+            "Quot.sound"
+          ]
+        }
+      ]
+    }
+  }
+}

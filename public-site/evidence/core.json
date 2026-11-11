@@ -1,0 +1,67 @@
+{
+  "edition": "CombatV1 proof core",
+  "scope": "Original project maps and general gameplay. The authentic E1M1 and E1M2 CombatV2 roots have separate foundations.",
+  "archive": "core-source.zip",
+  "archive_sha256": "165803dafe7b23d149cf3f417c7c345673e4b74e630cb9927b26d675ac0604cc",
+  "archive_bytes": 622420,
+  "archive_files": 176,
+  "proof_modules": 162,
+  "named_declarations": 277,
+  "toolchain": "leanprover/lean4:v4.33.0",
+  "proof_input_sha256": "69a1e0554258e31cd91ad4be6f43aaed257dabd60e7059a7573f709684fa71c1",
+  "upstream": {
+    "url": "https://github.com/alaskahoffman/leandoom",
+    "commit": "dd795d67c075b3c3d1149494ddec6aff756e2a64",
+    "pinned_files": 218,
+    "distribution": "External source dependency prepared by verify.py setup"
+  },
+  "raw_axiom_report_sha256": "50ddd81df420d9b18658e916a185536d4d180ce4b307ecabc37438986e9280b8",
+  "historical_jobs": {
+    "primary": {
+      "job": 281144,
+      "state": "COMPLETED",
+      "date": "2026-10-08",
+      "exit_code": "0:0",
+      "elapsed": "00:00:51",
+      "theorem_count": 277,
+      "proof_modules": 162,
+      "upstream_files_checked": 218,
+      "lean_version": "4.33.0",
+      "proof_input_sha256": "69a1e0554258e31cd91ad4be6f43aaed257dabd60e7059a7573f709684fa71c1",
+      "cache_note": "Primary lineage derives from the accepted TWOIMP01 primary build. ARENA03 segments passed in pilots 281106/281107, array 281108 (18 tasks), and repaired array 281143 (005/011/014). This job composes the full library and audits all 277 named declarations; it is not a zero-cache rebuild."
+    },
+    "separate_replay": {
+      "job": 281142,
+      "state": "COMPLETED",
+      "date": "2026-10-08",
+      "exit_code": "0:0",
+      "elapsed": "00:23:04",
+      "theorem_count": 277,
+      "proof_modules": 162,
+      "upstream_files_checked": 218,
+      "lean_version": "4.33.0",
+      "proof_input_sha256": "69a1e0554258e31cd91ad4be6f43aaed257dabd60e7059a7573f709684fa71c1",
+      "cache_note": "New snapshot derives from the previously independent TWOIMP01 baseline. The ARENA03 build started with zero Arena compiled modules, then reused only its own successfully completed modules after source-only repair and cancelled attempts 281110/281114. No primary Arena compiled objects were copied. Same Lean kernel implementation and WMI infrastructure."
+    }
+  },
+  "source_scenarios": [
+    "PROOF01",
+    "TWOIMP01",
+    "ARENA03"
+  ],
+  "packaged_fresh_import": {
+    "method": "Extract the public archive, verify its own proof inputs and the pinned upstream snapshot, check all historical build source hashes, and freshly import ProofAudit.lean in stock Lean 4.33.0 against that build's existing compiled imports.",
+    "environment": "WMI SLURM CPU",
+    "job": 315907,
+    "state": "COMPLETED",
+    "exit_code": "0:0",
+    "elapsed_seconds": 15,
+    "archive_sha256": "165803dafe7b23d149cf3f417c7c345673e4b74e630cb9927b26d675ac0604cc",
+    "frozen_input_hashes_checked": 268,
+    "upstream_hashes_checked": 218,
+    "declarations": 277,
+    "fresh_axioms_sha256": "50ddd81df420d9b18658e916a185536d4d180ce4b307ecabc37438986e9280b8",
+    "comparison_to_historical_raw_axiom_report": "byte-identical",
+    "fresh_cold_compilation": false
+  }
+}

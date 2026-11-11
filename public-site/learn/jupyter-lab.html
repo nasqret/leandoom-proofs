@@ -1,0 +1,388 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="dark light"><title>From a recording to a checked passage · Jupyter Book · Lean Doom</title><link rel="stylesheet" href="reader.css"></head><body><header><div class="top"><a class="brand" href="../index.html">LEAN / DOOM</a><nav aria-label="Student materials"><a href="index.html">Chapter</a><a href="notebook.html">Notebook</a><a href="../index.html">Home</a><a href="../evidence/">Gallery</a><a href="../classic/">Play Doom</a></nav></div></header><main class=""><nav class="tools" aria-label="Jupyter Book navigation"><a href="jupyter-book.html">1 · Engine and proof</a><a href="jupyter-lab.html">2 · Executable lab</a><a href="jupyter-book.zip" download>Offline book ↓</a><a href="book-source.zip" download>Book sources ↓</a></nav><article class="bd-article">
+<section class="tex2jax_ignore mathjax_ignore" id="from-a-recording-to-a-checked-passage">
+<h1>From a recording to a checked passage</h1>
+<p>On tick 6 a player has a blue key. On tick 19 the same player exits. How could a reader determine that every intervening input is possible? Work through a recorded example, change an input, and inspect what the Lean kernel accepts.</p>
+<p><strong>To run the lab</strong>, open this notebook with a Jupyter Python 3 kernel. The last two executable cells call stock Lean 4.33.0 through elan. Install that edition with <code class="docutils literal notranslate"><span class="pre">elan</span> <span class="pre">toolchain</span> <span class="pre">install</span> <span class="pre">leanprover/lean4:v4.33.0</span></code> before running them. All images and both Lean files are embedded in the download. The Python examples use the standard library. <a class="reference external" href="passage-lab.ipynb">Download this notebook</a> · <a class="reference internal" href="jupyter-book.html"><span class="std std-doc">Read the historical chapter</span></a> · <a class="reference external" href="https://lean-lang.org/install/">Install Lean</a> · <a class="reference external" href="https://nbformat.readthedocs.io/en/latest/format_description.html">Notebook format</a></p>
+<section id="look-through-the-native-lean-camera">
+<h2>Look through the native Lean camera</h2>
+<figure><img alt="Ordinary spawn on Freedoom Phase 1 E1M1, rendered by the research edition of the native Lean port." src="media/freedoom-start.png"/><figcaption>Ordinary spawn on Freedoom Phase 1 E1M1, rendered by the research edition of the native Lean port.</figcaption></figure>
+<p>This 320 × 200 image comes from the native CombatV2 map worker on a WMI compute node. The engine loads the level and renders the camera from ordinary spawn. The data and artwork here belong to Freedoom: Phase 1. The Hangar theorem later in this notebook uses a different, precisely identified commercial map foundation. Loading the same slot label E1M1 with different bytes produces a different scene. <a class="reference external" href="../game/native.html">Native player and worker source</a> · <a class="reference external" href="https://freedoom.github.io/">Freedoom project</a> · <a class="reference external" href="freedoom-COPYING.txt">Artwork license</a></p>
+</section>
+<section id="read-a-real-controller">
+<h2>Read a real controller</h2>
+<p>These two screenshots come from the released public ProofGrid course L01 in its direct-route playback. The right pane renders original raycast scenery. The left pane follows the current input through the course’s Lean source. Both images are captures from the running browser. Use the slider to inspect other ticks. <a class="reference external" href="../game/index.html?level=L01&amp;amp;route=direct&amp;amp;tick=6">Open at tick 6</a> · <a class="reference external" href="../game/index.html?level=L01&amp;amp;route=direct&amp;amp;tick=19">Open at tick 19</a></p>
+<figure><img alt="Tick 6 of the public course. The player stands at tile (5,2), holds the blue key and has three health." src="media/course-key.png"/><figcaption>Tick 6 of the public course. The player stands at tile (5,2), holds the blue key and has three health.</figcaption></figure>
+<figure><img alt="Tick 19 of the same controller. At tile (13,5) the door has been opened and the exit flag is true." src="media/course-exit.png"/><figcaption>Tick 19 of the same controller. At tile (13,5) the door has been opened and the exit flag is true.</figcaption></figure>
+<p>The course and the historical CombatV2 runs have different transition functions and maps. To locate a claim, ask which function the theorem mentions, where its initial state comes from, and what the exit flag means. Alaska Hoffman’s (Lean)DOOM translates original-format level data into a native Lean game. The research edition introduced specified enemy arithmetic and a terminating weapon controller to make its transitions reducible in proofs. Equivalence to the upstream enemy program remains open. <a class="reference external" href="../game/ProofGrid.lean">Course model</a> · <a class="reference external" href="https://github.com/alaskahoffman/leandoom/tree/dd795d67c075b3c3d1149494ddec6aff756e2a64">Pinned upstream engine</a> · <a class="reference external" href="index.html#engines">Engine and proof chapter</a></p>
+</section>
+<section id="define-an-airlock-small-enough-to-audit">
+<h2>Define an airlock small enough to audit</h2>
+<p>A <em>state</em> contains information that influences future steps. The lesson’s entire state is one of four phases. Collecting the key at the dock changes the phase to carrying. Using it while carrying opens the door. Walking after the door opens leads outside. Every remaining state–input pair leaves the phase unchanged, including firing and waiting. Once outside, the model stays outside. This intentionally small airlock is a separate mechanism.</p>
+<p>Let <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo form="prefix" stretchy="false">(</mo><mi>s</mi><mo>,</mo><mi>k</mi><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">T(s,k)</annotation></semantics></math> be one step. Given inputs <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>k</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>k</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">k_1,\ldots,k_n</annotation></semantics></math>, set <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>s</mi><mn>0</mn></msub><mo>=</mo><mrow><mi mathvariant="normal">d</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">c</mi><mi mathvariant="normal">k</mi></mrow></mrow><annotation encoding="application/x-tex">s_0=\mathrm{dock}</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>s</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mi>T</mi><mo form="prefix" stretchy="false">(</mo><msub><mi>s</mi><mi>i</mi></msub><mo>,</mo><msub><mi>k</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">s_{i+1}=T(s_i,k_{i+1})</annotation></semantics></math>. A tape with <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math> inputs visits <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n+1</annotation></semantics></math> states. The Python cell mirrors the three advancing cases so we can interrogate them before reading the independent Lean definitions. <a class="reference external" href="https://lean-lang.org/functional_programming_in_lean/">Algebraic data types and pattern matching</a> · <a class="reference external" href="https://softwarefoundations.cis.upenn.edu/plf-current/Smallstep.html">Small-step semantics</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">itertools</span><span class="w"> </span><span class="kn">import</span> <span class="n">product</span>
+
+<span class="n">keys</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"collect"</span><span class="p">,</span> <span class="s2">"use"</span><span class="p">,</span> <span class="s2">"walk"</span><span class="p">,</span> <span class="s2">"wait"</span><span class="p">,</span> <span class="s2">"fire"</span><span class="p">)</span>
+<span class="n">advances</span> <span class="o">=</span> <span class="p">{(</span><span class="s2">"dock"</span><span class="p">,</span> <span class="s2">"collect"</span><span class="p">):</span> <span class="s2">"carrying"</span><span class="p">,</span> <span class="p">(</span><span class="s2">"carrying"</span><span class="p">,</span> <span class="s2">"use"</span><span class="p">):</span> <span class="s2">"opened"</span><span class="p">,</span>
+            <span class="p">(</span><span class="s2">"opened"</span><span class="p">,</span> <span class="s2">"walk"</span><span class="p">):</span> <span class="s2">"outside"</span><span class="p">}</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">step</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Unknown key"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">advances</span><span class="o">.</span><span class="n">get</span><span class="p">((</span><span class="n">state</span><span class="p">,</span> <span class="n">key</span><span class="p">),</span> <span class="n">state</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">states</span><span class="p">(</span><span class="n">tape</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="s2">"dock"</span><span class="p">):</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="p">[</span><span class="n">start</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">tape</span><span class="p">:</span>
+        <span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">step</span><span class="p">(</span><span class="n">path</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">key</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">path</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">first_exit</span><span class="p">(</span><span class="n">tape</span><span class="p">):</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">states</span><span class="p">(</span><span class="n">tape</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">path</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"outside"</span> <span class="ow">and</span> <span class="s2">"outside"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">path</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">route</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"collect"</span><span class="p">,</span> <span class="s2">"use"</span><span class="p">,</span> <span class="s2">"walk"</span><span class="p">)</span>
+<span class="n">wrong</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"use"</span><span class="p">,</span> <span class="s2">"collect"</span><span class="p">,</span> <span class="s2">"walk"</span><span class="p">)</span>
+<span class="n">late</span> <span class="o">=</span> <span class="n">route</span> <span class="o">+</span> <span class="p">(</span><span class="s2">"wait"</span><span class="p">,)</span>
+<span class="k">for</span> <span class="n">tape</span> <span class="ow">in</span> <span class="p">[</span><span class="n">route</span><span class="p">,</span> <span class="n">wrong</span><span class="p">,</span> <span class="n">late</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">" / "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tape</span><span class="p">),</span> <span class="s2">"=&gt;"</span><span class="p">,</span> <span class="s2">" / "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">states</span><span class="p">(</span><span class="n">tape</span><span class="p">)),</span> <span class="s2">"| first exit:"</span><span class="p">,</span> <span class="n">first_exit</span><span class="p">(</span><span class="n">tape</span><span class="p">))</span>
+<span class="k">assert</span> <span class="n">first_exit</span><span class="p">(</span><span class="n">route</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">first_exit</span><span class="p">(</span><span class="n">wrong</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">first_exit</span><span class="p">(</span><span class="n">late</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>collect / use / walk =&gt; dock / carrying / opened / outside | first exit: True
+use / collect / walk =&gt; dock / dock / carrying / carrying | first exit: False
+collect / use / walk / wait =&gt; dock / carrying / opened / outside / outside | first exit: False
+</pre></div>
+</div>
+</div>
+</div>
+<figure><img alt="Progress through the same airlock for the winning tape and for a tape with its first two commands swapped." src="media/phase-ranks.png"/><figcaption>Progress through the same airlock for the winning tape and for a tape with its first two commands swapped.</figcaption></figure>
+<p>Why does the third tape above fail the <em>first</em>-exit test? It finishes outside, but its proper prefix already finishes outside. An endpoint statement alone would accept it. A history-sensitive proposition examines prefixes. A full CombatV2 passage can additionally require that every intermediate state has positive health and no physics error. <a class="reference external" href="records.html#e1m2">Research declarations</a> · <a class="reference external" href="https://lean-lang.org/theorem_proving_in_lean4/quantifiers_and_equality.html">Quantifiers and equality</a></p>
+</section>
+<section id="count-short-controllers-then-prove-a-bound">
+<span id="shortest"></span><h2>Count short controllers, then prove a bound</h2>
+<p>If a three-input witness works, it gives an upper bound on the optimum. To obtain a lower bound, first exhaust all tapes of length less than three. The next cell counts exactly <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>+</mo><mn>5</mn><mo>+</mo><msup><mn>5</mn><mn>2</mn></msup><mo>=</mo><mn>31</mn></mrow><annotation encoding="application/x-tex">1+5+5^2=31</annotation></semantics></math> tapes in these shorter layers. Try changing the transition table to add a new shortcut and re-running the assertions. <a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.product">Finite enumeration in Python</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">winners</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">length</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="n">winners</span><span class="p">[</span><span class="n">length</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">product</span><span class="p">(</span><span class="n">keys</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="n">length</span><span class="p">)</span> <span class="k">if</span> <span class="n">first_exit</span><span class="p">(</span><span class="n">t</span><span class="p">)]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"length </span><span class="si">{</span><span class="n">length</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">winners</span><span class="p">[</span><span class="n">length</span><span class="p">])</span><span class="si">}</span><span class="s2"> first exits among </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">keys</span><span class="p">)</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="n">length</span><span class="si">}</span><span class="s2"> tapes"</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="ow">not</span> <span class="n">winners</span><span class="p">[</span><span class="n">length</span><span class="p">]</span> <span class="k">for</span> <span class="n">length</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="k">assert</span> <span class="n">winners</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span><span class="n">route</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Shortest tape:"</span><span class="p">,</span> <span class="s2">" / "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">winners</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>length 0: 0 first exits among 1 tapes
+length 1: 0 first exits among 5 tapes
+length 2: 0 first exits among 25 tapes
+length 3: 1 first exits among 125 tapes
+Shortest tape: collect / use / walk
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Claim.</strong> Every tape <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> that reaches the outside from the dock has <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" stretchy="false">|</mo><mi>K</mi><mo form="prefix" stretchy="false">|</mo><mo>≥</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">|K|\ge3</annotation></semantics></math>, including tapes that wait after exiting.</p>
+<ol class="arabic simple">
+<li><p>Assign ranks <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo form="prefix" stretchy="false">(</mo><mrow><mi mathvariant="normal">d</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">c</mi><mi mathvariant="normal">k</mi></mrow><mo form="postfix" stretchy="false">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">r(\mathrm{dock})=0</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo form="prefix" stretchy="false">(</mo><mrow><mi mathvariant="normal">c</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">y</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">g</mi></mrow><mo form="postfix" stretchy="false">)</mo><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">r(\mathrm{carrying})=1</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo form="prefix" stretchy="false">(</mo><mrow><mi mathvariant="normal">o</mi><mi mathvariant="normal">p</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">d</mi></mrow><mo form="postfix" stretchy="false">)</mo><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">r(\mathrm{opened})=2</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo form="prefix" stretchy="false">(</mo><mrow><mi mathvariant="normal">o</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi><mi mathvariant="normal">e</mi></mrow><mo form="postfix" stretchy="false">)</mo><mo>=</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">r(\mathrm{outside})=3</annotation></semantics></math>.</p></li>
+<li><p>Inspect one input in each phase. Every transition either stays put or advances by one, so <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo form="prefix" stretchy="false">(</mo><mi>T</mi><mo form="prefix" stretchy="false">(</mo><mi>s</mi><mo>,</mo><mi>k</mi><mo form="postfix" stretchy="false">)</mo><mo form="postfix" stretchy="false">)</mo><mo>≤</mo><mi>r</mi><mo form="prefix" stretchy="false">(</mo><mi>s</mi><mo form="postfix" stretchy="false">)</mo><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">r(T(s,k))\le r(s)+1</annotation></semantics></math>.</p></li>
+<li><p>Induct on the list. In the empty case the state is unchanged. In the cons case apply the induction hypothesis to the tail <strong>from the updated starting state</strong>. Then apply step 2 to its head. Thus <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo form="prefix" stretchy="false">(</mo><mi>R</mi><mo form="prefix" stretchy="false">(</mo><mi>s</mi><mo>,</mo><mi>K</mi><mo form="postfix" stretchy="false">)</mo><mo form="postfix" stretchy="false">)</mo><mo>≤</mo><mi>r</mi><mo form="prefix" stretchy="false">(</mo><mi>s</mi><mo form="postfix" stretchy="false">)</mo><mo>+</mo><mo form="prefix" stretchy="false">|</mo><mi>K</mi><mo form="prefix" stretchy="false">|</mo></mrow><annotation encoding="application/x-tex">r(R(s,K))\le r(s)+|K|</annotation></semantics></math> where <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>R</mi><annotation encoding="application/x-tex">R</annotation></semantics></math> executes the entire tape.</p></li>
+<li><p>Substitute a winning endpoint and the dock’s rank. This gives <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mo>≤</mo><mo form="prefix" stretchy="false">|</mo><mi>K</mi><mo form="prefix" stretchy="false">|</mo></mrow><annotation encoding="application/x-tex">3\le |K|</annotation></semantics></math>. The winning tape has length three and fires zero shots. Together with nonnegativity, that also determines this model’s minimum firing count.</p></li>
+</ol>
+<p>This rank argument works over arbitrarily long input lists. The finite search above checks all shorter competitors in the particular airlock. The Lean proofs named <code class="docutils literal notranslate"><span class="pre">runBound</span></code> and <code class="docutils literal notranslate"><span class="pre">minimumLength</span></code> implement steps 3 and 4. <a class="reference external" href="https://lean-lang.org/theorem_proving_in_lean4/induction_and_recursion.html">Induction in Lean</a> · <a class="reference external" href="https://lamport.azurewebsites.net/pubs/proof.pdf">Lamport’s structured proofs</a></p>
+</section>
+<section id="what-a-screenshot-forgets">
+<h2>What a screenshot forgets</h2>
+<p>At the join between two segments, the second segment expects the first segment’s <em>complete</em> ending state. Suppose a more detailed state stores a player tile and whether the player holds a key. An observer who displays only the tile can miss a future change in reachability. The following counterexample uses a new, two-field model. <a class="reference external" href="https://compcert.org/man/manual001.html">Semantic preservation and observations</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">NamedTuple</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Frame</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+    <span class="n">tile</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">blue_key</span><span class="p">:</span> <span class="nb">bool</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">unlock</span><span class="p">(</span><span class="n">frame</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s2">"exit"</span> <span class="k">if</span> <span class="n">frame</span><span class="o">.</span><span class="n">tile</span> <span class="o">==</span> <span class="s2">"door"</span> <span class="ow">and</span> <span class="n">frame</span><span class="o">.</span><span class="n">blue_key</span> <span class="k">else</span> <span class="n">frame</span><span class="o">.</span><span class="n">tile</span>
+
+<span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">(</span><span class="s2">"door"</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span> <span class="n">Frame</span><span class="p">(</span><span class="s2">"door"</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">left</span><span class="o">.</span><span class="n">tile</span> <span class="o">==</span> <span class="n">right</span><span class="o">.</span><span class="n">tile</span> <span class="ow">and</span> <span class="n">unlock</span><span class="p">(</span><span class="n">left</span><span class="p">)</span> <span class="o">!=</span> <span class="n">unlock</span><span class="p">(</span><span class="n">right</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Same displayed tile:"</span><span class="p">,</span> <span class="n">left</span><span class="o">.</span><span class="n">tile</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Use with the key:"</span><span class="p">,</span> <span class="n">unlock</span><span class="p">(</span><span class="n">left</span><span class="p">),</span> <span class="s2">"| Use without the key:"</span><span class="p">,</span> <span class="n">unlock</span><span class="p">(</span><span class="n">right</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">cut</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">route</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">prefix</span><span class="p">,</span> <span class="n">suffix</span> <span class="o">=</span> <span class="n">route</span><span class="p">[:</span><span class="n">cut</span><span class="p">],</span> <span class="n">route</span><span class="p">[</span><span class="n">cut</span><span class="p">:]</span>
+    <span class="n">middle</span> <span class="o">=</span> <span class="n">states</span><span class="p">(</span><span class="n">prefix</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">states</span><span class="p">(</span><span class="n">suffix</span><span class="p">,</span> <span class="n">middle</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">states</span><span class="p">(</span><span class="n">route</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Cut </span><span class="si">{</span><span class="n">cut</span><span class="si">}</span><span class="s2">: restart the suffix from </span><span class="si">{</span><span class="n">middle</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Same displayed tile: door
+Use with the key: exit | Use without the key: door
+Cut 0: restart the suffix from dock
+Cut 1: restart the suffix from carrying
+Cut 2: restart the suffix from opened
+Cut 3: restart the suffix from outside
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="relate-the-exercise-to-real-level-certificates">
+<h2>Relate the exercise to real level certificates</h2>
+<p>In CombatV2 Hangar has two complete zero-shot witnesses. Replacing the 993-input witness by the 978-input witness improves an <strong>upper</strong> bound by 15. Nuclear Plant has a complete armed 1,017-input witness and its ordinary spawn is not an exit. In a surviving, error-free passage one must account for all 1,018 states including the start. The main suffix of that witness contains 998 ticks with 65 ordered actor slots per tick. These counts illustrate the work inside a particular certificate. <a class="reference external" href="records.html#e1m1">Hangar evidence</a> · <a class="reference external" href="records.html#e1m2">Nuclear Plant evidence</a></p>
+<p>Computer Station supplies a particularly instructive <em>partial</em> result. Its first checked collision move collects a clip, raising ammunition from 50 to 60, and relinks the player to the spatial lists for sector 60 and blockmap cell 846. Omitting the relink can change the next collision query. Military Base has a checked 933-input control tape with 23 Use masks and zero Attack masks. Seeing two keys in a replay is still an observation until the inventory transitions are proved. <a class="reference external" href="records.html#e1m7">Computer Station evidence</a> · <a class="reference external" href="records.html#e1m9">Military Base evidence</a> · <a class="reference external" href="https://github.com/id-Software/DOOM/blob/master/linuxdoom-1.10/p_map.c">Original movement code</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">old_hangar</span><span class="p">,</span> <span class="n">new_hangar</span> <span class="o">=</span> <span class="mi">993</span><span class="p">,</span> <span class="mi">978</span>
+<span class="n">plant_inputs</span><span class="p">,</span> <span class="n">plant_split</span><span class="p">,</span> <span class="n">plant_slots</span> <span class="o">=</span> <span class="mi">1017</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">65</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Hangar upper bound improved by"</span><span class="p">,</span> <span class="n">old_hangar</span> <span class="o">-</span> <span class="n">new_hangar</span><span class="p">,</span> <span class="s2">"inputs"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Nuclear Plant prefix states:"</span><span class="p">,</span> <span class="n">plant_inputs</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Actor-slot updates in the Nuclear Plant suffix:"</span><span class="p">,</span> <span class="p">(</span><span class="n">plant_inputs</span> <span class="o">-</span> <span class="n">plant_split</span><span class="p">)</span> <span class="o">*</span> <span class="n">plant_slots</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hangar upper bound improved by 15 inputs
+Nuclear Plant prefix states: 1018
+Actor-slot updates in the Nuclear Plant suffix: 64870
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="give-the-exact-source-to-lean">
+<h2>Give the exact source to Lean</h2>
+<p>The next cell holds the complete Lean module that implements the airlock. <code class="docutils literal notranslate"><span class="pre">DecidableEq</span></code> supplies equality decisions. In the concrete theorems, <code class="docutils literal notranslate"><span class="pre">by</span> <span class="pre">decide</span></code> builds evidence for a closed proposition. The universal theorems use case analysis, induction and integer arithmetic. In <code class="docutils literal notranslate"><span class="pre">runAppend</span></code>, the induction hypothesis accepts the state reached after the head command. That is what makes the lemma reusable at an arbitrary checkpoint. A SHA-256 digest lets you check that the program bytes match the version used in the classroom run. <a class="reference external" href="https://lean-lang.org/theorem_proving_in_lean4/axioms_and_computation.html">Lean tactics and computation</a> · <a class="reference external" href="PassageLab.lean">Audited source download</a> · <a class="reference external" href="https://csrc.nist.gov/pubs/fips/180-4/upd1/final">Hash standard</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">hashlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">sha256</span>
+
+<span class="n">lean_source</span> <span class="o">=</span> <span class="s2">"""import Std</span>
+
+<span class="s2">namespace PassageLab</span>
+
+<span class="s2">inductive Phase where</span>
+<span class="s2">  | dock | carrying | opened | outside</span>
+<span class="s2">  deriving DecidableEq, Repr</span>
+
+<span class="s2">inductive Key where</span>
+<span class="s2">  | collect | use | walk | wait | fire</span>
+<span class="s2">  deriving DecidableEq, BEq, Repr</span>
+
+<span class="s2">def step : Phase → Key → Phase</span>
+<span class="s2">  | .dock, .collect =&gt; .carrying</span>
+<span class="s2">  | .carrying, .use =&gt; .opened</span>
+<span class="s2">  | .opened, .walk =&gt; .outside</span>
+<span class="s2">  | s, _ =&gt; s</span>
+
+<span class="s2">def run (s : Phase) : List Key → Phase</span>
+<span class="s2">  | [] =&gt; s</span>
+<span class="s2">  | k :: ks =&gt; run (step s k) ks</span>
+
+<span class="s2">def states (s : Phase) : List Key → List Phase</span>
+<span class="s2">  | [] =&gt; [s]</span>
+<span class="s2">  | k :: ks =&gt; s :: states (step s k) ks</span>
+
+<span class="s2">def rank : Phase → Nat</span>
+<span class="s2">  | .dock =&gt; 0</span>
+<span class="s2">  | .carrying =&gt; 1</span>
+<span class="s2">  | .opened =&gt; 2</span>
+<span class="s2">  | .outside =&gt; 3</span>
+
+<span class="s2">def route : List Key := [.collect, .use, .walk]</span>
+
+<span class="s2">theorem passage : run .dock route = .outside := by decide</span>
+
+<span class="s2">theorem checkedStates :</span>
+<span class="s2">    states .dock route = [.dock, .carrying, .opened, .outside] := by decide</span>
+
+<span class="s2">theorem noFire : route.count .fire = 0 := by decide</span>
+
+<span class="s2">theorem stepBound (s : Phase) (k : Key) : rank (step s k) ≤ rank s + 1 := by</span>
+<span class="s2">  cases s &lt;;&gt; cases k &lt;;&gt; decide</span>
+
+<span class="s2">theorem runBound (s : Phase) (ks : List Key) :</span>
+<span class="s2">    rank (run s ks) ≤ rank s + ks.length := by</span>
+<span class="s2">  induction ks generalizing s with</span>
+<span class="s2">  | nil =&gt; simp [run]</span>
+<span class="s2">  | cons k ks ih =&gt;</span>
+<span class="s2">    have tailBound := ih (step s k)</span>
+<span class="s2">    have headBound := stepBound s k</span>
+<span class="s2">    simp only [run, List.length_cons]</span>
+<span class="s2">    omega</span>
+
+<span class="s2">theorem minimumLength {ks : List Key} (wins : run .dock ks = .outside) :</span>
+<span class="s2">    3 ≤ ks.length := by</span>
+<span class="s2">  have h := runBound .dock ks</span>
+<span class="s2">  rw [wins] at h</span>
+<span class="s2">  simpa [rank] using h</span>
+
+<span class="s2">theorem runAppend (s : Phase) (u v : List Key) :</span>
+<span class="s2">    run s (u ++ v) = run (run s u) v := by</span>
+<span class="s2">  induction u generalizing s with</span>
+<span class="s2">  | nil =&gt; rfl</span>
+<span class="s2">  | cons k ks ih =&gt; exact ih (step s k)</span>
+
+<span class="s2">end PassageLab</span>
+<span class="s2">"""</span>
+<span class="k">assert</span> <span class="n">sha256</span><span class="p">(</span><span class="n">lean_source</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span> <span class="o">==</span> <span class="s2">"a2dd14664fbf276c425f87c1322355d7be7589e3aca2e4ae4aa86088e6f5598f"</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"PassageLab.lean SHA-256:"</span><span class="p">,</span> <span class="n">sha256</span><span class="p">(</span><span class="n">lean_source</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PassageLab.lean SHA-256: a2dd14664fbf276c425f87c1322355d7be7589e3aca2e4ae4aa86088e6f5598f
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="compile-the-witness-and-audit-its-imports">
+<h2>Compile the witness and audit its imports</h2>
+<p>This cell launches the stock compiler, writes an object module and then starts a <strong>fresh Lean process</strong> to import the module and ask which axioms its seven declarations use. The reports below come directly from that second process. A report listing <code class="docutils literal notranslate"><span class="pre">propext</span></code> records Lean’s propositional extensionality principle. An added placeholder such as <code class="docutils literal notranslate"><span class="pre">sorryAx</span></code> would change the report. The source, toolchain and the reported dependencies belong to the interpretation of the result. <a class="reference external" href="https://lean-lang.org/doc/reference/latest/ValidatingProofs/">Validating a Lean proof</a> · <a class="reference external" href="Audit.lean">Download the audit commands</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">audit_source</span> <span class="o">=</span> <span class="s2">"""import PassageLab</span>
+<span class="s2">#print axioms PassageLab.passage</span>
+<span class="s2">#print axioms PassageLab.checkedStates</span>
+<span class="s2">#print axioms PassageLab.noFire</span>
+<span class="s2">#print axioms PassageLab.stepBound</span>
+<span class="s2">#print axioms PassageLab.runBound</span>
+<span class="s2">#print axioms PassageLab.minimumLength</span>
+<span class="s2">#print axioms PassageLab.runAppend</span>
+<span class="s2">"""</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tempfile</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">invoke</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">elan</span> <span class="o">=</span> <span class="n">shutil</span><span class="o">.</span><span class="n">which</span><span class="p">(</span><span class="s2">"elan"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">elan</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">"Install elan and leanprover/lean4:v4.33.0 to run this cell."</span><span class="p">)</span>
+    <span class="n">env</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">,</span> <span class="n">LEAN_PATH</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">directory</span><span class="p">),</span> <span class="n">LEAN_NUM_THREADS</span><span class="o">=</span><span class="s2">"1"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">elan</span><span class="p">,</span> <span class="s2">"run"</span><span class="p">,</span> <span class="s2">"leanprover/lean4:v4.33.0"</span><span class="p">,</span> <span class="s2">"lean"</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">],</span>
+                          <span class="n">cwd</span><span class="o">=</span><span class="n">directory</span><span class="p">,</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">env</span><span class="o">=</span><span class="n">env</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">TemporaryDirectory</span><span class="p">()</span> <span class="k">as</span> <span class="n">temporary</span><span class="p">:</span>
+    <span class="n">directory</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">temporary</span><span class="p">)</span>
+    <span class="p">(</span><span class="n">directory</span> <span class="o">/</span> <span class="s2">"PassageLab.lean"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="n">lean_source</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+    <span class="p">(</span><span class="n">directory</span> <span class="o">/</span> <span class="s2">"Audit.lean"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="n">audit_source</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+    <span class="n">version</span> <span class="o">=</span> <span class="n">invoke</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="s2">"--version"</span><span class="p">)</span>
+    <span class="n">version</span><span class="o">.</span><span class="n">check_returncode</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">version</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+    <span class="n">built</span> <span class="o">=</span> <span class="n">invoke</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="s2">"-DwarningAsError=true"</span><span class="p">,</span> <span class="s2">"-o"</span><span class="p">,</span> <span class="s2">"PassageLab.olean"</span><span class="p">,</span> <span class="s2">"PassageLab.lean"</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">built</span><span class="o">.</span><span class="n">returncode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">built</span><span class="o">.</span><span class="n">stdout</span> <span class="o">+</span> <span class="n">built</span><span class="o">.</span><span class="n">stderr</span>
+    <span class="n">imported</span> <span class="o">=</span> <span class="n">invoke</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="s2">"-DwarningAsError=true"</span><span class="p">,</span> <span class="s2">"Audit.lean"</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">imported</span><span class="o">.</span><span class="n">returncode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">imported</span><span class="o">.</span><span class="n">stdout</span> <span class="o">+</span> <span class="n">imported</span><span class="o">.</span><span class="n">stderr</span>
+    <span class="n">report</span> <span class="o">=</span> <span class="n">imported</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">report</span><span class="o">.</span><span class="n">splitlines</span><span class="p">())</span> <span class="o">==</span> <span class="mi">7</span> <span class="ow">and</span> <span class="s2">"sorryAx"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">report</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">report</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lean (version 4.33.0, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>'PassageLab.passage' depends on axioms: [propext]
+'PassageLab.checkedStates' depends on axioms: [propext]
+'PassageLab.noFire' does not depend on any axioms
+'PassageLab.stepBound' depends on axioms: [propext]
+'PassageLab.runBound' depends on axioms: [propext, Quot.sound]
+'PassageLab.minimumLength' depends on axioms: [propext, Quot.sound]
+'PassageLab.runAppend' depends on axioms: [propext]
+</pre></div>
+</div>
+</div>
+</div>
+<figure><img alt="The public proof viewer showing three accepted declarations and their fresh Lean import report." src="media/kernel-accepted.png"/><figcaption>The public proof viewer showing three accepted declarations and their fresh Lean import report.</figcaption></figure>
+</section>
+<section id="break-the-proof-deliberately">
+<h2>Break the proof deliberately</h2>
+<p>Swap the first two controls and keep the original passage claim. A correct check now rejects it because the door stays closed when walk is pressed. We also test that the diagnostic names the failed goal, so a missing compiler cannot masquerade as a successful negative control. <a class="reference external" href="kernel.html">Compare both transcripts</a> · <a class="reference external" href="wrong-order.txt">Raw rejection</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">before</span><span class="p">,</span> <span class="n">after</span> <span class="o">=</span> <span class="s2">"[.collect, .use, .walk]"</span><span class="p">,</span> <span class="s2">"[.use, .collect, .walk]"</span>
+<span class="k">assert</span> <span class="n">lean_source</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">before</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+<span class="k">with</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">TemporaryDirectory</span><span class="p">()</span> <span class="k">as</span> <span class="n">temporary</span><span class="p">:</span>
+    <span class="n">directory</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">temporary</span><span class="p">)</span>
+    <span class="p">(</span><span class="n">directory</span> <span class="o">/</span> <span class="s2">"WrongOrder.lean"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="n">lean_source</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">before</span><span class="p">,</span> <span class="n">after</span><span class="p">),</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+    <span class="n">rejected</span> <span class="o">=</span> <span class="n">invoke</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="s2">"-DwarningAsError=true"</span><span class="p">,</span> <span class="s2">"WrongOrder.lean"</span><span class="p">)</span>
+    <span class="n">diagnostic</span> <span class="o">=</span> <span class="n">rejected</span><span class="o">.</span><span class="n">stdout</span> <span class="o">+</span> <span class="n">rejected</span><span class="o">.</span><span class="n">stderr</span>
+    <span class="k">assert</span> <span class="n">rejected</span><span class="o">.</span><span class="n">returncode</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="s2">"run Phase.dock route = Phase.outside"</span> <span class="ow">in</span> <span class="n">diagnostic</span>
+    <span class="k">assert</span> <span class="s2">"is false"</span> <span class="ow">in</span> <span class="n">diagnostic</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">diagnostic</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WrongOrder.lean:35:51: error: Tactic `decide` proved that the proposition
+  run Phase.dock route = Phase.outside
+is false
+WrongOrder.lean:38:69: error: Tactic `decide` proved that the proposition
+  states Phase.dock route = [Phase.dock, Phase.carrying, Phase.opened, Phase.outside]
+is false
+</pre></div>
+</div>
+</div>
+</div>
+<figure><img alt="The same viewer showing the changed order and the checker’s rejection of the endpoint equality." src="media/kernel-rejected.png"/><figcaption>The same viewer showing the changed order and the checker’s rejection of the endpoint equality.</figcaption></figure>
+</section>
+<section id="investigate-a-new-controller">
+<h2>Investigate a new controller</h2>
+<ol class="arabic simple">
+<li><p>Change <code class="docutils literal notranslate"><span class="pre">route</span></code> to <code class="docutils literal notranslate"><span class="pre">collect,</span> <span class="pre">wait,</span> <span class="pre">use,</span> <span class="pre">walk</span></code> in the Python examples. Why do the endpoint and first-exit assertions survive while the claim of minimal length for <em>this</em> tape fails?</p></li>
+<li><p>Add an emergency input that can skip two phases. Find a concrete counterexample to <code class="docutils literal notranslate"><span class="pre">stepBound</span></code>. Propose a lower bound that still holds, and say where to change the induction.</p></li>
+<li><p>Define <code class="docutils literal notranslate"><span class="pre">safe</span></code> as positive health in a larger state with hazards. What must both halves prove so that their concatenation is safe at every prefix? What must the first half say about exit flags?</p></li>
+<li><p>Type the logical difference between “this Computer Station tape uses no Attack” and “there exists a zero-shot passage of Computer Station.” Which implication requires a theorem about executing the input tape?</p></li>
+<li><p>Compare two versions of the same engine. Give a relation on complete states and a step-preservation obligation strong enough to transport a passage theorem.</p></li>
+</ol>
+<p>Further reading takes you from individual judgments to whole programs. <a class="reference external" href="https://lean-lang.org/learn/">Lean learning path</a> · <a class="reference external" href="https://softwarefoundations.cis.upenn.edu/plf-current/Hoare.html">Software Foundations on program specifications</a> · <a class="reference external" href="https://adam.chlipala.net/frap/">Formal Reasoning About Programs</a> · <a class="reference external" href="index.html#reading">Annotated reading list</a></p>
+</section>
+<section id="artwork-notice">
+<h2>Artwork notice</h2>
+<p>The native spawn image uses artwork by the Freedoom contributors. The other screenshots show this project’s own teaching interface and course.</p>
+<details><summary>Freedoom redistribution terms</summary>
+<p>Copyright © 2001-2024
+Contributors to the Freedoom project.  All rights reserved.</p>
+<p>Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
+met:</p>
+<ul class="simple">
+<li><p>Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.</p></li>
+<li><p>Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.</p></li>
+<li><p>Neither the name of the Freedoom project nor the names of its
+contributors may be used to endorse or promote products derived from
+this software without specific prior written permission.</p></li>
+</ul>
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS
+IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
+TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER
+OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+<p>For a list of contributors to the Freedoom project, see the file
+CREDITS.</p>
+</details></section>
+</section>
+
+
+</article></main><footer>Lean Doom · Student edition</footer></body></html>

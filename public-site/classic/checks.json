@@ -1,0 +1,385 @@
+{
+  "schema": "classic-browser-checks-v1",
+  "tested": "2026-11-11",
+  "scope": "Each episode-one map launched independently with medium difficulty. The browser captured real WebGL frames before and after a turn, observed zero draw calls throughout a 350 ms pause, and obtained a fresh frame on resume. Source and map marker checks cover campaign routing.",
+  "freedoom": {
+    "iwadSha256": "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d",
+    "mapExitMarkers": {
+      "E1M3": {
+        "normalExit": true,
+        "secretExit": true,
+        "terminalDamageSector": false,
+        "sectorTag666": false
+      },
+      "E1M8": {
+        "normalExit": true,
+        "secretExit": false,
+        "terminalDamageSector": false,
+        "sectorTag666": true
+      },
+      "E1M9": {
+        "normalExit": true,
+        "secretExit": false,
+        "terminalDamageSector": false,
+        "sectorTag666": false
+      }
+    },
+    "starts": [
+      {
+        "afterTurn": {
+          "colors": 82,
+          "sha256": "5ef76a9698b8b05589683f7353580ee83d852b28774cb4d9ccf6a37eb6013f38"
+        },
+        "drawsWhilePaused": 0,
+        "height": 600,
+        "map": "E1M1",
+        "pausedThenResumed": true,
+        "spawn": {
+          "colors": 34,
+          "sha256": "1ac456660cfb9df4523a4aa102c9c934e48711b893209c14fd4c497e1355dbd2"
+        },
+        "title": "Freedoom: Phase 1 - Websockets Doom 0.0.1",
+        "width": 800
+      },
+      {
+        "afterTurn": {
+          "colors": 89,
+          "sha256": "e760f6ddf4bce6ebd41a7bf1c6b5be26ffe1e1c0851e0fae46fb51f048ba938d"
+        },
+        "drawsWhilePaused": 0,
+        "height": 600,
+        "map": "E1M2",
+        "pausedThenResumed": true,
+        "spawn": {
+          "colors": 36,
+          "sha256": "3f940c066c63a8acd876d971abe3320ffda56ea396ef3ece406a0780da777ceb"
+        },
+        "title": "Freedoom: Phase 1 - Websockets Doom 0.0.1",
+        "width": 800
+      },
+      {
+        "afterTurn": {
+          "colors": 81,
+          "sha256": "080bed1285d569be2a7c01d6e96894fead6c06cb573af8edea5e0d35bec15b7f"
+        },
+        "drawsWhilePaused": 0,
+        "height": 600,
+        "map": "E1M3",
+        "pausedThenResumed": true,
+        "spawn": {
+          "colors": 40,
+          "sha256": "5274ec569701e564f1f66f08157f15c81366bb709bc50c85f24e6648c34be728"
+        },
+        "title": "Freedoom: Phase 1 - Websockets Doom 0.0.1",
+        "width": 800
+      },
+      {
+        "afterTurn": {
+          "colors": 87,
+          "sha256": "0316305108da8db7073fbef743be5ba5446f64f5f7a7ed06be1caea2dd2c0bd9"
+        },
+        "drawsWhilePaused": 0,
+        "height": 600,
+        "map": "E1M4",
+        "pausedThenResumed": true,
+        "spawn": {
+          "colors": 54,
+          "sha256": "bf19a809f22cec209b7a63694a93f00f073186fb152746c94721f6245e51b963"
+        },
+        "title": "Freedoom: Phase 1 - Websockets Doom 0.0.1",
+        "width": 800
+      },
+      {
+        "afterTurn": {
+          "colors": 90,
+          "sha256": "f243609ad111bfe0de2d58e7bfb5e84ced5d3adcc8c9fecc0b5b7fd81e20f07d"
+        },
+        "drawsWhilePaused": 0,
+        "height": 600,
+        "map": "E1M5",
+        "pausedThenResumed": true,
+        "spawn": {
+          "colors": 51,
+          "sha256": "3393be34533aa196828976ee8541c44afeb537f5b4b3c7ceab6e0668b774237a"
+        },
+        "title": "Freedoom: Phase 1 - Websockets Doom 0.0.1",
+        "width": 800
+      },
+      {
+        "afterTurn": {
+          "colors": 94,
+          "sha256": "f7b256260c3860f531802d1d679c3d8bff6ecf2200f6965bf76bb2e0aa61be49"
+        },
+        "drawsWhilePaused": 0,
+        "height": 600,
+        "map": "E1M6",
+        "pausedThenResumed": true,
+        "spawn": {
+          "colors": 31,
+          "sha256": "b4abf2115a2fb39c24786985867c1ebbdd969e2bffd0da0b15280185a9710015"
+        },
+        "title": "Freedoom: Phase 1 - Websockets Doom 0.0.1",
+        "width": 800
+      },
+      {
+        "afterTurn": {
+          "colors": 108,
+          "sha256": "70b980945177399c3763638285442aa0a127625ce23e679451c944699266cee1"
+        },
+        "drawsWhilePaused": 0,
+        "height": 600,
+        "map": "E1M7",
+        "pausedThenResumed": true,
+        "spawn": {
+          "colors": 40,
+          "sha256": "2232a4d83a0ae2a94448f3c106686632a7ec1fefdeb1d938fb2c5cae4368baa4"
+        },
+        "title": "Freedoom: Phase 1 - Websockets Doom 0.0.1",
+        "width": 800
+      },
+      {
+        "afterTurn": {
+          "colors": 68,
+          "sha256": "2f7080c1e68a303b84128148528154f7aedc77594e7d3a98cbfd46756ce6e26d"
+        },
+        "drawsWhilePaused": 0,
+        "height": 600,
+        "map": "E1M8",
+        "pausedThenResumed": true,
+        "spawn": {
+          "colors": 39,
+          "sha256": "0192d7a6d54736ec3d921253019200feffa703bb18220ec513a01418ce57b4de"
+        },
+        "title": "Freedoom: Phase 1 - Websockets Doom 0.0.1",
+        "width": 800
+      },
+      {
+        "afterTurn": {
+          "colors": 85,
+          "sha256": "410db860356269703905d9b6c3b1c094176e274b122f4079c5e12dbc617129e0"
+        },
+        "drawsWhilePaused": 0,
+        "height": 600,
+        "map": "E1M9",
+        "pausedThenResumed": true,
+        "spawn": {
+          "colors": 42,
+          "sha256": "ac6dad3d94a52602315bac0c0f4b78a22f804958025c78d3978a6773b25aeff6"
+        },
+        "title": "Freedoom: Phase 1 - Websockets Doom 0.0.1",
+        "width": 800
+      }
+    ]
+  },
+  "original": {
+    "iwadSha256": "1d7d43be501e67d927e415e0b8f3e29c3bf33075e859721816f652a526cac771",
+    "mapExitMarkers": {
+      "E1M3": {
+        "normalExit": true,
+        "secretExit": true,
+        "terminalDamageSector": false,
+        "sectorTag666": false
+      },
+      "E1M8": {
+        "normalExit": false,
+        "secretExit": false,
+        "terminalDamageSector": true,
+        "sectorTag666": true
+      },
+      "E1M9": {
+        "normalExit": true,
+        "secretExit": false,
+        "terminalDamageSector": false,
+        "sectorTag666": false
+      }
+    },
+    "starts": [
+      {
+        "afterTurn": {
+          "colors": 123,
+          "sha256": "a2811a1ec5ecbda0539792e1c915f9e8f56b9ad46a95bf15b5fd56ef603cd72d"
+        },
+        "drawsWhilePaused": 0,
+        "height": 600,
+        "map": "E1M1",
+        "pausedThenResumed": true,
+        "spawn": {
+          "colors": 81,
+          "sha256": "d8ebc72a4cdaea5f392f9100d54f8ea8fa5be9a2978cb1d4d85d7ff2cef7c79c"
+        },
+        "title": "DOOM Shareware - Websockets Doom 0.0.1",
+        "width": 800
+      },
+      {
+        "afterTurn": {
+          "colors": 105,
+          "sha256": "49349d17a6b8cf24328e184055a1ee08108a8e0b6a770057a3977e06166caec8"
+        },
+        "drawsWhilePaused": 0,
+        "height": 600,
+        "map": "E1M2",
+        "pausedThenResumed": true,
+        "spawn": {
+          "colors": 59,
+          "sha256": "a98cbf614d28953513971fcb5c8e270e2bd1265a276c93b9abb0159f763dea2a"
+        },
+        "title": "DOOM Shareware - Websockets Doom 0.0.1",
+        "width": 800
+      },
+      {
+        "afterTurn": {
+          "colors": 90,
+          "sha256": "9be51495a915a2c12c09789a25f46a7742da491e7bcd2a5e14a27b3e604b0410"
+        },
+        "drawsWhilePaused": 0,
+        "height": 600,
+        "map": "E1M3",
+        "pausedThenResumed": true,
+        "spawn": {
+          "colors": 36,
+          "sha256": "ea5861fb2ace2bf73ab8609ad5bfbbb269e6a902f3a38fc461e28a0902e1d4ce"
+        },
+        "title": "DOOM Shareware - Websockets Doom 0.0.1",
+        "width": 800
+      },
+      {
+        "afterTurn": {
+          "colors": 87,
+          "sha256": "49dd4cb892c4449e21b216618980972780dcc068936008a369d5561c22aa8753"
+        },
+        "drawsWhilePaused": 0,
+        "height": 600,
+        "map": "E1M4",
+        "pausedThenResumed": true,
+        "spawn": {
+          "colors": 32,
+          "sha256": "1bd0f009c63d24e1b92c0ed5c3de855e36538231c0dd5b3912e5751a496e801f"
+        },
+        "title": "DOOM Shareware - Websockets Doom 0.0.1",
+        "width": 800
+      },
+      {
+        "afterTurn": {
+          "colors": 95,
+          "sha256": "f4eaf113746260120e589d896877e31faac92e6accce7eda14deeee04a350561"
+        },
+        "drawsWhilePaused": 0,
+        "height": 600,
+        "map": "E1M5",
+        "pausedThenResumed": true,
+        "spawn": {
+          "colors": 36,
+          "sha256": "7515b56635f91558477bc0a214e04813e1585de9600a61bdd21954835f0e41f9"
+        },
+        "title": "DOOM Shareware - Websockets Doom 0.0.1",
+        "width": 800
+      },
+      {
+        "afterTurn": {
+          "colors": 97,
+          "sha256": "27d0c7221ae345eb437e18f7c0cd78bbfc5864854cafca630c9c53015cf9cdee"
+        },
+        "drawsWhilePaused": 0,
+        "height": 600,
+        "map": "E1M6",
+        "pausedThenResumed": true,
+        "spawn": {
+          "colors": 51,
+          "sha256": "1404587e783f1c2a4719197f40849248f8fbef22c5299001a3a0b5f40c9b89aa"
+        },
+        "title": "DOOM Shareware - Websockets Doom 0.0.1",
+        "width": 800
+      },
+      {
+        "afterTurn": {
+          "colors": 56,
+          "sha256": "43c5cc4ebaee98e9c96cf0315987983400f1538c86f7a6355ef205c21101b62d"
+        },
+        "drawsWhilePaused": 0,
+        "height": 600,
+        "map": "E1M7",
+        "pausedThenResumed": true,
+        "spawn": {
+          "colors": 31,
+          "sha256": "4efc5a611d1488db80c51c05abc6106e1473ce06d2ec867900f52939c1448055"
+        },
+        "title": "DOOM Shareware - Websockets Doom 0.0.1",
+        "width": 800
+      },
+      {
+        "afterTurn": {
+          "colors": 72,
+          "sha256": "7cff83dd6caf5387d8fa7764a969373867d2224b594433c1ac3e716b4b007579"
+        },
+        "drawsWhilePaused": 0,
+        "height": 600,
+        "map": "E1M8",
+        "pausedThenResumed": true,
+        "spawn": {
+          "colors": 33,
+          "sha256": "84a49cf103377c33987317c5168a0abada255eb2d17d78d91f89561fab26dbe1"
+        },
+        "title": "DOOM Shareware - Websockets Doom 0.0.1",
+        "width": 800
+      },
+      {
+        "afterTurn": {
+          "colors": 87,
+          "sha256": "af4c72307d005671f907245a19eea4ab610ea9320cc222249bb9af6eb94b6532"
+        },
+        "drawsWhilePaused": 0,
+        "height": 600,
+        "map": "E1M9",
+        "pausedThenResumed": true,
+        "spawn": {
+          "colors": 44,
+          "sha256": "218a0c75d77c42edca075d55ebc5a2286ed40adcab3ef2f45025200bb5da1bd8"
+        },
+        "title": "DOOM Shareware - Websockets Doom 0.0.1",
+        "width": 800
+      }
+    ]
+  },
+  "browser": "Headless Chromium 147.0.0.0, 800 \u00d7 600 WebGL canvas",
+  "physicalKeyboard": {
+    "map": "E1M9",
+    "iwad": "shareware 1.9",
+    "focusedElement": "canvas",
+    "key": "ArrowUp",
+    "browserTrustedKeydown": true
+  },
+  "sources": {
+    "engine-source.zip": "9186ccb63b7933a4a57c5e7e4b9fd2de734cd5e7a30a73e2559c66564caa5a62",
+    "websockets-doom.wasm": "4a55e4381d374b9bf347116e8c6f52547bb990fd7fc28a5e21af354830f80f78",
+    "websockets-doom.js": "f8670d5e86cc7a96426b56da7a164b46473879f2338f2fe24c192cb1628a30b1",
+    "runtime.js": "32eeb2d9235af000be4d429963634506d59d2b27a5c59fa0b99e349d4d4b620c",
+    "player.js": "01436d4f7580dc76ad44af3bb6f7b0a4038aa180c819656a71d378f7b03baac0"
+  },
+  "sourceLines": {
+    "src/doom/g_game.c": {
+      "victory dispatch": 770,
+      "finale invocation": 771,
+      "eighth map victory": 1204,
+      "secret destination index": 1243,
+      "episode one return index": 1248,
+      "ordinary destination index": 1262,
+      "next map load": 1347
+    },
+    "src/doom/p_switch.c": {
+      "normal exit switch": 349,
+      "secret exit switch": 421
+    },
+    "src/doom/p_enemy.c": {
+      "episode boss lowers tag 666": 1746
+    },
+    "src/doom/p_spec.c": {
+      "terminal damage sector": 1077
+    }
+  },
+  "progression": {
+    "E1M3 secret switch": "E1M9",
+    "E1M9 normal exit": "E1M4",
+    "E1M8 completion": "episode finale",
+    "scope": "Inspected corresponding C source and IWAD markers; launch and rendering tests start each map separately."
+  }
+}

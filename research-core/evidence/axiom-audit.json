@@ -1,0 +1,1229 @@
+{
+  "status": "passed",
+  "theorem_count": 277,
+  "allowed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "proof_input_sha256": "69a1e0554258e31cd91ad4be6f43aaed257dabd60e7059a7573f709684fa71c1",
+  "theorems": {
+    "LeanDoomProofs.loaded_discharge_accounting": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.loaded_shots_le_initial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.pellet_damage_bounds": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.damage_sum_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.direct_pistol_kill_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.imp_needs_four_direct_bullets": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.demon_needs_ten_direct_bullets": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.four_maximal_hits_suffice": [],
+    "LeanDoomProofs.firing_schedule_bound": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.four_shots_need_42_tics": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.arena_spawn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.arena_initial_profile": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.arena_final_profile": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.arena_attack": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.arena_inputs_length": [],
+    "LeanDoomProofs.arena_inputs_ordinary": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.arena_inputs_no_restart": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.arena_map_valid": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.arena_passage": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.arena_reached_attack": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.arena_full_combat_passage": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.arena_segment_000": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.arena_segment_001": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.arena_segment_002": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.arena_segment_003": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.arena_segment_004": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.arena_segment_005": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.arena_segment_006": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.arena_segment_007": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.arena_segment_008": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.arena_segment_009": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.arena_segment_010": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.arena_segment_011": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.arena_segment_012": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.arena_segment_013": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.arena_segment_014": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.arena_segment_015": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.arena_segment_016": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.arena_segment_017": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.arena_segment_018": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.arena_segment_019": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.arena_segment_020": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.arena_segment_021": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.arena_segment_022": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combatSeal_eq": [
+      "Classical.choice"
+    ],
+    "LeanDoomProofs.combat_subarray_toArray": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_actor_equivalence": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_tick_original": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_tick_equivalence": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_first_normalized": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_first_tick_health": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_spawn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_initial_profile": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_final_profile": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_attack_26": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_attack_64": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_attack_301": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_first_kill": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_blue_key": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_door_started": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_second_kill": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_passage": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_reached_attack": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_reached_first_kill": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_reached_key": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_reached_second_kill": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_full_combat_passage": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_segment_nil": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_segment_cons": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_segment_append": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_inputs_length": [],
+    "LeanDoomProofs.twoImp_inputs_ordinary": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_inputs_no_restart": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_map_valid": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_000": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_001": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_002": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_003": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_004": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_005": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_006": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_007": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_008": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_009": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_010": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_011": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_012": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_013": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_014": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_015": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_016": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_017": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_018": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_019": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_020": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_021": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_022": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_023": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_024": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_025": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_026": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_027": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_028": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_029": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_030": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_031": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_032": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_033": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_034": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_035": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_036": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_037": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_038": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_039": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_040": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_041": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_042": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_043": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.twoImp_segment_044": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_dite_equality": [],
+    "LeanDoomProofs.combat_fineSine_range0": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineSine_range1": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineSine_range2": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineSine_range3": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineSine_range4": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineSine_range5": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineSine_range6": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineSine_range7": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineSine_range8": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineSine_range9": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineSine_range10": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineSine_range11": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineSine_range12": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineSine_range13": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineSine_range14": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineSine_range15": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineSine_range16": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineSine_range17": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineSine_range18": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineSine_range19": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineSine_range20": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineSine_range21": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineSine_range22": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineSine_range23": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineSine_range24": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineSine_range25": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineSine_range26": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineSine_range27": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineSine_range28": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineSine_range29": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineSine_range30": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineSine_range31": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineSine_range32": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineSine_range33": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineSine_range34": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineSine_range35": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineSine_range36": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineSine_range37": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineSine_range38": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineSine_range39": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineSine_lookup_eq": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_tanToAngle_range0": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_tanToAngle_range1": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_tanToAngle_range2": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_tanToAngle_range3": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_tanToAngle_range4": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_tanToAngle_range5": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_tanToAngle_range6": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_tanToAngle_range7": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_tanToAngle_range8": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_tanToAngle_lookup_eq": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineTangent_range0": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineTangent_range1": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineTangent_range2": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineTangent_range3": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineTangent_range4": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineTangent_range5": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineTangent_range6": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineTangent_range7": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineTangent_range8": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineTangent_range9": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineTangent_range10": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineTangent_range11": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineTangent_range12": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineTangent_range13": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineTangent_range14": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineTangent_range15": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.combat_fineTangent_lookup_eq": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.barrel_center_extreme_death": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.barrel_neighbor_normal_death": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.extreme_death_boundary": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.imp_corpse_initially_solid": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.imp_corpse_opens_after_22": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.imp_corpse_blocks_at_21": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.imp_corpse_blocks_before_22": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.imp_corpse_clearance_lower_bound": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.tick_after_exit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.exited_tick_preserves": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.exited_trace_preserves": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.exit_without_texture": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.normal_exit_switch_certificate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.nonplayer_cannot_exit": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.backside_cannot_exit": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.fresh_spawn_not_won": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.fresh_win_needs_input": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.potential_bound_on_invariant": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.certified_optimal": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.zero_cost_win_rules_out_positive_bound": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.displacement_bound": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.table_sine_zero": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.table_cosine_zero": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.sine_lookup_zero": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.sine_lookup_quarter": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.angle_sine_zero": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.angle_cosine_zero": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.useLines_as_ray": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.room_ray_none": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.room_ray": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.room_use_lines": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.view_sine": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.room_view": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.checkpoint_is_spawn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.room_player_formula": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.room_player_tick": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.interactionWithUse_original": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.room_interaction_using": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.room_interaction_formula": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.room_interaction_tick": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.room_syncScene": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.use_as_dispatch": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.queryUse_of_sync": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.room_query_equation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.room_queryUse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.room_use_formula": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.room_interaction_for_tick": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.tickWithInteraction_original": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.tickWithInteraction_congr": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.room_interaction_complete": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.bool_replace_true": [],
+    "LeanDoomProofs.room_interaction_pointwise": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.room_tick_rewrite": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.room_tick_tail_observations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.room_tick_observations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.observations_certificate": [
+      "propext"
+    ],
+    "LeanDoomProofs.proof01_final_state": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.safe_of_observations": [
+      "propext"
+    ],
+    "LeanDoomProofs.won_of_observations": [
+      "propext"
+    ],
+    "LeanDoomProofs.proof01_start_safe": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.proof01_final_safe": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.singleton_prefix_safe": [],
+    "LeanDoomProofs.proof01_prefix_safe": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.proof01_inputs_ordinary": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.proof01_wins": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.proof01_afterUse_wins": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.proof01_passage": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.proof01_time_optimal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.proof01_resource_certificate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.proof01_forever_exited": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.fireball_hits_center": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.fireball_dodge_at_22": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.fireball_still_hits_at_21": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.fireball_overhead_57": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.fireball_touches_at_56": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.triple_barrel_blast": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.triple_blast_lethal": [
+      "propext"
+    ],
+    "LeanDoomProofs.blast_damage_ignores_height": [
+      "propext"
+    ],
+    "LeanDoomProofs.cyberdemon_blast_immune": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.spider_blast_immune": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.run_nil": [],
+    "LeanDoomProofs.run_cons": [],
+    "LeanDoomProofs.run_append": [],
+    "LeanDoomProofs.potential_bound": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.winning_cost_lower_bound": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.unit_cost": [
+      "propext"
+    ],
+    "LeanDoomProofs.winning_step_lower_bound": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.abstract_potential_bound": [
+      "propext",
+      "Quot.sound"
+    ],
+    "LeanDoomProofs.run_invariant": []
+  }
+}

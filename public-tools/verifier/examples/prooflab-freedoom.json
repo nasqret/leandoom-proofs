@@ -1,0 +1,25 @@
+{
+  "schema": "combatv2-run-v1",
+  "engine": "CombatV2",
+  "level": "E1M1",
+  "iwadSha256": "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d",
+  "commands": [
+    2,
+    4,
+    32,
+    0
+  ],
+  "final": {
+    "tick": 4,
+    "x": -27224873,
+    "y": 16777226,
+    "health": 100,
+    "armor": 0,
+    "bullets": 50,
+    "shells": 0,
+    "shots": 0,
+    "kills": 0,
+    "exit": false,
+    "error": null
+  }
+}

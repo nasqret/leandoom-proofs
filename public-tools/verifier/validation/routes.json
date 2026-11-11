@@ -1,0 +1,743 @@
+{
+  "engine": "proof-lab-grid-v1",
+  "engineSourceSha256": "6bfd5ae83cd02b1aeb6f4534dd39a518619289332f635fb88aaf41ff3d7b6584",
+  "episodeSha256": "eeab7081246a0bcb1df35def249300f7f94ce0ef7ff871536510492c6df5b7d9",
+  "routes": {
+    "L01_direct": {
+      "level": "L01",
+      "commands": 19,
+      "commandsU32LESha256": "41c81aac0408dd48c45e6ce5b114b9406488aebcf64cc608a9c8b8d0ee40043a",
+      "status": "kernel-passage",
+      "final": {
+        "blue": true,
+        "exit": true,
+        "facing": 0,
+        "hp": 3,
+        "opened": true,
+        "x": 13,
+        "y": 5
+      },
+      "axioms": {
+        "Recording.passage": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    "L01_careful": {
+      "level": "L01",
+      "commands": 23,
+      "commandsU32LESha256": "ac4647e1a4647d936ec9c7ab435a8de8b6570c6b05ffe4aca0c9a26e47eab52d",
+      "status": "kernel-passage",
+      "final": {
+        "blue": true,
+        "exit": true,
+        "facing": 0,
+        "hp": 3,
+        "opened": true,
+        "x": 13,
+        "y": 5
+      },
+      "axioms": {
+        "Recording.passage": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    "L01_survey": {
+      "level": "L01",
+      "commands": 41,
+      "commandsU32LESha256": "f011fdf7aaae978a98c8b6b2273d4bf32a8fbd6a78a0fad1d05e3444f8b3d4f0",
+      "status": "kernel-passage",
+      "final": {
+        "blue": true,
+        "exit": true,
+        "facing": 0,
+        "hp": 3,
+        "opened": true,
+        "x": 13,
+        "y": 5
+      },
+      "axioms": {
+        "Recording.passage": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    "L02_direct": {
+      "level": "L02",
+      "commands": 33,
+      "commandsU32LESha256": "ebf8d68f36c55063dbbd6597dd0709bdd2420e425ed3f7eca948c9ec18b2eea0",
+      "status": "kernel-passage",
+      "final": {
+        "blue": true,
+        "exit": true,
+        "facing": 1,
+        "hp": 3,
+        "opened": true,
+        "x": 14,
+        "y": 6
+      },
+      "axioms": {
+        "Recording.passage": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    "L02_careful": {
+      "level": "L02",
+      "commands": 41,
+      "commandsU32LESha256": "4d18227f75eb49e501accc412a2c0053754c3133e9f8ed044215445c55d67ea1",
+      "status": "kernel-passage",
+      "final": {
+        "blue": true,
+        "exit": true,
+        "facing": 1,
+        "hp": 3,
+        "opened": true,
+        "x": 14,
+        "y": 6
+      },
+      "axioms": {
+        "Recording.passage": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    "L02_survey": {
+      "level": "L02",
+      "commands": 49,
+      "commandsU32LESha256": "884c8448e33826829f7949fb06dec444f0eac1c3e73c04d684e8e53561d2a5ab",
+      "status": "kernel-passage",
+      "final": {
+        "blue": true,
+        "exit": true,
+        "facing": 1,
+        "hp": 3,
+        "opened": true,
+        "x": 14,
+        "y": 6
+      },
+      "axioms": {
+        "Recording.passage": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    "L03_direct": {
+      "level": "L03",
+      "commands": 28,
+      "commandsU32LESha256": "1cf8e0b6d82dc2eef1862f3e961aa88794ad787302926080bd3854f02dc867f5",
+      "status": "kernel-passage",
+      "final": {
+        "blue": true,
+        "exit": true,
+        "facing": 0,
+        "hp": 2,
+        "opened": true,
+        "x": 13,
+        "y": 1
+      },
+      "axioms": {
+        "Recording.passage": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    "L03_careful": {
+      "level": "L03",
+      "commands": 34,
+      "commandsU32LESha256": "195e9bc9f9a20905d8fc04680fa83e1e6c273d3d95f56f66903c4b9db120c1b7",
+      "status": "kernel-passage",
+      "final": {
+        "blue": true,
+        "exit": true,
+        "facing": 0,
+        "hp": 3,
+        "opened": true,
+        "x": 13,
+        "y": 1
+      },
+      "axioms": {
+        "Recording.passage": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    "L03_survey": {
+      "level": "L03",
+      "commands": 44,
+      "commandsU32LESha256": "8b91a1c398c8784132bc07a685ef64ab50393217839c0472305653574feb3cd3",
+      "status": "kernel-passage",
+      "final": {
+        "blue": true,
+        "exit": true,
+        "facing": 0,
+        "hp": 3,
+        "opened": true,
+        "x": 13,
+        "y": 1
+      },
+      "axioms": {
+        "Recording.passage": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    "L04_direct": {
+      "level": "L04",
+      "commands": 32,
+      "commandsU32LESha256": "bfc53e722cb534f6c438052df9f5f4aa74fa853c5e07559d702dcea70888e104",
+      "status": "kernel-passage",
+      "final": {
+        "blue": true,
+        "exit": true,
+        "facing": 0,
+        "hp": 2,
+        "opened": true,
+        "x": 14,
+        "y": 9
+      },
+      "axioms": {
+        "Recording.passage": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    "L04_careful": {
+      "level": "L04",
+      "commands": 40,
+      "commandsU32LESha256": "de80c30c6473b59b2e3cb1204bd847f2d7233ee07849ddf126660025805f7365",
+      "status": "kernel-passage",
+      "final": {
+        "blue": true,
+        "exit": true,
+        "facing": 0,
+        "hp": 3,
+        "opened": true,
+        "x": 14,
+        "y": 9
+      },
+      "axioms": {
+        "Recording.passage": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    "L04_survey": {
+      "level": "L04",
+      "commands": 36,
+      "commandsU32LESha256": "fa8ce462838939fb0a7cb37fffc9e1cf876060a18cbb29e0533f165efb3c4c58",
+      "status": "kernel-passage",
+      "final": {
+        "blue": true,
+        "exit": true,
+        "facing": 0,
+        "hp": 3,
+        "opened": true,
+        "x": 14,
+        "y": 9
+      },
+      "axioms": {
+        "Recording.passage": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    "L05_direct": {
+      "level": "L05",
+      "commands": 31,
+      "commandsU32LESha256": "e3702aadbafb1176d7c001fca22425860c4baf79e0b8f97b531ea858308502c1",
+      "status": "kernel-passage",
+      "final": {
+        "blue": true,
+        "exit": true,
+        "facing": 0,
+        "hp": 2,
+        "opened": true,
+        "x": 11,
+        "y": 2
+      },
+      "axioms": {
+        "Recording.passage": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    "L05_careful": {
+      "level": "L05",
+      "commands": 51,
+      "commandsU32LESha256": "1cbe58b541d8c117f5e0db03fbd048845b99ead85aa5078c22d9702f1a3e6c3c",
+      "status": "kernel-passage",
+      "final": {
+        "blue": true,
+        "exit": true,
+        "facing": 0,
+        "hp": 3,
+        "opened": true,
+        "x": 11,
+        "y": 2
+      },
+      "axioms": {
+        "Recording.passage": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    "L05_survey": {
+      "level": "L05",
+      "commands": 43,
+      "commandsU32LESha256": "e891eedac280bc16cf7c5f8e3445b5720c0ac9168228d4b2e519cb6f36e30ad2",
+      "status": "kernel-passage",
+      "final": {
+        "blue": true,
+        "exit": true,
+        "facing": 0,
+        "hp": 3,
+        "opened": true,
+        "x": 11,
+        "y": 2
+      },
+      "axioms": {
+        "Recording.passage": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    "L06_direct": {
+      "level": "L06",
+      "commands": 27,
+      "commandsU32LESha256": "5f6e47850061f56418c27cb3eadb024894c9063d9b98bd66d8c5ea9d736e795b",
+      "status": "kernel-passage",
+      "final": {
+        "blue": true,
+        "exit": true,
+        "facing": 0,
+        "hp": 3,
+        "opened": true,
+        "x": 13,
+        "y": 9
+      },
+      "axioms": {
+        "Recording.passage": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    "L06_careful": {
+      "level": "L06",
+      "commands": 33,
+      "commandsU32LESha256": "6b8a3a636e34694ee24c5cbeeb762e1bea04ef3fc8b13c18b9110dfd9d31611e",
+      "status": "kernel-passage",
+      "final": {
+        "blue": true,
+        "exit": true,
+        "facing": 0,
+        "hp": 3,
+        "opened": true,
+        "x": 13,
+        "y": 9
+      },
+      "axioms": {
+        "Recording.passage": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    "L06_survey": {
+      "level": "L06",
+      "commands": 41,
+      "commandsU32LESha256": "12ca124392f16ca3eaec24488ed325b0f48834d82bfdf5758c16dc1ea848813b",
+      "status": "kernel-passage",
+      "final": {
+        "blue": true,
+        "exit": true,
+        "facing": 0,
+        "hp": 3,
+        "opened": true,
+        "x": 13,
+        "y": 9
+      },
+      "axioms": {
+        "Recording.passage": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    "L07_direct": {
+      "level": "L07",
+      "commands": 26,
+      "commandsU32LESha256": "9cc7c75f61f5d08aefef8097542e345db7bc4788e0b6935cb315022284ba8299",
+      "status": "kernel-passage",
+      "final": {
+        "blue": true,
+        "exit": true,
+        "facing": 0,
+        "hp": 2,
+        "opened": true,
+        "x": 12,
+        "y": 1
+      },
+      "axioms": {
+        "Recording.passage": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    "L07_careful": {
+      "level": "L07",
+      "commands": 32,
+      "commandsU32LESha256": "01ac5d60e0e313b18bb279c1371ba603fa12bc46be047e36e25b0df2c3dde4e6",
+      "status": "kernel-passage",
+      "final": {
+        "blue": true,
+        "exit": true,
+        "facing": 0,
+        "hp": 3,
+        "opened": true,
+        "x": 12,
+        "y": 1
+      },
+      "axioms": {
+        "Recording.passage": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    "L07_survey": {
+      "level": "L07",
+      "commands": 38,
+      "commandsU32LESha256": "e7fc803b1e06d8a88cd1070e5851167be019e171914023ee9237498952507ea2",
+      "status": "kernel-passage",
+      "final": {
+        "blue": true,
+        "exit": true,
+        "facing": 0,
+        "hp": 3,
+        "opened": true,
+        "x": 12,
+        "y": 1
+      },
+      "axioms": {
+        "Recording.passage": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    "L08_direct": {
+      "level": "L08",
+      "commands": 25,
+      "commandsU32LESha256": "1d7d0fba1342a51abd9138f430bcc349b78a4666097619f7449c58963d2388a8",
+      "status": "kernel-passage",
+      "final": {
+        "blue": true,
+        "exit": true,
+        "facing": 0,
+        "hp": 3,
+        "opened": true,
+        "x": 14,
+        "y": 9
+      },
+      "axioms": {
+        "Recording.passage": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    "L08_careful": {
+      "level": "L08",
+      "commands": 33,
+      "commandsU32LESha256": "31b99117f4af7b2fc8ee8e29e4e6855f67ef8caf7a1a72a6e504969cedb16d91",
+      "status": "kernel-passage",
+      "final": {
+        "blue": true,
+        "exit": true,
+        "facing": 0,
+        "hp": 3,
+        "opened": true,
+        "x": 14,
+        "y": 9
+      },
+      "axioms": {
+        "Recording.passage": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    "L08_survey": {
+      "level": "L08",
+      "commands": 51,
+      "commandsU32LESha256": "4d4c6ca9fe7b2b49dc0dcdee2cce143543be08af8836fa2207f5b27e030c18fe",
+      "status": "kernel-passage",
+      "final": {
+        "blue": true,
+        "exit": true,
+        "facing": 0,
+        "hp": 3,
+        "opened": true,
+        "x": 14,
+        "y": 9
+      },
+      "axioms": {
+        "Recording.passage": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    "L09_direct": {
+      "level": "L09",
+      "commands": 32,
+      "commandsU32LESha256": "4db757843e00b87dbe56599330d2f073389eae07f47ca27d1ca10a719ecad065",
+      "status": "kernel-passage",
+      "final": {
+        "blue": true,
+        "exit": true,
+        "facing": 1,
+        "hp": 3,
+        "opened": true,
+        "x": 15,
+        "y": 7
+      },
+      "axioms": {
+        "Recording.passage": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    "L09_careful": {
+      "level": "L09",
+      "commands": 36,
+      "commandsU32LESha256": "bb101232b903063f3d81ac9893e43a9439d86f097603cf70a1347f3aaeb533be",
+      "status": "kernel-passage",
+      "final": {
+        "blue": true,
+        "exit": true,
+        "facing": 1,
+        "hp": 3,
+        "opened": true,
+        "x": 15,
+        "y": 7
+      },
+      "axioms": {
+        "Recording.passage": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    "L09_survey": {
+      "level": "L09",
+      "commands": 40,
+      "commandsU32LESha256": "3253ebfec6ecd3ef17be227b1d16a278b59581a8e281bc8102001f3c8a698bc6",
+      "status": "kernel-passage",
+      "final": {
+        "blue": true,
+        "exit": true,
+        "facing": 1,
+        "hp": 3,
+        "opened": true,
+        "x": 15,
+        "y": 7
+      },
+      "axioms": {
+        "Recording.passage": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "Recording.finalObservation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    }
+  },
+  "controls": {
+    "truncated": "kernel-prefix",
+    "early-exit": "kernel-prefix",
+    "wrong-observation": "rejected",
+    "unsupported": "rejected",
+    "forged-engine": "rejected"
+  }
+}

@@ -1,0 +1,19 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="dark light"><title>A controller meets the kernel · Lean Doom</title><link rel="stylesheet" href="reader.css"></head><body><header><div class="top"><a class="brand" href="../index.html">LEAN / DOOM</a><nav aria-label="Student materials"><a href="index.html">Chapter</a><a href="notebook.html">Notebook</a><a href="../index.html">Home</a><a href="../evidence/">Gallery</a><a href="../classic/">Play Doom</a></nav></div></header><main class="bench"><h1>A controller meets the kernel</h1><p>Compare two command lists for the four-phase airlock. The right panel quotes the retained Lean process output.</p><nav class="tools"><a href="#checked-view">Checked route</a><a href="#reordered-view">Reordered route</a><a href="PassageLab.lean" download>Download source</a></nav><section id="checked-view"><div class="columns"><article><p class="kind">PassageLab.lean</p><h2>Collect, use, walk</h2><pre><code>def route : List Key := [.collect, .use, .walk]
+
+theorem passage : run .dock route = .outside := by decide
+
+theorem checkedStates :
+    states .dock route = [.dock, .carrying, .opened, .outside] := by decide
+
+theorem noFire : route.count .fire = 0 := by decide</code></pre></article><article><p class="kind">Stock Lean 4.33.0 · WMI</p><h2><span class="pass">Three declarations imported</span></h2><pre><code>&#x27;PassageLab.passage&#x27; depends on axioms: [propext]
+&#x27;PassageLab.checkedStates&#x27; depends on axioms: [propext]
+&#x27;PassageLab.noFire&#x27; does not depend on any axioms</code></pre><p class="caption">The declarations were compiled, then imported into a separate Lean process. The full audit covers seven declarations.</p></article></div></section><section id="reordered-view"><div class="columns"><article><p class="kind">PassageLab.lean</p><h2>Use, collect, walk</h2><pre><code>def route : List Key := [.use, .collect, .walk]
+
+theorem passage : run .dock route = .outside := by decide
+
+theorem checkedStates :
+    states .dock route = [.dock, .carrying, .opened, .outside] := by decide
+
+theorem noFire : route.count .fire = 0 := by decide</code></pre></article><article><p class="kind">Stock Lean 4.33.0 · WMI</p><h2><span class="reject">The passage is rejected</span></h2><pre><code>WrongOrder.lean:35:51: error: Tactic `decide` proved that the proposition
+  run Phase.dock route = Phase.outside
+is false</code></pre><p class="caption">Only the order of the first two commands changed. With the door still closed, the final walking command cannot reach the outside.</p></article></div></section><p><a href="audit.txt">Full import transcript</a> · <a href="wrong-order.txt">Rejected file output</a> · <a href="teaching-receipt.json">Build receipt</a></p></main><footer>Lean Doom · Student edition</footer></body></html>

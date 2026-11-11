@@ -1,0 +1,17 @@
+{
+  "namespace": "NuclearRecording",
+  "map": "E1M2",
+  "imports": ["MarchStep19", "FullSegment20To531", "FullSegment532To1017", "FullEndpoint"],
+  "group": "LeanDoomProofs.E1M2.group",
+  "level": "LeanDoomProofs.E1M2.levelMap",
+  "start": "LeanDoomProofs.E1M2.initial",
+  "parse": "LeanDoomProofs.E1M2.map_loaded",
+  "spawn": "LeanDoomProofs.E1M2.spawn_checked",
+  "safe": "NuclearFullPassage.safe1017",
+  "exit": "NuclearFullPassage.exit1017",
+  "chunks": [
+    {"through": 19, "end": "NuclearMarch.s19", "proof": "NuclearMarch.checked19"},
+    {"through": 531, "end": "NuclearFull.s531", "proof": "NuclearFullPassage.scan20To531"},
+    {"through": 1017, "end": "NuclearFull.s1017", "proof": "NuclearFullPassage.scan532To1017"}
+  ]
+}

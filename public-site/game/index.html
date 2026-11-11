@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Proof Theater · Play the proof course</title><link rel="stylesheet" href="theater.css"></head>
+<body><header><a href="../" class="brand">PROVING <b>DOOM</b></a><nav><a href="../">Dashboard</a><a href="../learn/">Field guide</a><a href="native.html">Native Lean player</a></nav></header>
+<main><div class="mast"><div><p class="eyebrow">PROOF THEATER / ORIGINAL TRAINING COURSE</p><h1>Play the proof.</h1></div><p class="intro">Find the blue access card, unlock the bulkhead, and use the exit. Play by hand or follow one of 27 routes checked by the Lean kernel.</p></div>
+<section class="console" aria-label="Interactive proof theater">
+<div class="topbar"><label>Chamber <select id="level"></select></label><label>Route <select id="route"><option value="direct">Direct · strafe</option><option value="careful">Cautious · avoid damage</option><option value="survey">Survey · visit medikit</option></select></label><a href="ProofGrid.lean" download>Lean source ↓</a></div>
+<div class="screens">
+<section class="codepane" aria-label="Lean source"><div class="pantitle"><span>⌘ &nbsp; SOURCE</span><a href="ProofGrid.lean">ProofGrid.lean</a></div>
+<div class="code-body"><p class="line-info" id="line-info">READY</p><h2 id="event-name">Ordinary spawn</h2><div class="listing" id="listing"></div>
+<details class="theorem" open><summary>Live theorem <span id="proof-stage"></span></summary><pre id="proof-draft"></pre></details></div>
+<div class="observation"><span>OBSERVATION</span><output id="state">Preparing the first state…</output></div></section>
+<section class="camera"><div class="pantitle"><span>◉ &nbsp; LIVE CAMERA</span><span id="camera-name">L01</span></div>
+<div class="screen-wrap"><canvas id="view" width="480" height="280" tabindex="0" aria-label="First-person game camera. W to walk, arrows to turn and E to use."></canvas><div class="splash" id="splash" hidden></div></div>
+<div class="hud"><div><small>HEALTH</small><b id="hp">3 / 3</b></div><div><small>KEYCARD</small><b id="key">NONE</b></div><div><small>BULKHEAD</small><b id="door">LOCKED</b></div><div><small>FACING</small><b id="direction">E</b></div></div></section></div>
+<div class="playbar"><button id="toggle" class="primary">▶ Play route</button><button id="step" title="Advance one input">Step ›</button><button id="manual">Take control</button><button id="reset">Restart</button><button id="map" aria-pressed="false">Map</button>
+<label class="speed">Speed <select id="speed"><option value="0.5">½×</option><option value="1" selected>1×</option><option value="2">2×</option><option value="4">4×</option></select></label></div>
+<div class="timeline"><label for="seek">Input <output id="tick">0</output></label><input id="seek" type="range" min="0" max="1" value="0"></div>
+<div id="touch" class="touch" hidden><button data-key="2">↶ Left</button><button data-key="1">↑ Walk</button><button data-key="3">Right ↷</button><button data-key="4">← Strafe</button><button data-key="7">↓ Back</button><button data-key="5">Strafe →</button><button data-key="6">Use</button></div>
+</section>
+<div class="under"><section><h2>Controls</h2><p><kbd>W</kbd> <kbd>S</kbd> walk · <kbd>A</kbd> <kbd>D</kbd> strafe · <kbd>←</kbd> <kbd>→</kbd> turn · <kbd>E</kbd> use · <kbd>Esc</kbd> pause. Taking control keeps the inputs up to the current frame.</p></section>
+<section><h2>Verify your run</h2><p>Download the input tape or pair a folder with your local Lean verifier. The camera and code advance together. Local checking supplies a receipt. <a href="../downloads/AllRoutes.lean">Read the 27 route proofs</a> and their <a href="../downloads/routes.json">kernel receipts</a>.</p><button id="export">Save input tape ↓</button> <label class="load-tape">Load tape <input type="file" id="load-tape" accept=".json,application/json"></label> <button id="pair">Pair local Lean</button> <a href="../downloads/lean-doom-companion.zip">Verification kit ↓</a><p id="verify-status" role="status" aria-live="polite"></p></section></div>
+<footer>Original educational maps and renderer · Model <code>proof-lab-grid-v1</code> · <a href="native.html">Play the authentic Lean engine with a local IWAD</a></footer></main><script type="module" src="theater.mjs"></script></body></html>

@@ -1,0 +1,328 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="dark light"><title>From a recording to a checked passage · Lean Doom</title><link rel="stylesheet" href="reader.css"></head><body><header><div class="top"><a class="brand" href="../index.html">LEAN / DOOM</a><nav aria-label="Student materials"><a href="index.html">Chapter</a><a href="notebook.html">Notebook</a><a href="../index.html">Home</a><a href="../evidence/">Gallery</a><a href="../classic/">Play Doom</a></nav></div></header><main class=""><h1 id="from-a-recording-to-a-checked-passage">From a recording to a checked passage</h1>
+<p>On tick 6 a player has a blue key. On tick 19 the same player exits. How could a reader determine that every intervening input is possible? Work through a recorded example, change an input, and inspect what the Lean kernel accepts.</p>
+<p><strong>To run the lab</strong>, open this notebook with a Jupyter Python 3 kernel. The last two executable cells call stock Lean 4.33.0 through elan. Install that edition with <code>elan toolchain install leanprover/lean4:v4.33.0</code> before running them. All images and both Lean files are embedded in the download. The Python examples use the standard library. <a href="passage-lab.ipynb">Download this notebook</a> · <a href="index.html">Read the historical chapter</a> · <a href="https://lean-lang.org/install/">Install Lean</a> · <a href="https://nbformat.readthedocs.io/en/latest/format_description.html">Notebook format</a></p>
+<h2 id="look-through-the-native-lean-camera">Look through the native Lean camera</h2>
+<figure>
+<img src="media/freedoom-start.png" alt="Ordinary spawn on Freedoom Phase 1 E1M1, rendered by the research edition of the native Lean port." />
+<figcaption aria-hidden="true">Ordinary spawn on Freedoom Phase 1 E1M1, rendered by the research edition of the native Lean port.</figcaption>
+</figure>
+<p>This 320 × 200 image comes from the native CombatV2 map worker on a WMI compute node. The engine loads the level and renders the camera from ordinary spawn. The data and artwork here belong to Freedoom: Phase 1. The Hangar theorem later in this notebook uses a different, precisely identified commercial map foundation. Loading the same slot label E1M1 with different bytes produces a different scene. <a href="../game/native.html">Native player and worker source</a> · <a href="https://freedoom.github.io/">Freedoom project</a> · <a href="freedoom-COPYING.txt">Artwork license</a></p>
+<h2 id="read-a-real-controller">Read a real controller</h2>
+<p>These two screenshots come from the released public ProofGrid course L01 in its direct-route playback. The right pane renders original raycast scenery. The left pane follows the current input through the course’s Lean source. Both images are captures from the running browser. Use the slider to inspect other ticks. <a href="../game/index.html?level=L01&amp;route=direct&amp;tick=6">Open at tick 6</a> · <a href="../game/index.html?level=L01&amp;route=direct&amp;tick=19">Open at tick 19</a></p>
+<figure>
+<img src="media/course-key.png" alt="Tick 6 of the public course. The player stands at tile (5,2), holds the blue key and has three health." />
+<figcaption aria-hidden="true">Tick 6 of the public course. The player stands at tile (5,2), holds the blue key and has three health.</figcaption>
+</figure>
+<figure>
+<img src="media/course-exit.png" alt="Tick 19 of the same controller. At tile (13,5) the door has been opened and the exit flag is true." />
+<figcaption aria-hidden="true">Tick 19 of the same controller. At tile (13,5) the door has been opened and the exit flag is true.</figcaption>
+</figure>
+<p>The course and the historical CombatV2 runs have different transition functions and maps. To locate a claim, ask which function the theorem mentions, where its initial state comes from, and what the exit flag means. Alaska Hoffman’s (Lean)DOOM translates original-format level data into a native Lean game. The research edition introduced specified enemy arithmetic and a terminating weapon controller to make its transitions reducible in proofs. Equivalence to the upstream enemy program remains open. <a href="../game/ProofGrid.lean">Course model</a> · <a href="https://github.com/alaskahoffman/leandoom/tree/dd795d67c075b3c3d1149494ddec6aff756e2a64">Pinned upstream engine</a> · <a href="index.html#engines">Engine and proof chapter</a></p>
+<h2 id="define-an-airlock-small-enough-to-audit">Define an airlock small enough to audit</h2>
+<p>A <em>state</em> contains information that influences future steps. The lesson’s entire state is one of four phases. Collecting the key at the dock changes the phase to carrying. Using it while carrying opens the door. Walking after the door opens leads outside. Every remaining state–input pair leaves the phase unchanged, including firing and waiting. Once outside, the model stays outside. This intentionally small airlock is a separate mechanism.</p>
+<p>Let <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo stretchy="false" form="prefix">(</mo><mi>s</mi><mo>,</mo><mi>k</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">T(s,k)</annotation></semantics></math> be one step. Given inputs <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>k</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>k</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">k_1,\ldots,k_n</annotation></semantics></math>, set <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>s</mi><mn>0</mn></msub><mo>=</mo><mrow><mi mathvariant="normal">d</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">c</mi><mi mathvariant="normal">k</mi></mrow></mrow><annotation encoding="application/x-tex">s_0=\mathrm{dock}</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>s</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mi>T</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>s</mi><mi>i</mi></msub><mo>,</mo><msub><mi>k</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">s_{i+1}=T(s_i,k_{i+1})</annotation></semantics></math>. A tape with <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math> inputs visits <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n+1</annotation></semantics></math> states. The Python cell mirrors the three advancing cases so we can interrogate them before reading the independent Lean definitions. <a href="https://lean-lang.org/functional_programming_in_lean/">Algebraic data types and pattern matching</a> · <a href="https://softwarefoundations.cis.upenn.edu/plf-current/Smallstep.html">Small-step semantics</a></p>
+<div class="cell">
+<span class="cell-label">Python · cell 1</span>
+<div id="cell1-cb1" class="sourceCode">
+<pre class="sourceCode python"><code class="sourceCode python"><span id="cell1-cb1-1"><a href="#cell1-cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itertools <span class="im">import</span> product</span>
+<span id="cell1-cb1-2"><a href="#cell1-cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cell1-cb1-3"><a href="#cell1-cb1-3" aria-hidden="true" tabindex="-1"></a>keys <span class="op">=</span> (<span class="st">&quot;collect&quot;</span>, <span class="st">&quot;use&quot;</span>, <span class="st">&quot;walk&quot;</span>, <span class="st">&quot;wait&quot;</span>, <span class="st">&quot;fire&quot;</span>)</span>
+<span id="cell1-cb1-4"><a href="#cell1-cb1-4" aria-hidden="true" tabindex="-1"></a>advances <span class="op">=</span> {(<span class="st">&quot;dock&quot;</span>, <span class="st">&quot;collect&quot;</span>): <span class="st">&quot;carrying&quot;</span>, (<span class="st">&quot;carrying&quot;</span>, <span class="st">&quot;use&quot;</span>): <span class="st">&quot;opened&quot;</span>,</span>
+<span id="cell1-cb1-5"><a href="#cell1-cb1-5" aria-hidden="true" tabindex="-1"></a>            (<span class="st">&quot;opened&quot;</span>, <span class="st">&quot;walk&quot;</span>): <span class="st">&quot;outside&quot;</span>}</span>
+<span id="cell1-cb1-6"><a href="#cell1-cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cell1-cb1-7"><a href="#cell1-cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> step(state, key):</span>
+<span id="cell1-cb1-8"><a href="#cell1-cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> key <span class="kw">not</span> <span class="kw">in</span> keys:</span>
+<span id="cell1-cb1-9"><a href="#cell1-cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">&quot;Unknown key&quot;</span>)</span>
+<span id="cell1-cb1-10"><a href="#cell1-cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> advances.get((state, key), state)</span>
+<span id="cell1-cb1-11"><a href="#cell1-cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cell1-cb1-12"><a href="#cell1-cb1-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> states(tape, start<span class="op">=</span><span class="st">&quot;dock&quot;</span>):</span>
+<span id="cell1-cb1-13"><a href="#cell1-cb1-13" aria-hidden="true" tabindex="-1"></a>    path <span class="op">=</span> [start]</span>
+<span id="cell1-cb1-14"><a href="#cell1-cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> key <span class="kw">in</span> tape:</span>
+<span id="cell1-cb1-15"><a href="#cell1-cb1-15" aria-hidden="true" tabindex="-1"></a>        path.append(step(path[<span class="op">-</span><span class="dv">1</span>], key))</span>
+<span id="cell1-cb1-16"><a href="#cell1-cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> path</span>
+<span id="cell1-cb1-17"><a href="#cell1-cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cell1-cb1-18"><a href="#cell1-cb1-18" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> first_exit(tape):</span>
+<span id="cell1-cb1-19"><a href="#cell1-cb1-19" aria-hidden="true" tabindex="-1"></a>    path <span class="op">=</span> states(tape)</span>
+<span id="cell1-cb1-20"><a href="#cell1-cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> path[<span class="op">-</span><span class="dv">1</span>] <span class="op">==</span> <span class="st">&quot;outside&quot;</span> <span class="kw">and</span> <span class="st">&quot;outside&quot;</span> <span class="kw">not</span> <span class="kw">in</span> path[:<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cell1-cb1-21"><a href="#cell1-cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cell1-cb1-22"><a href="#cell1-cb1-22" aria-hidden="true" tabindex="-1"></a>route <span class="op">=</span> (<span class="st">&quot;collect&quot;</span>, <span class="st">&quot;use&quot;</span>, <span class="st">&quot;walk&quot;</span>)</span>
+<span id="cell1-cb1-23"><a href="#cell1-cb1-23" aria-hidden="true" tabindex="-1"></a>wrong <span class="op">=</span> (<span class="st">&quot;use&quot;</span>, <span class="st">&quot;collect&quot;</span>, <span class="st">&quot;walk&quot;</span>)</span>
+<span id="cell1-cb1-24"><a href="#cell1-cb1-24" aria-hidden="true" tabindex="-1"></a>late <span class="op">=</span> route <span class="op">+</span> (<span class="st">&quot;wait&quot;</span>,)</span>
+<span id="cell1-cb1-25"><a href="#cell1-cb1-25" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> tape <span class="kw">in</span> [route, wrong, late]:</span>
+<span id="cell1-cb1-26"><a href="#cell1-cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot; / &quot;</span>.join(tape), <span class="st">&quot;=&gt;&quot;</span>, <span class="st">&quot; / &quot;</span>.join(states(tape)), <span class="st">&quot;| first exit:&quot;</span>, first_exit(tape))</span>
+<span id="cell1-cb1-27"><a href="#cell1-cb1-27" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> first_exit(route) <span class="kw">and</span> <span class="kw">not</span> first_exit(wrong) <span class="kw">and</span> <span class="kw">not</span> first_exit(late)</span></code></pre>
+</div>
+<pre class="output">collect / use / walk =&gt; dock / carrying / opened / outside | first exit: True
+use / collect / walk =&gt; dock / dock / carrying / carrying | first exit: False
+collect / use / walk / wait =&gt; dock / carrying / opened / outside / outside | first exit: False</pre>
+</div>
+<figure>
+<img src="media/phase-ranks.png" alt="Progress through the same airlock for the winning tape and for a tape with its first two commands swapped." />
+<figcaption aria-hidden="true">Progress through the same airlock for the winning tape and for a tape with its first two commands swapped.</figcaption>
+</figure>
+<p>Why does the third tape above fail the <em>first</em>-exit test? It finishes outside, but its proper prefix already finishes outside. An endpoint statement alone would accept it. A history-sensitive proposition examines prefixes. A full CombatV2 passage can additionally require that every intermediate state has positive health and no physics error. <a href="records.html#e1m2">Research declarations</a> · <a href="https://lean-lang.org/theorem_proving_in_lean4/quantifiers_and_equality.html">Quantifiers and equality</a></p>
+<p><a id="shortest"></a></p>
+<h2 id="count-short-controllers-then-prove-a-bound">Count short controllers, then prove a bound</h2>
+<p>If a three-input witness works, it gives an upper bound on the optimum. To obtain a lower bound, first exhaust all tapes of length less than three. The next cell counts exactly <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>+</mo><mn>5</mn><mo>+</mo><msup><mn>5</mn><mn>2</mn></msup><mo>=</mo><mn>31</mn></mrow><annotation encoding="application/x-tex">1+5+5^2=31</annotation></semantics></math> tapes in these shorter layers. Try changing the transition table to add a new shortcut and re-running the assertions. <a href="https://docs.python.org/3/library/itertools.html#itertools.product">Finite enumeration in Python</a></p>
+<div class="cell">
+<span class="cell-label">Python · cell 2</span>
+<div id="cell2-cb1" class="sourceCode">
+<pre class="sourceCode python"><code class="sourceCode python"><span id="cell2-cb1-1"><a href="#cell2-cb1-1" aria-hidden="true" tabindex="-1"></a>winners <span class="op">=</span> {}</span>
+<span id="cell2-cb1-2"><a href="#cell2-cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> length <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):</span>
+<span id="cell2-cb1-3"><a href="#cell2-cb1-3" aria-hidden="true" tabindex="-1"></a>    winners[length] <span class="op">=</span> [t <span class="cf">for</span> t <span class="kw">in</span> product(keys, repeat<span class="op">=</span>length) <span class="cf">if</span> first_exit(t)]</span>
+<span id="cell2-cb1-4"><a href="#cell2-cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;length </span><span class="sc">{</span>length<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span><span class="bu">len</span>(winners[length])<span class="sc">}</span><span class="ss"> first exits among </span><span class="sc">{</span><span class="bu">len</span>(keys) <span class="op">**</span> length<span class="sc">}</span><span class="ss"> tapes&quot;</span>)</span>
+<span id="cell2-cb1-5"><a href="#cell2-cb1-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">all</span>(<span class="kw">not</span> winners[length] <span class="cf">for</span> length <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3</span>))</span>
+<span id="cell2-cb1-6"><a href="#cell2-cb1-6" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> winners[<span class="dv">3</span>] <span class="op">==</span> [route]</span>
+<span id="cell2-cb1-7"><a href="#cell2-cb1-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Shortest tape:&quot;</span>, <span class="st">&quot; / &quot;</span>.join(winners[<span class="dv">3</span>][<span class="dv">0</span>]))</span></code></pre>
+</div>
+<pre class="output">length 0: 0 first exits among 1 tapes
+length 1: 0 first exits among 5 tapes
+length 2: 0 first exits among 25 tapes
+length 3: 1 first exits among 125 tapes
+Shortest tape: collect / use / walk</pre>
+</div>
+<p><strong>Claim.</strong> Every tape <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> that reaches the outside from the dock has <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><mi>K</mi><mo stretchy="false" form="prefix">|</mo><mo>≥</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">|K|\ge3</annotation></semantics></math>, including tapes that wait after exiting.</p>
+<ol type="1">
+<li>Assign ranks <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo stretchy="false" form="prefix">(</mo><mrow><mi mathvariant="normal">d</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">c</mi><mi mathvariant="normal">k</mi></mrow><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">r(\mathrm{dock})=0</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo stretchy="false" form="prefix">(</mo><mrow><mi mathvariant="normal">c</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">y</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">g</mi></mrow><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">r(\mathrm{carrying})=1</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo stretchy="false" form="prefix">(</mo><mrow><mi mathvariant="normal">o</mi><mi mathvariant="normal">p</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">d</mi></mrow><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">r(\mathrm{opened})=2</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo stretchy="false" form="prefix">(</mo><mrow><mi mathvariant="normal">o</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi><mi mathvariant="normal">e</mi></mrow><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">r(\mathrm{outside})=3</annotation></semantics></math>.</li>
+<li>Inspect one input in each phase. Every transition either stays put or advances by one, so <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo stretchy="false" form="prefix">(</mo><mi>T</mi><mo stretchy="false" form="prefix">(</mo><mi>s</mi><mo>,</mo><mi>k</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mo>≤</mo><mi>r</mi><mo stretchy="false" form="prefix">(</mo><mi>s</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">r(T(s,k))\le r(s)+1</annotation></semantics></math>.</li>
+<li>Induct on the list. In the empty case the state is unchanged. In the cons case apply the induction hypothesis to the tail <strong>from the updated starting state</strong>. Then apply step 2 to its head. Thus <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo stretchy="false" form="prefix">(</mo><mi>R</mi><mo stretchy="false" form="prefix">(</mo><mi>s</mi><mo>,</mo><mi>K</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mo>≤</mo><mi>r</mi><mo stretchy="false" form="prefix">(</mo><mi>s</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mo stretchy="false" form="prefix">|</mo><mi>K</mi><mo stretchy="false" form="prefix">|</mo></mrow><annotation encoding="application/x-tex">r(R(s,K))\le r(s)+|K|</annotation></semantics></math> where <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>R</mi><annotation encoding="application/x-tex">R</annotation></semantics></math> executes the entire tape.</li>
+<li>Substitute a winning endpoint and the dock’s rank. This gives <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mo>≤</mo><mo stretchy="false" form="prefix">|</mo><mi>K</mi><mo stretchy="false" form="prefix">|</mo></mrow><annotation encoding="application/x-tex">3\le |K|</annotation></semantics></math>. The winning tape has length three and fires zero shots. Together with nonnegativity, that also determines this model’s minimum firing count.</li>
+</ol>
+<p>This rank argument works over arbitrarily long input lists. The finite search above checks all shorter competitors in the particular airlock. The Lean proofs named <code>runBound</code> and <code>minimumLength</code> implement steps 3 and 4. <a href="https://lean-lang.org/theorem_proving_in_lean4/induction_and_recursion.html">Induction in Lean</a> · <a href="https://lamport.azurewebsites.net/pubs/proof.pdf">Lamport’s structured proofs</a></p>
+<h2 id="what-a-screenshot-forgets">What a screenshot forgets</h2>
+<p>At the join between two segments, the second segment expects the first segment’s <em>complete</em> ending state. Suppose a more detailed state stores a player tile and whether the player holds a key. An observer who displays only the tile can miss a future change in reachability. The following counterexample uses a new, two-field model. <a href="https://compcert.org/man/manual001.html">Semantic preservation and observations</a></p>
+<div class="cell">
+<span class="cell-label">Python · cell 3</span>
+<div id="cell3-cb1" class="sourceCode">
+<pre class="sourceCode python"><code class="sourceCode python"><span id="cell3-cb1-1"><a href="#cell3-cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> NamedTuple</span>
+<span id="cell3-cb1-2"><a href="#cell3-cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cell3-cb1-3"><a href="#cell3-cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Frame(NamedTuple):</span>
+<span id="cell3-cb1-4"><a href="#cell3-cb1-4" aria-hidden="true" tabindex="-1"></a>    tile: <span class="bu">str</span></span>
+<span id="cell3-cb1-5"><a href="#cell3-cb1-5" aria-hidden="true" tabindex="-1"></a>    blue_key: <span class="bu">bool</span></span>
+<span id="cell3-cb1-6"><a href="#cell3-cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cell3-cb1-7"><a href="#cell3-cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> unlock(frame):</span>
+<span id="cell3-cb1-8"><a href="#cell3-cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">&quot;exit&quot;</span> <span class="cf">if</span> frame.tile <span class="op">==</span> <span class="st">&quot;door&quot;</span> <span class="kw">and</span> frame.blue_key <span class="cf">else</span> frame.tile</span>
+<span id="cell3-cb1-9"><a href="#cell3-cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cell3-cb1-10"><a href="#cell3-cb1-10" aria-hidden="true" tabindex="-1"></a>left, right <span class="op">=</span> Frame(<span class="st">&quot;door&quot;</span>, <span class="va">True</span>), Frame(<span class="st">&quot;door&quot;</span>, <span class="va">False</span>)</span>
+<span id="cell3-cb1-11"><a href="#cell3-cb1-11" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> left.tile <span class="op">==</span> right.tile <span class="kw">and</span> unlock(left) <span class="op">!=</span> unlock(right)</span>
+<span id="cell3-cb1-12"><a href="#cell3-cb1-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Same displayed tile:&quot;</span>, left.tile)</span>
+<span id="cell3-cb1-13"><a href="#cell3-cb1-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Use with the key:&quot;</span>, unlock(left), <span class="st">&quot;| Use without the key:&quot;</span>, unlock(right))</span>
+<span id="cell3-cb1-14"><a href="#cell3-cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cell3-cb1-15"><a href="#cell3-cb1-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> cut <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(route) <span class="op">+</span> <span class="dv">1</span>):</span>
+<span id="cell3-cb1-16"><a href="#cell3-cb1-16" aria-hidden="true" tabindex="-1"></a>    prefix, suffix <span class="op">=</span> route[:cut], route[cut:]</span>
+<span id="cell3-cb1-17"><a href="#cell3-cb1-17" aria-hidden="true" tabindex="-1"></a>    middle <span class="op">=</span> states(prefix)[<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cell3-cb1-18"><a href="#cell3-cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> states(suffix, middle)[<span class="op">-</span><span class="dv">1</span>] <span class="op">==</span> states(route)[<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cell3-cb1-19"><a href="#cell3-cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;Cut </span><span class="sc">{</span>cut<span class="sc">}</span><span class="ss">: restart the suffix from </span><span class="sc">{</span>middle<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre>
+</div>
+<pre class="output">Same displayed tile: door
+Use with the key: exit | Use without the key: door
+Cut 0: restart the suffix from dock
+Cut 1: restart the suffix from carrying
+Cut 2: restart the suffix from opened
+Cut 3: restart the suffix from outside</pre>
+</div>
+<h2 id="relate-the-exercise-to-real-level-certificates">Relate the exercise to real level certificates</h2>
+<p>In CombatV2 Hangar has two complete zero-shot witnesses. Replacing the 993-input witness by the 978-input witness improves an <strong>upper</strong> bound by 15. Nuclear Plant has a complete armed 1,017-input witness and its ordinary spawn is not an exit. In a surviving, error-free passage one must account for all 1,018 states including the start. The main suffix of that witness contains 998 ticks with 65 ordered actor slots per tick. These counts illustrate the work inside a particular certificate. <a href="records.html#e1m1">Hangar evidence</a> · <a href="records.html#e1m2">Nuclear Plant evidence</a></p>
+<p>Computer Station supplies a particularly instructive <em>partial</em> result. Its first checked collision move collects a clip, raising ammunition from 50 to 60, and relinks the player to the spatial lists for sector 60 and blockmap cell 846. Omitting the relink can change the next collision query. Military Base has a checked 933-input control tape with 23 Use masks and zero Attack masks. Seeing two keys in a replay is still an observation until the inventory transitions are proved. <a href="records.html#e1m7">Computer Station evidence</a> · <a href="records.html#e1m9">Military Base evidence</a> · <a href="https://github.com/id-Software/DOOM/blob/master/linuxdoom-1.10/p_map.c">Original movement code</a></p>
+<div class="cell">
+<span class="cell-label">Python · cell 4</span>
+<div id="cell4-cb1" class="sourceCode">
+<pre class="sourceCode python"><code class="sourceCode python"><span id="cell4-cb1-1"><a href="#cell4-cb1-1" aria-hidden="true" tabindex="-1"></a>old_hangar, new_hangar <span class="op">=</span> <span class="dv">993</span>, <span class="dv">978</span></span>
+<span id="cell4-cb1-2"><a href="#cell4-cb1-2" aria-hidden="true" tabindex="-1"></a>plant_inputs, plant_split, plant_slots <span class="op">=</span> <span class="dv">1017</span>, <span class="dv">19</span>, <span class="dv">65</span></span>
+<span id="cell4-cb1-3"><a href="#cell4-cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Hangar upper bound improved by&quot;</span>, old_hangar <span class="op">-</span> new_hangar, <span class="st">&quot;inputs&quot;</span>)</span>
+<span id="cell4-cb1-4"><a href="#cell4-cb1-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Nuclear Plant prefix states:&quot;</span>, plant_inputs <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cell4-cb1-5"><a href="#cell4-cb1-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Actor-slot updates in the Nuclear Plant suffix:&quot;</span>, (plant_inputs <span class="op">-</span> plant_split) <span class="op">*</span> plant_slots)</span></code></pre>
+</div>
+<pre class="output">Hangar upper bound improved by 15 inputs
+Nuclear Plant prefix states: 1018
+Actor-slot updates in the Nuclear Plant suffix: 64870</pre>
+</div>
+<h2 id="give-the-exact-source-to-lean">Give the exact source to Lean</h2>
+<p>The next cell holds the complete Lean module that implements the airlock. <code>DecidableEq</code> supplies equality decisions. In the concrete theorems, <code>by decide</code> builds evidence for a closed proposition. The universal theorems use case analysis, induction and integer arithmetic. In <code>runAppend</code>, the induction hypothesis accepts the state reached after the head command. That is what makes the lemma reusable at an arbitrary checkpoint. A SHA-256 digest lets you check that the program bytes match the version used in the classroom run. <a href="https://lean-lang.org/theorem_proving_in_lean4/axioms_and_computation.html">Lean tactics and computation</a> · <a href="PassageLab.lean">Audited source download</a> · <a href="https://csrc.nist.gov/pubs/fips/180-4/upd1/final">Hash standard</a></p>
+<div class="cell">
+<span class="cell-label">Python · cell 5</span>
+<div id="cell5-cb1" class="sourceCode">
+<pre class="sourceCode python"><code class="sourceCode python"><span id="cell5-cb1-1"><a href="#cell5-cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> hashlib <span class="im">import</span> sha256</span>
+<span id="cell5-cb1-2"><a href="#cell5-cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cell5-cb1-3"><a href="#cell5-cb1-3" aria-hidden="true" tabindex="-1"></a>lean_source <span class="op">=</span> <span class="st">&quot;&quot;&quot;import Std</span></span>
+<span id="cell5-cb1-4"><a href="#cell5-cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cell5-cb1-5"><a href="#cell5-cb1-5" aria-hidden="true" tabindex="-1"></a><span class="st">namespace PassageLab</span></span>
+<span id="cell5-cb1-6"><a href="#cell5-cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cell5-cb1-7"><a href="#cell5-cb1-7" aria-hidden="true" tabindex="-1"></a><span class="st">inductive Phase where</span></span>
+<span id="cell5-cb1-8"><a href="#cell5-cb1-8" aria-hidden="true" tabindex="-1"></a><span class="st">  | dock | carrying | opened | outside</span></span>
+<span id="cell5-cb1-9"><a href="#cell5-cb1-9" aria-hidden="true" tabindex="-1"></a><span class="st">  deriving DecidableEq, Repr</span></span>
+<span id="cell5-cb1-10"><a href="#cell5-cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cell5-cb1-11"><a href="#cell5-cb1-11" aria-hidden="true" tabindex="-1"></a><span class="st">inductive Key where</span></span>
+<span id="cell5-cb1-12"><a href="#cell5-cb1-12" aria-hidden="true" tabindex="-1"></a><span class="st">  | collect | use | walk | wait | fire</span></span>
+<span id="cell5-cb1-13"><a href="#cell5-cb1-13" aria-hidden="true" tabindex="-1"></a><span class="st">  deriving DecidableEq, BEq, Repr</span></span>
+<span id="cell5-cb1-14"><a href="#cell5-cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cell5-cb1-15"><a href="#cell5-cb1-15" aria-hidden="true" tabindex="-1"></a><span class="st">def step : Phase → Key → Phase</span></span>
+<span id="cell5-cb1-16"><a href="#cell5-cb1-16" aria-hidden="true" tabindex="-1"></a><span class="st">  | .dock, .collect =&gt; .carrying</span></span>
+<span id="cell5-cb1-17"><a href="#cell5-cb1-17" aria-hidden="true" tabindex="-1"></a><span class="st">  | .carrying, .use =&gt; .opened</span></span>
+<span id="cell5-cb1-18"><a href="#cell5-cb1-18" aria-hidden="true" tabindex="-1"></a><span class="st">  | .opened, .walk =&gt; .outside</span></span>
+<span id="cell5-cb1-19"><a href="#cell5-cb1-19" aria-hidden="true" tabindex="-1"></a><span class="st">  | s, _ =&gt; s</span></span>
+<span id="cell5-cb1-20"><a href="#cell5-cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cell5-cb1-21"><a href="#cell5-cb1-21" aria-hidden="true" tabindex="-1"></a><span class="st">def run (s : Phase) : List Key → Phase</span></span>
+<span id="cell5-cb1-22"><a href="#cell5-cb1-22" aria-hidden="true" tabindex="-1"></a><span class="st">  | [] =&gt; s</span></span>
+<span id="cell5-cb1-23"><a href="#cell5-cb1-23" aria-hidden="true" tabindex="-1"></a><span class="st">  | k :: ks =&gt; run (step s k) ks</span></span>
+<span id="cell5-cb1-24"><a href="#cell5-cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cell5-cb1-25"><a href="#cell5-cb1-25" aria-hidden="true" tabindex="-1"></a><span class="st">def states (s : Phase) : List Key → List Phase</span></span>
+<span id="cell5-cb1-26"><a href="#cell5-cb1-26" aria-hidden="true" tabindex="-1"></a><span class="st">  | [] =&gt; [s]</span></span>
+<span id="cell5-cb1-27"><a href="#cell5-cb1-27" aria-hidden="true" tabindex="-1"></a><span class="st">  | k :: ks =&gt; s :: states (step s k) ks</span></span>
+<span id="cell5-cb1-28"><a href="#cell5-cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cell5-cb1-29"><a href="#cell5-cb1-29" aria-hidden="true" tabindex="-1"></a><span class="st">def rank : Phase → Nat</span></span>
+<span id="cell5-cb1-30"><a href="#cell5-cb1-30" aria-hidden="true" tabindex="-1"></a><span class="st">  | .dock =&gt; 0</span></span>
+<span id="cell5-cb1-31"><a href="#cell5-cb1-31" aria-hidden="true" tabindex="-1"></a><span class="st">  | .carrying =&gt; 1</span></span>
+<span id="cell5-cb1-32"><a href="#cell5-cb1-32" aria-hidden="true" tabindex="-1"></a><span class="st">  | .opened =&gt; 2</span></span>
+<span id="cell5-cb1-33"><a href="#cell5-cb1-33" aria-hidden="true" tabindex="-1"></a><span class="st">  | .outside =&gt; 3</span></span>
+<span id="cell5-cb1-34"><a href="#cell5-cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cell5-cb1-35"><a href="#cell5-cb1-35" aria-hidden="true" tabindex="-1"></a><span class="st">def route : List Key := [.collect, .use, .walk]</span></span>
+<span id="cell5-cb1-36"><a href="#cell5-cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cell5-cb1-37"><a href="#cell5-cb1-37" aria-hidden="true" tabindex="-1"></a><span class="st">theorem passage : run .dock route = .outside := by decide</span></span>
+<span id="cell5-cb1-38"><a href="#cell5-cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cell5-cb1-39"><a href="#cell5-cb1-39" aria-hidden="true" tabindex="-1"></a><span class="st">theorem checkedStates :</span></span>
+<span id="cell5-cb1-40"><a href="#cell5-cb1-40" aria-hidden="true" tabindex="-1"></a><span class="st">    states .dock route = [.dock, .carrying, .opened, .outside] := by decide</span></span>
+<span id="cell5-cb1-41"><a href="#cell5-cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cell5-cb1-42"><a href="#cell5-cb1-42" aria-hidden="true" tabindex="-1"></a><span class="st">theorem noFire : route.count .fire = 0 := by decide</span></span>
+<span id="cell5-cb1-43"><a href="#cell5-cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cell5-cb1-44"><a href="#cell5-cb1-44" aria-hidden="true" tabindex="-1"></a><span class="st">theorem stepBound (s : Phase) (k : Key) : rank (step s k) ≤ rank s + 1 := by</span></span>
+<span id="cell5-cb1-45"><a href="#cell5-cb1-45" aria-hidden="true" tabindex="-1"></a><span class="st">  cases s &lt;;&gt; cases k &lt;;&gt; decide</span></span>
+<span id="cell5-cb1-46"><a href="#cell5-cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cell5-cb1-47"><a href="#cell5-cb1-47" aria-hidden="true" tabindex="-1"></a><span class="st">theorem runBound (s : Phase) (ks : List Key) :</span></span>
+<span id="cell5-cb1-48"><a href="#cell5-cb1-48" aria-hidden="true" tabindex="-1"></a><span class="st">    rank (run s ks) ≤ rank s + ks.length := by</span></span>
+<span id="cell5-cb1-49"><a href="#cell5-cb1-49" aria-hidden="true" tabindex="-1"></a><span class="st">  induction ks generalizing s with</span></span>
+<span id="cell5-cb1-50"><a href="#cell5-cb1-50" aria-hidden="true" tabindex="-1"></a><span class="st">  | nil =&gt; simp [run]</span></span>
+<span id="cell5-cb1-51"><a href="#cell5-cb1-51" aria-hidden="true" tabindex="-1"></a><span class="st">  | cons k ks ih =&gt;</span></span>
+<span id="cell5-cb1-52"><a href="#cell5-cb1-52" aria-hidden="true" tabindex="-1"></a><span class="st">    have tailBound := ih (step s k)</span></span>
+<span id="cell5-cb1-53"><a href="#cell5-cb1-53" aria-hidden="true" tabindex="-1"></a><span class="st">    have headBound := stepBound s k</span></span>
+<span id="cell5-cb1-54"><a href="#cell5-cb1-54" aria-hidden="true" tabindex="-1"></a><span class="st">    simp only [run, List.length_cons]</span></span>
+<span id="cell5-cb1-55"><a href="#cell5-cb1-55" aria-hidden="true" tabindex="-1"></a><span class="st">    omega</span></span>
+<span id="cell5-cb1-56"><a href="#cell5-cb1-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cell5-cb1-57"><a href="#cell5-cb1-57" aria-hidden="true" tabindex="-1"></a><span class="st">theorem minimumLength {ks : List Key} (wins : run .dock ks = .outside) :</span></span>
+<span id="cell5-cb1-58"><a href="#cell5-cb1-58" aria-hidden="true" tabindex="-1"></a><span class="st">    3 ≤ ks.length := by</span></span>
+<span id="cell5-cb1-59"><a href="#cell5-cb1-59" aria-hidden="true" tabindex="-1"></a><span class="st">  have h := runBound .dock ks</span></span>
+<span id="cell5-cb1-60"><a href="#cell5-cb1-60" aria-hidden="true" tabindex="-1"></a><span class="st">  rw [wins] at h</span></span>
+<span id="cell5-cb1-61"><a href="#cell5-cb1-61" aria-hidden="true" tabindex="-1"></a><span class="st">  simpa [rank] using h</span></span>
+<span id="cell5-cb1-62"><a href="#cell5-cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cell5-cb1-63"><a href="#cell5-cb1-63" aria-hidden="true" tabindex="-1"></a><span class="st">theorem runAppend (s : Phase) (u v : List Key) :</span></span>
+<span id="cell5-cb1-64"><a href="#cell5-cb1-64" aria-hidden="true" tabindex="-1"></a><span class="st">    run s (u ++ v) = run (run s u) v := by</span></span>
+<span id="cell5-cb1-65"><a href="#cell5-cb1-65" aria-hidden="true" tabindex="-1"></a><span class="st">  induction u generalizing s with</span></span>
+<span id="cell5-cb1-66"><a href="#cell5-cb1-66" aria-hidden="true" tabindex="-1"></a><span class="st">  | nil =&gt; rfl</span></span>
+<span id="cell5-cb1-67"><a href="#cell5-cb1-67" aria-hidden="true" tabindex="-1"></a><span class="st">  | cons k ks ih =&gt; exact ih (step s k)</span></span>
+<span id="cell5-cb1-68"><a href="#cell5-cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cell5-cb1-69"><a href="#cell5-cb1-69" aria-hidden="true" tabindex="-1"></a><span class="st">end PassageLab</span></span>
+<span id="cell5-cb1-70"><a href="#cell5-cb1-70" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;&quot;&quot;</span></span>
+<span id="cell5-cb1-71"><a href="#cell5-cb1-71" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> sha256(lean_source.encode()).hexdigest() <span class="op">==</span> <span class="st">&quot;a2dd14664fbf276c425f87c1322355d7be7589e3aca2e4ae4aa86088e6f5598f&quot;</span></span>
+<span id="cell5-cb1-72"><a href="#cell5-cb1-72" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;PassageLab.lean SHA-256:&quot;</span>, sha256(lean_source.encode()).hexdigest())</span></code></pre>
+</div>
+<pre class="output">PassageLab.lean SHA-256: a2dd14664fbf276c425f87c1322355d7be7589e3aca2e4ae4aa86088e6f5598f</pre>
+</div>
+<h2 id="compile-the-witness-and-audit-its-imports">Compile the witness and audit its imports</h2>
+<p>This cell launches the stock compiler, writes an object module and then starts a <strong>fresh Lean process</strong> to import the module and ask which axioms its seven declarations use. The reports below come directly from that second process. A report listing <code>propext</code> records Lean’s propositional extensionality principle. An added placeholder such as <code>sorryAx</code> would change the report. The source, toolchain and the reported dependencies belong to the interpretation of the result. <a href="https://lean-lang.org/doc/reference/latest/ValidatingProofs/">Validating a Lean proof</a> · <a href="Audit.lean">Download the audit commands</a></p>
+<div class="cell">
+<span class="cell-label">Python · cell 6</span>
+<div id="cell6-cb1" class="sourceCode">
+<pre class="sourceCode python"><code class="sourceCode python"><span id="cell6-cb1-1"><a href="#cell6-cb1-1" aria-hidden="true" tabindex="-1"></a>audit_source <span class="op">=</span> <span class="st">&quot;&quot;&quot;import PassageLab</span></span>
+<span id="cell6-cb1-2"><a href="#cell6-cb1-2" aria-hidden="true" tabindex="-1"></a><span class="st">#print axioms PassageLab.passage</span></span>
+<span id="cell6-cb1-3"><a href="#cell6-cb1-3" aria-hidden="true" tabindex="-1"></a><span class="st">#print axioms PassageLab.checkedStates</span></span>
+<span id="cell6-cb1-4"><a href="#cell6-cb1-4" aria-hidden="true" tabindex="-1"></a><span class="st">#print axioms PassageLab.noFire</span></span>
+<span id="cell6-cb1-5"><a href="#cell6-cb1-5" aria-hidden="true" tabindex="-1"></a><span class="st">#print axioms PassageLab.stepBound</span></span>
+<span id="cell6-cb1-6"><a href="#cell6-cb1-6" aria-hidden="true" tabindex="-1"></a><span class="st">#print axioms PassageLab.runBound</span></span>
+<span id="cell6-cb1-7"><a href="#cell6-cb1-7" aria-hidden="true" tabindex="-1"></a><span class="st">#print axioms PassageLab.minimumLength</span></span>
+<span id="cell6-cb1-8"><a href="#cell6-cb1-8" aria-hidden="true" tabindex="-1"></a><span class="st">#print axioms PassageLab.runAppend</span></span>
+<span id="cell6-cb1-9"><a href="#cell6-cb1-9" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;&quot;&quot;</span></span>
+<span id="cell6-cb1-10"><a href="#cell6-cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cell6-cb1-11"><a href="#cell6-cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> shutil</span>
+<span id="cell6-cb1-12"><a href="#cell6-cb1-12" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> subprocess</span>
+<span id="cell6-cb1-13"><a href="#cell6-cb1-13" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tempfile</span>
+<span id="cell6-cb1-14"><a href="#cell6-cb1-14" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cell6-cb1-15"><a href="#cell6-cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cell6-cb1-16"><a href="#cell6-cb1-16" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> invoke(directory, <span class="op">*</span>args):</span>
+<span id="cell6-cb1-17"><a href="#cell6-cb1-17" aria-hidden="true" tabindex="-1"></a>    elan <span class="op">=</span> shutil.which(<span class="st">&quot;elan&quot;</span>)</span>
+<span id="cell6-cb1-18"><a href="#cell6-cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> elan <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cell6-cb1-19"><a href="#cell6-cb1-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">RuntimeError</span>(<span class="st">&quot;Install elan and leanprover/lean4:v4.33.0 to run this cell.&quot;</span>)</span>
+<span id="cell6-cb1-20"><a href="#cell6-cb1-20" aria-hidden="true" tabindex="-1"></a>    env <span class="op">=</span> <span class="bu">dict</span>(os.environ, LEAN_PATH<span class="op">=</span><span class="bu">str</span>(directory), LEAN_NUM_THREADS<span class="op">=</span><span class="st">&quot;1&quot;</span>)</span>
+<span id="cell6-cb1-21"><a href="#cell6-cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> subprocess.run([elan, <span class="st">&quot;run&quot;</span>, <span class="st">&quot;leanprover/lean4:v4.33.0&quot;</span>, <span class="st">&quot;lean&quot;</span>, <span class="op">*</span>args],</span>
+<span id="cell6-cb1-22"><a href="#cell6-cb1-22" aria-hidden="true" tabindex="-1"></a>                          cwd<span class="op">=</span>directory, capture_output<span class="op">=</span><span class="va">True</span>, text<span class="op">=</span><span class="va">True</span>, timeout<span class="op">=</span><span class="dv">90</span>, env<span class="op">=</span>env)</span>
+<span id="cell6-cb1-23"><a href="#cell6-cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cell6-cb1-24"><a href="#cell6-cb1-24" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> tempfile.TemporaryDirectory() <span class="im">as</span> temporary:</span>
+<span id="cell6-cb1-25"><a href="#cell6-cb1-25" aria-hidden="true" tabindex="-1"></a>    directory <span class="op">=</span> Path(temporary)</span>
+<span id="cell6-cb1-26"><a href="#cell6-cb1-26" aria-hidden="true" tabindex="-1"></a>    (directory <span class="op">/</span> <span class="st">&quot;PassageLab.lean&quot;</span>).write_text(lean_source, encoding<span class="op">=</span><span class="st">&quot;utf-8&quot;</span>)</span>
+<span id="cell6-cb1-27"><a href="#cell6-cb1-27" aria-hidden="true" tabindex="-1"></a>    (directory <span class="op">/</span> <span class="st">&quot;Audit.lean&quot;</span>).write_text(audit_source, encoding<span class="op">=</span><span class="st">&quot;utf-8&quot;</span>)</span>
+<span id="cell6-cb1-28"><a href="#cell6-cb1-28" aria-hidden="true" tabindex="-1"></a>    version <span class="op">=</span> invoke(directory, <span class="st">&quot;--version&quot;</span>)</span>
+<span id="cell6-cb1-29"><a href="#cell6-cb1-29" aria-hidden="true" tabindex="-1"></a>    version.check_returncode()</span>
+<span id="cell6-cb1-30"><a href="#cell6-cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(version.stdout.strip())</span>
+<span id="cell6-cb1-31"><a href="#cell6-cb1-31" aria-hidden="true" tabindex="-1"></a>    built <span class="op">=</span> invoke(directory, <span class="st">&quot;-DwarningAsError=true&quot;</span>, <span class="st">&quot;-o&quot;</span>, <span class="st">&quot;PassageLab.olean&quot;</span>, <span class="st">&quot;PassageLab.lean&quot;</span>)</span>
+<span id="cell6-cb1-32"><a href="#cell6-cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> built.returncode <span class="op">==</span> <span class="dv">0</span>, built.stdout <span class="op">+</span> built.stderr</span>
+<span id="cell6-cb1-33"><a href="#cell6-cb1-33" aria-hidden="true" tabindex="-1"></a>    imported <span class="op">=</span> invoke(directory, <span class="st">&quot;-DwarningAsError=true&quot;</span>, <span class="st">&quot;Audit.lean&quot;</span>)</span>
+<span id="cell6-cb1-34"><a href="#cell6-cb1-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> imported.returncode <span class="op">==</span> <span class="dv">0</span>, imported.stdout <span class="op">+</span> imported.stderr</span>
+<span id="cell6-cb1-35"><a href="#cell6-cb1-35" aria-hidden="true" tabindex="-1"></a>    report <span class="op">=</span> imported.stdout.strip()</span>
+<span id="cell6-cb1-36"><a href="#cell6-cb1-36" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(report.splitlines()) <span class="op">==</span> <span class="dv">7</span> <span class="kw">and</span> <span class="st">&quot;sorryAx&quot;</span> <span class="kw">not</span> <span class="kw">in</span> report</span>
+<span id="cell6-cb1-37"><a href="#cell6-cb1-37" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(report)</span></code></pre>
+</div>
+<pre class="output">Lean (version 4.33.0, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)</pre>
+<pre class="output">&#x27;PassageLab.passage&#x27; depends on axioms: [propext]
+&#x27;PassageLab.checkedStates&#x27; depends on axioms: [propext]
+&#x27;PassageLab.noFire&#x27; does not depend on any axioms
+&#x27;PassageLab.stepBound&#x27; depends on axioms: [propext]
+&#x27;PassageLab.runBound&#x27; depends on axioms: [propext, Quot.sound]
+&#x27;PassageLab.minimumLength&#x27; depends on axioms: [propext, Quot.sound]
+&#x27;PassageLab.runAppend&#x27; depends on axioms: [propext]</pre>
+</div>
+<figure>
+<img src="media/kernel-accepted.png" alt="The public proof viewer showing three accepted declarations and their fresh Lean import report." />
+<figcaption aria-hidden="true">The public proof viewer showing three accepted declarations and their fresh Lean import report.</figcaption>
+</figure>
+<h2 id="break-the-proof-deliberately">Break the proof deliberately</h2>
+<p>Swap the first two controls and keep the original passage claim. A correct check now rejects it because the door stays closed when walk is pressed. We also test that the diagnostic names the failed goal, so a missing compiler cannot masquerade as a successful negative control. <a href="kernel.html">Compare both transcripts</a> · <a href="wrong-order.txt">Raw rejection</a></p>
+<div class="cell">
+<span class="cell-label">Python · cell 7</span>
+<div id="cell7-cb1" class="sourceCode">
+<pre class="sourceCode python"><code class="sourceCode python"><span id="cell7-cb1-1"><a href="#cell7-cb1-1" aria-hidden="true" tabindex="-1"></a>before, after <span class="op">=</span> <span class="st">&quot;[.collect, .use, .walk]&quot;</span>, <span class="st">&quot;[.use, .collect, .walk]&quot;</span></span>
+<span id="cell7-cb1-2"><a href="#cell7-cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> lean_source.count(before) <span class="op">==</span> <span class="dv">1</span></span>
+<span id="cell7-cb1-3"><a href="#cell7-cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> tempfile.TemporaryDirectory() <span class="im">as</span> temporary:</span>
+<span id="cell7-cb1-4"><a href="#cell7-cb1-4" aria-hidden="true" tabindex="-1"></a>    directory <span class="op">=</span> Path(temporary)</span>
+<span id="cell7-cb1-5"><a href="#cell7-cb1-5" aria-hidden="true" tabindex="-1"></a>    (directory <span class="op">/</span> <span class="st">&quot;WrongOrder.lean&quot;</span>).write_text(lean_source.replace(before, after), encoding<span class="op">=</span><span class="st">&quot;utf-8&quot;</span>)</span>
+<span id="cell7-cb1-6"><a href="#cell7-cb1-6" aria-hidden="true" tabindex="-1"></a>    rejected <span class="op">=</span> invoke(directory, <span class="st">&quot;-DwarningAsError=true&quot;</span>, <span class="st">&quot;WrongOrder.lean&quot;</span>)</span>
+<span id="cell7-cb1-7"><a href="#cell7-cb1-7" aria-hidden="true" tabindex="-1"></a>    diagnostic <span class="op">=</span> rejected.stdout <span class="op">+</span> rejected.stderr</span>
+<span id="cell7-cb1-8"><a href="#cell7-cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> rejected.returncode <span class="op">!=</span> <span class="dv">0</span> <span class="kw">and</span> <span class="st">&quot;run Phase.dock route = Phase.outside&quot;</span> <span class="kw">in</span> diagnostic</span>
+<span id="cell7-cb1-9"><a href="#cell7-cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">&quot;is false&quot;</span> <span class="kw">in</span> diagnostic</span>
+<span id="cell7-cb1-10"><a href="#cell7-cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(diagnostic.strip())</span></code></pre>
+</div>
+<pre class="output">WrongOrder.lean:35:51: error: Tactic `decide` proved that the proposition
+  run Phase.dock route = Phase.outside
+is false
+WrongOrder.lean:38:69: error: Tactic `decide` proved that the proposition
+  states Phase.dock route = [Phase.dock, Phase.carrying, Phase.opened, Phase.outside]
+is false</pre>
+</div>
+<figure>
+<img src="media/kernel-rejected.png" alt="The same viewer showing the changed order and the checker’s rejection of the endpoint equality." />
+<figcaption aria-hidden="true">The same viewer showing the changed order and the checker’s rejection of the endpoint equality.</figcaption>
+</figure>
+<h2 id="investigate-a-new-controller">Investigate a new controller</h2>
+<ol type="1">
+<li>Change <code>route</code> to <code>collect, wait, use, walk</code> in the Python examples. Why do the endpoint and first-exit assertions survive while the claim of minimal length for <em>this</em> tape fails?</li>
+<li>Add an emergency input that can skip two phases. Find a concrete counterexample to <code>stepBound</code>. Propose a lower bound that still holds, and say where to change the induction.</li>
+<li>Define <code>safe</code> as positive health in a larger state with hazards. What must both halves prove so that their concatenation is safe at every prefix? What must the first half say about exit flags?</li>
+<li>Type the logical difference between “this Computer Station tape uses no Attack” and “there exists a zero-shot passage of Computer Station.” Which implication requires a theorem about executing the input tape?</li>
+<li>Compare two versions of the same engine. Give a relation on complete states and a step-preservation obligation strong enough to transport a passage theorem.</li>
+</ol>
+<p>Further reading takes you from individual judgments to whole programs. <a href="https://lean-lang.org/learn/">Lean learning path</a> · <a href="https://softwarefoundations.cis.upenn.edu/plf-current/Hoare.html">Software Foundations on program specifications</a> · <a href="https://adam.chlipala.net/frap/">Formal Reasoning About Programs</a> · <a href="index.html#reading">Annotated reading list</a></p>
+<h2 id="artwork-notice">Artwork notice</h2>
+<p>The native spawn image uses artwork by the Freedoom contributors. The other screenshots show this project’s own teaching interface and course.</p>
+<details>
+<summary>
+Freedoom redistribution terms
+</summary>
+<p>Copyright © 2001-2024 Contributors to the Freedoom project. All rights reserved.</p>
+<p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
+<ul>
+<li>Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</li>
+<li>Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</li>
+<li>Neither the name of the Freedoom project nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.</li>
+</ul>
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+<p>For a list of contributors to the Freedoom project, see the file CREDITS.</p>
+</details>
+</main><footer>Lean Doom · Student edition</footer></body></html>

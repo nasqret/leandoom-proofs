@@ -1,0 +1,1668 @@
+{
+  "declarations": [
+    "LeanDoomProofs.loaded_discharge_accounting",
+    "LeanDoomProofs.loaded_shots_le_initial",
+    "LeanDoomProofs.pellet_damage_bounds",
+    "LeanDoomProofs.damage_sum_bound",
+    "LeanDoomProofs.direct_pistol_kill_bound",
+    "LeanDoomProofs.imp_needs_four_direct_bullets",
+    "LeanDoomProofs.demon_needs_ten_direct_bullets",
+    "LeanDoomProofs.four_maximal_hits_suffice",
+    "LeanDoomProofs.firing_schedule_bound",
+    "LeanDoomProofs.four_shots_need_42_tics",
+    "LeanDoomProofs.arena_spawn",
+    "LeanDoomProofs.arena_initial_profile",
+    "LeanDoomProofs.arena_final_profile",
+    "LeanDoomProofs.arena_attack",
+    "LeanDoomProofs.arena_inputs_length",
+    "LeanDoomProofs.arena_inputs_ordinary",
+    "LeanDoomProofs.arena_inputs_no_restart",
+    "LeanDoomProofs.arena_map_valid",
+    "LeanDoomProofs.arena_passage",
+    "LeanDoomProofs.arena_reached_attack",
+    "LeanDoomProofs.arena_full_combat_passage",
+    "LeanDoomProofs.arena_segment_000",
+    "LeanDoomProofs.arena_segment_001",
+    "LeanDoomProofs.arena_segment_002",
+    "LeanDoomProofs.arena_segment_003",
+    "LeanDoomProofs.arena_segment_004",
+    "LeanDoomProofs.arena_segment_005",
+    "LeanDoomProofs.arena_segment_006",
+    "LeanDoomProofs.arena_segment_007",
+    "LeanDoomProofs.arena_segment_008",
+    "LeanDoomProofs.arena_segment_009",
+    "LeanDoomProofs.arena_segment_010",
+    "LeanDoomProofs.arena_segment_011",
+    "LeanDoomProofs.arena_segment_012",
+    "LeanDoomProofs.arena_segment_013",
+    "LeanDoomProofs.arena_segment_014",
+    "LeanDoomProofs.arena_segment_015",
+    "LeanDoomProofs.arena_segment_016",
+    "LeanDoomProofs.arena_segment_017",
+    "LeanDoomProofs.arena_segment_018",
+    "LeanDoomProofs.arena_segment_019",
+    "LeanDoomProofs.arena_segment_020",
+    "LeanDoomProofs.arena_segment_021",
+    "LeanDoomProofs.arena_segment_022",
+    "LeanDoomProofs.combatSeal_eq",
+    "LeanDoomProofs.combat_subarray_toArray",
+    "LeanDoomProofs.combat_actor_equivalence",
+    "LeanDoomProofs.combat_tick_original",
+    "LeanDoomProofs.combat_tick_equivalence",
+    "LeanDoomProofs.combat_first_normalized",
+    "LeanDoomProofs.combat_first_tick_health",
+    "LeanDoomProofs.twoImp_spawn",
+    "LeanDoomProofs.twoImp_initial_profile",
+    "LeanDoomProofs.twoImp_final_profile",
+    "LeanDoomProofs.twoImp_attack_26",
+    "LeanDoomProofs.twoImp_attack_64",
+    "LeanDoomProofs.twoImp_attack_301",
+    "LeanDoomProofs.twoImp_first_kill",
+    "LeanDoomProofs.twoImp_blue_key",
+    "LeanDoomProofs.twoImp_door_started",
+    "LeanDoomProofs.twoImp_second_kill",
+    "LeanDoomProofs.twoImp_passage",
+    "LeanDoomProofs.twoImp_reached_attack",
+    "LeanDoomProofs.twoImp_reached_first_kill",
+    "LeanDoomProofs.twoImp_reached_key",
+    "LeanDoomProofs.twoImp_reached_second_kill",
+    "LeanDoomProofs.twoImp_full_combat_passage",
+    "LeanDoomProofs.combat_segment_nil",
+    "LeanDoomProofs.combat_segment_cons",
+    "LeanDoomProofs.combat_segment_append",
+    "LeanDoomProofs.twoImp_inputs_length",
+    "LeanDoomProofs.twoImp_inputs_ordinary",
+    "LeanDoomProofs.twoImp_inputs_no_restart",
+    "LeanDoomProofs.twoImp_map_valid",
+    "LeanDoomProofs.twoImp_segment_000",
+    "LeanDoomProofs.twoImp_segment_001",
+    "LeanDoomProofs.twoImp_segment_002",
+    "LeanDoomProofs.twoImp_segment_003",
+    "LeanDoomProofs.twoImp_segment_004",
+    "LeanDoomProofs.twoImp_segment_005",
+    "LeanDoomProofs.twoImp_segment_006",
+    "LeanDoomProofs.twoImp_segment_007",
+    "LeanDoomProofs.twoImp_segment_008",
+    "LeanDoomProofs.twoImp_segment_009",
+    "LeanDoomProofs.twoImp_segment_010",
+    "LeanDoomProofs.twoImp_segment_011",
+    "LeanDoomProofs.twoImp_segment_012",
+    "LeanDoomProofs.twoImp_segment_013",
+    "LeanDoomProofs.twoImp_segment_014",
+    "LeanDoomProofs.twoImp_segment_015",
+    "LeanDoomProofs.twoImp_segment_016",
+    "LeanDoomProofs.twoImp_segment_017",
+    "LeanDoomProofs.twoImp_segment_018",
+    "LeanDoomProofs.twoImp_segment_019",
+    "LeanDoomProofs.twoImp_segment_020",
+    "LeanDoomProofs.twoImp_segment_021",
+    "LeanDoomProofs.twoImp_segment_022",
+    "LeanDoomProofs.twoImp_segment_023",
+    "LeanDoomProofs.twoImp_segment_024",
+    "LeanDoomProofs.twoImp_segment_025",
+    "LeanDoomProofs.twoImp_segment_026",
+    "LeanDoomProofs.twoImp_segment_027",
+    "LeanDoomProofs.twoImp_segment_028",
+    "LeanDoomProofs.twoImp_segment_029",
+    "LeanDoomProofs.twoImp_segment_030",
+    "LeanDoomProofs.twoImp_segment_031",
+    "LeanDoomProofs.twoImp_segment_032",
+    "LeanDoomProofs.twoImp_segment_033",
+    "LeanDoomProofs.twoImp_segment_034",
+    "LeanDoomProofs.twoImp_segment_035",
+    "LeanDoomProofs.twoImp_segment_036",
+    "LeanDoomProofs.twoImp_segment_037",
+    "LeanDoomProofs.twoImp_segment_038",
+    "LeanDoomProofs.twoImp_segment_039",
+    "LeanDoomProofs.twoImp_segment_040",
+    "LeanDoomProofs.twoImp_segment_041",
+    "LeanDoomProofs.twoImp_segment_042",
+    "LeanDoomProofs.twoImp_segment_043",
+    "LeanDoomProofs.twoImp_segment_044",
+    "LeanDoomProofs.combat_dite_equality",
+    "LeanDoomProofs.combat_fineSine_range0",
+    "LeanDoomProofs.combat_fineSine_range1",
+    "LeanDoomProofs.combat_fineSine_range2",
+    "LeanDoomProofs.combat_fineSine_range3",
+    "LeanDoomProofs.combat_fineSine_range4",
+    "LeanDoomProofs.combat_fineSine_range5",
+    "LeanDoomProofs.combat_fineSine_range6",
+    "LeanDoomProofs.combat_fineSine_range7",
+    "LeanDoomProofs.combat_fineSine_range8",
+    "LeanDoomProofs.combat_fineSine_range9",
+    "LeanDoomProofs.combat_fineSine_range10",
+    "LeanDoomProofs.combat_fineSine_range11",
+    "LeanDoomProofs.combat_fineSine_range12",
+    "LeanDoomProofs.combat_fineSine_range13",
+    "LeanDoomProofs.combat_fineSine_range14",
+    "LeanDoomProofs.combat_fineSine_range15",
+    "LeanDoomProofs.combat_fineSine_range16",
+    "LeanDoomProofs.combat_fineSine_range17",
+    "LeanDoomProofs.combat_fineSine_range18",
+    "LeanDoomProofs.combat_fineSine_range19",
+    "LeanDoomProofs.combat_fineSine_range20",
+    "LeanDoomProofs.combat_fineSine_range21",
+    "LeanDoomProofs.combat_fineSine_range22",
+    "LeanDoomProofs.combat_fineSine_range23",
+    "LeanDoomProofs.combat_fineSine_range24",
+    "LeanDoomProofs.combat_fineSine_range25",
+    "LeanDoomProofs.combat_fineSine_range26",
+    "LeanDoomProofs.combat_fineSine_range27",
+    "LeanDoomProofs.combat_fineSine_range28",
+    "LeanDoomProofs.combat_fineSine_range29",
+    "LeanDoomProofs.combat_fineSine_range30",
+    "LeanDoomProofs.combat_fineSine_range31",
+    "LeanDoomProofs.combat_fineSine_range32",
+    "LeanDoomProofs.combat_fineSine_range33",
+    "LeanDoomProofs.combat_fineSine_range34",
+    "LeanDoomProofs.combat_fineSine_range35",
+    "LeanDoomProofs.combat_fineSine_range36",
+    "LeanDoomProofs.combat_fineSine_range37",
+    "LeanDoomProofs.combat_fineSine_range38",
+    "LeanDoomProofs.combat_fineSine_range39",
+    "LeanDoomProofs.combat_fineSine_lookup_eq",
+    "LeanDoomProofs.combat_tanToAngle_range0",
+    "LeanDoomProofs.combat_tanToAngle_range1",
+    "LeanDoomProofs.combat_tanToAngle_range2",
+    "LeanDoomProofs.combat_tanToAngle_range3",
+    "LeanDoomProofs.combat_tanToAngle_range4",
+    "LeanDoomProofs.combat_tanToAngle_range5",
+    "LeanDoomProofs.combat_tanToAngle_range6",
+    "LeanDoomProofs.combat_tanToAngle_range7",
+    "LeanDoomProofs.combat_tanToAngle_range8",
+    "LeanDoomProofs.combat_tanToAngle_lookup_eq",
+    "LeanDoomProofs.combat_fineTangent_range0",
+    "LeanDoomProofs.combat_fineTangent_range1",
+    "LeanDoomProofs.combat_fineTangent_range2",
+    "LeanDoomProofs.combat_fineTangent_range3",
+    "LeanDoomProofs.combat_fineTangent_range4",
+    "LeanDoomProofs.combat_fineTangent_range5",
+    "LeanDoomProofs.combat_fineTangent_range6",
+    "LeanDoomProofs.combat_fineTangent_range7",
+    "LeanDoomProofs.combat_fineTangent_range8",
+    "LeanDoomProofs.combat_fineTangent_range9",
+    "LeanDoomProofs.combat_fineTangent_range10",
+    "LeanDoomProofs.combat_fineTangent_range11",
+    "LeanDoomProofs.combat_fineTangent_range12",
+    "LeanDoomProofs.combat_fineTangent_range13",
+    "LeanDoomProofs.combat_fineTangent_range14",
+    "LeanDoomProofs.combat_fineTangent_range15",
+    "LeanDoomProofs.combat_fineTangent_lookup_eq",
+    "LeanDoomProofs.barrel_center_extreme_death",
+    "LeanDoomProofs.barrel_neighbor_normal_death",
+    "LeanDoomProofs.extreme_death_boundary",
+    "LeanDoomProofs.imp_corpse_initially_solid",
+    "LeanDoomProofs.imp_corpse_opens_after_22",
+    "LeanDoomProofs.imp_corpse_blocks_at_21",
+    "LeanDoomProofs.imp_corpse_blocks_before_22",
+    "LeanDoomProofs.imp_corpse_clearance_lower_bound",
+    "LeanDoomProofs.tick_after_exit",
+    "LeanDoomProofs.exited_tick_preserves",
+    "LeanDoomProofs.exited_trace_preserves",
+    "LeanDoomProofs.exit_without_texture",
+    "LeanDoomProofs.normal_exit_switch_certificate",
+    "LeanDoomProofs.nonplayer_cannot_exit",
+    "LeanDoomProofs.backside_cannot_exit",
+    "LeanDoomProofs.fresh_spawn_not_won",
+    "LeanDoomProofs.fresh_win_needs_input",
+    "LeanDoomProofs.potential_bound_on_invariant",
+    "LeanDoomProofs.certified_optimal",
+    "LeanDoomProofs.zero_cost_win_rules_out_positive_bound",
+    "LeanDoomProofs.displacement_bound",
+    "LeanDoomProofs.table_sine_zero",
+    "LeanDoomProofs.table_cosine_zero",
+    "LeanDoomProofs.sine_lookup_zero",
+    "LeanDoomProofs.sine_lookup_quarter",
+    "LeanDoomProofs.angle_sine_zero",
+    "LeanDoomProofs.angle_cosine_zero",
+    "LeanDoomProofs.useLines_as_ray",
+    "LeanDoomProofs.room_ray_none",
+    "LeanDoomProofs.room_ray",
+    "LeanDoomProofs.room_use_lines",
+    "LeanDoomProofs.view_sine",
+    "LeanDoomProofs.room_view",
+    "LeanDoomProofs.checkpoint_is_spawn",
+    "LeanDoomProofs.room_player_formula",
+    "LeanDoomProofs.room_player_tick",
+    "LeanDoomProofs.interactionWithUse_original",
+    "LeanDoomProofs.room_interaction_using",
+    "LeanDoomProofs.room_interaction_formula",
+    "LeanDoomProofs.room_interaction_tick",
+    "LeanDoomProofs.room_syncScene",
+    "LeanDoomProofs.use_as_dispatch",
+    "LeanDoomProofs.queryUse_of_sync",
+    "LeanDoomProofs.room_query_equation",
+    "LeanDoomProofs.room_queryUse",
+    "LeanDoomProofs.room_use_formula",
+    "LeanDoomProofs.room_interaction_for_tick",
+    "LeanDoomProofs.tickWithInteraction_original",
+    "LeanDoomProofs.tickWithInteraction_congr",
+    "LeanDoomProofs.room_interaction_complete",
+    "LeanDoomProofs.bool_replace_true",
+    "LeanDoomProofs.room_interaction_pointwise",
+    "LeanDoomProofs.room_tick_rewrite",
+    "LeanDoomProofs.room_tick_tail_observations",
+    "LeanDoomProofs.room_tick_observations",
+    "LeanDoomProofs.observations_certificate",
+    "LeanDoomProofs.proof01_final_state",
+    "LeanDoomProofs.safe_of_observations",
+    "LeanDoomProofs.won_of_observations",
+    "LeanDoomProofs.proof01_start_safe",
+    "LeanDoomProofs.proof01_final_safe",
+    "LeanDoomProofs.singleton_prefix_safe",
+    "LeanDoomProofs.proof01_prefix_safe",
+    "LeanDoomProofs.proof01_inputs_ordinary",
+    "LeanDoomProofs.proof01_wins",
+    "LeanDoomProofs.proof01_afterUse_wins",
+    "LeanDoomProofs.proof01_passage",
+    "LeanDoomProofs.proof01_time_optimal",
+    "LeanDoomProofs.proof01_resource_certificate",
+    "LeanDoomProofs.proof01_forever_exited",
+    "LeanDoomProofs.fireball_hits_center",
+    "LeanDoomProofs.fireball_dodge_at_22",
+    "LeanDoomProofs.fireball_still_hits_at_21",
+    "LeanDoomProofs.fireball_overhead_57",
+    "LeanDoomProofs.fireball_touches_at_56",
+    "LeanDoomProofs.triple_barrel_blast",
+    "LeanDoomProofs.triple_blast_lethal",
+    "LeanDoomProofs.blast_damage_ignores_height",
+    "LeanDoomProofs.cyberdemon_blast_immune",
+    "LeanDoomProofs.spider_blast_immune",
+    "LeanDoomProofs.run_nil",
+    "LeanDoomProofs.run_cons",
+    "LeanDoomProofs.run_append",
+    "LeanDoomProofs.potential_bound",
+    "LeanDoomProofs.winning_cost_lower_bound",
+    "LeanDoomProofs.unit_cost",
+    "LeanDoomProofs.winning_step_lower_bound",
+    "LeanDoomProofs.abstract_potential_bound",
+    "LeanDoomProofs.run_invariant"
+  ],
+  "records": [
+    {
+      "name": "LeanDoomProofs.loaded_discharge_accounting",
+      "file": "LeanDoomProofs/Ammunition.lean",
+      "line": 18
+    },
+    {
+      "name": "LeanDoomProofs.loaded_shots_le_initial",
+      "file": "LeanDoomProofs/Ammunition.lean",
+      "line": 32
+    },
+    {
+      "name": "LeanDoomProofs.pellet_damage_bounds",
+      "file": "LeanDoomProofs/Ammunition.lean",
+      "line": 48
+    },
+    {
+      "name": "LeanDoomProofs.damage_sum_bound",
+      "file": "LeanDoomProofs/Ammunition.lean",
+      "line": 56
+    },
+    {
+      "name": "LeanDoomProofs.direct_pistol_kill_bound",
+      "file": "LeanDoomProofs/Ammunition.lean",
+      "line": 67
+    },
+    {
+      "name": "LeanDoomProofs.imp_needs_four_direct_bullets",
+      "file": "LeanDoomProofs/Ammunition.lean",
+      "line": 71
+    },
+    {
+      "name": "LeanDoomProofs.demon_needs_ten_direct_bullets",
+      "file": "LeanDoomProofs/Ammunition.lean",
+      "line": 76
+    },
+    {
+      "name": "LeanDoomProofs.four_maximal_hits_suffice",
+      "file": "LeanDoomProofs/Ammunition.lean",
+      "line": 83
+    },
+    {
+      "name": "LeanDoomProofs.firing_schedule_bound",
+      "file": "LeanDoomProofs/Ammunition.lean",
+      "line": 87
+    },
+    {
+      "name": "LeanDoomProofs.four_shots_need_42_tics",
+      "file": "LeanDoomProofs/Ammunition.lean",
+      "line": 97
+    },
+    {
+      "name": "LeanDoomProofs.arena_spawn",
+      "file": "LeanDoomProofs/ArenaObservations.lean",
+      "line": 11
+    },
+    {
+      "name": "LeanDoomProofs.arena_initial_profile",
+      "file": "LeanDoomProofs/ArenaObservations.lean",
+      "line": 31
+    },
+    {
+      "name": "LeanDoomProofs.arena_final_profile",
+      "file": "LeanDoomProofs/ArenaObservations.lean",
+      "line": 35
+    },
+    {
+      "name": "LeanDoomProofs.arena_attack",
+      "file": "LeanDoomProofs/ArenaObservations.lean",
+      "line": 39
+    },
+    {
+      "name": "LeanDoomProofs.arena_inputs_length",
+      "file": "LeanDoomProofs/ArenaObservations.lean",
+      "line": 41
+    },
+    {
+      "name": "LeanDoomProofs.arena_inputs_ordinary",
+      "file": "LeanDoomProofs/ArenaObservations.lean",
+      "line": 43
+    },
+    {
+      "name": "LeanDoomProofs.arena_inputs_no_restart",
+      "file": "LeanDoomProofs/ArenaObservations.lean",
+      "line": 47
+    },
+    {
+      "name": "LeanDoomProofs.arena_map_valid",
+      "file": "LeanDoomProofs/ArenaObservations.lean",
+      "line": 53
+    },
+    {
+      "name": "LeanDoomProofs.arena_passage",
+      "file": "LeanDoomProofs/ArenaPassage.lean",
+      "line": 146
+    },
+    {
+      "name": "LeanDoomProofs.arena_reached_attack",
+      "file": "LeanDoomProofs/ArenaPassage.lean",
+      "line": 149
+    },
+    {
+      "name": "LeanDoomProofs.arena_full_combat_passage",
+      "file": "LeanDoomProofs/ArenaPassage.lean",
+      "line": 155
+    },
+    {
+      "name": "LeanDoomProofs.arena_segment_000",
+      "file": "LeanDoomProofs/ArenaSegments/Block000.lean",
+      "line": 31
+    },
+    {
+      "name": "LeanDoomProofs.arena_segment_001",
+      "file": "LeanDoomProofs/ArenaSegments/Block001.lean",
+      "line": 152
+    },
+    {
+      "name": "LeanDoomProofs.arena_segment_002",
+      "file": "LeanDoomProofs/ArenaSegments/Block002.lean",
+      "line": 164
+    },
+    {
+      "name": "LeanDoomProofs.arena_segment_003",
+      "file": "LeanDoomProofs/ArenaSegments/Block003.lean",
+      "line": 140
+    },
+    {
+      "name": "LeanDoomProofs.arena_segment_004",
+      "file": "LeanDoomProofs/ArenaSegments/Block004.lean",
+      "line": 44
+    },
+    {
+      "name": "LeanDoomProofs.arena_segment_005",
+      "file": "LeanDoomProofs/ArenaSegments/Block005.lean",
+      "line": 141
+    },
+    {
+      "name": "LeanDoomProofs.arena_segment_006",
+      "file": "LeanDoomProofs/ArenaSegments/Block006.lean",
+      "line": 44
+    },
+    {
+      "name": "LeanDoomProofs.arena_segment_007",
+      "file": "LeanDoomProofs/ArenaSegments/Block007.lean",
+      "line": 164
+    },
+    {
+      "name": "LeanDoomProofs.arena_segment_008",
+      "file": "LeanDoomProofs/ArenaSegments/Block008.lean",
+      "line": 152
+    },
+    {
+      "name": "LeanDoomProofs.arena_segment_009",
+      "file": "LeanDoomProofs/ArenaSegments/Block009.lean",
+      "line": 32
+    },
+    {
+      "name": "LeanDoomProofs.arena_segment_010",
+      "file": "LeanDoomProofs/ArenaSegments/Block010.lean",
+      "line": 164
+    },
+    {
+      "name": "LeanDoomProofs.arena_segment_011",
+      "file": "LeanDoomProofs/ArenaSegments/Block011.lean",
+      "line": 165
+    },
+    {
+      "name": "LeanDoomProofs.arena_segment_012",
+      "file": "LeanDoomProofs/ArenaSegments/Block012.lean",
+      "line": 164
+    },
+    {
+      "name": "LeanDoomProofs.arena_segment_013",
+      "file": "LeanDoomProofs/ArenaSegments/Block013.lean",
+      "line": 164
+    },
+    {
+      "name": "LeanDoomProofs.arena_segment_014",
+      "file": "LeanDoomProofs/ArenaSegments/Block014.lean",
+      "line": 165
+    },
+    {
+      "name": "LeanDoomProofs.arena_segment_015",
+      "file": "LeanDoomProofs/ArenaSegments/Block015.lean",
+      "line": 164
+    },
+    {
+      "name": "LeanDoomProofs.arena_segment_016",
+      "file": "LeanDoomProofs/ArenaSegments/Block016.lean",
+      "line": 32
+    },
+    {
+      "name": "LeanDoomProofs.arena_segment_017",
+      "file": "LeanDoomProofs/ArenaSegments/Block017.lean",
+      "line": 152
+    },
+    {
+      "name": "LeanDoomProofs.arena_segment_018",
+      "file": "LeanDoomProofs/ArenaSegments/Block018.lean",
+      "line": 164
+    },
+    {
+      "name": "LeanDoomProofs.arena_segment_019",
+      "file": "LeanDoomProofs/ArenaSegments/Block019.lean",
+      "line": 164
+    },
+    {
+      "name": "LeanDoomProofs.arena_segment_020",
+      "file": "LeanDoomProofs/ArenaSegments/Block020.lean",
+      "line": 164
+    },
+    {
+      "name": "LeanDoomProofs.arena_segment_021",
+      "file": "LeanDoomProofs/ArenaSegments/Block021.lean",
+      "line": 164
+    },
+    {
+      "name": "LeanDoomProofs.arena_segment_022",
+      "file": "LeanDoomProofs/ArenaSegments/Block022.lean",
+      "line": 44
+    },
+    {
+      "name": "LeanDoomProofs.combatSeal_eq",
+      "file": "LeanDoomProofs/CombatKernel.lean",
+      "line": 24
+    },
+    {
+      "name": "LeanDoomProofs.combat_subarray_toArray",
+      "file": "LeanDoomProofs/CombatNormalization.lean",
+      "line": 49
+    },
+    {
+      "name": "LeanDoomProofs.combat_actor_equivalence",
+      "file": "LeanDoomProofs/CombatNormalization.lean",
+      "line": 78
+    },
+    {
+      "name": "LeanDoomProofs.combat_tick_original",
+      "file": "LeanDoomProofs/CombatNormalization.lean",
+      "line": 104
+    },
+    {
+      "name": "LeanDoomProofs.combat_tick_equivalence",
+      "file": "LeanDoomProofs/CombatNormalization.lean",
+      "line": 109
+    },
+    {
+      "name": "LeanDoomProofs.combat_first_normalized",
+      "file": "LeanDoomProofs/CombatNormalization.lean",
+      "line": 113
+    },
+    {
+      "name": "LeanDoomProofs.combat_first_tick_health",
+      "file": "LeanDoomProofs/CombatNormalization.lean",
+      "line": 119
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_spawn",
+      "file": "LeanDoomProofs/CombatObservations.lean",
+      "line": 20
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_initial_profile",
+      "file": "LeanDoomProofs/CombatObservations.lean",
+      "line": 36
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_final_profile",
+      "file": "LeanDoomProofs/CombatObservations.lean",
+      "line": 40
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_attack_26",
+      "file": "LeanDoomProofs/CombatObservations.lean",
+      "line": 44
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_attack_64",
+      "file": "LeanDoomProofs/CombatObservations.lean",
+      "line": 46
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_attack_301",
+      "file": "LeanDoomProofs/CombatObservations.lean",
+      "line": 48
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_first_kill",
+      "file": "LeanDoomProofs/CombatObservations.lean",
+      "line": 50
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_blue_key",
+      "file": "LeanDoomProofs/CombatObservations.lean",
+      "line": 53
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_door_started",
+      "file": "LeanDoomProofs/CombatObservations.lean",
+      "line": 55
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_second_kill",
+      "file": "LeanDoomProofs/CombatObservations.lean",
+      "line": 57
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_passage",
+      "file": "LeanDoomProofs/CombatPassage.lean",
+      "line": 278
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_reached_attack",
+      "file": "LeanDoomProofs/CombatPassage.lean",
+      "line": 282
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_reached_first_kill",
+      "file": "LeanDoomProofs/CombatPassage.lean",
+      "line": 286
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_reached_key",
+      "file": "LeanDoomProofs/CombatPassage.lean",
+      "line": 290
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_reached_second_kill",
+      "file": "LeanDoomProofs/CombatPassage.lean",
+      "line": 294
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_full_combat_passage",
+      "file": "LeanDoomProofs/CombatPassage.lean",
+      "line": 301
+    },
+    {
+      "name": "LeanDoomProofs.combat_segment_nil",
+      "file": "LeanDoomProofs/CombatPath.lean",
+      "line": 14
+    },
+    {
+      "name": "LeanDoomProofs.combat_segment_cons",
+      "file": "LeanDoomProofs/CombatPath.lean",
+      "line": 17
+    },
+    {
+      "name": "LeanDoomProofs.combat_segment_append",
+      "file": "LeanDoomProofs/CombatPath.lean",
+      "line": 30
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_inputs_length",
+      "file": "LeanDoomProofs/CombatPath.lean",
+      "line": 45
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_inputs_ordinary",
+      "file": "LeanDoomProofs/CombatPath.lean",
+      "line": 47
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_inputs_no_restart",
+      "file": "LeanDoomProofs/CombatPath.lean",
+      "line": 51
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_map_valid",
+      "file": "LeanDoomProofs/CombatPath.lean",
+      "line": 57
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_000",
+      "file": "LeanDoomProofs/CombatSegments/Block000.lean",
+      "line": 163
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_001",
+      "file": "LeanDoomProofs/CombatSegments/Block001.lean",
+      "line": 164
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_002",
+      "file": "LeanDoomProofs/CombatSegments/Block002.lean",
+      "line": 44
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_003",
+      "file": "LeanDoomProofs/CombatSegments/Block003.lean",
+      "line": 140
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_004",
+      "file": "LeanDoomProofs/CombatSegments/Block004.lean",
+      "line": 164
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_005",
+      "file": "LeanDoomProofs/CombatSegments/Block005.lean",
+      "line": 164
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_006",
+      "file": "LeanDoomProofs/CombatSegments/Block006.lean",
+      "line": 68
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_007",
+      "file": "LeanDoomProofs/CombatSegments/Block007.lean",
+      "line": 116
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_008",
+      "file": "LeanDoomProofs/CombatSegments/Block008.lean",
+      "line": 164
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_009",
+      "file": "LeanDoomProofs/CombatSegments/Block009.lean",
+      "line": 56
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_010",
+      "file": "LeanDoomProofs/CombatSegments/Block010.lean",
+      "line": 128
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_011",
+      "file": "LeanDoomProofs/CombatSegments/Block011.lean",
+      "line": 80
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_012",
+      "file": "LeanDoomProofs/CombatSegments/Block012.lean",
+      "line": 104
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_013",
+      "file": "LeanDoomProofs/CombatSegments/Block013.lean",
+      "line": 56
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_014",
+      "file": "LeanDoomProofs/CombatSegments/Block014.lean",
+      "line": 92
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_015",
+      "file": "LeanDoomProofs/CombatSegments/Block015.lean",
+      "line": 56
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_016",
+      "file": "LeanDoomProofs/CombatSegments/Block016.lean",
+      "line": 164
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_017",
+      "file": "LeanDoomProofs/CombatSegments/Block017.lean",
+      "line": 164
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_018",
+      "file": "LeanDoomProofs/CombatSegments/Block018.lean",
+      "line": 164
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_019",
+      "file": "LeanDoomProofs/CombatSegments/Block019.lean",
+      "line": 164
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_020",
+      "file": "LeanDoomProofs/CombatSegments/Block020.lean",
+      "line": 32
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_021",
+      "file": "LeanDoomProofs/CombatSegments/Block021.lean",
+      "line": 32
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_022",
+      "file": "LeanDoomProofs/CombatSegments/Block022.lean",
+      "line": 141
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_023",
+      "file": "LeanDoomProofs/CombatSegments/Block023.lean",
+      "line": 165
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_024",
+      "file": "LeanDoomProofs/CombatSegments/Block024.lean",
+      "line": 164
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_025",
+      "file": "LeanDoomProofs/CombatSegments/Block025.lean",
+      "line": 164
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_026",
+      "file": "LeanDoomProofs/CombatSegments/Block026.lean",
+      "line": 164
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_027",
+      "file": "LeanDoomProofs/CombatSegments/Block027.lean",
+      "line": 104
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_028",
+      "file": "LeanDoomProofs/CombatSegments/Block028.lean",
+      "line": 80
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_029",
+      "file": "LeanDoomProofs/CombatSegments/Block029.lean",
+      "line": 164
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_030",
+      "file": "LeanDoomProofs/CombatSegments/Block030.lean",
+      "line": 164
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_031",
+      "file": "LeanDoomProofs/CombatSegments/Block031.lean",
+      "line": 164
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_032",
+      "file": "LeanDoomProofs/CombatSegments/Block032.lean",
+      "line": 164
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_033",
+      "file": "LeanDoomProofs/CombatSegments/Block033.lean",
+      "line": 164
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_034",
+      "file": "LeanDoomProofs/CombatSegments/Block034.lean",
+      "line": 32
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_035",
+      "file": "LeanDoomProofs/CombatSegments/Block035.lean",
+      "line": 128
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_036",
+      "file": "LeanDoomProofs/CombatSegments/Block036.lean",
+      "line": 44
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_037",
+      "file": "LeanDoomProofs/CombatSegments/Block037.lean",
+      "line": 56
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_038",
+      "file": "LeanDoomProofs/CombatSegments/Block038.lean",
+      "line": 128
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_039",
+      "file": "LeanDoomProofs/CombatSegments/Block039.lean",
+      "line": 164
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_040",
+      "file": "LeanDoomProofs/CombatSegments/Block040.lean",
+      "line": 164
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_041",
+      "file": "LeanDoomProofs/CombatSegments/Block041.lean",
+      "line": 164
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_042",
+      "file": "LeanDoomProofs/CombatSegments/Block042.lean",
+      "line": 164
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_043",
+      "file": "LeanDoomProofs/CombatSegments/Block043.lean",
+      "line": 164
+    },
+    {
+      "name": "LeanDoomProofs.twoImp_segment_044",
+      "file": "LeanDoomProofs/CombatSegments/Block044.lean",
+      "line": 44
+    },
+    {
+      "name": "LeanDoomProofs.combat_dite_equality",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 18
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineSine_range0",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 34
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineSine_range1",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 50
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineSine_range2",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 66
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineSine_range3",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 82
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineSine_range4",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 98
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineSine_range5",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 114
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineSine_range6",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 130
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineSine_range7",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 146
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineSine_range8",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 162
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineSine_range9",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 178
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineSine_range10",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 194
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineSine_range11",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 210
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineSine_range12",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 226
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineSine_range13",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 242
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineSine_range14",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 258
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineSine_range15",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 274
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineSine_range16",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 290
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineSine_range17",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 306
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineSine_range18",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 322
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineSine_range19",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 338
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineSine_range20",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 354
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineSine_range21",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 370
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineSine_range22",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 386
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineSine_range23",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 402
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineSine_range24",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 418
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineSine_range25",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 434
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineSine_range26",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 450
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineSine_range27",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 466
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineSine_range28",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 482
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineSine_range29",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 498
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineSine_range30",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 514
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineSine_range31",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 530
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineSine_range32",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 546
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineSine_range33",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 562
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineSine_range34",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 578
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineSine_range35",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 594
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineSine_range36",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 610
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineSine_range37",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 626
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineSine_range38",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 642
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineSine_range39",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 658
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineSine_lookup_eq",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 707
+    },
+    {
+      "name": "LeanDoomProofs.combat_tanToAngle_range0",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 879
+    },
+    {
+      "name": "LeanDoomProofs.combat_tanToAngle_range1",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 895
+    },
+    {
+      "name": "LeanDoomProofs.combat_tanToAngle_range2",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 911
+    },
+    {
+      "name": "LeanDoomProofs.combat_tanToAngle_range3",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 927
+    },
+    {
+      "name": "LeanDoomProofs.combat_tanToAngle_range4",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 943
+    },
+    {
+      "name": "LeanDoomProofs.combat_tanToAngle_range5",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 959
+    },
+    {
+      "name": "LeanDoomProofs.combat_tanToAngle_range6",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 975
+    },
+    {
+      "name": "LeanDoomProofs.combat_tanToAngle_range7",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 991
+    },
+    {
+      "name": "LeanDoomProofs.combat_tanToAngle_range8",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 1007
+    },
+    {
+      "name": "LeanDoomProofs.combat_tanToAngle_lookup_eq",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 1025
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineTangent_range0",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 1073
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineTangent_range1",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 1089
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineTangent_range2",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 1105
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineTangent_range3",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 1121
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineTangent_range4",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 1137
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineTangent_range5",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 1153
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineTangent_range6",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 1169
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineTangent_range7",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 1185
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineTangent_range8",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 1201
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineTangent_range9",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 1217
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineTangent_range10",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 1233
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineTangent_range11",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 1249
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineTangent_range12",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 1265
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineTangent_range13",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 1281
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineTangent_range14",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 1297
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineTangent_range15",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 1313
+    },
+    {
+      "name": "LeanDoomProofs.combat_fineTangent_lookup_eq",
+      "file": "LeanDoomProofs/CombatTables.lean",
+      "line": 1338
+    },
+    {
+      "name": "LeanDoomProofs.barrel_center_extreme_death",
+      "file": "LeanDoomProofs/Death.lean",
+      "line": 28
+    },
+    {
+      "name": "LeanDoomProofs.barrel_neighbor_normal_death",
+      "file": "LeanDoomProofs/Death.lean",
+      "line": 33
+    },
+    {
+      "name": "LeanDoomProofs.extreme_death_boundary",
+      "file": "LeanDoomProofs/Death.lean",
+      "line": 38
+    },
+    {
+      "name": "LeanDoomProofs.imp_corpse_initially_solid",
+      "file": "LeanDoomProofs/Death.lean",
+      "line": 44
+    },
+    {
+      "name": "LeanDoomProofs.imp_corpse_opens_after_22",
+      "file": "LeanDoomProofs/Death.lean",
+      "line": 53
+    },
+    {
+      "name": "LeanDoomProofs.imp_corpse_blocks_at_21",
+      "file": "LeanDoomProofs/Death.lean",
+      "line": 58
+    },
+    {
+      "name": "LeanDoomProofs.imp_corpse_blocks_before_22",
+      "file": "LeanDoomProofs/Death.lean",
+      "line": 63
+    },
+    {
+      "name": "LeanDoomProofs.imp_corpse_clearance_lower_bound",
+      "file": "LeanDoomProofs/Death.lean",
+      "line": 70
+    },
+    {
+      "name": "LeanDoomProofs.tick_after_exit",
+      "file": "LeanDoomProofs/Exit.lean",
+      "line": 9
+    },
+    {
+      "name": "LeanDoomProofs.exited_tick_preserves",
+      "file": "LeanDoomProofs/Exit.lean",
+      "line": 15
+    },
+    {
+      "name": "LeanDoomProofs.exited_trace_preserves",
+      "file": "LeanDoomProofs/Exit.lean",
+      "line": 25
+    },
+    {
+      "name": "LeanDoomProofs.exit_without_texture",
+      "file": "LeanDoomProofs/Exit.lean",
+      "line": 41
+    },
+    {
+      "name": "LeanDoomProofs.normal_exit_switch_certificate",
+      "file": "LeanDoomProofs/Exit.lean",
+      "line": 48
+    },
+    {
+      "name": "LeanDoomProofs.nonplayer_cannot_exit",
+      "file": "LeanDoomProofs/Exit.lean",
+      "line": 53
+    },
+    {
+      "name": "LeanDoomProofs.backside_cannot_exit",
+      "file": "LeanDoomProofs/Exit.lean",
+      "line": 58
+    },
+    {
+      "name": "LeanDoomProofs.fresh_spawn_not_won",
+      "file": "LeanDoomProofs/FreshStart.lean",
+      "line": 9
+    },
+    {
+      "name": "LeanDoomProofs.fresh_win_needs_input",
+      "file": "LeanDoomProofs/FreshStart.lean",
+      "line": 20
+    },
+    {
+      "name": "LeanDoomProofs.potential_bound_on_invariant",
+      "file": "LeanDoomProofs/LowerBounds.lean",
+      "line": 9
+    },
+    {
+      "name": "LeanDoomProofs.certified_optimal",
+      "file": "LeanDoomProofs/LowerBounds.lean",
+      "line": 25
+    },
+    {
+      "name": "LeanDoomProofs.zero_cost_win_rules_out_positive_bound",
+      "file": "LeanDoomProofs/LowerBounds.lean",
+      "line": 41
+    },
+    {
+      "name": "LeanDoomProofs.displacement_bound",
+      "file": "LeanDoomProofs/LowerBounds.lean",
+      "line": 55
+    },
+    {
+      "name": "LeanDoomProofs.table_sine_zero",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 85
+    },
+    {
+      "name": "LeanDoomProofs.table_cosine_zero",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 90
+    },
+    {
+      "name": "LeanDoomProofs.sine_lookup_zero",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 96
+    },
+    {
+      "name": "LeanDoomProofs.sine_lookup_quarter",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 99
+    },
+    {
+      "name": "LeanDoomProofs.angle_sine_zero",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 102
+    },
+    {
+      "name": "LeanDoomProofs.angle_cosine_zero",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 106
+    },
+    {
+      "name": "LeanDoomProofs.useLines_as_ray",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 148
+    },
+    {
+      "name": "LeanDoomProofs.room_ray_none",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 152
+    },
+    {
+      "name": "LeanDoomProofs.room_ray",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 156
+    },
+    {
+      "name": "LeanDoomProofs.room_use_lines",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 160
+    },
+    {
+      "name": "LeanDoomProofs.view_sine",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 165
+    },
+    {
+      "name": "LeanDoomProofs.room_view",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 170
+    },
+    {
+      "name": "LeanDoomProofs.checkpoint_is_spawn",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 176
+    },
+    {
+      "name": "LeanDoomProofs.room_player_formula",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 188
+    },
+    {
+      "name": "LeanDoomProofs.room_player_tick",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 193
+    },
+    {
+      "name": "LeanDoomProofs.interactionWithUse_original",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 218
+    },
+    {
+      "name": "LeanDoomProofs.room_interaction_using",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 222
+    },
+    {
+      "name": "LeanDoomProofs.room_interaction_formula",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 227
+    },
+    {
+      "name": "LeanDoomProofs.room_interaction_tick",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 234
+    },
+    {
+      "name": "LeanDoomProofs.room_syncScene",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 238
+    },
+    {
+      "name": "LeanDoomProofs.use_as_dispatch",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 267
+    },
+    {
+      "name": "LeanDoomProofs.queryUse_of_sync",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 270
+    },
+    {
+      "name": "LeanDoomProofs.room_query_equation",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 277
+    },
+    {
+      "name": "LeanDoomProofs.room_queryUse",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 282
+    },
+    {
+      "name": "LeanDoomProofs.room_use_formula",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 285
+    },
+    {
+      "name": "LeanDoomProofs.room_interaction_for_tick",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 292
+    },
+    {
+      "name": "LeanDoomProofs.tickWithInteraction_original",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 312
+    },
+    {
+      "name": "LeanDoomProofs.tickWithInteraction_congr",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 316
+    },
+    {
+      "name": "LeanDoomProofs.room_interaction_complete",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 326
+    },
+    {
+      "name": "LeanDoomProofs.bool_replace_true",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 334
+    },
+    {
+      "name": "LeanDoomProofs.room_interaction_pointwise",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 340
+    },
+    {
+      "name": "LeanDoomProofs.room_tick_rewrite",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 345
+    },
+    {
+      "name": "LeanDoomProofs.room_tick_tail_observations",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 351
+    },
+    {
+      "name": "LeanDoomProofs.room_tick_observations",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 355
+    },
+    {
+      "name": "LeanDoomProofs.observations_certificate",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 370
+    },
+    {
+      "name": "LeanDoomProofs.proof01_final_state",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 377
+    },
+    {
+      "name": "LeanDoomProofs.safe_of_observations",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 381
+    },
+    {
+      "name": "LeanDoomProofs.won_of_observations",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 386
+    },
+    {
+      "name": "LeanDoomProofs.proof01_start_safe",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 391
+    },
+    {
+      "name": "LeanDoomProofs.proof01_final_safe",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 395
+    },
+    {
+      "name": "LeanDoomProofs.singleton_prefix_safe",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 400
+    },
+    {
+      "name": "LeanDoomProofs.proof01_prefix_safe",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 408
+    },
+    {
+      "name": "LeanDoomProofs.proof01_inputs_ordinary",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 413
+    },
+    {
+      "name": "LeanDoomProofs.proof01_wins",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 421
+    },
+    {
+      "name": "LeanDoomProofs.proof01_afterUse_wins",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 426
+    },
+    {
+      "name": "LeanDoomProofs.proof01_passage",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 430
+    },
+    {
+      "name": "LeanDoomProofs.proof01_time_optimal",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 438
+    },
+    {
+      "name": "LeanDoomProofs.proof01_resource_certificate",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 444
+    },
+    {
+      "name": "LeanDoomProofs.proof01_forever_exited",
+      "file": "LeanDoomProofs/Passage.lean",
+      "line": 453
+    },
+    {
+      "name": "LeanDoomProofs.fireball_hits_center",
+      "file": "LeanDoomProofs/Scenarios.lean",
+      "line": 18
+    },
+    {
+      "name": "LeanDoomProofs.fireball_dodge_at_22",
+      "file": "LeanDoomProofs/Scenarios.lean",
+      "line": 22
+    },
+    {
+      "name": "LeanDoomProofs.fireball_still_hits_at_21",
+      "file": "LeanDoomProofs/Scenarios.lean",
+      "line": 26
+    },
+    {
+      "name": "LeanDoomProofs.fireball_overhead_57",
+      "file": "LeanDoomProofs/Scenarios.lean",
+      "line": 30
+    },
+    {
+      "name": "LeanDoomProofs.fireball_touches_at_56",
+      "file": "LeanDoomProofs/Scenarios.lean",
+      "line": 33
+    },
+    {
+      "name": "LeanDoomProofs.triple_barrel_blast",
+      "file": "LeanDoomProofs/Scenarios.lean",
+      "line": 38
+    },
+    {
+      "name": "LeanDoomProofs.triple_blast_lethal",
+      "file": "LeanDoomProofs/Scenarios.lean",
+      "line": 43
+    },
+    {
+      "name": "LeanDoomProofs.blast_damage_ignores_height",
+      "file": "LeanDoomProofs/Scenarios.lean",
+      "line": 49
+    },
+    {
+      "name": "LeanDoomProofs.cyberdemon_blast_immune",
+      "file": "LeanDoomProofs/Scenarios.lean",
+      "line": 55
+    },
+    {
+      "name": "LeanDoomProofs.spider_blast_immune",
+      "file": "LeanDoomProofs/Scenarios.lean",
+      "line": 60
+    },
+    {
+      "name": "LeanDoomProofs.run_nil",
+      "file": "LeanDoomProofs/Trace.lean",
+      "line": 18
+    },
+    {
+      "name": "LeanDoomProofs.run_cons",
+      "file": "LeanDoomProofs/Trace.lean",
+      "line": 20
+    },
+    {
+      "name": "LeanDoomProofs.run_append",
+      "file": "LeanDoomProofs/Trace.lean",
+      "line": 23
+    },
+    {
+      "name": "LeanDoomProofs.potential_bound",
+      "file": "LeanDoomProofs/Trace.lean",
+      "line": 34
+    },
+    {
+      "name": "LeanDoomProofs.winning_cost_lower_bound",
+      "file": "LeanDoomProofs/Trace.lean",
+      "line": 48
+    },
+    {
+      "name": "LeanDoomProofs.unit_cost",
+      "file": "LeanDoomProofs/Trace.lean",
+      "line": 58
+    },
+    {
+      "name": "LeanDoomProofs.winning_step_lower_bound",
+      "file": "LeanDoomProofs/Trace.lean",
+      "line": 64
+    },
+    {
+      "name": "LeanDoomProofs.abstract_potential_bound",
+      "file": "LeanDoomProofs/Trace.lean",
+      "line": 75
+    },
+    {
+      "name": "LeanDoomProofs.run_invariant",
+      "file": "LeanDoomProofs/Trace.lean",
+      "line": 87
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "date": "2026-11-11",
+  "method": "GET with redirects followed",
+  "results": [
+    {
+      "url": "https://adam.chlipala.net/frap/",
+      "http_status": 200
+    },
+    {
+      "url": "https://bethesda.net/en-US/news/bethesda-video-policy",
+      "http_status": 200
+    },
+    {
+      "url": "https://compcert.org/doc/html/compcert.driver.Complements.html",
+      "http_status": 200
+    },
+    {
+      "url": "https://compcert.org/man/manual001.html",
+      "http_status": 200
+    },
+    {
+      "url": "https://csd.cs.cmu.edu/academics/doctoral/degrees-conferred/george-ciprian-necula",
+      "http_status": 200
+    },
+    {
+      "url": "https://csrc.nist.gov/pubs/fips/180-4/upd1/final",
+      "http_status": 200
+    },
+    {
+      "url": "https://docs.python.org/3/library/itertools.html#itertools.product",
+      "http_status": 200
+    },
+    {
+      "url": "https://freedoom.github.io/",
+      "http_status": 200
+    },
+    {
+      "url": "https://github.com/alaskahoffman/leandoom",
+      "http_status": 200
+    },
+    {
+      "url": "https://github.com/alaskahoffman/leandoom#readme",
+      "http_status": 200
+    },
+    {
+      "url": "https://github.com/alaskahoffman/leandoom/blob/943ccfedd26c73acebc75a61d4322ff8e5fa08df/docs/E1M1_CORRESPONDENCE_PLAN.md",
+      "http_status": 200
+    },
+    {
+      "url": "https://github.com/alaskahoffman/leandoom/blob/dd795d67c075b3c3d1149494ddec6aff756e2a64/docs/ARITHMETIC_PROOFS.md",
+      "http_status": 200
+    },
+    {
+      "url": "https://github.com/alaskahoffman/leandoom/tree/dd795d67c075b3c3d1149494ddec6aff756e2a64",
+      "http_status": 200
+    },
+    {
+      "url": "https://github.com/alaskahoffman/leandoom/tree/dd795d67c075b3c3d1149494ddec6aff756e2a64/Doom",
+      "http_status": 200
+    },
+    {
+      "url": "https://github.com/id-Software/DOOM",
+      "http_status": 200
+    },
+    {
+      "url": "https://github.com/id-Software/DOOM/blob/master/linuxdoom-1.10/doomdata.h",
+      "http_status": 200
+    },
+    {
+      "url": "https://github.com/id-Software/DOOM/blob/master/linuxdoom-1.10/m_random.c",
+      "http_status": 200
+    },
+    {
+      "url": "https://github.com/id-Software/DOOM/blob/master/linuxdoom-1.10/p_map.c",
+      "http_status": 200
+    },
+    {
+      "url": "https://github.com/id-Software/DOOM/blob/master/linuxdoom-1.10/p_tick.c",
+      "http_status": 200
+    },
+    {
+      "url": "https://github.com/id-Software/DOOM/blob/master/linuxdoom-1.10/w_wad.c",
+      "http_status": 200
+    },
+    {
+      "url": "https://github.com/nasqret/leandoom-proofs/blob/main/LICENSE",
+      "http_status": 200
+    },
+    {
+      "url": "https://lamport.azurewebsites.net/pubs/proof.pdf",
+      "http_status": 200
+    },
+    {
+      "url": "https://lean-lang.org/doc/reference/latest/Basic-Types/Fixed-Precision-Integers/",
+      "http_status": 200
+    },
+    {
+      "url": "https://lean-lang.org/doc/reference/latest/Basic-Types/Floating-Point-Numbers/",
+      "http_status": 200
+    },
+    {
+      "url": "https://lean-lang.org/doc/reference/latest/Definitions/Recursive-Definitions/",
+      "http_status": 200
+    },
+    {
+      "url": "https://lean-lang.org/doc/reference/latest/ValidatingProofs/",
+      "http_status": 200
+    },
+    {
+      "url": "https://lean-lang.org/functional_programming_in_lean/",
+      "http_status": 200
+    },
+    {
+      "url": "https://lean-lang.org/install/",
+      "http_status": 200
+    },
+    {
+      "url": "https://lean-lang.org/learn/",
+      "http_status": 200
+    },
+    {
+      "url": "https://lean-lang.org/papers/lean4.pdf",
+      "http_status": 200
+    },
+    {
+      "url": "https://lean-lang.org/theorem_proving_in_lean4/",
+      "http_status": 200
+    },
+    {
+      "url": "https://lean-lang.org/theorem_proving_in_lean4/axioms_and_computation.html",
+      "http_status": 200
+    },
+    {
+      "url": "https://lean-lang.org/theorem_proving_in_lean4/induction_and_recursion.html",
+      "http_status": 200
+    },
+    {
+      "url": "https://lean-lang.org/theorem_proving_in_lean4/quantifiers_and_equality.html",
+      "http_status": 200
+    },
+    {
+      "url": "https://leanprover-community.github.io/learn.html",
+      "http_status": 200
+    },
+    {
+      "url": "https://leanprover-community.github.io/mathematics_in_lean/",
+      "http_status": 200
+    },
+    {
+      "url": "https://leanprover-community.github.io/mathematics_in_lean/C03_Logic.html",
+      "http_status": 200
+    },
+    {
+      "url": "https://nbformat.readthedocs.io/en/latest/format_description.html",
+      "http_status": 200
+    },
+    {
+      "url": "https://softwarefoundations.cis.upenn.edu/plf-current/Hoare.html",
+      "http_status": 200
+    },
+    {
+      "url": "https://softwarefoundations.cis.upenn.edu/plf-current/Smallstep.html",
+      "http_status": 200
+    },
+    {
+      "url": "https://www.chocolate-doom.org/",
+      "http_status": 200
+    }
+  ]
+}

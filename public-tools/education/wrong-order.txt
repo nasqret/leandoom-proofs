@@ -1,0 +1,6 @@
+WrongOrder.lean:35:51: error: Tactic `decide` proved that the proposition
+  run Phase.dock route = Phase.outside
+is false
+WrongOrder.lean:38:69: error: Tactic `decide` proved that the proposition
+  states Phase.dock route = [Phase.dock, Phase.carrying, Phase.opened, Phase.outside]
+is false

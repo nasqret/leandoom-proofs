@@ -1,0 +1,26 @@
+{
+  "schema": "proof-lab-run-v1",
+  "engine": "proof-lab-grid-v1",
+  "level": "L01",
+  "commands": [
+    1,
+    1,
+    1,
+    4,
+    4,
+    4,
+    5,
+    1,
+    1,
+    1,
+    1,
+    5,
+    5,
+    6,
+    1,
+    1,
+    1,
+    1,
+    6
+  ]
+}

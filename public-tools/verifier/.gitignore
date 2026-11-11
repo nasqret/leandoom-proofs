@@ -1,0 +1,6 @@
+__pycache__/
+*.olean
+*.ilean
+.lake/
+.proofs/
+*.wad

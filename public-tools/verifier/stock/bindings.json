@@ -1,0 +1,22 @@
+{
+  "namespace": "RecordedOnePress",
+  "map": "PROOF01",
+  "imports": [
+    "OnePressFinal"
+  ],
+  "group": "OnePress.group",
+  "level": "OnePress.level",
+  "start": "OnePress.start",
+  "parse": "OnePress.parser",
+  "spawn": "OnePress.spawn",
+  "safe": "OnePress.safe",
+  "exit": "OnePress.win",
+  "chunks": [
+    {
+      "through": 1,
+      "end": "OnePress.finish",
+      "guard": "OnePress.guard",
+      "proof": "OnePress.edge"
+    }
+  ]
+}

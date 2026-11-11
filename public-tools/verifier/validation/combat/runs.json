@@ -1,0 +1,230 @@
+{
+  "e1m1-993": {
+    "job": "315910",
+    "level": "E1M1",
+    "commands": 993,
+    "commandsU32LESha256": "bac0988e77cddb0ebaecc5e0fd87ce524c1886ec20d25e73f89bc2cdce124307",
+    "recordingSha256": "6fefdc12bde9955865821aac4fac83331732012342f83729acaa938ba79fccec",
+    "worldSha256": "1d7d43be501e67d927e415e0b8f3e29c3bf33075e859721816f652a526cac771",
+    "status": "compiler-passage",
+    "trust": "compiler",
+    "passage": true,
+    "final": {
+      "armor": 1,
+      "bullets": 50,
+      "errorFree": true,
+      "exit": true,
+      "health": 48,
+      "kills": 0,
+      "shells": 4,
+      "shots": 0,
+      "tick": 993,
+      "x": 191904993,
+      "y": -312563964
+    },
+    "axioms": {
+      "Recording.passage": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "Recording.passage._native.native_decide.ax_1_1"
+      ],
+      "Recording.finalObservation": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "Recording.finalObservation._native.native_decide.ax_1_1"
+      ]
+    }
+  },
+  "e1m1-978": {
+    "job": "315890_0",
+    "level": "E1M1",
+    "commands": 978,
+    "commandsU32LESha256": "a4fd2ca0e469e144967398b63a2e089989ac0e7bf6604a1e801f33f1966a4804",
+    "recordingSha256": "ed5697b25637b984d050dbf1d9fb650be408b41d66a03fac67dca37485b55703",
+    "worldSha256": "1d7d43be501e67d927e415e0b8f3e29c3bf33075e859721816f652a526cac771",
+    "status": "compiler-passage",
+    "trust": "compiler",
+    "passage": true,
+    "final": {
+      "armor": 1,
+      "bullets": 50,
+      "errorFree": true,
+      "exit": true,
+      "health": 48,
+      "kills": 0,
+      "shells": 4,
+      "shots": 0,
+      "tick": 978,
+      "x": 192342124,
+      "y": -316068625
+    },
+    "axioms": {
+      "Recording.passage": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "Recording.passage._native.native_decide.ax_1_1"
+      ],
+      "Recording.finalObservation": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "Recording.finalObservation._native.native_decide.ax_1_1"
+      ]
+    }
+  },
+  "e1m2-1017": {
+    "job": "315873",
+    "level": "E1M2",
+    "commands": 1017,
+    "commandsU32LESha256": "3d023e950ffab2f875a7dfa8177d17bbee4cdfdfa5af52147a7831b6e6df66e8",
+    "recordingSha256": "3184a56621b092cb0ae74b96cc3c08d6442602c3c4fcc1db49e00c40560e1647",
+    "worldSha256": "1d7d43be501e67d927e415e0b8f3e29c3bf33075e859721816f652a526cac771",
+    "status": "compiler-passage",
+    "trust": "compiler",
+    "passage": true,
+    "final": {
+      "armor": 0,
+      "bullets": 2,
+      "errorFree": true,
+      "exit": true,
+      "health": 73,
+      "kills": 2,
+      "shells": 20,
+      "shots": 73,
+      "tick": 1017,
+      "x": -20626184,
+      "y": 153723710
+    },
+    "axioms": {
+      "Recording.passage": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "Recording.passage._native.native_decide.ax_1_1"
+      ],
+      "Recording.finalObservation": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "Recording.finalObservation._native.native_decide.ax_1_1"
+      ]
+    }
+  },
+  "e1m2-1013": {
+    "job": "315890_1",
+    "level": "E1M2",
+    "commands": 1013,
+    "commandsU32LESha256": "429dfb635690bf931a1168d6dab0bf46044148f3978fbda90904e05800e7939a",
+    "recordingSha256": "6987c10e93b0336357cd06fe76a05c1fdc3c2a89bfae192037472dee44049172",
+    "worldSha256": "1d7d43be501e67d927e415e0b8f3e29c3bf33075e859721816f652a526cac771",
+    "status": "compiler-passage",
+    "trust": "compiler",
+    "passage": true,
+    "final": {
+      "armor": 0,
+      "bullets": 70,
+      "errorFree": true,
+      "exit": true,
+      "health": 82,
+      "kills": 1,
+      "shells": 20,
+      "shots": 0,
+      "tick": 1013,
+      "x": -20833938,
+      "y": 153198279
+    },
+    "axioms": {
+      "Recording.passage": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "Recording.passage._native.native_decide.ax_1_1"
+      ],
+      "Recording.finalObservation": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "Recording.finalObservation._native.native_decide.ax_1_1"
+      ]
+    }
+  },
+  "e1m9-933": {
+    "job": "315890_2",
+    "level": "E1M9",
+    "commands": 933,
+    "commandsU32LESha256": "bdcc5a010909a233ded97447aa6afb403d736d68d51aeb4d811928d656f218e7",
+    "recordingSha256": "9ae9db89e5460209e74908bfaa3e22855495222762c6592a49d9fe0f6adbf3d0",
+    "worldSha256": "1d7d43be501e67d927e415e0b8f3e29c3bf33075e859721816f652a526cac771",
+    "status": "compiler-prefix",
+    "trust": "compiler",
+    "passage": false,
+    "final": {
+      "armor": 0,
+      "bullets": 200,
+      "errorFree": true,
+      "exit": false,
+      "health": 6,
+      "kills": 4,
+      "shells": 0,
+      "shots": 0,
+      "tick": 933,
+      "x": 123063189,
+      "y": -71303287
+    },
+    "axioms": {
+      "Recording.incomplete": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "Recording.incomplete._native.native_decide.ax_1_1"
+      ],
+      "Recording.finalObservation": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "Recording.finalObservation._native.native_decide.ax_1_1"
+      ]
+    }
+  },
+  "freedoom-e1m1-four": {
+    "job": "315890_3",
+    "level": "E1M1",
+    "commands": 4,
+    "commandsU32LESha256": "7ea55c7dc10bba2bbd8fbb9c91372c7534e4b664a8442ccff5f1d55d5901ce16",
+    "recordingSha256": "60a2e0ad06bd4cf7a6ace6d3e135712290d9244d5a439c99c3153eeb81ee1f5a",
+    "worldSha256": "7323bcc168c5a45ff10749b339960e98314740a734c30d4b9f3337001f9e703d",
+    "status": "compiler-prefix",
+    "trust": "compiler",
+    "passage": false,
+    "final": {
+      "armor": 0,
+      "bullets": 50,
+      "errorFree": true,
+      "exit": false,
+      "health": 100,
+      "kills": 0,
+      "shells": 0,
+      "shots": 0,
+      "tick": 4,
+      "x": -27224873,
+      "y": 16777226
+    },
+    "axioms": {
+      "Recording.incomplete": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "Recording.incomplete._native.native_decide.ax_1_1"
+      ],
+      "Recording.finalObservation": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "Recording.finalObservation._native.native_decide.ax_1_1"
+      ]
+    }
+  }
+}

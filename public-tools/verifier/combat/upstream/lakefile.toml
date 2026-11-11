@@ -1,0 +1,6 @@
+name = "lean-doom"
+version = "0.6.0"
+
+[[lean_lib]]
+name = "Doom"
+globs = ["Doom.+"]
